@@ -4201,7 +4201,9 @@ Printa uma alert com o texto informado.
 
 Redirecionamento para outra página
 
+'''
 <script>alert(document.cookies)</script>
+'''
 
 Roubo de cookies
 
