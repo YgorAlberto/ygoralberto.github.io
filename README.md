@@ -73,8 +73,7 @@ VPN
 
 Configurar a VPN para autenticar automaticamente usando login e senha em um arquivo externo, sendo lido pelo .ovpn. Na linha auth-user-pass informe o arquivo com as credenciais. Ex.: auth-user-pass credenciais
 
- ## DOMINANDO TERMINAL LINUX
-
+## DOMINANDO TERMINAL LINUX
 Tags: comandos terminal | comandos linux
 
     ifconfig eth0 192.168.2.50 netmask 255.255..
