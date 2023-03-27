@@ -73,95 +73,95 @@ VPN
 
 Configurar a VPN para autenticar automaticamente usando login e senha em um arquivo externo, sendo lido pelo .ovpn. Na linha auth-user-pass informe o arquivo com as credenciais. Ex.: auth-user-pass credenciais
 
- - DOMINANDO TERMINAL LINUX
+ ## DOMINANDO TERMINAL LINUX
 
 Tags: comandos terminal | comandos linux
 
-    #ifconfig eth0 192.168.2.50 netmask 255.255..
+    ifconfig eth0 192.168.2.50 netmask 255.255..
 
 modifica o IP até reiniciar a máquina
 
-    #nano /etc/network/interfaces
+    nano /etc/network/interfaces
 
 arquivo de configuração das interfaces de redes
 
-    #/etc/init.d/networking/ restart
+    /etc/init.d/networking/ restart
 
 reinicia o adaptador de rede para as configurações padrão PORÉM apenas se no arquivo interfaces estiver com DHCP, caso esteja com STATIC irá pegar o IP de lá.
 
-    #route -n M
+    route -n M
 
 Mostra a rota atual e o GATEWAY
 
-    #route del default
+    route del default
 
 Delete a rota (GATEWAY) do adaptador de rede
 
-    #route add default gw 192.168.1.1
+    route add default gw 192.168.1.1
 
 Adiciona o IP da rota default
 
-    #netstat 
+    netstat 
 
 Status da rede (detalhadamente usando as flags)
 
-    #netstat -lntp
+    netstat -lntp
 
  Lista os serviços Portas Nomes no protocolo TCP rodando atualmente
 
-    #service ssh start/stop/restart
+    service ssh start/stop/restart
 
 Inicia ou para o serviço de SSH
 
-    #vi
+    vi
 
 Leitor de texto. I: Insere dados; DD: Deleta a linha; WQ: Sai salvando; Q!: Sai sem salvar 
 
-    #apt search php
+    apt search php
 
 Procure por opções de instalação do programa informado
 
-    #dpkg -l
+    dpkg -l
 
 Exibe os pacotes .deb instalados com o DPKG
 
-    #update-rc.d ssh enable
+    update-rc.d ssh enable
 
 Habilita permanente o serviço ssh
 
-    #locate #find /pasta/ -name #whereis #which 
+    locate #find /pasta/ -name #whereis #which 
 
 Buscadores de arquivos/programas (updatedb atualiza base)
 
-    #grep "procura" /arquivo/
+    grep "procura" /arquivo/
 
 Busca procura no arquivo e exibe a linha
 
-    #grep -v "procura" /arquivo/ 
+    grep -v "procura" /arquivo/ 
 
 Exibe o que não tem procura no arquivo e exibe a linha
 
-    #grep -r "palavra dentro do arquivo" 
+    grep -r "palavra dentro do arquivo" 
 
 Procura dentro dos arquivos dos diretórios as palavras nas "
 
-    #awk -F : '{print "O usuario " $1 " Tem dir " $6}' /etc/passwd
+    awk -F : '{print "O usuario " $1 " Tem dir " $6}' /etc/passwd
 
 Procura avançada no arquivo
 
-    #cut -d : -f1,6 /etc/passwd 
+    cut -d : -f1,6 /etc/passwd 
 
 Faz os mesmo do comando acima
 
-    #sed 's/troca/porisso' do arquivo.txt 
+    sed 's/troca/porisso' do arquivo.txt 
 
 Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada linha
 
-    #ls -la 
+    ls -la 
 
 Exibe os arquivos ocultos
 
-    #rm -rf nome-da-pasta 
+    rm -rf nome-da-pasta 
 
 Remove todos os arquivos da pasta
 
