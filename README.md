@@ -29,7 +29,7 @@ gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -t 100 -e --no
 
 
 
-''
+'''
 <script>alert('Pentester')</script>
 '''
 
