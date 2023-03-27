@@ -3958,7 +3958,7 @@ Ex.:
 
 SELF-XSS
 
-Injetar código na página depois de notar como a aplicação se comporta depois de colocar uma / após a extensão da página que recebe um parâmetro (/procurar.php?busca=) ficando assim (/procurar.php/). Se a página quebrar, pode testar a injeção de código JS como ...php/"><script>alert("Hakd")</script>
+Injetar código na página depois de notar como a aplicação se comporta depois de colocar uma / após a extensão da página que recebe um parâmetro (/procurar.php?busca=) ficando assim (/procurar.php/). Se a página quebrar, pode testar a injeção de código JS como '''...php/"><script>alert("Hakd")</script>'''
 
 Stored XSS: Sequestro de Sessão
 
