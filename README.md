@@ -165,8 +165,7 @@ Exibe os arquivos ocultos
 Remove todos os arquivos da pasta
 
 
-# DOMINANDO O PROMPT DE COMANDO WINDOWS
-
+## DOMINANDO O PROMPT DE COMANDO WINDOWS
 Tags: criar usuarios cmd | comandos cmd | cmd windows
 
     >%cd% 
