@@ -242,90 +242,86 @@ Remove usuario
 Add usuario ao grupo remote users
 
 
-[Adicionar usuários] (https://ampliando.net/?p=491#:~:text=Para%20adicionar%20um%20usu%C3%A1rio%20de,computador%20estiver%20conectado%20%C3%A0%20rede.)
+[Adicionar usuários](https://ampliando.net/?p=491#:~:text=Para%20adicionar%20um%20usu%C3%A1rio%20de,computador%20estiver%20conectado%20%C3%A0%20rede)
 
 
 ## VISÃO GERAL SOBRE WEB E HTTP
 
 
->Melhorar segurança servidor apache: 
+Melhorar segurança servidor apache: 
+	Remover do arquivo de configuração `/etc/apache2.conf` a palavra indexes nas confs do diretório `/var/www/`
+	Trocar em `/etc/apache2/conf-enabled/security.conf` em `ServerTokens` de **OS**para **Prod** e em `ServerSignature` colocar **Off**
 
-    Remover do arquivo de configuração /etc/apache2.conf a palavra indexes nas confs do diretório /var/www/
+    	nc -v www.businesscorp.com.br 80 
 
-    Trocar em /etc/apache2/conf-enabled/security.conf em ServerTokens de OS para Prod e em ServerSignature colocar Off
+Printa o site no terminal
 
-    #nc -v www.businesscorp.com.br 80 
+Colocar na entrada da conexão `GET / HTTP/1.0 ou no lugar de GET HEAD, OPTIONS`
 
-        Printa o site no terminal
+	printf "HEAD / HTTP/1.0\r\n\r\n" | nc businesscorp.com.br 80
 
-        Colocar na entrada da conexão GET / HTTP/1.0 ou no lugar de GET HEAD, OPTIONS
+Faz a mesma coisa do comando acima
 
-    printf "HEAD / HTTP/1.0\r\n\r\n" | nc businesscorp.com.br 80
+	curl -v businesscorp.com.br 
 
-        Faz a mesma coisa do comando acima
-
-    curl -v businesscorp.com.br 
-
-        Faz a mesma coisa do comando acima
+Faz a mesma coisa do comando acima
 
 
+## ANALISE DE LOGS
 
-    ANALISE DE LOGS
 
+    cat access.log | cut -d " " -f1 | sort | uniq -c | sort -unr 
 
-    #cat access.log | cut -d " " -f1 | sort | uniq -c | sort -unr 
+Lista os IPs em ordem decrescente por quantidade de requisição:
 
-        Lista os IPs em ordem decrescente por quantidade de requisição:
-
-    cut -d " " -f1 
-
-        -d é o delimitador e -f1 é a coluna que deseja imprimir
+    cut -d " " -f1  
+    
+`-d` é o delimitador e `-f1` é a coluna que deseja imprimir
 
     sort 
 
-        Printa a saída em ordem; -u printa única vez; -r ordem reversa; -n ordem cresc
+Printa a saída em ordem; `-u` printa única vez; `-r` ordem reversa; `-n` ordem crescente
 
     uniq -c 
 
-        Printa a saída com a quantidade de vezes que um item aparece
+Printa a saída com a quantidade de vezes que um item aparece
 
     head -n1  
 
-        Printa a primeira saída
+Printa a primeira saída
 
     tail -n1 
 
-        O oposto do head
+O oposto do head
 
 
 
-    TCP/IP PARA PENTESTERS
+# TCP/IP PARA PENTESTERS
 
 
     macchanger -t eth0
 
-        Troca o MAC da placa randomicamente -p volta ao original
+Troca o MAC da placa randomicamente -p volta ao original
 
     ipcalc 192.168.0.211/255.255.255.0 
 
-        Apresenta uma saída de cálculo de IP
+Apresenta uma saída de cálculo de IP
 
     arp -an 
 
-        Exibe informações guardadas  do ARP na máquina local
+Exibe informações guardadas  do ARP na máquina local
 
 
-
-    ANALISADORES DE PROTOCOLOS
-
+## ANALISADORES DE PROTOCOLOS
 
     printf  "%d\n" 0x(code hex) 
 
-        Decifrar código em hexadecimal
+
+Decifrar código em hexadecimal
 
 
 
-Análise de código de um pacote
+## Análise de código de um pacote
 
     Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximos 2 é o Protocolo o restante é o Payload:
 
