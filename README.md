@@ -78,15 +78,15 @@ Tags: comandos terminal | comandos linux
 
     ifconfig eth0 192.168.2.50 netmask 255.255..
 
-modifica o IP até reiniciar a máquina
+Modifica o IP até reiniciar a máquina
 
     nano /etc/network/interfaces
 
-arquivo de configuração das interfaces de redes
+Arquivo de configuração das interfaces de redes
 
     /etc/init.d/networking/ restart
 
-reinicia o adaptador de rede para as configurações padrão PORÉM apenas se no arquivo interfaces estiver com DHCP, caso esteja com STATIC irá pegar o IP de lá.
+Reinicia o adaptador de rede para as configurações padrão PORÉM apenas se no arquivo interfaces estiver com DHCP, caso esteja com STATIC irá pegar o IP de lá.
 
     route -n M
 
@@ -106,7 +106,7 @@ Status da rede (detalhadamente usando as flags)
 
     netstat -lntp
 
- Lista os serviços Portas Nomes no protocolo TCP rodando atualmente
+Lista os serviços Portas Nomes no protocolo TCP rodando atualmente
 
     service ssh start/stop/restart
 
@@ -168,74 +168,74 @@ Remove todos os arquivos da pasta
 ## DOMINANDO O PROMPT DE COMANDO WINDOWS
 Tags: criar usuarios cmd | comandos cmd | cmd windows
 
-    >%cd% 
+    %cd% 
 
 É semelhante ao pwd
 
-    >cd \ 
+    cd \ 
 
-        vai para raiz
+Vai para raiz
 
-    >echo ygor ygor.txt 
+    echo ygor ygor.txt 
 
-        cria arquivo com nome ygor dentro
+Cria arquivo com nome ygor dentro
 
-    >type arquivo.txt
+    type arquivo.txt
 
-        semelhante ao cat
+Semelhante ao cat
 
-    >move arquivo.txt ../
+    move arquivo.txt ../
 
-        Move arquivo para pasta anterior
+Move arquivo para pasta anterior
 
-    >del arquivo.txt
+    del arquivo.txt
 
-        deleta arquivo
+Deleta arquivo
 
-    >attrib +ou-h pasta/diretório
+    attrib +ou-h pasta/diretório
 
-        ocultar/desocultar diretório
+Ocultar/desocultar diretório
 
-    >dir /a 
+    dir /a 
 
-        lista arquivos ocultos
+Lista arquivos ocultos
 
-    >rmdir /s 
+    rmdir /s 
 
-        Remove diretório
+Remove diretório
 
-    >dir /s ygor.txt 
+    dir /s ygor.txt 
 
-        Procura arquivo
+Procura arquivo
 
-    >tasklist
+    tasklist
 
-        Lista as tarefas 
+Lista as tarefas 
 
-    >net user
+    net user
 
-        Lista os usuários
+Lista os usuários
 
-    >net user usuario s3nh4 /add
+    net user usuario s3nh4 /add
 
-        Adiciona um usuario
+Adiciona um usuario
 
-    >net user usuario /delete
+    net user usuario /delete
 
-        Remove usuario
+Remove usuario
 
-    >net localgroup "Remote Desktop Users" kidman /add
+    net localgroup "Remote Desktop Users" kidman /add
 
-        Add usuario ao grupo remote users
+Add usuario ao grupo remote users
 
 
 Adicionar usuários: https://ampliando.net/?p=491#:~:text=Para%20adicionar%20um%20usu%C3%A1rio%20de,computador%20estiver%20conectado%20%C3%A0%20rede.
 
 
-    VISÃO GERAL SOBRE WEB E HTTP
+## VISÃO GERAL SOBRE WEB E HTTP
 
 
-Melhorar segurança servidor apache: 
+>Melhorar segurança servidor apache: 
 
     Remover do arquivo de configuração /etc/apache2.conf a palavra indexes nas confs do diretório /var/www/
 
