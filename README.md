@@ -338,35 +338,35 @@ Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximo
 Socket significa IP e porta 
 
 
->Comandos úteis para Wireshark e TCPDUMP
+- Comandos úteis para Wireshark e TCPDUMP
 
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
-        Encontra as portas abertas Orig > Dest
+Encontra as portas abertas Orig > Dest
 
     tcp contains "palavra desejada"
 
-        Procura nos pacotes a "palavra desejada"
+Procura nos pacotes a "palavra desejada"
 
     tcp contains "%PDF-"
 
-        Procura nos pacotes donwload do pdf
+Procura nos pacotes donwload do pdf
 
     ip.addr == 192.168.0.123
 
-        Filtra os pacotes pelo IP
+Filtra os pacotes pelo IP
 
     Ip.connection.synack
 
-        Filtra pacotes com FLAGs SYN e ACK
+Filtra pacotes com FLAGs SYN e ACK
 
     tcp.port == 443
 
-        Filtra a porta 443 nos pacotes capturados
+Filtra a porta 443 nos pacotes capturados
 
     dns 
 
-        Procura pacotes que usaram o serviço DNS
+Procura pacotes que usaram o serviço DNS
 
 
 
