@@ -339,6 +339,7 @@ Socket significa IP e porta
 
 
 - Comandos úteis para Wireshark e TCPDUMP
+.
 
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
@@ -369,9 +370,7 @@ Filtra a porta 443 nos pacotes capturados
 Procura pacotes que usaram o serviço DNS
 
 
-
-
-    BASH SCRIPTING (LINUX)
+- BASH SCRIPTING (LINUX)
 
 
     #!/bin/bash
