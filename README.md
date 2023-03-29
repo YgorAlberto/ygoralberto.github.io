@@ -296,7 +296,7 @@ O oposto do head
 
 
 
-# TCP/IP PARA PENTESTERS
+## TCP/IP PARA PENTESTERS
 
 
     macchanger -t eth0
@@ -323,30 +323,22 @@ Decifrar código em hexadecimal
 
 ## Análise de código de um pacote
 
-    Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximos 2 é o Protocolo o restante é o Payload:
-
+Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximos 2 é o Protocolo o restante é o Payload:
 
     d4 ab 82 45 c4 0c 00 0c 29 76 43 e1 08 00 45 00
-
     02 37 2c c0 40 00 40 06 77 32 c0 a8 00 0a 25 3b
-
     ae e1 a9 fe 00 50 ff 4d 66 60 dd cb e4 96 80 18
-
     00 e5 96 f8 00 00 01 01 08 0a f7 cb 2f 62 41 1c
-
     2e df 50 4f 53 54 20 2f 69 6e 74 72 61 6e Payload... 
 
+[Conversor de Hexadecimal](https://en.rakko.tools/tools/77/)
+[Conversor de pacotes](https://hpd.gasmi.net/)
+[Decifrador de códigos (CyberChef)](https://gchq.github.io/CyberChef/)
 
-    Conversor de Hexadecimal -> https://en.rakko.tools/tools/77/
-
-    Conversor de pacotes -> https://hpd.gasmi.net/
-
-    Decifrador de códigos (CyberChef) -> https://gchq.github.io/CyberChef/
-
-    Socket significa IP e porta 
+Socket significa IP e porta 
 
 
-Comandos úteis para Wireshark e TCPDUMP
+>Comandos úteis para Wireshark e TCPDUMP
 
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
