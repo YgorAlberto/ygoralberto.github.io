@@ -36,7 +36,7 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 	
 .
 
-	<?php system('id']);?>
+	<?php system('id');?>
 	
 .
 
