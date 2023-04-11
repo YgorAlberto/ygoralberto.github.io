@@ -94,7 +94,7 @@ Configurar a VPN para autenticar automaticamente usando login e senha em um arqu
 Tags: comandos terminal | comandos linux
 
     ifconfig eth0 192.168.2.50 netmask 255.255..
-
+    
 Modifica o IP até reiniciar a máquina
 
     nano /etc/network/interfaces
@@ -1195,7 +1195,7 @@ Arquivos de regras do snort
 
     alert tcp any any -> 192.168.2.105 any (msg: "Tão te atacando";sid:1000001; rev:1;) 
 
-Cria arquivo com .rules onde o primeiro any é a origem e o segundo a porta de origem o terceiro a porta de destino o IP é da sua máquina. O path do arquivo deve ser adicionado em snort.conf no final.
+Cria arquivo com ´.rules´ onde o primeiro any é a origem e o segundo a porta de origem o terceiro a porta de destino o IP é da sua máquina. O path do arquivo deve ser adicionado em ´snort.conf´ no final.
 
     alert tcp any any -> 192.168.2.105 22 (msg: "Pacote SYN enviado ao SSH";flags:S;sid:1000001; rev:1;) 
 
@@ -1228,26 +1228,22 @@ Burlando o código do pacote burlando a regra icode para 1
 Burlando o tamanho dos dados para não ser detectado
 
 
-PortSentry simula portas abertas no host. No portsentry.conf tem as portas que deseja abrir, e a ação a ser tomada quando detectado a intrusão. Marca a opção TCP e UDP como 1 para fazer valer as regras de bloqueio. Habilita ou desabilita a ação padrão ou usa a do IPTABLES
+PortSentry simula portas abertas no host. No ´portsentry.conf´ tem as portas que deseja abrir, e a ação a ser tomada quando detectado a intrusão. Marca a opção TCP e UDP como 1 para fazer valer as regras de bloqueio. Habilita ou desabilita a ação padrão ou usa a do IPTABLES
 
 Nota: saída do banner na porta como tcpwrapped é geralmente quando tem algum IPS/IDS/FW bloqueando
+Se fizer o escaneamento usando a flag do ´NMAP -sS´ o IPS não detecta... Para o IPS detectar deve ser modificando o binário do portsentry em ´/usr/sbin/portsentry´ executando com a flag ´-stcp´ dessa forma fazendo o atacante ser bloqueado.
+Flag ´nmap -T´ é a velocidade das requisições 0,1,2,3,4 e 5 do mais lento para o mais barulhento.
 
-Se fizer o escaneamento usando a flag do NMAP -sS o IPS não detecta... Para o IPS detectar deve ser modificando o binário do portsentry em /usr/sbin/portsentry executando com a flag -stcp dessa forma fazendo o atacante ser bloqueado.
-
-Nota: 	Flag nmap -T é a velocidade das requisições 0,1,2,3,4 e 5 do mais lento para o mais barulhento.
-
-Analisar os arquivos hosts.deny em ETC para ver se tem algum bloqueio de IP.
+Analisar os arquivos ´hosts.deny´ em ETC para ver se tem algum bloqueio de IP.
 
 	Bypass PortSentry mesmo com -STCP ativado
 
     nmap -sS --open --top-ports=10 -Pn 192.168.2.105
 
-Analisa as 10 top ports, caso uma dessas portas não esteja configurado no IPS para detectar, caso contrário irá detectar. Podendo aumentar ou diminuir o tempo de processamento do scanner com a flag -T. Flag -D (decoy), Exemplo: nmap -sS --open --top-ports=25 -Pn -D 10.10.2.4,192.168.25.25,10.0.0.14 192.168.2.105 Ou -D RND:50 Pegando 50 endereços aleatórios para misturar
-
+Analisa as 10 top ports, caso uma dessas portas não esteja configurado no IPS para detectar, caso contrário irá detectar. Podendo aumentar ou diminuir o tempo de processamento do scanner com a flag ´-T´. Flag ´-D´ (decoy), Exemplo: ´nmap -sS --open --top-ports=25 -Pn -D 10.10.2.4,192.168.25.25,10.0.0.14 192.168.2.105 Ou -D RND:50´ Pegando 50 endereços aleatórios para misturar
 
 
 ## TRABALHANDO COM SCAPY
-
 
     ls(IP)
 
@@ -1382,7 +1378,7 @@ Procura por hosts com compartilhamento de arquivos ativos
 
     smbclient -L \\192.168.2.101
 
-Lista os arquivos do host com smb ativo -N Loga como usuário anônimo -U para passar um usuário sem senha. Se usando uma ferramenta mais recente em hosts antigos use o parâmetro --option='client min protocol=NT1'
+Lista os arquivos do host com smb ativo -N Loga como usuário anônimo -U para passar um usuário sem senha. Se usando uma ferramenta mais recente em hosts antigos use o parâmetro ´--option='client min protocol=NT1'´
 
     smbcliente //192.168.2.101/filename 
 
@@ -1419,7 +1415,7 @@ Ferramenta enumeração completa ENUM4LINUX
 
     enum4linux -U 192.168.2.101 
 
-Faz a enumeração em busca de usuários e -a para buscar por tudo e -S para buscar por compartilhamentos, o -u permite passar o usuário para autenticação.
+Faz a enumeração em busca de usuários e ´-a´ para buscar por tudo e ´-S´ para buscar por compartilhamentos, o ´-u´ permite passar o usuário para autenticação.
 
     Linenum.sh 
 
@@ -1553,7 +1549,7 @@ Desmonta o ponto de montagem do host montado anteriormente.
 
 - Enumerando o SNMP - UDP 161
 
-Nota: Usado para gerenciamento de rede basicamente, a Communit é a palavra secreta, o OID é o id do objeto e os MIBs são as infos, instalar o pacote de informações adicionais: apt install snmp-mibs-downloader. Para listar os usuários usa-se 1.3.6.1.2.1.6.13.1.3, Communitys padrões: public, private, cisco, manages, access, secret. Sites com informações relevantes alvestrand.no/objectid/1.3.6.1.2.1.html e oid-info.com
+Nota: Usado para gerenciamento de rede basicamente, a Communit é a palavra secreta, o OID é o id do objeto e os MIBs são as infos, instalar o pacote de informações adicionais: ´apt install snmp-mibs-downloader´. Para listar os usuários usa-se ´1.3.6.1.2.1.6.13.1.3´, Communitys padrões: public, private, cisco, manages, access, secret. Sites com informações relevantes alvestrand.no/objectid/1.3.6.1.2.1.html e oid-info.com
 
     onesixtyone -c lista.txt 172.16.1.0/24
 
