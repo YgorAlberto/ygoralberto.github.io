@@ -342,8 +342,9 @@ Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximo
 Socket significa IP e porta 
 
 
-+ Comandos úteis para Wireshark e TCPDUMP
-.
+- Comandos úteis para Wireshark e TCPDUMP
+
+Comandos para trazer as portas abertas do pacote capturado
 
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
