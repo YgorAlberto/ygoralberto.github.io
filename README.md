@@ -461,7 +461,9 @@ Comandos Windows equivalentes no LINUX
 
     Semelhante ao CUT -D: $resp.Line.split(' ')[2] -replace ":"," "
 
--- Port Scan on PowerShell
+- Port Scan on PowerShell
+
+. 
 
 	param($ip)
 	 if (!$ip){
@@ -478,6 +480,8 @@ Comandos Windows equivalentes no LINUX
 	}
 
 -- Comandos POWERSHELL WEB
+
+.
 
 	Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
             -Method options/header
@@ -510,7 +514,8 @@ Conexão usando NETCAT
 
 
  - Copiando arquivos entre hosts com o NETCAT
-.
+
+NETCAT
 
     nc -vnlp 5050 < arquivo.ext 
 
@@ -526,7 +531,8 @@ Verifica o tamanho do arquivo enviado e compara para certificar a integridade.
 
 
 - Port Scanning
-.
+
+NETCAT
 
     nc -vnz 192.168.0.10 80 
 
