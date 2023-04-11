@@ -344,7 +344,7 @@ Socket significa IP e porta
 
 - Comandos úteis para Wireshark e TCPDUMP
 .
-
+ 
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
 Encontra as portas abertas Orig > Dest
@@ -427,7 +427,7 @@ Ferramenta que faz o portknowcking no host e portas passadas.
 
 ## POWERSHELL PARA PENTESTERS
 
-Script POWER SHELL
+Script POWERSHELL
 
 
 	param($param1)
@@ -515,37 +515,38 @@ Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
 (Invoke-WebRequest www.businesscorp.com.br).statuscode/content/links.href/header.server
 
 
-    SWISS ARMY KNIFE
-
+## SWISS ARMY KNIFE
 
 Netcat é o famoso canivete suíço
 
     nc 192.168.2.1 80 
 
-        Conexão usando NETCAT
+Conexão usando NETCAT
 
     nc -vnlp 8080 
 
-        (verbose|não traduz IP|listening|port) Abrindo uma porta usando
+(verbose|não traduz IP|listening|port) 
+Abrindo uma porta usando
 
     nc -vnlp 80 < banner
 
-         Abre a porta 80 e carrega o arquivo quando fechado o netcat
+Abre a porta 80 e carrega o arquivo quando fechado o netcat
 
     nc -vnu 192.168.2.1 80 
 
-        Conexão usando NETCAT
+Conexão usando NETCAT
 
     nc -vnlup 8080
 
-        (verbose|não traduz IP|listening|udp|port) Abrindo uma porta usando
+(verbose|não traduz IP|listening|udp|port) Abrindo uma porta usando
 
 
-Copiando arquivos entre hosts com o NETCAT
+ - Copiando arquivos entre hosts com o NETCAT
+.
 
     nc -vnlp 5050 < arquivo.ext 
 
-        Abre a conexão com o nome do arquivo que vai receber.
+Abre a conexão com o nome do arquivo que vai receber.
 
     nc -v 192.168.0.10 5050  < arquivo.ext 
 
