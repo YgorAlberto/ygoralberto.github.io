@@ -429,43 +429,44 @@ Ferramenta que faz o portknowcking no host e portas passadas.
 
 Script POWER SHELL
 
-param($param1)
 
-if ("!$param1"){
+	param($param1)
 
-    echo "Digite um Parâmetro para leitura"
+	if ("!$param1"){
 
-}else{
+	    echo "Digite um Parâmetro para leitura"
 
-    ping -n 1 $param1 | Select-String "bytes=32"
+	}else{
 
-}
+	    ping -n 1 $param1 | Select-String "bytes=32"
 
-echo "Ygor Offencive Security Expert"
+	}
 
-$nome = Ygor
+	echo "Ygor Offensive Security Expert"
 
-echo "Qual seu nome: $nome"
+	$nome = Ygor
 
-$ip = Read-Host "Digite o IP:"
+	echo "Qual seu nome: $nome"
 
-$port = 443
+	$ip = Read-Host "Digite o IP:"
 
-echo "Varrendo o host: $ip na porta: $port"
+	$port = 443
 
-echo "Executando pinga no host informado"
+	echo "Varrendo o host: $ip na porta: $port"
 
-ping -n 1 $ip | Select-String "bytes=32"
+	echo "Executando pinga no host informado"
 
-foreach ($var1 in 1..10) {echo 10.0.0.$var1}
+	ping -n 1 $ip | Select-String "bytes=32"
 
-param($p1)
+	foreach ($var1 in 1..10) {echo 10.0.0.$var1}
 
-foreach ($ip in 1..254){
+	param($p1)
 
-ping -n 1 $p1.$ip | Select-String "bytes-32"
+	foreach ($ip in 1..254){
 
-}
+	ping -n 1 $p1.$ip | Select-String "bytes-32"
+
+	}
 
 Comandos Windows equivalentes no LINUX
 
@@ -477,36 +478,35 @@ Comandos Windows equivalentes no LINUX
 
     Semelhante ao CUT -D: $resp.Line.split(' ')[2] -replace ":"," "
 
+- Port Scan on PowerShell
 
-Port Scan on PowerShell
+	param($ip)
 
-param($ip)
+	 if (!$ip){
 
- if (!$ip){
+		echo "Tratativa de erro"
 
-        echo "Tratativa de erro"
+		echo "Informe o Host"
 
-        echo "Informe o Host"
+	}else{
 
-}else{
+	$topports = 21,22,3306,80,443
 
-$topports = 21,22,3306,80,443
+	try{foreach ($porta in $topports){
 
-try{foreach ($porta in $topports){
+	if (Test-NetConnection $ip -port $porta -WarningAction SilentlyContinue -InformatioLevel Quiet)
 
-if (Test-NetConnection $ip -port $porta -WarningAction SilentlyContinue -InformatioLevel Quiet)
+		echo "Porta $porta Aberta"
 
-        echo "Porta $porta Aberta"
+	}} else {
 
-}} else {
+		echo "Porta $porta Fechada"
 
-        echo "Porta $porta Fechada"
+	}} catch {}
 
-}} catch {}
+	}
 
-}
-
-Comandos POWERSHELL WEB
+## Comandos POWERSHELL WEB
 
 Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
 
