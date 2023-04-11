@@ -375,6 +375,7 @@ Procura pacotes que usaram o serviço DNS
 
 
 - BASH SCRIPTING (LINUX)
+
 ´´´bash
 #!/bin/bash
 #!/bin/sh
