@@ -256,7 +256,7 @@ Melhorar segurança servidor apache:
 	Remover do arquivo de configuração `/etc/apache2.conf` a palavra indexes nas confs do diretório `/var/www/`
 	Trocar em `/etc/apache2/conf-enabled/security.conf` em `ServerTokens` de **OS**para **Prod** e em `ServerSignature` colocar **Off**
 
-    	nc -v www.businesscorp.com.br 80 
+    nc -v www.businesscorp.com.br 80 
 
 Printa o site no terminal
 
@@ -375,64 +375,36 @@ Procura pacotes que usaram o serviço DNS
 
 
 - BASH SCRIPTING (LINUX)
-
-
-    #!/bin/bash
-
-    #!/bin/sh
-
-
+´´´bash
+#!/bin/bash
+#!/bin/sh
 #Meu primeiro Script
-
 echo "Imprime alguma coisa" # comando para imprimir uma saída
-
 echo "tempo em que o PC está ligado: " $(uptime -p)
-
 echo "diretório: " $(pwd)
-
 echo "User: " $(whoami)
-
 echo "Infome o IP"
-
 read ip
-
 porta=80
-
 echo "varrendo o host: " $ip "Na porta: " $porta
-
-
 echo "====================================="
-
 echo "digite o serviço a ser iniciado"
-
 read var1
-
 service $var1 restart
-
 echo "--------Serviços ativos------"
-
 ps aux | grep $var1
-
 echo "--------Portas abertas: -----------"
-
 netstat -nlpt
-
 echo {1..10} printa do 1 ao 10 (sequência)
-
 seq 1 100 Printa sequencia de forma vertical 
-
 for ip in {1..10}; do echo 192.168.2.$ip;done
-
 while true; do echo "Hacked"; done
-
 sed 's/.$//' Substitui o último caractere
-
 hping3 -S -p 80 -c 1 host Pingar porta específica
+´´´
 
 1> STDOUT
-
 2> STDERR
-
 0>  STDIN
 
 grep "href" index.html | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | grep -v "<li" > parsinglist
