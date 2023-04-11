@@ -460,8 +460,7 @@ Comandos Windows equivalentes no LINUX
 
     Semelhante ao CUT -D: $resp.Line.split(' ')[2] -replace ":"," "
 
-- Port Scan on PowerShell
-.
+-- Port Scan on PowerShell
 
 	param($ip)
 	 if (!$ip){
@@ -477,7 +476,7 @@ Comandos Windows equivalentes no LINUX
 	}} catch {}
 	}
 
-- Comandos POWERSHELL WEB
+-- Comandos POWERSHELL WEB
 
 	Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
             -Method options/header
