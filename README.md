@@ -374,53 +374,58 @@ Filtra a porta 443 nos pacotes capturados
 Procura pacotes que usaram o serviço DNS
 
 
-- BASH SCRIPTING (LINUX)
+## BASH SCRIPTING (LINUX)
 
-´´´bash
-#!/bin/bash
-#!/bin/sh
-#Meu primeiro Script
-echo "Imprime alguma coisa" # comando para imprimir uma saída
-echo "tempo em que o PC está ligado: " $(uptime -p)
-echo "diretório: " $(pwd)
-echo "User: " $(whoami)
-echo "Infome o IP"
-read ip
-porta=80
-echo "varrendo o host: " $ip "Na porta: " $porta
-echo "====================================="
-echo "digite o serviço a ser iniciado"
-read var1
-service $var1 restart
-echo "--------Serviços ativos------"
-ps aux | grep $var1
-echo "--------Portas abertas: -----------"
-netstat -nlpt
-echo {1..10} printa do 1 ao 10 (sequência)
-seq 1 100 Printa sequencia de forma vertical 
-for ip in {1..10}; do echo 192.168.2.$ip;done
-while true; do echo "Hacked"; done
-sed 's/.$//' Substitui o último caractere
-hping3 -S -p 80 -c 1 host Pingar porta específica
-´´´
+	#!/bin/bash
+	#!/bin/sh
+	#Meu primeiro Script
+	echo "Imprime alguma coisa" # comando para imprimir uma saída
+	echo "tempo em que o PC está ligado: " $(uptime -p)
+	echo "diretório: " $(pwd)
+	echo "User: " $(whoami)
+	echo "Infome o IP"
+	read ip
+	porta=80
+	echo "varrendo o host: " $ip "Na porta: " $porta
+	echo "====================================="
+	echo "digite o serviço a ser iniciado"
+	read var1
+	service $var1 restart
+	echo "--------Serviços ativos------"
+	ps aux | grep $var1
+	echo "--------Portas abertas: -----------"
+	netstat -nlpt
+	echo {1..10} printa do 1 ao 10 (sequência)
+	seq 1 100 Printa sequencia de forma vertical 
+	for ip in {1..10}; do echo 192.168.2.$ip;done
+	while true; do echo "Hacked"; done
+	sed 's/.$//' Substitui o último caractere
+	hping3 -S -p 80 -c 1 host Pingar porta específica
+
 
 1> STDOUT
 2> STDERR
 0>  STDIN
 
-grep "href" index.html | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | grep -v "<li" > parsinglist
+	grep "href" index.html | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | grep -v "<li" > parsinglist
 
-for url in $(cat parsinglist);do host $url | grep -v "NX";done
+Faz um parsing em uma pagina trazendo os links que a mesma possui.
 
-for ip in $(cat hostsativoVPNdesec);do hping3 -SA -p 1337 $ip;done                                                                                                                                      
+	for url in $(cat parsinglist);do host $url | grep -v "NX";done
 
-Port Knocking: https://www.howtogeek.com/442733/how-to-use-port-knocking-on-linux-and-why-you-shouldnt/
+Pega a saída do pasring acima e gera a lista de IP dos links capturados.
 
-knock 192.168.0.20 254 785 135 -d 500
+	for ip in $(cat hostsativoVPNdesec);do hping3 -SA -p 1337 $ip;done                                                                                             
+Pega a lista de IP e faz um teste na porta 1337 para saber se a mesma está aberta.	
+
+[Port Knocking:](https://www.howtogeek.com/442733/how-to-use-port-knocking-on-linux-and-why-you-shouldnt/)
+
+	knock 192.168.0.20 254 785 135 -d 500
+
+Ferramenta que faz o portknowcking no host e portas passadas.
 
 
-    POWERSHELL PARA PENTESTERS
-
+## POWERSHELL PARA PENTESTERS
 
 Script POWER SHELL
 
