@@ -326,7 +326,7 @@ Decifrar código em hexadecimal
 
 
 - Análise de código de um pacote
-.
+
 Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximos 2 é o Protocolo o restante é o Payload:
 
     d4 ab 82 45 c4 0c 00 0c 29 76 43 e1 08 00 45 00
@@ -342,9 +342,9 @@ Os 6 primeiros é o MAC de destino os 6 próximos é o MAC de origem os próximo
 Socket significa IP e porta 
 
 
-- Comandos úteis para Wireshark e TCPDUMP
++ Comandos úteis para Wireshark e TCPDUMP
 .
- 
+
     tcpdump -vvvxr monitoramento.pcapng 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)' 
 
 Encontra as portas abertas Orig > Dest
