@@ -5447,7 +5447,9 @@ Alternativa para teste de LFD /..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/.
 Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centisecs
 
 
-INFORMATION GATHERING
+## ALEATORY NOTES
+
+- INFORMATION GATHERING
 
 Websites for search: 
 
@@ -5469,7 +5471,7 @@ Transferir arquivos do alvo para o atacante:
 
 TIPO DE ARQUIVO PARA GOBUSTER DIRB BURPSUIT
 
-        php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql
+        php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js
         Flag user agent  -a Mozilla/5.0
 
 Ferramenta animal par ENUMERAÇÃO WEB
@@ -5494,4 +5496,15 @@ Fazendo tunelamento com NGROK
 Salva e inicia...
 
         ngrok start --all: Abre as conexões configuradas no arquivo yml
+
+## INSTALL OPENVAS
+
+Openvas é um framework de scan de vulnerabiliadades
+
+	sudo apt update && sudo apt upgrade && sudo apt install openvas
+	sudo gvm-start
+	
+Ficar atento às informações de resultado dos comandos e posteriormente `https://localhost:9392`
+
+## NEXT TUTO HERE SOON
 
