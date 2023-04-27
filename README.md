@@ -5506,6 +5506,10 @@ Openvas é um framework de scan de vulnerabiliadades
 	sudo runuser -u _gvm -- greenbone-feed-sync --type SCAP
 	sudo gvm-start
 	
+Se der erro roda esse comando:
+	
+	chmod 666 /var/log/gvm/openvas.log
+	
 Ficar atento às informações de resultado dos comandos e posteriormente `https://localhost:9392`
 
 ## NEXT TUTO HERE SOON
