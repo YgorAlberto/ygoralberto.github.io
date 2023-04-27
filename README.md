@@ -5505,10 +5505,14 @@ Openvas é um framework de scan de vulnerabiliadades
 	sudo gvm-check-setup
 	sudo runuser -u _gvm -- greenbone-feed-sync --type SCAP
 	sudo gvm-start
-	
+		
 Se der erro roda esse comando:
 	
 	chmod 666 /var/log/gvm/openvas.log
+	
+Para criar o login e senha rode:	
+	
+	sudo runuser -u _gvm -- gvmd --create-user=Admin --new-password=admin
 	
 Ficar atento às informações de resultado dos comandos e posteriormente `https://localhost:9392`
 
