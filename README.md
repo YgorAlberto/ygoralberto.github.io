@@ -169,7 +169,7 @@ Procura avançada no arquivo
 
 Faz os mesmo do comando acima
 
-    sed 's/troca/porisso' do arquivo.txt 
+    sed -i 's/troca/porisso/g' test.txt 
 
 Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada linha
 
