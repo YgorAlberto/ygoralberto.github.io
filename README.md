@@ -12,7 +12,7 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 	
 .
 	
-	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -t 100 -e --no-error -r -o gobuster -a Mozilla/5.0 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js
+	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -r -k -t 100 -e --no-error -r -o gobuster -a Mozilla/5.0 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js
 
 .
 
