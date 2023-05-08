@@ -256,17 +256,17 @@ Melhorar segurança servidor apache:
 	Remover do arquivo de configuração `/etc/apache2.conf` a palavra indexes nas confs do diretório `/var/www/`
 	Trocar em `/etc/apache2/conf-enabled/security.conf` em `ServerTokens` de **OS**para **Prod** e em `ServerSignature` colocar **Off**
 
-    nc -v www.businesscorp.com.br 80 
+    nc -v www.kidmancorp.com.br 80 
 
 Printa o site no terminal
 
 Colocar na entrada da conexão `GET / HTTP/1.0 ou no lugar de GET HEAD, OPTIONS`
 
-	printf "HEAD / HTTP/1.0\r\n\r\n" | nc businesscorp.com.br 80
+	printf "HEAD / HTTP/1.0\r\n\r\n" | nc kidmancorp.com.br 80
 
 Faz a mesma coisa do comando acima
 
-	curl -v businesscorp.com.br 
+	curl -v kidmancorp.com.br 
 
 Faz a mesma coisa do comando acima
 
@@ -485,9 +485,9 @@ Comandos Windows equivalentes no LINUX
 
 .
 
-	Invoke-WebRequest www.businesscorp.com.br -OutFile index.txt
+	Invoke-WebRequest www.kidmancorp.com.br -OutFile index.txt
             -Method options/header
-	(Invoke-WebRequest www.businesscorp.com.br).statuscode/content/links.href/header.server
+	(Invoke-WebRequest www.kidmancorp.com.br).statuscode/content/links.href/header.server
 
 ## SWISS ARMY KNIFE
 
@@ -540,7 +540,7 @@ Verifica o tamanho do arquivo enviado e compara para certificar a integridade.
 
 Escaneia a porta 80 do IP
 
-    nc -vz www.businesscorp.com.br 80  
+    nc -vz www.kidmancorp.com.br 80  
 
 Escaneia a porta 80 do site
 
@@ -620,7 +620,7 @@ Ganhando acesso ao shell
 
 Telnet
 
-    telnet www.businesscorp.com.br 80 21
+    telnet www.kidmancorp.com.br 80 21
 
 Opção alternativa ao NC, ftp...
 
