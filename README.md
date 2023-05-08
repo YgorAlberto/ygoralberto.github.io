@@ -800,7 +800,7 @@ Retorna infor do IPv6
 
 Retorna strings em texto info do TXT com configurações do SPF (email) 
 
-    Host for server in $(host -t ns businesscorp.com.br | cut -d " " -f7);do host -l -a businesscorp.com.br $server;done 
+    Host for server in $(host -t ns kidmancorp.com.br | cut -d " " -f7);do host -l -a kidmancorp.com.br $server;done 
 
 Verificando vulnerabilidade de transferência de zona no DNS com o comando 
 
@@ -825,11 +825,11 @@ SPF = Verifica quais servidores estão autorizado enviar emails em seu domínio
 
 Subdomain Takeover
 
-    host -t cname businesscorp.com.br
+    host -t cname kidmancorp.com.br
 
 Verifica para onde aponta o Alias possibilitando testar se o Alias existe ou não, podendo assim registrar se possível e ter domínio sobre o registro apontado.
 
-    host -t hinfo businesscorp.com.br
+    host -t hinfo kidmancorp.com.br
 
 Verifica mais informações do domínio apresentado.
 
@@ -915,7 +915,7 @@ Força mostrar o banner com a versão do ASP.NET PHP JS...
 
 Burlando o user agent
 
-    curl -s -o /dev/null -w "%{http_code}" businesscorp.com.br 
+    curl -s -o /dev/null -w "%{http_code}" kidmancorp.com.br 
 
 Pegando o código da requisição
 
@@ -4292,19 +4292,19 @@ Adiciona as informações do mysql e nome do banco de dados e finaliza a instala
 
 Fazendo o reconhecimento da plataforma e posteriormente rodando ferramentas para descobrir vulnerabilidades. Wordpress usa o phpass como hash de senha.
 
-    gobuster dns -d grupobusinesscorp.com -w /wordlist/smal.durb -t 30
+    gobuster dns -d grupokidmancorp.com -w /wordlist/smal.durb -t 30
 
 Faz um BF na aplicação para descoberta de subdomínios
 
-    wpscan --url blog.businesscorp.com/blog --api-token tokenaquiaddress 
+    wpscan --url blog.kidmancorp.com/blog --api-token tokenaquiaddress 
 
 Apenas para auth user
 
-    wpscan --url blog.businesscorp.com/blog --api-token tokenapeiaddress --enumerate p --plugins-detection aggressive 
+    wpscan --url blog.kidmancorp.com/blog --api-token tokenapeiaddress --enumerate p --plugins-detection aggressive 
 
 Busca por plugins da base previamente conhecida
 
-    wpscan --url blog.businesscorp.com/blog --api-token tokenapeiaddress --enumerate vp --plugins-detection aggressive 
+    wpscan --url blog.kidmancorp.com/blog --api-token tokenapeiaddress --enumerate vp --plugins-detection aggressive 
 
 Busca por uma lista de plugins vulneráveis
 
