@@ -3748,8 +3748,7 @@ Testa a aplicação e retorno sobre os tipos de arquivos aceitos
 
 Da bypass no diretório que estava pedindo autenticação, mas só funciona se a página aceitar o método POST
 
-{Curl POST Examples} [https://reqbin.com/req/c-g5d14cew/curl-post-example]
-
+[Curl POST Examples] (https://reqbin.com/req/c-g5d14cew/curl-post-example)
 Nota: Atentar para vetores de ataques que podem ser: Métodos, campos de formulários, comportamento da página, ver código fonte, procurar por redirecionamentos dentro do site, podendo gerar uma página fake e enganar o usuário...
 
 - Código em PHP para usar em páginas falsas:
