@@ -5518,3 +5518,33 @@ Ficar atento às informações de resultado dos comandos e posteriormente `https
 
 ## NEXT TUTO HERE SOON
 
+<style>
+.back-to-top {
+color:black; /* alterar cor do botão */
+position: fixed;
+z-index: 999;
+bottom: 2rem; /* posição vertical: quanto maior, mais para cima */
+right: 1rem; /* posição horizontal: quanto maior, mais para esquerda */
+display:none;
+}
+.back-to-top:active, .back-to-top:focus, .back-to-top:hover {
+text-decoration: none;
+color:#afb3b0; /* alterar cor do botão quando o mouse estiver em cima ou mobile */
+}
+
+.back-to-top i {
+font-size: 3em; /* alterar tamanho do botão */
+}
+</style>
+<!-- 2f41fe4a-af21-11ec-b909-0242ac120002 -->
+<script type="text/javascript">
+$(document).ready(function(){
+$("body").append("<a href='#' class='back-to-top'><i class='fa fa-arrow-circle-up' aria-hidden='true'></i></a>"), 
+$(function toTop() {
+$(window).scroll(function() {
+$(this).scrollTop() > 400 ? $(".back-to-top").fadeIn() : $(".back-to-top").fadeOut()}), $(".back-to-top").click(function() { 
+return $("html, body").animate({
+scrollTop: 0
+}, 900), !1})});
+})
+</script>
