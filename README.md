@@ -1,8 +1,6 @@
-[Página Outros] (https://ygoralberto.github.io/outros)
-
 Encontre aqui notas e comandos de um HACKER ÉTICO
 
-
+[Página Outros] (https://ygoralberto.github.io/outros)
 
 ## COMANDOS RÁPIDOS
 
