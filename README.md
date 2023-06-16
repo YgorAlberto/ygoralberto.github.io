@@ -5518,13 +5518,12 @@ Ficar atento às informações de resultado dos comandos e posteriormente `https
 
 ## BUG BOUNTY
 
-Dicas ferramentas serão adicionadas aqui.
-
-Ferramentas para melhorar o bugbounty
+Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o processo de reconhecimento e sucesso na exploração.
 
 - Ferramentas:
 
 [NUCLEI](https://www.hashthecode.com/post/nuclei)
+
 [MAGICRECON](https://github.com/robotshell/magicRecon)
 
 - Cursos:
@@ -5534,7 +5533,9 @@ Ferramentas para melhorar o bugbounty
 - Plataformas
 
 [BUGHUNT](https://admin.bughunt.com.br/login)
+
 [HACKERONE](https://hackerone.com/opportunities/all)
+
 [HACKAFLAG](https://hackaflag.com.br/)
 
 ## NEXT TUTO HERE SOON
