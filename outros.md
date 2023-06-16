@@ -714,3 +714,10 @@ Clonando do repositório todo o projeto
 git clone (link)
 
 
+## SETUP ANDROID VISTUALBOX
+
+[Donload OVA](https://www.osboxes.org/android-x86/)
+
+Create a MACHINE using the VDI image downloaded
+If it is on CLI mode, try this:
+	Turn it OFF, an go Settings -> Display -> graphic controller set to -> VBoxVGA. Turn off Enable 3D Acceleration.
