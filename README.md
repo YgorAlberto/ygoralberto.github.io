@@ -5523,15 +5523,18 @@ Dicas ferramentas serão adicionadas aqui.
 Ferramentas para melhorar o bugbounty
 
 - Ferramentas:
-[NUCLEI] (https://www.hashthecode.com/post/nuclei)
-[MAGICRECON] (https://github.com/robotshell/magicRecon)
+
+[NUCLEI](https://www.hashthecode.com/post/nuclei)
+[MAGICRECON](https://github.com/robotshell/magicRecon)
 
 - Cursos:
-[OFJAAAH] (https://ofjaaah.com.br/site)
+
+[OFJAAAH](https://ofjaaah.com.br/site)
 
 - Plataformas
-[BUGHUNT] (https://admin.bughunt.com.br/login)
-[HACKERONE] (https://hackerone.com/opportunities/all)
-[HACKAFLAG] (https://hackaflag.com.br/)
+
+[BUGHUNT](https://admin.bughunt.com.br/login)
+[HACKERONE](https://hackerone.com/opportunities/all)
+[HACKAFLAG](https://hackaflag.com.br/)
 
 ## NEXT TUTO HERE SOON
