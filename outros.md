@@ -212,7 +212,9 @@ TYPE Semelhante ai cat no terminal
 
 wusa /kb:5009543 /uninstall Desinstala atualização passada
 
- 
+	fsutil behavior query DisableDeleteNotify
+
+ Comando para verificar se o SSD está em seu fucionamento pleno
 
 Ativar windows via CMD
 
