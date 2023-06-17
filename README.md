@@ -5538,4 +5538,15 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 
 [HACKAFLAG](https://hackaflag.com.br/)
 
+
+## FERRAMENTAS ALEATÓRIAS
+
+[SOCIAL ANALYZER](https://github.com/qeeqbox/social-analyzer.git)
+
+Ferramenta que faz buscas e várias midias sociais
+
+[THE SPY's JOB](https://github.com/XDeadHackerX/The_spy_job.git)
+
+Ferramenta para localizar telefone
+
 ## NEXT TUTO HERE SOON
