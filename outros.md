@@ -147,29 +147,22 @@ Edita o arquivo:
 
 Passo 03:
 
-Adicionando o Código abaixo (troca IP pelo de sua preferência):
+Adicionando o Código abaixo (troca IP definitivamente pelo de sua preferência):
 
  This is the network config written by 'subiquity'
 
 network:
 
+  network:
   version: 2
-
+  renderer: networkd
   ethernets:
-
-    eth0:
-
-      dhcp4: false
-
-      addresses:
-
-        - 192.168.2.21/24
-
-      gateway4: 192.168.2.1
-
-      nameservers:
-
-        addresses: [192.168.2.21,8.8.8.8]
+    ens3:
+      addresses: [ "10.10.10.1/24" ]
+      routes:
+        - to: default # or 0.0.0.0/0
+          via: 9.9.9.9
+          on-link: true
 
 
 Legenda:
