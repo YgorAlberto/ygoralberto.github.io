@@ -173,7 +173,8 @@ dhcp6 : Propriedades da interface para o DHCP versão 6
 addresses : Lista de IPs a serem atribuídos 
 gateway4 : Endereço do gateway padrão da rede nameservers : Seção de Servidores DNS e domínios de busca a usar.
 
-See MANUAL: https://manpages.ubuntu.com/manpages/bionic/man5/netplan.5.html
+[See MANUAL](https://manpages.ubuntu.com/manpages/bionic/man5/netplan.5.html)
+[NETPLAN](https://netplan.readthedocs.io/en/stable/netplan-tutorial/#using-static-ip-addresses)
 
 Passo 04:
 
