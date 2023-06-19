@@ -153,16 +153,16 @@ Adicionando o Código abaixo (troca IP definitivamente pelo de sua preferência)
 
 network:
 
-  network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    ens3:
-      addresses: [ "10.10.10.1/24" ]
-      routes:
-        - to: default # or 0.0.0.0/0
-          via: 9.9.9.9
-          on-link: true
+	  network:
+	  version: 2
+	  renderer: networkd
+	  ethernets:
+	    ens3:
+	      addresses: [ "10.10.10.1/24" ]
+	      routes:
+	        - to: default # or 0.0.0.0/0
+	          via: 9.9.9.9
+	          on-link: true
 
 
 Legenda:
