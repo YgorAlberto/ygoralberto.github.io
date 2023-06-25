@@ -190,8 +190,9 @@ sudo route add default gw 192.168.0.253 eth0
 
 Referência: http://www.bosontreinamentos.com.br/linux/como-configurar-endereco-ip-estatico-no-linux-ubuntu-18-04-com-netplan/
 
+	upower -i /org/freedesktop/UPower/devices/battery_BAT0
 
-
+Saber informacões vida útil bateria healthy lifecycle
 
 ## COMANDOS WINDOWS
 
