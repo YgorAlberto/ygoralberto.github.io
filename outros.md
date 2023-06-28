@@ -340,34 +340,37 @@ Nesta lista de comandos você irá conectar-se ao WIFI e rodar o comando para in
     sudo reboot
     sudo raspi-config
 
-## SISTEMA DE VIGIÇÂNCIA COM RASPBERRY PI
+## SISTEMA DE VIGILÂNCIA COM RASPBERRY PI
 
  Monitorando sua casa com Raspberry PI
 
-    Faça o monitoramento da sua casa em tempo real 
-acessando diretamente do celular computador ou TV!
+Faça o monitoramento da sua casa em tempo real acessando diretamente do celular computador ou TV!
 
 Materiais necessários: Raspberry PI com o SO (Raspberry Pi OS 32BITS )e uma Câmera para Raspberry.
 
 Passo 01:
 
-$raspi-config 
-            Procure por câmera (varia de versão para versão do Raspberry PI OS). E habilite a mesma.
+	raspi-config 
+
+Procure por câmera (varia de versão para versão do Raspberry PI OS). E habilite a mesma.
 
 Passo 02:
 Atualize o Raspbian com o famoso
 
-$sudo apt-get update
-$sudo apt-get upgrade
+	sudo apt-get update
+	sudo apt-get upgrade
 
 Passo 03:
-Vá no seguinte repositório do GitHub e faça o git clone: Repositório
+Vá no seguinte repositório do GitHub e faça o 
+	
+ 	git clone: https://github.com/silvanmelchior/RPi_Cam_Web_Interface
 
 Passo 04:
 Vá para a pasta que foi feita o download e execute o instalador
 
-$./install.sh
-           Dê Ok e Yes no que aparecer e pronto!
+	./install.sh
+
+Dê Ok e Yes no que aparecer e pronto!
 
 Acesse o ip do seu RASPBERRY e clique em HTML!
 
@@ -378,8 +381,11 @@ Bônus 01: Entre nas configurações do seu roteador e adiciona uma rota apontan
 
 Bônus 02: 
 Vá para a pasta 
+
     $cd /var/www/
+    
 E crie um arquivo com o nome index.php.
+
     $nano index.php 
             Cole essa linha de código dentro do arquivo index nas pasta WWW
   
