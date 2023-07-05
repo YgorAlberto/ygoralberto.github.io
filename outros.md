@@ -194,6 +194,11 @@ Referência: http://www.bosontreinamentos.com.br/linux/como-configurar-endereco-
 
 Saber informacões vida útil bateria healthy lifecycle
 
+	sudo nmcli connection show
+	sudo nmcli connection delete ab0b9039-c4b1-48af-b30c-adcbea993643
+
+Deletar interface de rede 
+
 ## COMANDOS WINDOWS
 
 wmic bios get serialnumber = Ver numero de série do PC
