@@ -5535,9 +5535,13 @@ Rodar todos esses comandos com atenção e observando se tudo está ok. Após ro
 - Gerar relatório
 
 1- Primeiro passo é filtrar todas as informações, para isso pode ser criado um filtro
+
 2- Acessa o scan que deseja fazer o relatório e vai em `results` e espera carregar, todos os dados devem aparecer, results, hosts, vulns...
+
 3- Em caso de nao aparecer todas as informações do scan, deve se aguardar para ver se em `feed status` ainda está como `in progress`
+
 4- Em Administration -> feed status em pode ainda estar `in progress` e caso esteja, o que pode ser feito é rodar o feed-update de novo 
+
 4.1- Ou Esperar aparecer `current` em todos os campos do feed status (isso pode demorar uma hora ou mais)
 
 ## BUG BOUNTY
