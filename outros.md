@@ -81,8 +81,13 @@ du -a Imprime os tamanhos em MB
 
 Aumentar Volume Linux
 
-sudo lvextend -l+100%FREE /dev/ubuntu-vg/ubuntu-lv Libera 100% para uso
-sudo resize2fs /dev/ubuntu-vg/ubuntu-lv Aumenta o disco para o uso
+	sudo lvextend -l+100%FREE /dev/ubuntu-vg/ubuntu-lv 
+ 
+ Libera 100% para uso
+
+	sudo resize2fs /dev/ubuntu-vg/ubuntu-lv 
+ 
+ Aumenta o disco para o uso
 
 Criar partição no linux:
 sudo fdisk /dev/sda
