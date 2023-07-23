@@ -5577,4 +5577,6 @@ Ferramenta que faz buscas e várias midias sociais
 
 Ferramenta para localizar telefone
 
+[Site para pesquisar o DNS Reverse reverso nslookup colocando o IP](https://www.cutestat.com)
+
 ## NEXT TUTO HERE SOON
