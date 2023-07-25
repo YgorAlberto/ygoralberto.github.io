@@ -173,6 +173,10 @@ Faz os mesmo do comando acima
 
 Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada linha
 
+    cat file.txt | tr '\n' ','
+
+Ler o arquivo que esta em lista e coloca tudo em uma só linha separando os itens por virgula
+
     ls -la 
 
 Exibe os arquivos ocultos
