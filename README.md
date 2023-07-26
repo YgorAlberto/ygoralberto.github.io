@@ -177,6 +177,10 @@ Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada
 
 Ler o arquivo que esta em lista e coloca tudo em uma só linha separando os itens por virgula
 
+    cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
+
+Pega a saída do NMAP e separa as portas para fazer um ataque mais direcionado.
+
     ls -la 
 
 Exibe os arquivos ocultos
