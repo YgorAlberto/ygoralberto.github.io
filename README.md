@@ -5552,6 +5552,75 @@ Rodar todos esses comandos com atenção e observando se tudo está ok. Após ro
 
 4.1- Ou Esperar aparecer `current` em todos os campos do feed status (isso pode demorar uma hora ou mais)
 
+
+## DEPLOY RAPIDO DE UM SIEM WAZUH
+
+
+ Olá, comandos rápidos para configurar um WAZUH sem complicação.
+
+Após o servidor [LINUX Debian Based] estiver configurado e pronto para uso, rode os seguintes comandos:
+
+REF: https://documentation.wazuh.com/4.3/quickstart.html
+
+
+        curl -sO https://packages.wazuh.com/4.3/wazuh-install.sh && sudo bash ./wazuh-install.sh -a 
+
+        Vai aparecer o login e senha -> anote-os
+
+
+Vai no navegador e acesse: https://<server-ip> Coloque o login e senha anteriormente anotado.
+
+Ao acessar o dashboard, vai em Agents e configure de acordo com o ser server a ser monitorado, exemplo de Linux 64bits Ubuntu
+
+Antes de rodar o comando abaixo, trocar o IP par ao IP do seu servidor WAZUH
+Obs.: Repetir este processo para a config dos demais servers que deseja monitorar
+
+    curl -so wazuh-agent-4.3.10.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.3.10-1_amd64.deb && sudo WAZUH_MANAGER='192.168.2.100' WAZUH_AGENT_GROUP='default' dpkg -i ./wazuh-agent-4.3.10.deb
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable wazuh-agent
+    sudo systemctl start wazuh-agent
+
+
+Caso apresente algum erro, olhar:
+
+    sudo cat /var/ossec/logs/ossec.log
+
+
+Se o erro for relacionado ao MANAGER_IP
+Acessar:
+
+    sudo nano /var/ossec/etc/ossec.conf
+
+    E trocar o MANAGER_IP Pelo ip do servidor WAZUH
+
+Modificar o arquivo para habilitar alertas adicionais
+
+    nano /var/ossec/etc/ossec.conf
+
+- Manutenção do Wazuh (liberação de espaço de disco)
+
+        systemctl stop wazuh-manager
+
+Para o serviço do Wazuh
+
+        find /var/assec/logs/archives/ -type -f  -ntime +1 rm -f {} \;
+        find /var/assec/logs/alerts/ -type -f  -ntime +1 rm -f {} \;
+
+Roda os comandos para deletar boa parte dos logs
+
+        find /var/assec/logs/archives/ -type -f  -ntime -15 rm -f {} \;
+        find /var/assec/logs/alerts/ -type -f  -ntime -15 rm -f {} \;
+
+Caso ainda não seja o suficiente com os comando anteriores, rodar esses para apagar tudo
+
+
+Nota: Ir em /management/stack-managment/index-management e deletar as indexes que estão ocupando muito espaço.
+
+        systemctl restart wazuh-manager
+
+Restarta o serviço
+
 ## BUG BOUNTY
 
 Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o processo de reconhecimento e sucesso na exploração.
