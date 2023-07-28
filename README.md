@@ -181,6 +181,10 @@ Ler o arquivo que esta em lista e coloca tudo em uma só linha separando os iten
 
 Pega a saída do NMAP e separa as portas para fazer um ataque mais direcionado.
 
+    cat list.txt | awk '{gsub(/word/, "\033[31m&\033[0m")} 1'
+
+Printa todo o arquivo passado highlighting/marcando uma palavra passada usando cat e awk
+
     ls -la 
 
 Exibe os arquivos ocultos
