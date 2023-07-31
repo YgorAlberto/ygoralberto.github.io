@@ -2370,7 +2370,7 @@ Busca palavras dentro do site com 7 chars
 
     crunch 10 10 -t palavra^'char-spec'%'digito'@'minus','maius' 
 
-Cria wordlist com a palavra passada e com dígitos com as flags informadas.
+Cria Gera senha password gerador wordlist com a palavra passada e com dígitos com as flags informadas.
 
 
 - Key Space Brute Force
