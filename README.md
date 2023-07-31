@@ -5660,4 +5660,9 @@ Ferramenta para localizar telefone
 
 [Site para pesquisar o DNS Reverse reverso nslookup colocando o IP](https://www.cutestat.com)
 
+    cat url.txt | hakrawler
+
+Ferramenta crawling web que faz uma busca avaçada por hrefs e outros termos interessantes
+
+
 ## NEXT TUTO HERE SOON
