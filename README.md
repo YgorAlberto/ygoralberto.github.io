@@ -5634,10 +5634,10 @@ Instalação usando DOCKER
 
 	sudo apt install docker-compose
 	mkdir opencti && cd opencti
- 	git clone https://github.com/OpenCTI-Platform/docker.git
-  	cd docker
-   	sudo sysctl -w vm.max_map_count=1048575
-    	sudo echo "vm.max_map_count=1048575" >> /etc/sysctl.conf
+    	git clone https://github.com/OpenCTI-Platform/docker.git
+    	cd docker
+	sudo sysctl -w vm.max_map_count=1048575
+	sudo echo "vm.max_map_count=1048575" >> /etc/sysctl.conf
 	sudo systemctl start docker.service
  	docker-compose up -d
 
