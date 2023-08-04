@@ -5638,6 +5638,7 @@ Instalação usando DOCKER
 	cd docker
 	sudo sysctl -w vm.max_map_count=1048575
 	sudo echo "vm.max_map_count=1048575" >> /etc/sysctl.conf
+	mv .env.sample .env
 	sudo systemctl start docker.service
 	sudo docker-compose up -d
 
