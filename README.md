@@ -5626,6 +5626,21 @@ Nota: Ir em /management/stack-managment/index-management e deletar as indexes qu
 
 Restarta o serviço
 
+## OPENCTI
+
+Ferramenta de inteligencia de Cibersegurança
+
+Instalação usando DOCKER
+
+	sudo apt install docker-compose
+	mkdir opencti && cd opencti
+ 	git clone https://github.com/OpenCTI-Platform/docker.git
+  	cd docker
+   	sudo sysctl -w vm.max_map_count=1048575
+    	sudo echo "vm.max_map_count=1048575" >> /etc/sysctl.conf
+	sudo systemctl start docker.service
+ 	docker-compose up -d
+
 ## BUG BOUNTY
 
 Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o processo de reconhecimento e sucesso na exploração.
