@@ -5584,6 +5584,7 @@ Obs.: Repetir este processo para a config dos demais servers que deseja monitora
     sudo systemctl daemon-reload
     sudo systemctl enable wazuh-agent
     sudo systemctl start wazuh-agent
+    sudo systemctl start wazuh-manager
 
 
 Caso apresente algum erro, olhar:
