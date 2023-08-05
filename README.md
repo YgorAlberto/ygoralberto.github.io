@@ -5642,6 +5642,29 @@ Instalação usando DOCKER
 	sudo systemctl start docker.service
 	sudo docker-compose up -d
 
+Instalação MANUAL
+
+	mkdir /opencti && cd /opencti
+	wget <https://github.com/OpenCTI-Platform/opencti/releases/download/{RELEASE_VERSION}/opencti-release-{RELEASE_VERSION}.tar.gz>
+	tar xvfz opencti-release-{RELEASE_VERSION}.tar.gz
+	cd opencti
+	cp config/default.json config/production.json [alterar TOKEN copiado de https://www.uuidgenerator.net/]
+	cd src/python
+	pip3 install -r requirements.txt
+	cd ../..
+	sudo apt remove nodejs
+	sudo apt install nodejs [V.14]
+	curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	sudo apt install yarn
+	yarn install
+	yarn build
+	yarn serv
+	cd worker
+	pip3 install -r requirements.txt
+	cp config.yml.sample config.yml
+	python3 worker.py &
+
 ## BUG BOUNTY
 
 Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o processo de reconhecimento e sucesso na exploração.
