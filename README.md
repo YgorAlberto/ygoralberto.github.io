@@ -5630,6 +5630,9 @@ Restarta o serviço
 
 Ferramenta de inteligencia de Cibersegurança
 
+
+[Instalação usando DOCKER e Portainer](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
+
 Instalação usando DOCKER
 
 	sudo apt install docker-compose
