@@ -5696,6 +5696,10 @@ Instalação MANUAL
 	cp config.yml.sample config.yml
 	python3 worker.py &
 
+[Integração: Wazuh e OpenCTI](https://github.com/juaromu/wazuh-opencti)
+
+
+
 ## BUG BOUNTY
 
 Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o processo de reconhecimento e sucesso na exploração.
