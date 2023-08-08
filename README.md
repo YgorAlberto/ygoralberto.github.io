@@ -5632,10 +5632,34 @@ Restarta o serviço
 
 Ferramenta de inteligencia de Cibersegurança
 
+Instalação usando DOCKER e Portainer
 
-[Instalação usando DOCKER e Portainer](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
+	sudo apt-get update
+	sudo apt-get install apt-transport-https
+	sudo apt-get install ca-certificates
+	sudo apt-get install curl
+	sudo apt-get install gnupg-agent
+	sudo apt-get install software-properties-common
+	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	sudo apt-get update
+	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
+	sudo usermod -aG docker $USER
+	sudo docker swarm init --advertise-addr 192.168.1.10
+	sudo mkdir -p /opt/portainer && cd /opt/portainer
+	sudo curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
+	sudo nano ./portainer-agent-stack.yml (Trocar porta de "9000:9000" para "19000:9000" repetir com a "8000")
+	sudo docker stack deploy --compose-file=portainer-agent-stack.yml portainer
+ 
+Acessa o site https://github.com/OpenCTI-Platform/docker clica `docker-compose.yml` clica RAW e copia tudo 
+Acessar PORTAINER/docker/stack `add stack` e colar o código
+Copiar também o `.env.sample` do cite acima e colocar o código gerado no site uuidgenerator.net no campo token e editar o restante
+Colar dentro de `Environment Variable` no Portainer
+Clicar Deploy e depois acessa <IP>:8080
 
-Instalação usando DOCKER
+[Referência](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
+
+Instalação usando DOCKER de forma MANUAL
 
 	sudo apt install docker-compose
 	mkdir opencti && cd opencti
