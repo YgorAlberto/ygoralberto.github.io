@@ -158,18 +158,22 @@ Adicionando o Código abaixo (troca IP definitivamente pelo de sua preferência)
 
 network:
 
-	  network:
-	  version: 2
-	  renderer: networkd
+	# This is the network config written by 'subiquity'
+	network:
 	  ethernets:
-	    ens3:
-	      addresses: [ "10.10.10.1/24" ]
+	    enp0s3:
+	      addresses:
+	      - 192.168.2.15/24
+	      nameservers:
+	        addresses:
+	        - 1.1.1.1
+	        search:
+	        - 8.8.8.8
 	      routes:
-	        - to: default # or 0.0.0.0/0
-	          via: 9.9.9.9
-	          on-link: true
-
-
+	      - to: default
+	        via: 192.168.2.1
+	  version: 2
+  
 Legenda:
 renderer : Renderizador (daemon de rede) Aceita os valores NetworkManager e networkd. O padrão é networkd. Pode ser aplicada globalmente ou para um dispositivo específico. 
 ethernets : Seção das interfaces de rede a configurar enp0s3 : Nome de uma interface de rede a configurar
