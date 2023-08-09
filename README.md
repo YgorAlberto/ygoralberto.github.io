@@ -6,7 +6,7 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 
 	nmap -vvv  -sS --open -Pn -p- -T 5 <IP>
 
-.wazuh
+.
 
 	nmap -vvv -sV -sC -O -p -T 5 -A  --script vuln -Pn <PORTS> <IP>
 	
@@ -5593,7 +5593,7 @@ Caso apresente algum erro, olhar:
 
     sudo cat /var/ossec/logs/ossec.log
 
-Caso os Agents não estiverem se comunicando com o Wazuh, pode-se fazer a verificação com o comando
+Caso os Agents não estiverem se comunicando com o Wazuh, pode-se fazer a verificação com o comando [see page](https://documentation.wazuh.com/current/user-manual/agents/agent-connection.html)
 
      /var/ossec/bin/agent_control -i <YOUR_AGENT_ID> | grep Status
 
