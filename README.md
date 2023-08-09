@@ -122,6 +122,7 @@ Adiciona o IP da rota default
 Status da rede (detalhadamente usando as flags)
 
     netstat -lntp
+    netstat -vatunp
 
 Lista os serviços Portas Nomes no protocolo TCP rodando atualmente
 
