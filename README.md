@@ -5593,9 +5593,10 @@ Caso apresente algum erro, olhar:
 
     sudo cat /var/ossec/logs/ossec.log
 
-Caso os Agents não estiverem se comunicando com o Wazuh, pode-se fazer a verificação com o comando [see page](https://documentation.wazuh.com/current/user-manual/agents/agent-connection.html)
+Se os agents não comunicam com o Wazuh verifique com os comandos abaixo, o segundo é no agente [see more](https://documentation.wazuh.com/current/user-manual/agents/agent-connection.html)
 
      /var/ossec/bin/agent_control -i <YOUR_AGENT_ID> | grep Status
+     sudo grep ^status /var/ossec/var/run/wazuh-agentd.state
 
 Se o erro for relacionado ao MANAGER_IP
 Acessar:
