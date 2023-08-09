@@ -5666,8 +5666,10 @@ Clicar Deploy e depois acessa <IP>:8080
 
 Lista de videos para instalar, configurar e integrar o (OPECTI+MISP+WAZUH)[https://www.youtube.com/watch?v=oV_wznNpZ3Y&list=RDCMUC4EUQtTxeC8wGrKRafI6pZg&start_radio=1]
 
+[Integração: Wazuh e OpenCTI](https://github.com/juaromu/wazuh-opencti)
 
-Instalação usando DOCKER de forma MANUAL
+
+Instalação usando DOCKER de forma MANUAL (Não funcionou)
 
 	sudo apt install docker-compose
 	mkdir opencti && cd opencti
@@ -5679,7 +5681,7 @@ Instalação usando DOCKER de forma MANUAL
 	sudo systemctl start docker.service
 	sudo docker-compose up -d
 
-Instalação MANUAL
+Instalação MANUAL (Não funcionou)
 
 	mkdir /opencti && cd /opencti
 	wget <https://github.com/OpenCTI-Platform/opencti/releases/download/{RELEASE_VERSION}/opencti-release-{RELEASE_VERSION}.tar.gz>
@@ -5703,10 +5705,6 @@ Instalação MANUAL
 	pip3 install -r requirements.txt
 	cp config.yml.sample config.yml
 	python3 worker.py &
-
-[Integração: Wazuh e OpenCTI](https://github.com/juaromu/wazuh-opencti)
-
-
 
 ## BUG BOUNTY
 
