@@ -5664,6 +5664,9 @@ Clicar Deploy e depois acessa <IP>:8080
 
 [Referência](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
 
+Lista de videos para instalar, configurar e integrar o (OPECTI+MISP+WAZUH)[https://www.youtube.com/watch?v=oV_wznNpZ3Y&list=RDCMUC4EUQtTxeC8wGrKRafI6pZg&start_radio=1]
+
+
 Instalação usando DOCKER de forma MANUAL
 
 	sudo apt install docker-compose
