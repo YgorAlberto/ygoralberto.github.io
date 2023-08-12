@@ -84,7 +84,11 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 .
 .
 
+## Ferramentas After Formating
 
+sudo apt install seclists
+sudo apt install hakrawler
+sudo apt ...
 
 VPN
 
