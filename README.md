@@ -5659,12 +5659,13 @@ Instalação usando DOCKER e Portainer
 	sudo curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
 	sudo nano ./portainer-agent-stack.yml (Trocar porta de "9000:9000" para "19000:9000" repetir com a "8000")
 	sudo docker stack deploy --compose-file=portainer-agent-stack.yml portainer
- 
-Acessa o site https://github.com/OpenCTI-Platform/docker clica `docker-compose.yml` clica RAW e copia tudo 
-Acessar PORTAINER/docker/stack `add stack` e colar o código
-Copiar também o `.env.sample` do cite acima e colocar o código gerado no site uuidgenerator.net no campo token e editar o restante
+
+Com o portainer instalado, vamos fazer o deploy do OPENCTI
+Acessa o site https://github.com/OpenCTI-Platform/docker clica `docker-compose.yml` clica RAW e copia tudo
+Acessar PORTAINER/docker/stacks `add stack` e colar o código
+Copiar também o `.env.sample` do site acima e colocar o código gerado no site uuidgenerator.net no campo token e editar o restante
 Colar dentro de `Environment Variable` no Portainer
-Clicar Deploy e depois acessa <IP>:8080
+Clicar Deploy e depois acessa IP:8080
 
 [Referência](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
 
