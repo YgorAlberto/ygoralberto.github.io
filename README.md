@@ -5584,7 +5584,7 @@ Vai no navegador e acesse: https://<server-ip> Coloque o login e senha anteriorm
 Ao acessar o dashboard, vai em Agents e configure de acordo com o ser server a ser monitorado, exemplo de Linux 64bits Ubuntu
 
 Antes de rodar o comando abaixo, trocar o IP par ao IP do seu servidor WAZUH
-Obs.: Repetir este processo para a config dos demais servers que deseja monitorar
+Obs.: Repetir este processo para a config dos demais servers `Debian Based`
 
     curl -so wazuh-agent-4.3.10.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.3.10-1_amd64.deb && sudo WAZUH_MANAGER='192.168.2.100' WAZUH_AGENT_GROUP='default' dpkg -i ./wazuh-agent-4.3.10.deb
 
@@ -5593,6 +5593,11 @@ Obs.: Repetir este processo para a config dos demais servers que deseja monitora
     sudo systemctl start wazuh-agent
     sudo systemctl start wazuh-manager
 
+Antes de rodar o comando abaixo, trocar o IP par ao IP do seu servidor WAZUH
+Obs.: Repetir este processo para a config dos demais servers `WINDOWS`
+
+	Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.3.11-1.msi -OutFile ${env:tmp}\wazuh-agent-4.3.11.msi; msiexec.exe /i ${env:tmp}\wazuh-agent-4.3.11.msi /q WAZUH_MANAGER='192.168.1.10' WAZUH_REGISTRATION_SERVER='192.168.1.10' WAZUH_AGENT_GROUP='default' 
+	NET START WazuhSvc
 
 Caso apresente algum erro, olhar:
 
