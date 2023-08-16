@@ -5644,6 +5644,18 @@ Nota: Ir em /management/stack-managment/index-management e deletar as indexes qu
 
 Restarta o serviço
 
+- Remover alertas do Wazuh
+
+Alterar o arquivo local do servidor
+
+	nano /var/ossec/etc/rules/local_rules.xml
+
+	<rule id="100002" level="0">
+    	   <if_sid>60106</if_sid>
+    	   <description>Rule to ignore the log</description>
+  	</rule>
+  
+
 ## OPENCTI
 
 Ferramenta de inteligencia de Cibersegurança
