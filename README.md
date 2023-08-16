@@ -5584,6 +5584,7 @@ Vai no navegador e acesse: https://<server-ip> Coloque o login e senha anteriorm
 Ao acessar o dashboard, vai em Agents e configure de acordo com o ser server a ser monitorado, exemplo de Linux 64bits Ubuntu
 
 Antes de rodar o comando abaixo, trocar o IP par ao IP do seu servidor WAZUH
+
 Obs.: Repetir este processo para a config dos demais servers `Debian Based`
 
     curl -so wazuh-agent-4.3.10.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.3.10-1_amd64.deb && sudo WAZUH_MANAGER='192.168.2.100' WAZUH_AGENT_GROUP='default' dpkg -i ./wazuh-agent-4.3.10.deb
@@ -5594,6 +5595,7 @@ Obs.: Repetir este processo para a config dos demais servers `Debian Based`
     sudo systemctl start wazuh-manager
 
 Antes de rodar o comando abaixo, trocar o IP par ao IP do seu servidor WAZUH
+
 Obs.: Repetir este processo para a config dos demais servers `WINDOWS`
 
 	Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.3.11-1.msi -OutFile ${env:tmp}\wazuh-agent-4.3.11.msi; msiexec.exe /i ${env:tmp}\wazuh-agent-4.3.11.msi /q WAZUH_MANAGER='192.168.1.10' WAZUH_REGISTRATION_SERVER='192.168.1.10' WAZUH_AGENT_GROUP='default' 
@@ -5666,10 +5668,15 @@ Instalação usando DOCKER e Portainer
 	sudo docker stack deploy --compose-file=portainer-agent-stack.yml portainer
 
 Com o portainer instalado, vamos fazer o deploy do OPENCTI
+
 Acessa o site https://github.com/OpenCTI-Platform/docker clica `docker-compose.yml` clica RAW e copia tudo
+
 Acessar PORTAINER/docker/stacks `add stack` e colar o código
+
 Copiar também o `.env.sample` do site acima e colocar o código gerado no site uuidgenerator.net no campo token e editar o restante
+
 Colar dentro de `Environment Variable` no Portainer
+
 Clicar Deploy e depois acessa IP:8080
 
 [Referência](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
