@@ -5620,13 +5620,13 @@ Modificar o arquivo para habilitar alertas adicionais
 
 Para o serviço do Wazuh
 
-        find /var/assec/logs/archives/ -type -f  -ntime +1 rm -f {} \;
-        find /var/assec/logs/alerts/ -type -f  -ntime +1 rm -f {} \;
+        find /var/assec/logs/archives/ -type f  -mtime +1 -exec rm -f {} \;
+        find /var/assec/logs/alerts/ -type f  -mtime +1 -exec rm -f {} \;
 
 Roda os comandos para deletar boa parte dos logs
 
-        find /var/assec/logs/archives/ -type -f  -ntime -15 rm -f {} \;
-        find /var/assec/logs/alerts/ -type -f  -ntime -15 rm -f {} \;
+        find /var/assec/logs/archives/ -type f  -mtime -15 -exec rm -f {} \;
+        find /var/assec/logs/alerts/ -type f  -mtime -15 -exec rm -f {} \;
 
 Caso ainda não seja o suficiente com os comando anteriores, rodar esses para apagar tudo
 
