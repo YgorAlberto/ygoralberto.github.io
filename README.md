@@ -5650,10 +5650,10 @@ Alterar o arquivo local do servidor
 
 	nano /var/ossec/etc/rules/local_rules.xml
 
-	<rule id="100002" level="0">
+       <rule id="100002" level="0">
     	   <if_sid>60106</if_sid>
     	   <description>Rule to ignore the log</description>
-  	</rule>
+       </rule>
   
 
 ## OPENCTI
