@@ -5680,15 +5680,10 @@ Instalação usando DOCKER e Portainer
 	sudo docker stack deploy --compose-file=portainer-agent-stack.yml portainer
 
 Com o portainer instalado, vamos fazer o deploy do OPENCTI
-
 Acessa o site [GitOpenCTI](https://github.com/OpenCTI-Platform/docker) clica `docker-compose.yml` clica RAW e copia tudo
-
 Acessar PORTAINER/docker/stacks `add stack` e colar o código
-
 Copiar também o `.env.sample` do site acima e colocar o código gerado no site uuidgenerator.net no campo token e editar o restante
-
 Colar dentro de `Environment Variable` no Portainer
-
 Clicar Deploy e depois acessa IP:8080
 
 [Referência](https://medium.com/@hassaann463/opencti-all-in-one-installation-guide-8a9c159e5b28)
@@ -5698,14 +5693,14 @@ Lista de videos para instalar, configurar e integrar o [OPECTI+MISP+WAZUH](https
 - Adicionar Conector ao OPENCTI
 
 [Connectors for OPENCTI ](https://github.com/OpenCTI-Platform/connectors)
- Entre no conector desejado (alienvolt) e copia o docker.composer.yml a partir de `connector` tag
- Acessa o portainer e adiciona a parte copiada em `stack->opencti->editor` e cola acima de VOLUME no final do doc
- Copiar `depends` on e `opencti` e colar no final do código copiado para "fechar" a tag
- Copiar a url do OPENCTI acima e colar no alienvault code
- Copiar o valor da variável do token acima e colar no Alienvault
- Gerar um novo [UUID](https://www.uuidgenerator.net/) e colar em CONNECTOR ID
- Gerar a API KEY em [AlienVauktKey](https://otx.alienvault.com/) e colar no código API_KEY
- E dá um Update the Stack
+Entre no conector desejado (alienvolt) e copia o docker.composer.yml a partir de `connector` tag
+Acessa o portainer e adiciona a parte copiada em `stack->opencti->editor` e cola acima de VOLUME no final do doc
+Copiar `depends` on e `opencti` e colar no final do código copiado para "fechar" a tag
+Copiar a url do OPENCTI acima e colar no alienvault code
+Copiar o valor da variável do token acima e colar no Alienvault
+Gerar um novo [UUID](https://www.uuidgenerator.net/) e colar em CONNECTOR ID
+Gerar a API KEY em [AlienVauktKey](https://otx.alienvault.com/) e colar no código API_KEY
+E dá um Update the Stack
 
 
 [Integração: Wazuh e OpenCTI](https://github.com/juaromu/wazuh-opencti)
