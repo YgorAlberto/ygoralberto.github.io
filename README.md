@@ -5698,14 +5698,14 @@ Lista de videos para instalar, configurar e integrar o [OPECTI+MISP+WAZUH](https
 - Adicionar Conector ao OPENCTI
 
 [Connectors for OPENCTI ](https://github.com/OpenCTI-Platform/connectors)
-Entre no conector desejado (alienvolt) e copia o docker.composer.yml a partir de `connector` tag
-Acessa o portainer e adiciona a parte copiada em `stack->opencti->editor` e cola acima de VOLUME no final do doc
-Copiar `depends` on e `opencti` e colar no final do código copiado para "fechar" a tag
-Copiar a url do OPENCTI acima e colar no alienvault code
-Copiar o valor da variável do token acima e colar no Alienvault
-Gerar um novo [UUID](https://www.uuidgenerator.net/) e colar em CONNECTOR ID
-Gerar a API KEY em [AlienVauktKey](https://otx.alienvault.com/) e colar no código API_KEY
-E dá um Update the Stack
+ Entre no conector desejado (alienvolt) e copia o docker.composer.yml a partir de `connector` tag
+ Acessa o portainer e adiciona a parte copiada em `stack->opencti->editor` e cola acima de VOLUME no final do doc
+ Copiar `depends` on e `opencti` e colar no final do código copiado para "fechar" a tag
+ Copiar a url do OPENCTI acima e colar no alienvault code
+ Copiar o valor da variável do token acima e colar no Alienvault
+ Gerar um novo [UUID](https://www.uuidgenerator.net/) e colar em CONNECTOR ID
+ Gerar a API KEY em [AlienVauktKey](https://otx.alienvault.com/) e colar no código API_KEY
+ E dá um Update the Stack
 
 
 [Integração: Wazuh e OpenCTI](https://github.com/juaromu/wazuh-opencti)
