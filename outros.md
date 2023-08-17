@@ -32,14 +32,14 @@ sudo nano /etc/hostname - Trocar nome da maquina
 
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
-	useradd newuser
-	useradd -m copycurruser
-	deluser newuser
-	sudo passwd newuser
-	sudo chsh -s /bin/bash newuser
-	sudo useradd -m -d /home/newuser newuser
-	sudo usermod -d /home/newuser -m newuser
-
+      useradd newuser
+      useradd -m copycurruser
+      deluser newuser
+      sudo passwd newuser
+      sudo chsh -s /bin/bash newuser
+      sudo useradd -m -d /home/newuser newuser
+      sudo usermod -d /home/newuser -m newuser
+      sudo usermod -aG group newuser
 
 Linux Bootable sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
 
