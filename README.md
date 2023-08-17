@@ -5681,7 +5681,7 @@ Instalação usando DOCKER e Portainer
 
 Com o portainer instalado, vamos fazer o deploy do OPENCTI
 
-Acessa o site https://github.com/OpenCTI-Platform/docker clica `docker-compose.yml` clica RAW e copia tudo
+Acessa o site [GitOpenCTI](https://github.com/OpenCTI-Platform/docker) clica `docker-compose.yml` clica RAW e copia tudo
 
 Acessar PORTAINER/docker/stacks `add stack` e colar o código
 
