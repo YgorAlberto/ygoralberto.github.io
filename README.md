@@ -5673,7 +5673,7 @@ Instalação usando DOCKER e Portainer
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
 	sudo usermod -aG docker $USER
-	sudo docker swarm init --advertise-addr 192.168.1.10
+	sudo docker swarm init --advertise-addr 192.168.X.X
 	sudo mkdir -p /opt/portainer && cd /opt/portainer
 	sudo curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
 	sudo nano ./portainer-agent-stack.yml (Trocar porta de "9000:9000" para "19000:9000" repetir com a "8000")
