@@ -43,6 +43,8 @@ sudo nano /etc/hostname - Trocar nome da maquina
 
 Linux Bootable sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
 
+Trocar UUID VDI VirtualBOx Image: VBoxManage internalcommands sethduuid image.vdi
+
 fdisk -l Lista os discos existentes no dispositivo
 
 fdisk /dev/sda Seleciona o disco (P lista info do disco, D deleta uma partição, W escreve as alterações)
