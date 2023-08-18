@@ -5709,8 +5709,8 @@ Lista de videos para instalar, configurar e integrar o [OPECTI+MISP+WAZUH](https
 
 Guia de instalação do MISP
 
-	wget -o /tmp/https://raw.githubusercontent.com/MISP/MISP/2.4/INSTALL/INSTALL.sh
-	bash /tmp/install.sh -A
+	wget https://raw.githubusercontent.com/MISP/MISP/2.4/INSTALL/INSTALL.sh
+	bash INSTALL.sh -A
 
 Copiar o login e senha que vai aparecer e acessar o IP:443
 
