@@ -5714,6 +5714,21 @@ Guia de instalação do MISP
 
 Copiar o login e senha que vai aparecer e acessar o IP:443
 
+INTEGRAR MISP+OPENCTI
+
+1. Entre no conector desejado (misp) e copia o docker.composer.yml a partir de `connector` tag
+2. Acessa o portainer e adiciona a parte copiada em `stack->opencti->editor` e cola acima de VOLUME no final do doc
+3. Copiar `depends` on e `opencti` e colar no final do código copiado para "fechar" a tag
+4. Copiar a url do OPENCTI acima e colar no alienvault code
+5. Copiar o valor da variável do token acima e colar no Alienvault
+6. Gerar um novo [UUID](https://www.uuidgenerator.net/) e colar em CONNECTOR ID
+7. Gerar a MISP_KEY no servidor MISP `Admin->ListAuthKeys->AddKey` e colar no código MISP_KEY
+8. Ir em `EventAction` e `AddTag` para adicionar uma nova tag e nomeie opencti:import
+9. Depois acessar um evento e adicionar a tag criada acima
+10. E informar a tag em IMPORT_TAG na stack
+11. E dá um Update the Stack
+
+
 Instalação usando DOCKER de forma MANUAL (Não funcionou)
 
 	sudo apt install docker-compose
