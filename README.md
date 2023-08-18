@@ -5716,6 +5716,8 @@ Copiar o login e senha que vai aparecer e acessar o IP:443
 
 INTEGRAR MISP+OPENCTI
 
+[Connectors for OPENCTI ](https://github.com/OpenCTI-Platform/connectors)
+
 1. Entre no conector desejado (misp) e copia o docker.composer.yml a partir de `connector` tag
 2. Acessa o portainer e adiciona a parte copiada em `stack->opencti->editor` e cola acima de VOLUME no final do doc
 3. Copiar `depends` on e `opencti` e colar no final do código copiado para "fechar" a tag
