@@ -5621,6 +5621,15 @@ Modificar o arquivo para habilitar alertas adicionais
 
     nano /var/ossec/etc/ossec.conf
 
+- Manutenção do Wazuh (Wazuh Dashboard no ready)
+
+      sudo systemctl edit wazuh-indexer  and add the following lines:
+         [Service] 
+         TimeoutStartSec=180
+      sudo systemctl daemon-reload 
+      sudo systemctl restart wazuh-indexer
+      sudo systemctl restart wazuh-dashboard
+
 - Manutenção do Wazuh (liberação de espaço de disco)
 
         systemctl stop wazuh-manager
