@@ -5678,6 +5678,27 @@ Baixa o sysmon.exe para rodar o comando posterior via CMD como administrador
 
 Roda via CMD como ADM o comando acima para ativar as configs do arquivo
 
+    <localfile>
+       <location>Microsoft-Windows-Sysmon/Operational</location>
+       <log_format>eventchannel</log_format>
+    </localfile>
+
+Colar o código acima nas configs do Wazuh (ossec.conf)
+
+Adicionar ao arquivo `local_rules` o código abaixo
+
+  	sudo nano /var/ossec/etc/rules/local_rules.xml
+
+	<group name="sysmon,">
+	 <rule id="255000" level="12">
+	 <if_group>sysmon_event1</if_group>
+	 <field name="sysmon.image">\\powershell.exe||\\.ps1||\\.ps2</field>
+	 <description>Sysmon - Event 1: Bad exe: $(sysmon.image)</description>
+	 <group>sysmon_event1,powershell_execution,</group>
+	 </rule>
+	</group>
+
+
 ## OPENCTI
 
 Ferramenta de inteligencia de Cibersegurança
