@@ -5621,7 +5621,7 @@ Modificar o arquivo para habilitar alertas adicionais
 
     nano /var/ossec/etc/ossec.conf
 
-- Manutenção do Wazuh (Wazuh Dashboard no ready)
+- Manutenção do Wazuh (Wazuh Dashboard not ready)
 
       sudo systemctl edit wazuh-indexer  and add the following lines:
          [Service] 
@@ -5664,6 +5664,19 @@ Alterar o arquivo local do servidor
     	   <description>Rule to ignore the log</description>
        </rule>
   
+- Ativar Sysmon no windows para melhorar os alertas do WAZUH
+
+      Invoke-WebRequest -Uri https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig.xml -OutFile C:\Windows\config.xml
+
+Roda no RowerShell como administrador
+
+      https://download.sysinternals.com/files/Sysmon.zip
+
+Baixa o sysmon.exe para rodar o comando posterior via CMD como administrador
+
+      sysmon64.exe –accepteula –i c:\windows\config.xml
+
+Roda via CMD como ADM o comando acima para ativar as configs do arquivo
 
 ## OPENCTI
 
