@@ -5699,7 +5699,8 @@ Adicionar ao arquivo `local_rules` o código abaixo
 	</group>
 
 - Ativar logs do windows
-Configurar os logs do firewall
+
+Configurando os logs do firewall
 
 Computer -> Windows -> Security -> Defender -> Win Def Firewall Settings
 Vai em Logging `Customize` e desmarca `Não configurado`
@@ -5710,6 +5711,10 @@ Configurando os logs de Instalação
 GPO -> Computer -> ADM Templates -> Win Components -> Win Installer -> Logging
 Clicar Enable -> logging ON
 Salva e sai
+
+Configurando os logs de auditoria
+
+	Auditpol /set /Category:System /failure:enable
 
 ## OPENCTI
 
