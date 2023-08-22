@@ -5698,6 +5698,12 @@ Adicionar ao arquivo `local_rules` o código abaixo
 	 </rule>
 	</group>
 
+- Ativar logs do firewall no windows
+Configurar os logs do firewall
+
+Computer -> Windows -> Security -> Defender -> Win Def Firewall Settings
+Vai em Logging `Customize` e desmarca `Não configurado`
+Salva e sai
 
 ## OPENCTI
 
