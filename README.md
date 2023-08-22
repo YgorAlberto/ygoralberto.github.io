@@ -5716,6 +5716,47 @@ Configurando os logs de auditoria
 
 	Auditpol /set /Category:System /failure:enable
 
+- Integrar Wazuh com MISP
+
+Criar o arquivo [Custom-MISP.py](https://gist.githubusercontent.com/OpenSecureCo/65b65be1b2cb170dcea9d6cf09710b38/raw/300fe0736eee196c96cdb0f2ac00bdad3a5f9c6a/custom-misp.py)
+Colocar o arquivo em `/var/ossec/integrations`
+Trocar a `URL` e a `APY_KEY`
+
+	<integration>
+	    <name>custom-misp.py</name>
+	 <group>sysmon_event1,sysmon_event3,sysmon_event6,sysmon_event7,sysmon_event_15,sysmon_event_22,syscheck</group>
+	    <alert_format>json</alert_format>
+	</integration>
+
+Adicionar o código acima em `ossec.conf`
+
+	<group name="misp,">
+	  <rule id="100620" level="10">
+	    <field name="integration">misp</field>
+	    <match>misp</match>
+	    <description>MISP Events</description>
+	    <options>no_full_log</options>
+	  </rule>
+	  <rule id="100621" level="5">
+	    <if_sid>100620</if_sid>
+	    <field name="misp.error">\.+</field>
+	    <description>MISP - Error connecting to API</description>
+	    <options>no_full_log</options>
+	    <group>misp_error,</group>
+	  </rule>
+	  <rule id="100622" level="12">
+	    <field name="misp.category">\.+</field>
+	    <description>MISP - IoC found in Threat Intel - Category: $(misp.category), Attribute: $(misp.value)</description>
+	    <options>no_full_log</options>
+	    <group>misp_alert,</group>
+	  </rule>
+	</group>
+
+Adicionar a regra `misp_rule.xml`
+
+[Reference](https://opensecure.medium.com/wazuh-and-misp-integration-242dfa2f2e19)
+DONE
+
 ## OPENCTI
 
 Ferramenta de inteligencia de Cibersegurança
