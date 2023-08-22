@@ -5723,8 +5723,7 @@ Colocar o arquivo em `/var/ossec/integrations`
 Trocar a `URL` e a `APY_KEY`
 
 	<integration>
-	    <name>custom-misp.py</name>
-	 <group>sysmon_event1,sysmon_event3,sysmon_event6,sysmon_event7,sysmon_event_15,sysmon_event_22,syscheck</group>
+	    <name>custom-misp.py</name>     				<group>sysmon_event1,sysmon_event3,sysmon_event6,sysmon_event7,sysmon_event_15,sysmon_event_22,syscheck</group>
 	    <alert_format>json</alert_format>
 	</integration>
 
@@ -5755,7 +5754,7 @@ Adicionar o código acima em `ossec.conf`
 Adicionar a regra `misp_rule.xml`
 
 [Reference](https://opensecure.medium.com/wazuh-and-misp-integration-242dfa2f2e19)
-DONE
+[Video](https://www.youtube.com/watch?v=-qRMDxZpnWg)
 
 ## OPENCTI
 
