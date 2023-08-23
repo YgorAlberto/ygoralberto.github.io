@@ -5563,6 +5563,14 @@ Rodar todos esses comandos com atenção e observando se tudo está ok. Após ro
 
 4.1- Ou Esperar aparecer `current` em todos os campos do feed status (isso pode demorar uma hora ou mais)
 
+Depois de tudo OK Acessa o terminal
+
+	cd /tmp/
+	sed -i"" "s/DEFAULT_TIMEOUT = 60/DEFAULT_TIMEOUT = 999999/g" /usr/lib/python3/dist-packages/gvm/connections.py
+	sudo -u _gvm gvm-script --gmp-username user --gmp-password "P@ss" socket --socketpath /var/run/gvmd/gvmd.sock /tmp/gen_report_full.py 15ce5a51-43ef-465a-a4d3-b65dd1d0d61f /tmp/COMPANY_NETWORK_IP_DATE
+	cp /home/user/script-report.py /tmp/
+	pip3 install OpenVAS-Reporting && pip install gvm-tools
+	openvasreporting -i /tmp/COMPANY_NETWORK_NW_DATE.xml -o /tmp/COMPANY_NETWORK_IP_DATE  -f xlsx
 
 ## DEPLOY RAPIDO DE UM SIEM WAZUH
 
