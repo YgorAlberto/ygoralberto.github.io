@@ -5710,7 +5710,7 @@ Adicionar ao arquivo `local_rules` o código abaixo
 
 Configurando os logs do firewall
 
-Computer -> Windows -> Security -> Defender -> Win Def Firewall Settings
+Acessa as GPO e vai em Computer -> Windows -> Security -> Defender -> Win Def Firewall Settings
 Vai em Logging `Customize` e desmarca `Não configurado`
 Salva e sai
 
