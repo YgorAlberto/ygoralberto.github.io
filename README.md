@@ -5547,7 +5547,7 @@ Comandos para atualizad o GreenBone
 
 	sudo apt update && sudo apt upgrade
 	sudo reboot
-	sudo gvm-feed-update
+	sudo greenbone-feed-sync
 	sudo gvm-check-setup
 	sudo gvm-start
 
