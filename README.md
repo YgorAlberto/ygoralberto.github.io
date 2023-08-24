@@ -5543,8 +5543,10 @@ Para setar os alvos vai em: Configuration -> Targets -> Clica novo -> PortList s
 
 - UPDATE OPENVAS
 
+Comandos para atualizad o GreenBone
+
 	sudo apt update && sudo apt upgrade
- 	sudo reboot
+	sudo reboot
 	sudo gvm-feed-update
 	sudo gvm-check-setup
 	sudo gvm-start
