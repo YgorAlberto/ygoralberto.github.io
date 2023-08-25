@@ -48,7 +48,7 @@ Trocar UUID VDI VirtualBOx Image: VBoxManage internalcommands sethduuid image.vd
 	sudo nano /etc/rc.local
 	openvpn --config /caminho/para/seuarquivo.ovpn &
 
-Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar
+Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
 fdisk -l Lista os discos existentes no dispositivo
 
