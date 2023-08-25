@@ -5559,6 +5559,7 @@ Rodar todos esses comandos com atenção e observando se tudo está ok. Após ro
 
 Erro na interface web - não carrega
 
+ 	cd /lib/systemd/system
         sed -e 's/127.0.0.1/preferredIPaddress/g' greenbone-security-assistant.service openvas-manager.service openvas-scanner.service -i
 
 O comando é usado para trocar o IP localhost por um ip de preferência
