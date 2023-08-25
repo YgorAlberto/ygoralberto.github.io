@@ -5557,6 +5557,12 @@ Comandos para atualizad o GreenBone
 
 Rodar todos esses comandos com atenção e observando se tudo está ok. Após rodar, acessar a web novamente e gerar os relatórios
 
+Erro na interface web - não carrega
+
+        sed -e 's/127.0.0.1/preferredIPaddress/g' greenbone-security-assistant.service openvas-manager.service openvas-scanner.service -i
+
+O comando é usado para trocar o IP localhost por um ip de preferência
+
 - Gerar relatório
 
 1- Primeiro passo é filtrar todas as informações, para isso pode ser criado um filtro
