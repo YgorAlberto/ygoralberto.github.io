@@ -178,6 +178,10 @@ Faz os mesmo do comando acima
 
 Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada linha
 
+    sed '/sss/a linha depois' teste
+
+Insere um texto especifico depois ou antes da palavra da linha informada, para inserir antes usar o `i` no lugar do `a`
+
     cat file.txt | tr '\n' ','
 
 Ler o arquivo que esta em lista e coloca tudo em uma só linha separando os itens por virgula
