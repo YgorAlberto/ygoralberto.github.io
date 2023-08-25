@@ -5557,7 +5557,7 @@ Comandos para atualizad o GreenBone
 
 Rodar todos esses comandos com atenção e observando se tudo está ok. Após rodar, acessar a web novamente e gerar os relatórios
 
-Erro na interface web - não carrega
+Erro na interface web, não carrega
 
  	cd /lib/systemd/system
         sed -e 's/127.0.0.1/preferredIPaddress/g' greenbone-security-assistant.service openvas-manager.service openvas-scanner.service -i
