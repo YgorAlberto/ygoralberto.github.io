@@ -428,6 +428,12 @@ Pronto, basta acessar o seu IP e conseguirá acessar sua câmera.
 
 Referência: https://www.hostinger.com.br/tutoriais/redirecionamento-php
 
+- Raspberry com bloqueio de root locked root não inicia
+
+  Coloca o cartão no pc monta e no disco de boot procura por `cmdline.txt` e adiciona ao final da linha `init=/bin/sh`
+  Salva e liga o raspberry novamente e com acesso ao CLI desfaça as modificaçoes feitas anteriormente que fizeram dar erro
+
+[Reference](https://samx18.io/blog/2017/11/05/piBootIssue.html)
 
 ## DEPLOY RAPIDO DE UM SIEM WAZUH
 
