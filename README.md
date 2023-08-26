@@ -4752,6 +4752,10 @@ Pega a tabela de agendamento de tarefas
 
 Pega os arquivos que tem permissão de escrita pelo user atual
 
+    find /caminho/do/diretorio -user fernando -perm /u=wx
+
+Pega os arquivos do usuário fernando que tem permissão de execução e escrita pelo user atual
+
     find / -perm -u=s -type f 
 
 Pega os arquivos do usuário com priv alto
