@@ -4752,7 +4752,7 @@ Pega a tabela de agendamento de tarefas
 
 Pega os arquivos que tem permissão de escrita pelo user atual
 
-    find /caminho/do/diretorio -user fernando -perm /u=wx
+    find /caminho/do/diretorio -user fernando -type f \( -perm -u=wx \) -print
 
 Pega os arquivos do usuário fernando que tem permissão de execução e escrita pelo user atual
 
