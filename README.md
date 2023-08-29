@@ -5932,5 +5932,48 @@ Ferramenta para localizar telefone
 
 Ferramenta crawling web que faz uma busca avaçada por hrefs e outros termos interessantes
 
+##VPN forward to Host
+
+To access the network of the VPN connected to your guest Windows machine from your host Kali machine, you'll need to set up routing and potentially enable IP forwarding on the Windows guest. Here's a general guideline to achieve this:
+
+1. **IP Forwarding on Windows Guest:**
+
+   First, make sure your guest Windows machine is set up to allow IP forwarding. This will allow the Windows machine to forward packets from the VPN network to the host machine.
+
+   - Open the Windows Registry Editor (regedit).
+   - Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters`.
+   - Find or create a DWORD value named `IPEnableRouter` and set its value to `1`.
+   - Restart the Windows machine.
+
+2. **Routing Configuration on Windows Guest:**
+
+   Next, you'll need to set up specific routes on your Windows guest so that traffic destined for the VPN network is properly forwarded to the host machine.
+
+   - Open a Command Prompt with administrative privileges on the Windows guest.
+   - Use the `route` command to add a route that directs traffic to the VPN network (replace `VPN_NETWORK` with the actual VPN network's IP range and subnet mask, and `GUEST_VPN_GATEWAY` with the Windows guest's VPN gateway IP address):
+   
+     ```
+     route -p ADD VPN_NETWORK MASK VPN_SUBNET_MASK GUEST_VPN_GATEWAY METRIC 10
+     ```
+   
+   - The `-p` flag makes the route persistent across reboots.
+
+3. **Network Configuration on Kali Host:**
+
+   On your Kali host, you need to configure routing so that it knows how to reach the VPN network through the Windows guest.
+
+   - Open a terminal on your Kali host.
+   - Use the `route` command to add a route that directs traffic to the VPN network through the Windows guest's IP address (replace `GUEST_IP` with the actual IP address of the Windows guest on your Kali host's network):
+   
+     ```
+     sudo route add VPN_NETWORK MASK VPN_SUBNET_MASK GUEST_IP
+     ```
+   
+   - This should instruct your Kali machine to send traffic destined for the VPN network through the Windows guest.
+
+Remember to replace placeholders like `VPN_NETWORK`, `VPN_SUBNET_MASK`, `GUEST_VPN_GATEWAY`, and `GUEST_IP` with the actual values from your network setup.
+
+Please note that the specific steps might vary depending on your network configuration, versions of operating systems, and other factors. Also, keep in mind that altering network settings can have security implications. Always ensure you understand the changes you're making and how they might impact your network's security.
+
 
 ## NEXT TUTO HERE SOON
