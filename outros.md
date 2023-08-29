@@ -55,6 +55,24 @@ sudo nano /etc/hostname - Trocar nome da maquina
       sudo dhclient wlan0
       sudo route add default gw 192.168.10.1 dev wlan0
 
+- Iniciar um serviço junto com boot na inicialização de rede network interfaces
+
+      sudo nano /lib/systemd/system/myscript-script.service
+
+		[Unit]
+		Description=Meu script para testes
+		Wants=network-online.target
+		After=network.target
+		
+		[Service]
+		ExecStart=/bin/bash /diretorio/meu-script.sh
+		
+		[Install]
+		WantedBy=multi-user.target
+
+      sudo systemctl daemon-reload
+      sudo systemctl enable myscript-script.service
+
 Linux Bootable sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
 
 Trocar UUID VDI VirtualBOx Image: VBoxManage internalcommands sethduuid image.vdi
