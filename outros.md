@@ -41,6 +41,20 @@ sudo nano /etc/hostname - Trocar nome da maquina
       sudo usermod -d /home/newuser -m newuser
       sudo usermod -aG group newuser
 
+- Gerenciamento de interfaces de rede network interfaces
+
+      sudo ifconfig eth0 up
+      sudo ifconfig eth0 192.168.20.20 netmask 255.255.255.0
+      sudo route add default gw 192.168.20.1 dev eth0
+      sudo ifconfig wlan0 up
+      iw dev wlan0 scan |grep SSID
+      networkctl --no-pager
+      sudo wpa_passphrase SSI-NAME P@ss\$2022  > /etc/wpa_supplicant.conf
+      wpa_supplicant -B -iwlan0 -c /etc/wpa_supplicant.conf
+      iw wlan0 link    
+      sudo dhclient wlan0
+      sudo route add default gw 192.168.10.1 dev wlan0
+
 Linux Bootable sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
 
 Trocar UUID VDI VirtualBOx Image: VBoxManage internalcommands sethduuid image.vdi
