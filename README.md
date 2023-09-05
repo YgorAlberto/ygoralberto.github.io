@@ -4756,6 +4756,10 @@ Pega os arquivos que tem permissão de escrita pelo user atual
 
 Pega os arquivos do usuário fernando que tem permissão de execução e escrita pelo user atual
 
+    find / -perm -4000 2>/dev/null
+
+Find All SUID binaries
+
     find / -perm -u=s -type f 
 
 Pega os arquivos do usuário com priv alto
