@@ -5675,14 +5675,16 @@ Roda os comandos para deletar boa parte dos logs
 
 Caso ainda não seja o suficiente com os comando anteriores, rodar esses para apagar tudo
 
+	curl -XGET https://<ipwazuh>:9200/_cat/indices -k -u <user>:<pass>
+	curl -XDELETE https://<ipwazuh>:9200/wazuh-alerts-4.x-2022.04.* -k -u <user>:<pass> 
 
-Nota: Ir em /management/stack-managment/index-management e deletar as indexes que estão ocupando muito espaço.
-
-        systemctl restart wazuh-manager
+Liberando mais disco: Os comandos acima servem ver os indexes no SIEM e para deletar os idices de acordo com o mes passado, respectivamente.
+ 
+	systemctl restart wazuh-manager
 
 Restarta o serviço
 
-- Remover alertas do Wazuh
+- Silenciar alertas no Wazuh
 
 Alterar o arquivo local do servidor
 
