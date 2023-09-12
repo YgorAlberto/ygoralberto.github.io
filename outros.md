@@ -299,35 +299,28 @@ Refer: https://www.guidingtech.com/how-to-activate-windows-11-for-free/
 
 
 Modo fácil e descomplicado de instalar o linux no windows usando o WSL
-
 Full tutorial HERE! https://docs.microsoft.com/en-us/windows/wsl/install-win10
-
 
 Abra o CMD como ADM e rode o seguinte comando:
 
-->dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-
-->dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
 Download o pacote de instalação do WSL:
-
 Instale o pacote de UPDATE do WSL;
-
-https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-
-Reinicie o computador;
+          
+    https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+    shutdown -r -t 1
 
 Rode o comando:
 
-->wsl --set-default-version 2
+    wsl --set-default-version 2
 
 Instale a Distro que preferir, usando a loja da Microsoft;
-
 Inicie a Distro e Configure-a;
-
 Habilite a distro para usar a versão 2 do WSL
 
-->wsl --set-version kali-linux 2
+    wsl --set-version kali-linux 2
 
 DENTRO da DISTRO
 
