@@ -2365,6 +2365,10 @@ Prepara o arquivo para quebrar senha no John
 
 Prepara o arquivo para quebrar a senha com o john
 
+    ssh2john id_rsa > id_rsa_hash 
+
+Cria o arquivo com a hash para quebrar no John posteriormente
+
     john --wordlist=wl.txt --rules --stdout > mutacao 
 
 Mutando uma wordlist existente
