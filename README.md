@@ -9,7 +9,11 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 .
 
 	nmap -vvv -sV -sC -O -p -T 5 -A  --script vuln -Pn <PORTS> <IP>
-	
+
+. 
+
+        cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
+ 
 .
 	
 	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -r -k -t 100 -e --no-error -r -o gobuster -a Mozilla/5.0 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js
