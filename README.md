@@ -5571,10 +5571,19 @@ Rodar todos esses comandos com atenção e observando se tudo está ok. Após ro
 
 Erro na interface web, não carrega
 
- 	cd /lib/systemd/system
-        sed -e 's/127.0.0.1/preferredIPaddress/g' greenbone-security-assistant.service openvas-manager.service openvas-scanner.service -i
-
+    cd /lib/systemd/system
+    sed -e 's/127.0.0.1/preferredIPaddress/g' greenbone-security-assistant.service openvas-manager.service openvas-scanner.service -i
+    sudo daemon-reload
+    
 O comando é usado para trocar o IP localhost por um ip de preferência
+
+    openssl s_client -connect 10.1.1.130:443
+
+Verificar se a conexão está ok
+
+    $INSTALL_PREFIX/var/log/gvm/gsad.log
+
+Verificar os logs
 
 - Gerar relatório
 
