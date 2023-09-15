@@ -75,7 +75,13 @@ sudo nano /etc/hostname - Trocar nome da maquina
 
 Linux Bootable sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
 
-Trocar UUID VDI VirtualBOx Image: VBoxManage internalcommands sethduuid image.vdi
+    VBoxManage internalcommands sethduuid image.vdi
+
+Trocar UUID VDI VirtualBox Image
+
+    Acessar os discos e ir em -> release -> remove e add o disco novamente
+
+Resolver problema de UUID em VirtualBox.xml
 
 	sudo nano /etc/rc.local
 	openvpn --config /caminho/para/seuarquivo.ovpn &
