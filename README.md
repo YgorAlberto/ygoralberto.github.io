@@ -5998,5 +5998,13 @@ Remember to replace placeholders like `VPN_NETWORK`, `VPN_SUBNET_MASK`, `GUEST_V
 
 Please note that the specific steps might vary depending on your network configuration, versions of operating systems, and other factors. Also, keep in mind that altering network settings can have security implications. Always ensure you understand the changes you're making and how they might impact your network's security.
 
+## LABS THM
+
+Lessons learned from THM
+
+Exploit para TOMCAT lab (TOMGHOST)
+	admin/http/tomcat_ghostcat
+
+Quebra de chave GPG e leitura de arquivo encriptado: Com a chave tryhackme.asc e o arquivo credential.pgp fizemos o seguinte, com o `gpg2john tryhackme.asc` pegamos a chave .asc e com a chave jogamos no `john` e quebramos encontrando a senha, então importamos o arquivo `gpg --import tryhackme.asc` e colocamos a senha quebrada, e ao dar um cat no `credential.pgp` colocamos a senha e tivemos acesso ao arquivo encriptado.
 
 ## NEXT TUTO HERE SOON
