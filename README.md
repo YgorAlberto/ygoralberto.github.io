@@ -2013,6 +2013,9 @@ Nota: Tipo de hash das senhas do linux: CRYPT
 
 [Compilador alternativo portável GCC:](https://bellard.org/tcc/)
 
+
+[GLIBC_Compiling](https://www.linkedin.com/pulse/compiling-exploits-old-machines-chance-johnson)
+
 loncrack: Ferramenta do Longatto para quebra de hashes
 
         gcc loncrack.c -lcrypt -o loncrack 
