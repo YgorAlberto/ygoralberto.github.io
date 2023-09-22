@@ -6020,6 +6020,7 @@ Stegonografia
 
 Ferramentas: `Exiftool` - `stegcracker` - `binwalk` - `steghide extrackt -sf picture.png -p password`
 [Ferramenta Online](https://www.aperisolve.com)
+[Procura imagem na internet](https://tineye.com/)
 
 
 ## NEXT TUTO HERE SOON
