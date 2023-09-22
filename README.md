@@ -6016,4 +6016,9 @@ Exploit para TOMCAT lab (TOMGHOST)
 
 Quebra de chave GPG e leitura de arquivo encriptado: Com a chave tryhackme.asc e o arquivo credential.pgp fizemos o seguinte, com o `gpg2john tryhackme.asc` pegamos a chave .asc e com a chave jogamos no `john` e quebramos encontrando a senha, então importamos o arquivo `gpg --import tryhackme.asc` e colocamos a senha quebrada, e ao dar um cat no `credential.pgp` colocamos a senha e tivemos acesso ao arquivo encriptado.
 
+Stegonografia
+
+Ferramentas: `Exiftool` e `stegcracker`
+[Ferramenta Online](https://www.aperisolve.com)
+
 ## NEXT TUTO HERE SOON
