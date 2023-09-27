@@ -41,7 +41,7 @@ sudo nano /etc/hostname - Trocar nome da maquina
       sudo usermod -d /home/newuser -m newuser
       sudo usermod -aG group newuser
 
-- Gerenciamento de interfaces de rede network interfaces
+- Gerenciamento de interfaces de rede network interfaces [Referencias](https://wiki.netbsd.org/tutorials/how_to_use_wpa_supplicant/)
 
       sudo ifconfig eth0 up
       sudo ifconfig eth0 192.168.20.20 netmask 255.255.255.0
@@ -54,6 +54,12 @@ sudo nano /etc/hostname - Trocar nome da maquina
       iw wlan0 link    
       sudo dhclient wlan0
       sudo route add default gw 192.168.10.1 dev wlan0
+	  network={
+        	  ssid="Capcana Wi-fi"
+  		  key_mgmt=NONE
+        	  priority=100
+  	  }
+
 
 - Iniciar um serviço junto com boot na inicialização de rede network interfaces
 
