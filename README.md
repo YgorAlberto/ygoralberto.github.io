@@ -2070,11 +2070,11 @@ Obs.:Todos são bloqueados por execução e precisam de acesso administrativo
 
 Local de backup desses arquivos (xp e 2003) possivelmente está desatualizado
 
-    reg save hklm/sam sam 
+    reg save hklm\sam sam 
 
 Salva o arquivo SAM do Reg do Win (root) all version
 
-    reg save hklm/system system 
+    reg save hklm\system system 
 
 Salva o arquivo System do Reg do Win (root) all version
 
