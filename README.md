@@ -3618,7 +3618,7 @@ Compila o código executável (exploit)
 ## PENTEST WEB - WEB HACKING
 
 
-Ferramentas: Gobuster, burp suite
+Ferramentas: Gobuster, burp suite , [homebrew](https://epi052.github.io/feroxbuster-docs/docs/installation/install-homebrew/)
 
     http://burp Para baixar o certificado e configurar no navegador.
     FoxProxy Plugin para ativar e desativar o proxy sem precisar ficar configurando
