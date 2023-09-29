@@ -2120,6 +2120,7 @@ Nota: exploit-Windows-Eternalblue-win8 RHOST 192.168.1.233
 
 	sudo apt install bloodhound
 	sudo console neo4j
+ 	http://localhost:7474/browser/
 	bloodhound
 
 .
