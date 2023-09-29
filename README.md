@@ -2122,11 +2122,11 @@ Nota: exploit-Windows-Eternalblue-win8 RHOST 192.168.1.233
 	sudo console neo4j
  	http://localhost:7474/browser/
 	bloodhound
- 	 -> NO ALVO
-   	powershell -ep bypass
-        ..\Downloads\SharpHound.ps1
+	-> NO ALVO
+	powershell -ep bypass
+	..\Downloads\SharpHound.ps1
 	Invoke-Bloodhound -CollectionMethod All -Domain CONTROLLER.local -ZipFileName loot.zip 
-	 -> COPIA o arquivo LOOT.ZIP gerado para o BLOODHOUND
+	-> COPIA o arquivo LOOT.ZIP gerado para o BLOODHOUND
 .
 
     vssadmin list volumes 
