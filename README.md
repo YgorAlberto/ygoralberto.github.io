@@ -2113,7 +2113,14 @@ Usa a SESSION mas não precisa da confirmação do user
 
 Nota: exploit-Windows-Eternalblue-win8 RHOST 192.168.1.233
 
-- Explorando o AD [Ferramenta enumeração Active Directory -sudo apt install BLOODHOUND-](https://github.com/BloodHoundAD/BloodHound)
+- Explorando o AD
+.
+
+[Ferramenta enumeração Active Directory -BLOODHOUND-](https://github.com/BloodHoundAD/BloodHound)
+
+	sudo apt install bloodhound
+	sudo console neo4j
+	bloodhound
 
 .
 
