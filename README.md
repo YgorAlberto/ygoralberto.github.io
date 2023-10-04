@@ -6042,5 +6042,28 @@ Ferramentas: `Exiftool` - `stegcracker` - `binwalk` - `steghide extrackt -sf pic
 [Ferramenta Online](https://www.aperisolve.com)
 [Procura imagem na internet](https://tineye.com/)
 
+##SETTING RDP with Xfce on KALI
+
+Create a script to run:
+	
+	#!/bin/sh
+	echo "[i] Updating and upgrading Kali (this will take a while)"
+	apt-get update
+	apt-get full-upgrade -y
+	
+	echo "[i] Installing Xfce4 & xrdp (this will take a while as well)"
+	apt-get install -y kali-desktop-xfce xorg xrdp
+	
+	echo "[i] Configuring xrdp to listen to port 3390 (but not starting the service)"
+	sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
+
+Now run the following
+
+	wget https://gitlab.com/kalilinux/recipes/kali-scripts/-/raw/main/xfce4.sh
+	chmod +x xfce4.sh
+	sudo ./xfce4.sh
+	sudo systemctl enable xrdp --now
+	sudo /etc/init.d/xrdp start
+
 
 ## NEXT TUTO HERE SOON
