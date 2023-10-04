@@ -6042,7 +6042,7 @@ Ferramentas: `Exiftool` - `stegcracker` - `binwalk` - `steghide extrackt -sf pic
 [Ferramenta Online](https://www.aperisolve.com)
 [Procura imagem na internet](https://tineye.com/)
 
-##SETTING RDP with Xfce on KALI
+## SETTING RDP with Xfce on KALI
 
 Create a script to run:
 	
