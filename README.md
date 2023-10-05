@@ -4,15 +4,12 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 
 ## COMANDOS RÁPIDOS
 
-	nmap -vvv  -sS --open -Pn -p- -T 5 <IP>
 
-.
-
-	nmap -vvv -sV -sC -O -p -T 5 -A  --script vuln -Pn <PORTS> <IP>
+	nmap -vv -sV -sC -O -p- -A --script vuln -Pn --open -oN saida-save 10.10.10.0/24
 
 . 
 
-        cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
+	cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
  
 .
 	
