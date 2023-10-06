@@ -6044,6 +6044,11 @@ Postexploitation
 While with meterpreter session, run the post exploitation for privesc
 
 	run post/multi/recon/local_exploit_suggester
+ 
+ After run the exploit with the current session, run the command above: Firts to list NT System process, second to use the process to get privesc
+
+	ps
+	migrate -n spoolsv.exe
 
 ## SETTING RDP with Xfce on KALI
 
