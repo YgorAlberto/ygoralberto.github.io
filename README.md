@@ -427,8 +427,8 @@ Procura pacotes que usaram o serviço DNS
 	for ip in {1..10}; do echo 192.168.2.$ip;done
 	while true; do echo "Hacked"; done
 	sed 's/.$//' Substitui o último caractere
+ 	sed 's/^.//' Substitui o primeiro caractere
 	hping3 -S -p 80 -c 1 host Pingar porta específica
-
 
 1> STDOUT
 
