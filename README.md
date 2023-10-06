@@ -6050,6 +6050,10 @@ While with meterpreter session, run the post exploitation for privesc
 	ps
 	migrate -n spoolsv.exe
 
+If RDP are not available on the machine, we can use the post exploit to enable it and open RDP
+
+	run post/windows/manage/enable_rdp
+
 ## SETTING RDP with Xfce on KALI
 
 Now run the following
