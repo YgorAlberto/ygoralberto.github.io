@@ -190,6 +190,10 @@ Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada
 
 Insere um texto especifico depois ou antes da palavra da linha informada, para inserir antes usar o `i` no lugar do `a`
 
+    sed -i.bak -e '5,10d;12d' file
+
+Deleta a linha informada no exemplo é da linha 5 até 10 e a linha 12. Esse comando ja salva no arquivo remover o `-i.bak` para printar o resultado
+
     cat file.txt | tr '\n' ','
 
 Ler o arquivo que esta em lista e coloca tudo em uma só linha separando os itens por virgula
