@@ -5638,6 +5638,10 @@ Verificar se a conexão está ok
 
 Verificar os logs
 
+Notes: Quando rodar o Check-Setup e aparecer a mensagem "" de Rode os comando `sudo pg_lsclusters` e de acordo com a saída dê um upgrade no último `pg_upgradecluster 15` e depois rode e `sudo systemctl restart postgresql` -> `sudo gvm-setup` -> `sudo greenbone-feed-sync` -> `sudo gvm-check-setup` depois pode acessar a web.
+
+	
+
 - Gerar relatório
 
 1- Primeiro passo é filtrar todas as informações, para isso pode ser criado um filtro
