@@ -2327,7 +2327,7 @@ Validar usuários encontrados e tentar saber qual tem permissão de execução d
 
     python3 /usr/share/doc/python3-impacket/examples/psexec.py dominio/usuario:'senha@192.168.1.253' 
 
-Faz a autenticação usando o psexec podendo também usar o metasploit
+Faz a autenticação usando o psexec podendo também usar o metasploit (PTH Pass The Hash)
 
 
 Nota: Com o usuário com permissão de execução de comandos, pode-se acessar o rpcclient e enumerar mais informações do servidor de AD.
@@ -6097,5 +6097,19 @@ Now run the following
 	sudo systemctl enable xrdp --now
 	sudo /etc/init.d/xrdp start
 
+## Pass The Hash
+
+Checklist:
+
+	pth-winexe
+	psexec.py
+ 	wmiexec.py
+ 	psexec from metasploit
+	smbclient.py
+	pth-smbclient
+	crackmapexec
+	pth-wmi
+	
+Set on the hash the first two hahes inside the `:`
 
 ## NEXT TUTO HERE SOON
