@@ -5537,6 +5537,8 @@ Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centise
 
 ## ALEATORY NOTES
 
+Ferramenta de shell interativa web `WEEVELY`
+
 - INFORMATION GATHERING
 
 Websites for search: 
