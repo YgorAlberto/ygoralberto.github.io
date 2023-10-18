@@ -6099,6 +6099,8 @@ Now run the following
 	sudo systemctl enable xrdp --now
 	sudo /etc/init.d/xrdp start
 
+[Another TUTO - XRDP no Kali ](https://blog.eldernode.com/kali-linux-xrdp-not-working/)
+
 ## Pass The Hash
 
 Checklist:
