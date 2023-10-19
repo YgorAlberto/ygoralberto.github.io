@@ -6127,4 +6127,39 @@ Checklist:
 Ferramenta de descoberta de ativos de rede de forma rápida e simples `netdiscover -r 10.10.10.0/24` 
 Mostra MAC - Brand - IP | Semelhante ao Advanced IP Scanner pra Windows
 
+Ferramenta para listar os IPs de uma subnet - util para fazer bruteforce com ferramentar que nao aceitam passar a rede/mascara
+
+	import sys
+	import ipaddress
+	
+	def calculate_ip_addresses(network_input):
+	    try:
+	        # Parse the input and create an IPv4Network object
+	        network = ipaddress.IPv4Network(network_input, strict=False)
+	        
+	        # List all IP addresses within the network
+	        ip_addresses = list(network.hosts())
+	
+	        # Return the list of IP addresses
+	        return ip_addresses
+	    except ValueError as e:
+	        return "Invalid input. Please provide a valid CIDR notation (e.g., 10.1.1.0/24)."
+	    except ipaddress.NetmaskValueError as e:
+	        return "Invalid subnet mask. Please provide a valid CIDR notation (e.g., 10.1.1.0/24)."
+	
+	if __name__ == "__main__":
+	    if len(sys.argv) != 2:
+	        print("Usage: python script_name.py <network>")
+	        sys.exit(1)
+	
+	    network_input = sys.argv[1]
+	    result = calculate_ip_addresses(network_input)
+	
+	    if isinstance(result, str):
+	        print(result)
+	    else:
+	        for ip in result:
+	            print(ip)
+
+
 ## NEXT TUTO HERE SOON
