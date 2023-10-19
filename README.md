@@ -6124,4 +6124,7 @@ Checklist:
  
 [LinkBOMB](https://github.com/dievus/lnkbomb)
 
+Ferramenta de descoberta de ativos de rede de forma rápida e simples `netdiscover -r 10.10.10.0/24` 
+Mostra MAC - Brand - IP | Semelhante ao Advanced IP Scanner pra Windows
+
 ## NEXT TUTO HERE SOON
