@@ -30,6 +30,8 @@ uname -a - Mostra o Sistema Operacional Rodando
 
 sudo nano /etc/hostname - Trocar nome da maquina
 
+zip -re output_data.zip gfg - criar arquivo zip com senha
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
