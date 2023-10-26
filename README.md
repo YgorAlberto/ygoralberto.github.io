@@ -6010,7 +6010,9 @@ Ferramenta para localizar telefone
 
 Ferramenta crawling web que faz uma busca avaçada por hrefs e outros termos interessantes
 
-Ferramenta de análise de tráfego de rede que ta entrando e saindo NETWORK MINER, baixa seleciona a placa de rede e aparecerá todo tráfego
+Ferramenta de análise de tráfego de rede que ta entrando e saindo `NETWORK MINER`, baixa seleciona a placa de rede e aparecerá todo tráfego
+
+Ferramenta de [Espionagem](https://www.hispy.io/) paga HISPY 
 
 ##VPN forward to Host
 
