@@ -6124,14 +6124,14 @@ Checklist:
 
 [References from above](https://meriemlarouim.medium.com/pass-the-hash-gaining-access-without-cracking-passwords-ce67c267c491)
  
-[Another]([url](https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)
+PassTheHash [Examples]([url](https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)
  
-[LinkBOMB](https://github.com/dievus/lnkbomb)
+Explorar o ativo inserindo um atalho no compartilhamento [LinkBOMB](https://github.com/dievus/lnkbomb) 
 
 Ferramenta de descoberta de ativos de rede de forma rápida e simples `netdiscover -r 10.10.10.0/24` 
 Mostra MAC - Brand - IP | Semelhante ao Advanced IP Scanner pra Windows
 
-Ferramenta para listar os IPs de uma subnet - util para fazer bruteforce com ferramentar que nao aceitam passar a rede/mascara
+Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforce com ferramentar que nao aceitam passar a rede/mascara
 
 	import sys
 	import ipaddress
