@@ -4957,7 +4957,7 @@ Filmes:
 
 - Campanhas de Phishing
 
-Ferramenta `GoPhish github/gophish/releases`, coloca o ip no `.config` dá `chmod` e `./gophish` e acessa o link configura alvo, template origem e o email caso seja Gmail `smtp.gmail.com:587` a conta deve ter `less security` app access deve estar on e o 2FA desabilitado Login e senha é o email e senha do email de envio
+Ferramenta `GoPhish github/gophish/releases`, baixa a ferramneta dá `chmod 777 ./gophish` e depois `./gophish` e acessa o link que vai aparecer no terminal e coloca a senha que também aparece no terminal. Configura o usuário alvo, template origem, a landing page e o email sender, caso seja Gmail `smtp.gmail.com:465` na conta do gmail, ativar o 2FA e coloca ua opção adicionar um outro app cria um nome para o app -> copia os caracteres -> em sending profiles adiciona o email e os caracteres copiado do 2FA.
 
 - Código indetectável pelos antivírus disfarçado de PDF
 
