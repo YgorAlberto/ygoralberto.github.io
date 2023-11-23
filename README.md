@@ -6171,5 +6171,25 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	        for ip in result:
 	            print(ip)
 
+## ARSENAL TOOL LIST
+
+# Directory Traversal / Path Traversal / File Disclosure / Fuzzing
+
+	ffuf
+	wfuzz
+	dirb
+	gobuster
+	dirbuster
+
+# Network / OS discover / Infra / Scan
+	
+	nmap
+	zenmap
+	networkminer
+
+# DataBase / SqlInjection
+
+  	sqlmap
+
 
 ## NEXT TUTO HERE SOON
