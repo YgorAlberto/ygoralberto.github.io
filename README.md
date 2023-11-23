@@ -6206,6 +6206,7 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	sensys
 	shodan
 	waybackmachine
-.
+
+
 
 ## NEXT TUTO HERE SOON
