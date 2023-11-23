@@ -6173,7 +6173,9 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 
 ## ARSENAL TOOL LIST
 
-# Directory Traversal / Path Traversal / File Disclosure / Fuzzing
+- Directory Traversal / Path Traversal / File Disclosure / Fuzzing
+
+.
 
 	ffuf
 	wfuzz
@@ -6181,19 +6183,27 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	gobuster
 	dirbuster
 
-# Network / OS discover / Infra / Scan
-	
+- Network / OS discover / Infra / Scan
+
+.
+
 	nmap
 	zenmap
 	networkminer
 
-# DataBase / SqlInjection
+- DataBase / SqlInjection
+
+.
 
   	sqlmap
 
-# Web Exploit / Web Analyzer 
+- Web Exploit / Web Analyzer 
+
+.
 
 	wapiti
 	nikto
+
+.
 
 ## NEXT TUTO HERE SOON
