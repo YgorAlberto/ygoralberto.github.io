@@ -6195,7 +6195,7 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 
 .
 
- 	sqlmap
+	sqlmap
 
 - Web Exploit / Web Analyzer 
 
