@@ -2,6 +2,8 @@ Encontre aqui notas e comandos de um HACKER ÉTICO
 
 [Página Outros](https://ygoralberto.github.io/outros)
 
+[MINDMAP](https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1)
+
 ## COMANDOS RÁPIDOS
 
 
