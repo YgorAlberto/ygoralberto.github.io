@@ -6209,6 +6209,86 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	shodan
 	waybackmachine
 
+## DNGP
 
+Mapear SuperfíciExterna
+ 
+	Pesquisa - Google Hacking
+	Pesquisa - Bing Hacking
+	Pesquisa - Whois
+	Pesquisa - RDAP
+	Pesquisa - IP (NetBlock)
+	Pesquisa - BGP (ASN)
+	Pesquisa - Shodan
+	Pesquisa - Censys
+	Pesquisa - Certificados SSL
+	Pesquisa Passiva - Sub-domínios
+	Brute Force - DNS
+	Brute Force - DNS Reverso
+	Verificar - Transferência de Zona DNS
+	Verificar - Registros SPF
+	Verificar - Subdomain Takeover
+	
+Mapear Host(s)
+ 
+	Identificar - Portas Abertas
+	Identificar - Serviços Expostos
+	Identificar - Interfaces Administrativas
+	Verificar - Possibilidade de Brute Force
+
+Mapear Aplicação Web
+ 
+	Identificar - Web Application Firewall
+	Identificar - Tecnologia Web Server
+	Identificar - Métodos Aceitos
+	Identificar - Tecnologia da Aplicação
+	Identificar - Robots.txt e sitemap.xml
+	Identificar - Comentários HTML
+	Identificar - Arquivos JS
+	Realizar - Spidering na aplicação
+	Realizar - Identificação de entry points
+	Realizar - Brute Force (arquivos e diretórios)
+	
+Controle de Identidade
+ 
+	Spidering sem autenticação
+	Spidering autenticado (limitado)
+	Spidering autenticado (privilegiado)
+	Verificar - Registro de conta
+	Verificar - Permissões de Contas
+	Verificar - Enumeração de usuários
+	
+Controle de Autenticação
+ 
+	Identificar - Transporte de dados inseguro
+	Identificar - Credenciais padrões
+	Identificar - Bloqueio de Contas
+	Possibilidade de Brute Force
+	Bypass no controle de autenticação
+	Análise da Política de Senhas
+	Fraquezas nas funcionalidades de senha
+	
+Controle de Autorização
+
+	Path Traversal/File include
+	Server-Side Request Forgery
+	Insecure Direct Object Reference
+	Escalação de Privilégios
+	Bypass no controle de autorização
+	
+Validação de dados
+
+	Verificar - XSS Refletido
+	Verificar - XSS Persistente
+	Verificar - DOM Based XSS
+	Verificar - HTML Injection
+	Verificar - HTTP Parameter Pollution
+	Verificar - SQL Injection
+	Verificar - LDAP Injection
+	Verificar - XML Injection
+	Verificar - XPATH Injection
+	Verificar - Code Injection
+	Verificar - Open Redirect
+	Verificar - Bypass File Upload
 
 ## NEXT TUTO HERE SOON
