@@ -5632,11 +5632,12 @@ Comandos para atualizad o GreenBone
 
 Rodar todos esses comandos com atenção e observando se tudo está ok. Após rodar, acessar a web novamente e gerar os relatórios
 
-Erro na interface web, não carrega
+Erro na interface web, não carrega em outro dispositivo na rede 
 
     cd /lib/systemd/system
-    sed -e 's/127.0.0.1/preferredIPaddress/g' greenbone-security-assistant.service openvas-manager.service openvas-scanner.service -i
-    sudo daemon-reload
+    nano greenbone-security-assistant.service TROCA 127.0.0.1 pelo IP local e PORTA pela 443
+    sudo gvm-stop
+    sudo gvm-start
     
 O comando é usado para trocar o IP localhost por um ip de preferência
 
