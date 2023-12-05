@@ -5640,7 +5640,7 @@ Erro na interface web, não carrega
     
 O comando é usado para trocar o IP localhost por um ip de preferência
 
-    openssl s_client -connect 10.1.1.130:443
+    openssl s_client -connect 10.1.1.10:443
 
 Verificar se a conexão está ok
 
