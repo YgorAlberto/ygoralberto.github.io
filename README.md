@@ -6210,7 +6210,7 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	shodan
 	waybackmachine
 
-## DNGP
+## Hacking Check List
 
 Mapear SuperfíciExterna
  
@@ -6223,6 +6223,7 @@ Mapear SuperfíciExterna
 	Pesquisa - Shodan
 	Pesquisa - Censys
 	Pesquisa - Certificados SSL
+ 	Pesquisa - Leaks em Bases Públicas
 	Pesquisa Passiva - Sub-domínios
 	Brute Force - DNS
 	Brute Force - DNS Reverso
