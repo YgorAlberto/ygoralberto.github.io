@@ -6293,4 +6293,35 @@ Validação de dados
 	Verificar - Open Redirect
 	Verificar - Bypass File Upload
 
+## ARSENAL HACKING TOOLs
+	
+	NMAP
+	MSF  
+	BurpSuite
+	Searchsploit
+	GoBuster 
+	Dirb 
+	DirBuster
+	FuFF 
+	Amass
+	Nikto
+	SpiderFoot
+	Wapiti
+	TheHarvester
+	WPscan
+	Hydra  
+	HashCat
+	John   
+	SSH2john
+	ZIP2john 
+	Enum4Linux
+	Responder 
+	SQLMap
+	CrackMapExec
+	Scapy 
+	Wireshark
+	Mimikatz 
+	Impacket
+	NetCat  
+
 ## NEXT TUTO HERE SOON
