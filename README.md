@@ -6302,7 +6302,9 @@ Validação de dados
 	GoBuster 
 	Dirb 
 	DirBuster
-	FuFF 
+	FuFF
+	Wfuzz
+	Wafw00f
 	Amass
 	Nikto
 	SpiderFoot
