@@ -6223,7 +6223,7 @@ Mapear SuperfíciExterna
 	Pesquisa - Shodan
 	Pesquisa - Censys
 	Pesquisa - Certificados SSL
- 	Pesquisa - Leaks em Bases Públicas
+	Pesquisa - Leaks em Bases Públicas
 	Pesquisa Passiva - Sub-domínios
 	Brute Force - DNS
 	Brute Force - DNS Reverso
