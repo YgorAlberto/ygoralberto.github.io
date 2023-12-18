@@ -223,6 +223,9 @@ Exibe os arquivos ocultos
 
 Remove todos os arquivos da pasta
 
+    watch -nt1 'ls -la /tmp'
+
+Assiste o output do comando informado
 
 ## DOMINANDO O PROMPT DE COMANDO WINDOWS
 Tags: criar usuarios cmd | comandos cmd | cmd windows
