@@ -2,7 +2,7 @@ Guys! Aqui vai minhas indicações para quem quer ingressar em Cibersegurança e
 
 Quer se tornar um HACKER ÉTICO, aqui estão minhas recomendações!
 
-DICA BONUS! Invista tempo no LINKEDIN, Faça um perfil daora (pesquisa no YT), conecte com pessoas da área e recrutadores e empresas, incluindo diretores e sócios. Além disso, curta e comente postagens além de postar seu próprio conteúdo, incluindo o que está estudando e o progresso de cada estudo. Estude também como se sair bem em uma entrevista de emprego.
+DICA BONUS! Invista tempo no LINKEDIN, faça um perfil daora (pesquisa no YT), conecte com pessoas da área e recrutadores e empresas, incluindo diretores e sócios. Além disso, curta e comente postagens além de postar seu próprio conteúdo, incluindo o que está estudando e o progresso de cada estudo. Estude também como se sair bem em uma entrevista de emprego.
 
 Sem enrolação, na minha visão para se ter um bom início e imerção em cibersegurança, é importante conhecer alguns assuntos como:
 
