@@ -6034,6 +6034,8 @@ Ferramenta para verificar onde a sua conta está associada: [SAYMINE](https://ww
 
 Ferramenta gratuita para Web Application Firewall WAF `MODSECURITY`
 
+Ferramenta para análise de código e informar vulnerabilidades dentro das pastas do código fonte `horusec.io`
+
 ##VPN forward to Host
 
 To access the network of the VPN connected to your guest Windows machine from your host Kali machine, you'll need to set up routing and potentially enable IP forwarding on the Windows guest. Here's a general guideline to achieve this:
