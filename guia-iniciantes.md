@@ -1,6 +1,6 @@
 Guys! Aqui vai minhas indicações para quem quer ingressar em Cibersegurança especiamente em Segurança Ofensive
 
-Quer se tornar um HACKER ÉTICO, aqui estão minhas recomendações!
+Quer se tornar um HACKER ÉTICO? aqui estão minhas recomendações!
 
 DICA BONUS! Invista tempo no LINKEDIN, faça um perfil daora (pesquisa no YT), conecte com pessoas da área e recrutadores e empresas, incluindo diretores e sócios. Além disso, curta e comente postagens além de postar seu próprio conteúdo, incluindo o que está estudando e o progresso de cada estudo. Estude também como se sair bem em uma entrevista de emprego.
 
