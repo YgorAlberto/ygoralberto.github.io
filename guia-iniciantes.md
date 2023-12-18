@@ -27,9 +27,14 @@ Não precisa ficar expert no assunstos acima, mas pelo menos conhecer para que s
 ## Cursos de Cyber
 
 [Introdução ao Pentest - DESEC](https://desecsecurity.com/cart/introducao-pentest/pentest)
+
 [Introdução a Cibersegurança - CISCO](https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity)
+
 [Fundamentos em Cyber - eSecurity](https://esecurity.com.br/cursos/fundamentos-em-cyber-security/)
+
 [Cyber para iniciantes - EcCouncil](https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/)
+
 [Introdução ao Pentest - Solyd](https://solyd.com.br/treinamentos/introducao-ao-hacking-e-pentest-2/)
+
 [Introdução ao Pentest - ACADI](https://acaditi.com.br/essentials-series/)
 
