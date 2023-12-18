@@ -1,12 +1,15 @@
 ### BLOCO DE ANOTAÇÕES DE UM HACKER ÉTICO
 
 GUIA PARA INICIANTES EM CIBERSEGURANÇA
+
 [Guia Para Iniciantes](https://ygoralberto.github.io/guia-iniciantes)
 
 PAGINA CONTENDO OUTROS COMANDOS DE WINDOWS E LINUX
+
 [Página Outros](https://ygoralberto.github.io/outros)
 
 MAPA MENTAL PARA PENTESTERS
+
 [MINDMAP](https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1)
 
 
