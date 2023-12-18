@@ -27,7 +27,7 @@ Para isso, recomendo inicialmente os cursos abaixo:
 
 Não precisa ficar expert no assunstos acima, mas pelo menos conhecer para que serve e o que cada um faz pois facilita a pesquisa.
 
-## Cursos de Cyber
+## Cursos de Cyber FREE
 
 [Introdução ao Pentest - DESEC](https://desecsecurity.com/cart/introducao-pentest/pentest)
 
@@ -41,3 +41,13 @@ Não precisa ficar expert no assunstos acima, mas pelo menos conhecer para que s
 
 [Introdução ao Pentest - ACADI](https://acaditi.com.br/essentials-series/)
 
+
+## Cursos de Cyber Pagos
+
+[Trilha certificação DCPT - DESEC](https://desecsecurity.com/cart/DESECPRO1X)
+
+[Curso Pentester Cert. SYCP - SOLYD](https://solyd.com.br/treinamentos/pentest-do-zero-ao-profissional-v2023/)
+
+[Pós em Cyber da ACADI](https://acaditi.com.br/pos-graduacao-em-ciberseguranca-ofensiva/)
+
+Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale a pena dar uma olhada.
