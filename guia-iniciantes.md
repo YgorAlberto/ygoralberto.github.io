@@ -1,7 +1,8 @@
-Olá tudo bem?
-Sou Ygor Alberto, Pentester certificado em Segurança Ofensiva (DCPT) e Graduando em Sistemas de Informação!
+Guys! Aqui vai minhas indicações para quem quer ingressar em Cibersegurança especiamente em Segurança Ofensive
 
-Relatarei aqui a trilha que segui para chegar onde estou hoje, então se você tem vontade se virar um HACKER ÉTICO, vou tentar passar aqui tudo o que eu acho pertinente e importante para a carreira em Cyber!
+Quer se tornar um HACKER ÉTICO, aqui estão minhas recomendações!
+
+DICA BONUS! Invista tempo no LINKEDIN, Faça um perfil daora (pesquisa no YT), conecte com pessoas da área e recrutadores e empresas, incluindo diretores e sócios. Além disso, curta e comente postagens além de postar seu próprio conteúdo, incluindo o que está estudando e o progresso de cada estudo. Estude também como se sair bem em uma entrevista de emprego.
 
 Sem enrolação, na minha visão para se ter um bom início e imerção em cibersegurança, é importante conhecer alguns assuntos como:
 
@@ -24,8 +25,6 @@ Para isso, recomendo inicialmente os cursos abaixo:
 [Curso de Redes](https://www.udemy.com/course/curso-gratuito-de-redes/)
 
 [Web Fundamentos](https://www.udemy.com/course/curso-gratuito-de-html/)
-
-Não precisa ficar expert no assunstos acima, mas pelo menos conhecer para que serve e o que cada um faz pois facilita a pesquisa.
 
 ## Cursos de Cyber FREE
 
