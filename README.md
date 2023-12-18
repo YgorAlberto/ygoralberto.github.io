@@ -6177,42 +6177,6 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	        for ip in result:
 	            print(ip)
 
-## ARSENAL TOOL LIST
-
-- Directory Traversal / Path Traversal / File Disclosure / Fuzzing
-
-.
-
-	ffuf
-	wfuzz
-	dirb
-	gobuster
-	dirbuster
-
-- Network / OS discover / Infra / Scan
-
-.
-
-	nmap
-	zenmap
-	networkminer
-
-- DataBase / SqlInjection
-
-.
-
-	sqlmap
-
-- Web Exploit / Web Analyzer 
-
-.
-
-	wapiti
-	nikto
-	sensys
-	shodan
-	waybackmachine
-
 ## Hacking Check List
 
 Mapear SuperfíciExterna
@@ -6299,6 +6263,7 @@ Validação de dados
 ## ARSENAL HACKING TOOLs
 	
 	NMAP
+	NetworkMiner
 	MSF  
 	BurpSuite
 	Searchsploit
@@ -6309,6 +6274,9 @@ Validação de dados
 	Wfuzz
 	Wafw00f
 	Amass
+	Sensys
+	Shodan
+	WayBackMachine
 	Nikto
 	SpiderFoot
 	Wapiti
