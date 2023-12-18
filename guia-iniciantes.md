@@ -6,8 +6,11 @@ Relatarei aqui a trilha que segui para chegar onde estou hoje, então se você t
 Sem enrolação, na minha visão para se ter um bom início e imerção em cibersegurança, é importante conhecer alguns assuntos como:
 
 `Redes de computadores` (TCP/IP, roteamento, NAT, DNS e etc)
+
 `Estrutura da WEB` de forma geral (protocolos, camada OSI, códigos de requisições e etc)
+
 `Sistemas Operacionais` (Windows e Linux, Estrutura, arquivos, comandos, falhas, modo de uso em geral)
+
 `Servidores` (Windows e Linux, AD, SAMBA, E-MAIL, FTP)
 
 Para isso, recomendo inicialmente os cursos abaixo:
