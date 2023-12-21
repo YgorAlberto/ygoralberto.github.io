@@ -6220,7 +6220,7 @@ Mapear Host(s)
 	Identificar - Portas Abertas
 	Identificar - Serviços Expostos
 	Identificar - Interfaces Administrativas
-	Verificar - Possibilidade de Brute Force
+	Verificar - Possibilidade de Brute Force (FTP, SSH, SMB, RPC, RDP)
 
 Mapear Aplicação Web
  
