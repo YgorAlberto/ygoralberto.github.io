@@ -6281,7 +6281,7 @@ Validação de dados
 	
 	NMAP
 	NetworkMiner
-	MSF  
+	Metasploitable  
 	BurpSuite
 	Searchsploit
 	GoBuster 
@@ -6305,6 +6305,7 @@ Validação de dados
 	SSH2john
 	ZIP2john 
 	Enum4Linux
+	Rpcinfo
 	Responder 
 	SQLMap
 	CrackMapExec
