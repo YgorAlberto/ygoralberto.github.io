@@ -66,7 +66,7 @@ Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale
 
 [Docker Containers](https://www.youtube.com/watch?v=eGz9DS-aIeY)
 
-[Load Balancing `cloudflare``kemp``freenom`](https://www.youtube.com/watch?v=LlbTSfc4biw)
+[Load Balancing `cloudflare kemp freenom`](https://www.youtube.com/watch?v=LlbTSfc4biw)
 
 
 
