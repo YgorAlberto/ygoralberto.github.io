@@ -52,3 +52,21 @@ Para isso, recomendo inicialmente os cursos abaixo:
 [Pós em Cyber da ACADI](https://acaditi.com.br/pos-graduacao-em-ciberseguranca-ofensiva/)
 
 Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale a pena dar uma olhada.
+
+
+## Indicações de Canais do YouTUBE
+
+[NetworkChuck](https://www.youtube.com/@NetworkChuck)
+
+[Gabriel Pato](https://www.youtube.com/@GabrielPato)
+
+## Videos
+
+[Docker Networking](https://www.youtube.com/watch?v=bKFMS5C4CG0)
+
+[Docker Containers](https://www.youtube.com/watch?v=eGz9DS-aIeY)
+
+[Load Balancing `cloudflare``kemp``freenom`](https://www.youtube.com/watch?v=LlbTSfc4biw)
+
+
+
