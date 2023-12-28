@@ -6301,7 +6301,8 @@ Validação de dados
 	Wapiti
 	TheHarvester
 	WPscan
-	Hydra  
+	Hydra
+	Crowbar
 	HashCat
 	John   
 	SSH2john
