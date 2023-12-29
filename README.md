@@ -6303,6 +6303,9 @@ Validação de dados
 	WPscan
 	Hydra
 	Crowbar
+	Ncrack
+	Medusa
+	SSH-Brute-Forcer
 	HashCat
 	John   
 	SSH2john
