@@ -53,6 +53,9 @@ Para isso, recomendo inicialmente os cursos abaixo:
 
 Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale a pena dar uma olhada.
 
+## Cursos Opcionais
+
+[Wazuh no YouTube](https://www.youtube.com/watch?v=wT_z5fRnoXc&list=PLYwuH4Jfk8_Gzwsvf0irpB0baCBX4t4cB)
 
 ## Indicações de Canais do YouTUBE
 
