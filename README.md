@@ -6198,7 +6198,44 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	        for ip in result:
 	            print(ip)
 
-## Hacking Check List
+## WIFI Hacking
+Curso de WifiHacking
+
+Criptografia SIMETRICA
+
+	openssl enc -aes256 -a -e -k chavesenha -in arquivo.file -out arquivo-enc.file
+
+Cria um arquivo encriptado usando uma senha
+
+	openssl -aes256 -d -a -k chavesenha -in arquivo-enc.file -out arquivo-dec.file
+
+Desencripta o arquivo gerado anteriormente, trazendo-o para seu estado origina
+
+	/usr/bin/dbus-uuidgen
+
+Usando para gerar chave aleatória e usar em criação de chaves
+
+Criptografia ASSIMETRICA
+
+	openssl genrsa -out private.pem 2048
+
+Gerar uma chave privada de 2048
+
+	openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+
+Gera a chave publica a partir da chave privada gerada anteriormente
+
+	openssl rsautl -in arquivo.file -out arquivo-enc.rsa -encrypt -pubin -inkey public.pem
+
+Gera o arquivo encriptado
+
+	openssl rsautl -in arquivo-enc.rsa -out arquivo-dec.file -decrypt -inkey private.pem
+
+Decripta o arquivo usando a chave privada
+
+
+
+## Hacking CheckList
 
 Mapear SuperfíciExterna
  
@@ -6324,4 +6361,4 @@ Validação de dados
 	Impacket
 	NetCat  
 
-## NEXT TUTO HERE SOON
+## THE END
