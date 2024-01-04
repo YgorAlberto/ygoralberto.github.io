@@ -6049,7 +6049,7 @@ Ferramenta para testar a segurança de imagens de containers `trivy`
 
 Ferramenta GREP com a mensagem: "grep: (standard input): binary file matches" usa se `grep -a 'word'`
 
-Ferramenta para conectar a um banco de dados oracle de forma externa `sqlplus <username>/<password>@<IP_ADDRESS>:<PORT>/<SERVICE_NAME>`
+Ferramenta para conectar a um banco de dados oracle de forma externa `sqlplus <username>/<password>@<IP_ADDRESS>:<PORT>/<SERVICE_NAME>` caso ao executar o comando apresente erro de diretório, rode `sudo sh -c "echo /usr/lib/oracle/12.2/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.conf";sudo ldconfig`
 
 
 ## VPN forward to Host
