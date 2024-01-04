@@ -6049,7 +6049,10 @@ Ferramenta para testar a segurança de imagens de containers `trivy`
 
 Ferramenta GREP com a mensagem: "grep: (standard input): binary file matches" usa se `grep -a 'word'`
 
-##VPN forward to Host
+Ferramenta para conectar a um banco de dados oracle de forma externa `sqlplus <username>/<password>@<IP_ADDRESS>:<PORT>/<SERVICE_NAME>`
+
+
+## VPN forward to Host
 
 To access the network of the VPN connected to your guest Windows machine from your host Kali machine, you'll need to set up routing and potentially enable IP forwarding on the Windows guest. Here's a general guideline to achieve this:
 
