@@ -6095,6 +6095,14 @@ Remember to replace placeholders like `VPN_NETWORK`, `VPN_SUBNET_MASK`, `GUEST_V
 
 Please note that the specific steps might vary depending on your network configuration, versions of operating systems, and other factors. Also, keep in mind that altering network settings can have security implications. Always ensure you understand the changes you're making and how they might impact your network's security.
 
+## Travis DeForge Vuln Recommendations
+
+"Older Cisco Catalyst switches which are still used in large quantities had a service on port 4786 called Cisco Smart Install. It let you push configurations to the switches to administrator them. Kinda like SNMP but the difference is there was never any authentication, So you can use an open source tool called `Siet.py` (on github) to spin up a TFTP server and pull the configuration of that switch. Including administrator passwords. Without authentication"
+
+"Here's another one like that. Port `UDP 623 IPMIv2`, do you know that one? You'll see IPMIv2 on virtualization hosts, usually `Dell IDRAC or HP iLOs`. It is a terribly flawed protocol. Basically when you tell it a username it will respond with the hashed password of that user. So you can just dump them immediately.  
+I imagine it like this, You walk up to a secret club and the bouncer asks "what's your name" so you say "admin" and he goes "okay so your password is Rosepetal right" and you say "yes". Then he let's you in. It's a comically stupid protocol. There is a Metasploit module to exploit it wicked easily "
+
+
 ## LABS THM
 Lessons learned from THM
 
