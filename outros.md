@@ -81,7 +81,11 @@ zip -re output_data.zip file.txt file.pdf - criar arquivo zip com senha
       sudo systemctl daemon-reload
       sudo systemctl enable myscript-script.service
 
-Linux Bootable sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
+.
+
+      sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
+
+Linux Bootable 
 
     VBoxManage internalcommands sethduuid image.vdi
 
