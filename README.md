@@ -1,24 +1,21 @@
 ## BLOCO DE ANOTAÇÕES DE UM HACKER ÉTICO
 
-GUIA PARA INICIANTES EM CIBERSEGURANÇA
+[GUIA PARA INICIANTES](https://ygoralberto.github.io/guia-iniciantes) EM CIBERSEGURANÇA
 
-[Guia Para Iniciantes](https://ygoralberto.github.io/guia-iniciantes)
+PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDOWS E LINUX
 
-PAGINA CONTENDO OUTROS COMANDOS DE WINDOWS E LINUX
-
-[Página Outros](https://ygoralberto.github.io/outros)
-
-MAPA MENTAL PARA PENTESTERS
-
-[MINDMAP](https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1)
-
+[MAPA MENTAL](https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1) PARA PENTESTERS 
 
 ## COMANDOS RÁPIDOS
 
 
 	nmap -vv -sV -sC -O -p- -A --script vuln -Pn --open -oN saida-save 10.10.10.0/24
 
-. 
+.
+
+	ncrack -U user-file -pass senha -p smb -iL host-list
+
+.
 
 	cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
  
