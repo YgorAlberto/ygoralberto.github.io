@@ -6049,6 +6049,14 @@ Ferramenta GREP com a mensagem: "grep: (standard input): binary file matches" us
 
 Ferramenta para conectar a um banco de dados oracle de forma externa `sqlplus <username>/<password>@<IP_ADDRESS>:<PORT>/<SERVICE_NAME>` caso ao executar o comando apresente erro de diretório, rode `sudo sh -c "echo /usr/lib/oracle/12.2/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.conf";sudo ldconfig`
 
+## SOURCES RECURSOS LINKS
+
+LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
+
+LFI source list LINUX (LFI list Linux)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Linux] 
+
+Site para download de Wordlists 'dicionario', WL indicada `dicassassin` [WeakPass](https://weakpass.com/wordlist/big)
+
 ## VPN forward to Host
 
 To access the network of the VPN connected to your guest Windows machine from your host Kali machine, you'll need to set up routing and potentially enable IP forwarding on the Windows guest. Here's a general guideline to achieve this:
