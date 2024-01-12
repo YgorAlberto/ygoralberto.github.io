@@ -4238,7 +4238,7 @@ Quando não conseguir enxergar os parâmetros que foram inseridos no form da pá
 
         Cluster bomb: Testa a lista inteira de usuários com a primeira senha
 
-        Pitchfork: Posição um com a posição um das listas e não repete as credenciais
+        Pitchfork: Posição um com a posição um das listas e não repete as credenciais "user:pass"
 
         Battering ran : Só trabalha com uma lista e repete o login na senha
 
