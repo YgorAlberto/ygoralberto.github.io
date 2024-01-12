@@ -2072,6 +2072,8 @@ Referências:
 
 Site para download de Wordlists 'dicionario', WL indicada `dicassassin` [WeakPass](https://weakpass.com/wordlist/big)
 
+Comando para montar uma lista de user:pass wordlist dicionario userpass `paste -d: dicionario1.txt dicionario2.txt > dicionario_combinado.txt`
+
 ## HASHES E SENHAS - WINDOWS
 
 
