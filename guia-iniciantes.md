@@ -71,5 +71,5 @@ Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale
 
 [Load Balancing `cloudflare kemp freenom`](https://www.youtube.com/watch?v=LlbTSfc4biw)
 
-
+(ZERO TRUST)[https://www.youtube.com/watch?v=IYmXPF3XUwo]
 
