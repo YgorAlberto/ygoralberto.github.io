@@ -6053,6 +6053,8 @@ Ferramenta GREP com a mensagem: "grep: (standard input): binary file matches" us
 
 Ferramenta para conectar a um banco de dados oracle de forma externa `sqlplus <username>/<password>@<IP_ADDRESS>:<PORT>/<SERVICE_NAME>` caso ao executar o comando apresente erro de diretório, rode `sudo sh -c "echo /usr/lib/oracle/12.2/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.conf";sudo ldconfig`
 
+Ferramenta ZERO TRUST para até 5 users free `Twingate`
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
