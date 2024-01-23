@@ -6055,6 +6055,10 @@ Ferramenta para conectar a um banco de dados oracle de forma externa `sqlplus <u
 
 Ferramenta ZERO TRUST para até 5 users free `Twingate`
 
+Ferramenta para criar arquivo zip com senha `zip -re FileNameZipped.ZIP files-to-zip*`
+
+Ferramenta para criar uma senha unica `/usr/bin/dbus-uuidgen`
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
