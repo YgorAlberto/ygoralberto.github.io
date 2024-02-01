@@ -3759,6 +3759,8 @@ Traz as 3 primeiras letras da palavra
 	select * from user where login='user' or true limit 1;#
 
 	select * from user where login='user' and login='user' limit 1;#
+
+ 	create a duplicated user like `"darren"` as `" darren"` with a space in the beginning to authenticate with the same privilleges
 	
 .
 
