@@ -5,8 +5,11 @@ OWASP Based Checklist
 ## INFORMATION GATHERING
 
 - Open Source Reconnaissance
+- 
     Perform Google Dorks search
+  
     Perform OSINT
+  
 - Fingerprinting Web Server
 ☐ Find the type of Web Server
 ☐ Find the version details of the Web Server
