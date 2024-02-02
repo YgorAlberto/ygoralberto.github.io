@@ -6154,6 +6154,14 @@ If RDP are not available on the machine, we can use the post exploit to enable i
 
 	run post/windows/manage/enable_rdp
 
+Lab OwaspTop10
+
+	Comandos para SQLITE3
+ 	sqlite3 filename.db
+  	.tables
+   	SELECT * FROM table-name;
+    	Importante olhar na pasta assets para encontrar os arquivos.db
+
 ## SETTING RDP with Xfce on KALI
 
 Now run the following
