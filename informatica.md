@@ -1,4 +1,4 @@
-## NOÇÕES de INFORMATICA para concursos:
+## NOÇÕES de INFORMATICA para CONCURSOS:
 
 
 **Noções Básicas dos Sistemas Operacionais:**
@@ -114,7 +114,7 @@ Uma rede de computadores é a interconexão de dispositivos para compartilhar re
 - **Assinatura Eletrônica:** Método digital para autenticação.
 
 
-## Detalhando cada Assunto
+## DETALHANDO CADA ASSUNTO
 
 Noções Básicas dos Sistemas Operacionais:
 
@@ -209,7 +209,7 @@ Sistema de Protocolo: Interface, Consulta de Protocolo, Assinatura Eletrônica:
         Assinatura Eletrônica: Assinatura digital em um documento, garantindo autenticidade.
 
 
-## Detalhando agora de uma forma diferente
+## DETALHANDO AGORA DE UMA FORMA DIFERENTE
 
 **Noções Básicas dos Sistemas Operacionais:**
 
