@@ -4,45 +4,43 @@ OWASP Based Checklist
 
 ## INFORMATION GATHERING
 
-1. Open Source Reconnaissance
-
-Perform Google Dorks search
-
-Perform OSINT
-2. Fingerprinting Web Server
+- Open Source Reconnaissance
+    Perform Google Dorks search
+    Perform OSINT
+- Fingerprinting Web Server
 ☐ Find the type of Web Server
 ☐ Find the version details of the Web Server
-3. Looking For Metafiles
+- Looking For Metafiles
 ☐ View the Robots.txt file
 ☐ View the Sitemap.xml file
 ☐ View the Humans.txt file
 ☐ View the Security.txt file
-4. Enumerating Web Server’s Applications
+5. Enumerating Web Server’s Applications
 ☐ Enumerating with Nmap
 ☐ Enumerating with Netcat
 ☐ Perform a DNS lookup
 ☐ Perform a Reverse DNS lookup
-5. Review The Web Contents
+6. Review The Web Contents
 ☐ Inspect the page source for sensitive info
 ☐ Try to find Sensitive Javascript codes
 ☐ Try to find any keys
 ☐ Make sure the autocomplete is disabled
-6. Identifying Application’s Entry Points
+7. Identifying Application’s Entry Points
 ☐ Identify what the methods used are?
 ☐ Identify where the methods used are?
 ☐ Identify the Injection point
-7. Mapping Execution Paths
+8. Mapping Execution Paths
 ☐ Use Burp Suite
 ☐ Use Dirsearch
 ☐ Use Gobuster
-8. Fingerprint Web Application Framework
+9. Fingerprint Web Application Framework
 ☐ Use the Wappalyzer browser extension
 ☐ Use Whatweb
 ☐ View URL extensions
 ☐ View HTML source code
 ☐ View the cookie parameter
 ☐ View the HTTP headers
-9. Map Application Architecture
+10. Map Application Architecture
 ☐ Map the overall site structure
 
 - CONFIGURATION & DEPLOYMENT MANAGEMENT TESTING
