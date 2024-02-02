@@ -6323,6 +6323,7 @@ Mapear Aplicação Web
 	Identificar - Robots.txt e sitemap.xml
 	Identificar - Comentários HTML
 	Identificar - Arquivos JS
+	Identificar - Repositórios no GitHub sobre a Empresa
 	Realizar - Spidering na aplicação
 	Realizar - Identificação de entry points
 	Realizar - Brute Force (arquivos e diretórios)
