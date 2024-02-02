@@ -5704,7 +5704,7 @@ Após o servidor [LINUX Debian Based] estiver configurado e pronto para uso, rod
 REF: https://documentation.wazuh.com/4.3/quickstart.html
 
 
-        curl -sO https://packages.wazuh.com/4.3/wazuh-install.sh && sudo bash ./wazuh-install.sh -a 
+        curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a 
 
         Vai aparecer o login e senha -> anote-os
 
