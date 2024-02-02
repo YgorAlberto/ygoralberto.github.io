@@ -6314,7 +6314,7 @@ Mapear Host(s)
 	Identificar - Interfaces Administrativas
 	Verificar - Possibilidade de Brute Force (FTP, SSH, SMB, RPC, RDP)
 
-Mapear Aplicação Web
+Mapear Aplicação Web [OWASP](https://ygoralberto.github.io/web)
  
 	Identificar - Web Application Firewall
 	Identificar - Tecnologia Web Server
