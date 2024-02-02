@@ -1,8 +1,7 @@
 WEB APPLICATION PENTESTING
-
 OWASP Based Checklist
 
-INFORMATION GATHERING
+## INFORMATION GATHERING
 
 Open Source Reconnaissance
 
@@ -80,7 +79,7 @@ Map Application Architecture
 
     Map the overall site structure
 
-CONFIGURATION & DEPLOYMENT MANAGEMENT TESTING
+## CONFIGURATION & DEPLOYMENT MANAGEMENT TESTING
 
 Test Network Configuration
 
@@ -174,7 +173,7 @@ Test File Permission
 
     Check the sensitive paths of Azure
 
-IDENTITY MANAGEMENT TESTING
+## IDENTITY MANAGEMENT TESTING
 
 Test Role Definitions
 
@@ -224,7 +223,7 @@ Test For Weak Username Policy
 
     Check for username enumeration
 
-AUTHENTICATION TESTING
+## AUTHENTICATION TESTING
 
 Test For Un-Encrypted Channel
 
@@ -356,7 +355,7 @@ Test For Weak Password Reset Function
 
     Test authentication on mobile applications
 
-AUTHORIZATION TESTING
+## AUTHORIZATION TESTING
 
 Testing Directory Traversal File Include
 
@@ -450,7 +449,7 @@ Test For Insecure Direct Object Reference
 
     Test by changing methods
 
-SESSION MANAGEMENT TESTING
+## SESSION MANAGEMENT TESTING
 
 Test For Session Management Schema
 
@@ -564,7 +563,7 @@ Test For Session Puzzling
 
     Test by login with the help of captured cookies
 
-INPUT VALIDATION TESTING
+## INPUT VALIDATION TESTING
 
 Test For Reflected Cross Site Scripting
 
@@ -770,7 +769,7 @@ Test For IMAP SMTP Injection
 
     Use the tplmap to exploit
 
-ERROR HANDLING TESTING
+## ERROR HANDLING TESTING
 
 Test For Improper Error Handling
 
@@ -788,7 +787,7 @@ Test For Improper Error Handling
 
     Test error handling by making all possible errors
 
-WEAK CRYPTOGRAPHY TESTING
+## WEAK CRYPTOGRAPHY TESTING
 
 Test For Weak Transport Layer Security
 
@@ -822,7 +821,7 @@ Test For Weak Transport Layer Security
 
     Look for weak cipher suites
 
-BUSINESS LOGIC TESTING
+## BUSINESS LOGIC TESTING
 
 Test For Business Logic
 
@@ -864,7 +863,7 @@ Test For Malicious File Upload
 
     Test malicious file upload by uploading large files (leads to DOS)
 
-CLIENT SIDE TESTING
+## CLIENT SIDE TESTING
 
 Test For DOM Based Cross Site Scripting
 
@@ -900,7 +899,7 @@ Test For Clickjacking
 
     Exploit with iframe HTML code for POC
 
-OTHER COMMON ISSUES
+## OTHER COMMON ISSUES
 
 Test For No-Rate Limiting
 
