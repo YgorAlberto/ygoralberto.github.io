@@ -6284,7 +6284,10 @@ Gera o arquivo encriptado
 
 Decripta o arquivo usando a chave privada
 
+Ferramentas para o parsing
 
+	subfinder
+ 	sublist3t
 
 ## Hacking CheckList
 
@@ -6378,6 +6381,8 @@ Validação de dados
 	Metasploitable  
 	BurpSuite
 	Searchsploit
+	subfinder
+	sublist3r
 	GoBuster 
 	Dirb 
 	DirBuster
