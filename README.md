@@ -6287,7 +6287,7 @@ Decripta o arquivo usando a chave privada
 Ferramentas para o parsing
 
 	subfinder
- 	sublist3t
+	sublist3t
 
 ## Hacking CheckList
 
