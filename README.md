@@ -2427,7 +2427,7 @@ Personalizar wordlist com dígito no fim e no início.
 
     cewl site.com -m 7 
 
-Busca palavras dentro do site com 7 chars
+Busca palavras dentro do site com 7 chars, um Crawler de palavras
 
     crunch 10 10 -t palavra^'char-spec'%'digito'@'minus','maius' 
 
