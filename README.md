@@ -6383,8 +6383,8 @@ Validação de dados
 	Metasploitable  
 	BurpSuite
 	Searchsploit
-	subfinder
-	sublist3r
+	Subfinder
+	Sublist3r
 	GoBuster 
 	Dirb 
 	DirBuster
@@ -6402,6 +6402,7 @@ Validação de dados
 	WPscan
 	Hydra
 	Crowbar
+	Crunch
 	Ncrack
 	Medusa
 	SSH-Brute-Forcer
