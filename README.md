@@ -6284,6 +6284,8 @@ Gera o arquivo encriptado
 
 Decripta o arquivo usando a chave privada
 
+## SMART OSINT
+
 Ferramentas para o parsing
 
 	subfinder
