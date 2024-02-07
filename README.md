@@ -6290,6 +6290,7 @@ Ferramentas para o parsing
 
 	subfinder
 	sublist3t
+	asserfinder
 
 ## Hacking CheckList
 
