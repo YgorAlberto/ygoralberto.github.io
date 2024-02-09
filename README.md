@@ -6291,6 +6291,7 @@ Ferramentas para o parsing
 	subfinder
 	sublist3t
 	asserfinder
+	openrdap `~/go/bin/rdap google.com --json >> file.json`
 
 ## Hacking CheckList
 
