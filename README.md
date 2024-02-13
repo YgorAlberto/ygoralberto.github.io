@@ -6292,6 +6292,8 @@ Ferramentas para o parsing
 	sublist3t
 	asserfinder
 	openrdap `~/go/bin/rdap google.com --json >> file.json`
+	nmap
+	masscan
 
 ## Hacking CheckList
 
@@ -6380,6 +6382,7 @@ Validação de dados
 ## ARSENAL HACKING TOOLs
 	
 	NMAP
+	MASSCAN
 	ARP
 	NetworkMiner
 	Metasploitable  
