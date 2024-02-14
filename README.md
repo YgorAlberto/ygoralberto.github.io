@@ -6295,6 +6295,16 @@ Ferramentas para o parsing
 	nmap
 	masscan
 	nuclei
+ 
+Modulo 3 Ambiente Docker
+
+	sudo apt update
+	sudo apt upgrade
+	sudo apt-get install docker.io
+	sudo apt-get install docker-compose
+	service docker status
+
+
 
 ## Hacking CheckList
 
