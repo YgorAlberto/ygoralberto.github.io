@@ -6303,7 +6303,10 @@ Modulo 3 Ambiente Docker
 	sudo apt-get install docker.io
 	sudo apt-get install docker-compose
 	service docker status
-
+	screen -S nomedatela
+	screen -list
+	screen -x nomedatela
+ 
 
 
 ## Hacking CheckList
