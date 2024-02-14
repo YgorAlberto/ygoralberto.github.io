@@ -6294,6 +6294,7 @@ Ferramentas para o parsing
 	openrdap `~/go/bin/rdap google.com --json >> file.json`
 	nmap
 	masscan
+	nuclei
 
 ## Hacking CheckList
 
@@ -6403,6 +6404,7 @@ Validação de dados
 	Nikto
 	SpiderFoot
 	Wapiti
+	Muclei
 	TheHarvester
 	WPscan
 	Hydra
