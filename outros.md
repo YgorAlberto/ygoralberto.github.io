@@ -98,6 +98,20 @@ Resolver problema de UUID em VirtualBox.xml
 	sudo nano /etc/rc.local
 	openvpn --config /caminho/para/seuarquivo.ovpn &
 
+
+
+Resolver problema do virtualbox-dkms que pede para reinstalar e iniciar o modprob config
+
+Re-install virtualbox-dkms package first
+
+	sudo apt-get autoremove virtualbox-dkms
+	sudo apt-get install build-essential linux-headers-`uname -r` dkms virtualbox-dkms
+
+After that You can enable it manually
+
+	sudo modprobe vboxdrv
+	sudo modprobe vboxnetflt
+
 Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
 fdisk -l Lista os discos existentes no dispositivo
