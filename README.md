@@ -6306,7 +6306,16 @@ Modulo 3 Ambiente Docker
 	screen -S nomedatela
 	screen -list
 	screen -x nomedatela
- 
+	hub.docker.com
+	docker pull image-name
+	docker inages
+	docker run -it ubuntu bash
+	docker ps
+	docker run -it --name docker01 ubuntu:latest bash
+	docker -a
+	docker stop id-docker
+	docker rm id-docker
+	docker run -it --rm --name docker01 ubuntu:latest bash
 
 
 ## Hacking CheckList
