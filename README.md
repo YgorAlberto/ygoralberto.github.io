@@ -6312,7 +6312,7 @@ Modulo 3 Ambiente Docker
 	docker run -it ubuntu bash
 	docker ps
 	docker run -it --name docker01 ubuntu:latest bash
-	docker -a
+	docker ps -a
 	docker stop id-docker
 	docker rm id-docker
 	docker run -it --rm --name docker01 ubuntu:latest bash
