@@ -9,7 +9,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 ## COMANDOS RÁPIDOS
 
 
-	nmap -vv -sV -sC -O -p- -A --script vuln -Pn --open -oN saida-save 10.10.10.0/24
+	nmap -vv -sUV -sC -O -p- -A --script vuln -Pn --open -oN saida-save 10.10.10.0/24
 
 .
 
