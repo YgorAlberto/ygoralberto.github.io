@@ -6303,62 +6303,101 @@ Modulo 3 Ambiente Docker
 	sudo apt-get install docker.io
 	sudo apt-get install docker-compose
 	service docker status
+ 
 Comando utilizados para atulalizar o linux e instalar o docker
  
  	screen -S nomedatela
+  
 Cria uma tela com o nome nomedatela
 
 	screen -list
+ 
 Lista as telas existentes
 
 	screen -x nomedatela
+ 
 Utiliza a tela mencionada
 
  	hub.docker.com
+  
 Hub de imagens docker
 
 	docker pull image-name
+ 
 Faz o download da imagem docker passada
 
 	docker images
+ 
 Lista as imagens docker
  
 	docker run -it ubuntu bash
+ 
 Roda a imagem ubuntu no modod interativo (ao sair a umagem continua rodando)
 
 	docker ps
+ 
 Lista os dockers rodando
 
  	docker run -it --name docker01 ubuntu:latest bash
+  
 Roda a iamgem ubuntu com o nome docker01 e no modo interativo
   
 	docker ps -a
+ 
 Lista as imagens docker rodando em segundo plano
 
 	docker stop id-docker
+ 
 Para a imagem docker passada
 
 	docker rm id-docker
+ 
 Remove a imagem docker do segundo plano
 
 	docker run -it --rm --name docker01 ubuntu:latest bash
+ 
 Roda a imagem docker no modo insterativo (Remove a imagem ao sair do terminal)
 
 	docker run -it --rm --name docker01 -v '/docker/docker-share:/tmp/local-share' ubuntu bash
+ 
 Roda a imagem docker no modo interativo executa um mapeamento da pasta do docker no /tmp/ (deleta tudo ao sair da interação)
 
 	docker run -it --rm --name docker01 -p "9000:90" ubuntu bash
+ 
 Roda a imagem docker no modo interativo executa um mapeamento da porta 80 do docker para a porta 9000 da maquina hospedeira (deleta tudo ao sair da interação)
 
 	docker run -it --rm --name docker01 ubuntu bash
+ 
 Ao rodar o comando acima, instala as ferramentas normalmente para fazer o commit para uma nova imagem (comando abaixo, sem fechar o bash)
 
 	docker commit id-container new-image-name
+ 
 Faz o commit de uma nova imagem com as ferramentas instaladas
 
-	docker run --name docker_nmap new-image-name nmap ip-address
+	docker run --name docker_nmap new-image-name nmap ip-
+ 
  Ao rodar esse comando é iniciado o docker que foi commitado anteriormente e executa o nmap e traz a saída no terminal e a imagem é destruida.
 
+	FROM kalilinux/kali-rolling:latest
+	
+	WORKDIR /data
+	WORKDIR /scripts
+	
+	RUN apt-get update
+	
+	RUN apt-get install nmap -y
+
+
+Os comandos acima é inserido dentro do `Dockerfile` que será utilizado para fazer a build de uma imagem automaticamente e salvar para ser utilizada
+
+	docker image build -t image-name-from-dockerfile:tag-name .
+
+O comando acima monta a imagem de acordo com o que ta descrito no dockerfile dentro do diretório atual, e deixa pronta para usar
+
+	docker --rm image-name-from-dockerfile:tag-name nmap ip-address -sSV
+
+ O comando acima roda a imagem criada pelo dockerfile e roda o comando passado e traz o output
+ 
 
 ## Hacking CheckList
 
