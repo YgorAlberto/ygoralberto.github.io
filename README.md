@@ -6284,7 +6284,7 @@ Gera o arquivo encriptado
 
 Decripta o arquivo usando a chave privada
 
-## SMART OSINT
+## SMART PENTEST OSINT
 
 Ferramentas para o parsing
 
@@ -6303,8 +6303,13 @@ Modulo 3 Ambiente Docker
 	sudo apt-get install docker.io
 	sudo apt-get install docker-compose
 	service docker status
-	screen -S nomedatela
+ 
+ 	screen -S nomedatela
+Cria uma tela com o nome nomedatela
+
 	screen -list
+Lista as telas existentes
+
 	screen -x nomedatela
 	hub.docker.com
 	docker pull image-name
@@ -6316,7 +6321,7 @@ Modulo 3 Ambiente Docker
 	docker stop id-docker
 	docker rm id-docker
 	docker run -it --rm --name docker01 ubuntu:latest bash
-
+	docker run -it --rm --name docker01 -v '/docker/docker-share:/tmp/local-share' ubuntu bash
 
 ## Hacking CheckList
 
