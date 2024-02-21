@@ -6347,6 +6347,8 @@ Roda a imagem docker no modo insterativo (Remove a imagem ao sair do terminal)
 	docker run -it --rm --name docker01 -v '/docker/docker-share:/tmp/local-share' ubuntu bash
 Roda a imagem docker no modo interativo executa um mapeamento da pasta do docker no /tmp/ (deleta tudo ao sair da interação)
 
+	docker run -it --rm --name docker01 -p "9000:90" ubuntu bash
+Roda a imagem docker no modo interativo executa um mapeamento da porta 80 do docker para a porta 9000 da maquina hospedeira (deleta tudo ao sair da interação)
 
 ## Hacking CheckList
 
