@@ -6350,7 +6350,15 @@ Roda a imagem docker no modo interativo executa um mapeamento da pasta do docker
 	docker run -it --rm --name docker01 -p "9000:90" ubuntu bash
 Roda a imagem docker no modo interativo executa um mapeamento da porta 80 do docker para a porta 9000 da maquina hospedeira (deleta tudo ao sair da interação)
 
-asasd
+	docker run -it --rm --name docker01 ubuntu bash
+Ao rodar o comando acima, instala as ferramentas normalmente para fazer o commit para uma nova imagem (comando abaixo, sem fechar o bash)
+
+	docker commit id-container new-image-name
+Faz o commit de uma nova imagem com as ferramentas instaladas
+
+	docker run --name docker_nmap new-image-name nmap ip-address
+ Ao rodar esse comando é iniciado o docker que foi commitado anteriormente e executa o nmap e traz a saída no terminal e a imagem é destruida.
+
 
 ## Hacking CheckList
 
