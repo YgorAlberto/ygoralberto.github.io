@@ -6303,6 +6303,7 @@ Modulo 3 Ambiente Docker
 	sudo apt-get install docker.io
 	sudo apt-get install docker-compose
 	service docker status
+Comando utilizados para atulalizar o linux e instalar o docker
  
  	screen -S nomedatela
 Cria uma tela com o nome nomedatela
@@ -6311,17 +6312,41 @@ Cria uma tela com o nome nomedatela
 Lista as telas existentes
 
 	screen -x nomedatela
-	hub.docker.com
+Utiliza a tela mencionada
+
+ 	hub.docker.com
+Hub de imagens docker
+
 	docker pull image-name
-	docker inages
+Faz o download da imagem docker passada
+
+	docker images
+Lista as imagens docker
+ 
 	docker run -it ubuntu bash
+Roda a imagem ubuntu no modod interativo (ao sair a umagem continua rodando)
+
 	docker ps
-	docker run -it --name docker01 ubuntu:latest bash
+Lista os dockers rodando
+
+ 	docker run -it --name docker01 ubuntu:latest bash
+Roda a iamgem ubuntu com o nome docker01 e no modo interativo
+  
 	docker ps -a
+Lista as imagens docker rodando em segundo plano
+
 	docker stop id-docker
+Para a imagem docker passada
+
 	docker rm id-docker
+Remove a imagem docker do segundo plano
+
 	docker run -it --rm --name docker01 ubuntu:latest bash
+Roda a imagem docker no modo insterativo (Remove a imagem ao sair do terminal)
+
 	docker run -it --rm --name docker01 -v '/docker/docker-share:/tmp/local-share' ubuntu bash
+Roda a imagem docker no modo interativo executa um mapeamento da pasta do docker no /tmp/ (deleta tudo ao sair da interação)
+
 
 ## Hacking CheckList
 
