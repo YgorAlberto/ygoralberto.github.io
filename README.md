@@ -6397,7 +6397,33 @@ O comando acima monta a imagem de acordo com o que ta descrito no dockerfile den
 	docker --rm image-name-from-dockerfile:tag-name nmap ip-address -sSV
 
  O comando acima roda a imagem criada pelo dockerfile e roda o comando passado e traz o output
- 
+
+	 version: '3'
+	services:
+	  apache:
+	    image: bitnami/apache:latest
+     	    container_name: docker_apache_teste
+	    volumes:
+	      - ./data:/data
+	    ports:
+	      - 80:8080
+	      - 443:8443
+
+As linhas acima devem estar no arquivo chamado `docker-compose.yaml` que servem para baixar e deixar pronta uma imagem docker, com a diferença que o docker compose permanece rodando
+
+	docker-compose -f docker-compose.yaml up -d
+
+O comando ler o arquivo do doker compose baixa a imagem, e deixa pronta para utilizar. O -d serve para manter em segundo plano.
+
+	docker exec -it docker-name bash
+
+Para se conectar no docker em execução em entrar no modo interativo, `exit` para sair sem derrubar 
+
+	docker-compose down
+
+O comando acima para a imagem que estava em execução em docker compose, mas precisa ser no diretório do docker
+
+	
 
 ## Hacking CheckList
 
