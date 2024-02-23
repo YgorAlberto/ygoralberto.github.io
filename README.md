@@ -6536,6 +6536,7 @@ Validação de dados
 	Muclei
 	TheHarvester
 	WPscan
+	Fierce
 	Hydra
 	Crowbar
 	Crunch
