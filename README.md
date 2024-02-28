@@ -6423,7 +6423,28 @@ Para se conectar no docker em execução em entrar no modo interativo, `exit` pa
 
 O comando acima para a imagem que estava em execução em docker compose, mas precisa ser no diretório do docker
 
+Preparando o ambiente
+
+	LOCAL mkdir data-es | chmod 777 data-es 
+	LOCAL wget https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/docker-compose.yml
+	LOCAL sysctl -w vm.max_map_count=262144
+	LOCAL docker-compose up
+	LOCAL curl -XGET https://localhost:9200 -u 'admin:admin' --insecure
+	   LOCAL mkdir tls | cd tls | nano certs.sh
+	   LOCAL chmod +x certs.sh | ./certs.sh
+	   LOCAL chmod 777 root-ca.pem admin-key.pem admin.pem
+	   LOCAL docker-compose up
+	   LOCAL docker exec -it d40dbcc5f7a4
+	   CONTAINER vi /usr/share/elasticsearch/plugins/opendistro_security/securityconfig/internal_users.yml
+	   LOCAL nano internal_users.yml
+	   CONTAINER sh /usr/share/elasticsearch/plugins/opendistro_security/tools/hash.sh
+	LOCAL docker-compose -f docker-compose_completo.yml up
 	
+[certs.sh](https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/certs.sh)
+[docker-compose_completo.yml](https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/docker-compose_completo.yml)
+
+NOTES: Se receber um código 137 "exited with code 137" adiciona mais RAM à máquina.
+Se receber um código 78 "exited with code 78" é preciso rodar o comando `sysctl -w vm.max_map_count=262144`
 
 ## Hacking CheckList
 
