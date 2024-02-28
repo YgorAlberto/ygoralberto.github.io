@@ -42,6 +42,9 @@ zip -re output_data.zip file.txt file.pdf - criar arquivo zip com senha
       sudo useradd -m -d /home/newuser newuser
       sudo usermod -d /home/newuser -m newuser
       sudo usermod -aG group newuser
+      sudo adduser <nome_do_usuário> sudo
+      su -
+      su - suporte
 
 - Gerenciamento de interfaces de rede network interfaces [Referencias](https://wiki.netbsd.org/tutorials/how_to_use_wpa_supplicant/)
 
