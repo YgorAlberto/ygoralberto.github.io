@@ -6459,6 +6459,7 @@ Mapear SuperfíciExterna
 	Pesquisa - BGP (ASN)
 	Pesquisa - Shodan
 	Pesquisa - Censys
+	Pesquisa - WayBackMachine
 	Pesquisa - Certificados SSL
 	Pesquisa - Leaks em Bases Públicas
 	Pesquisa Passiva - Sub-domínios
