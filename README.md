@@ -6441,6 +6441,7 @@ Preparando o ambiente
 	LOCAL docker-compose -f docker-compose_completo.yml up
 	
 [certs.sh](https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/certs.sh)
+
 [docker-compose_completo.yml](https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/docker-compose_completo.yml)
 
 NOTES: Se receber um código 137 "exited with code 137" adiciona mais RAM à máquina.
