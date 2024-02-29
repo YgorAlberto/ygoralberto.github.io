@@ -6558,6 +6558,7 @@ Validação de dados
 	FuFF
 	Wfuzz
 	Wafw00f
+	Hakrawler
 	Amass
 	Sensys
 	Shodan
