@@ -6445,7 +6445,7 @@ Preparando o ambiente
 [docker-compose_completo.yml](https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/docker-compose_completo.yml)
 
 NOTES: Se receber um código 137 "exited with code 137" adiciona mais RAM à máquina.
-Se receber um código 78 "exited with code 78" é preciso rodar o comando `sysctl -w vm.max_map_count=262144`
+Se receber um código 78 "exited with code 78" é preciso rodar o comando `sysctl -w vm.max_map_count=262144`, podendo, para não precisar rodar novamente o comando, adicionar o `vm.max_map_count=262144` na ultima linha do /etc/sysctl.conf assim como colocando o Swap para 10 e o cache para 50.
 
 ## Hacking CheckList
 
