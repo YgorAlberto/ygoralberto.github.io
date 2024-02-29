@@ -6551,6 +6551,7 @@ Validação de dados
 	Searchsploit
 	Subfinder
 	Sublist3r
+	Assetfinder
 	GoBuster 
 	Dirb 
 	DirBuster
