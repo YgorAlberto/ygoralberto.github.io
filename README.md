@@ -6445,7 +6445,8 @@ Preparando o ambiente
 [docker-compose_completo.yml](https://github.com/DesecSecurityGit/Smart-Recon/blob/main/Modulo4/docker-compose_completo.yml)
 
 NOTES: Se receber um código 137 "exited with code 137" adiciona mais RAM à máquina.
-Se receber um código 78 "exited with code 78" é preciso rodar o comando `sysctl -w vm.max_map_count=262144`, podendo, para não precisar rodar novamente o comando, adicionar o `vm.max_map_count=262144` e o `vm.swappiness=10` e o `vm.vfs_cache_pressure=50` na ultima linha do /etc/sysctl.conf para melhorar o Swap e o Cache também. 
+       Se receber um código 78 "exited with code 78" é preciso rodar o comando `sysctl -w vm.max_map_count=262144`, podendo, para não precisar rodar novamente o comando, adicionar o `vm.max_map_count=262144` e o `vm.swappiness=10` e o `vm.vfs_cache_pressure=50` na ultima linha do /etc/sysctl.conf para melhorar o Swap e o Cache também.
+       Para nao ter problemas com a quantidade de indies criados roda o comando: `curl -XPUT --insecure --user admin:'unkqwer' https://localhost:9200/_cluster/settings -H "Content-Type: application/json" -d '{ "persistent": { "cluster.max_shards_per_node": "5000" } }'`
 
 ## Hacking CheckList
 
