@@ -6589,6 +6589,7 @@ Validação de dados
 	Wireshark
 	Mimikatz 
 	Impacket
-	NetCat  
+	NetCat
+	Lnkbomb - responder
 
 ## THE END
