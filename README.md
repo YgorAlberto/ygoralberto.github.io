@@ -6591,5 +6591,6 @@ Validação de dados
 	Impacket
 	NetCat
 	Lnkbomb - responder
+	Sudo_Killer
 
 ## THE END
