@@ -175,6 +175,10 @@ Habilita permanente o serviço ssh
 
 Buscadores de arquivos/programas (updatedb atualiza base)
 
+	grep -E -e 'termo1|termo2' arquivo.txt
+
+Grep com dois termos na pesquisa para printar
+
     grep "procura" /arquivo/
 
 Busca procura no arquivo e exibe a linha
