@@ -287,8 +287,9 @@ $sudo netplan try
 Bônus!
 
 Trocar ip temporariamente:
-sudo ifconfig eth0 192.168.0.1 netmask 255.255.255.0
-sudo route add default gw 192.168.0.253 eth0
+
+	sudo ifconfig eth0 192.168.0.1 netmask 255.255.255.0
+	sudo route add default gw 192.168.0.253 eth0
 
 Referência: http://www.bosontreinamentos.com.br/linux/como-configurar-endereco-ip-estatico-no-linux-ubuntu-18-04-com-netplan/
 
