@@ -258,6 +258,14 @@ network:
 	      - to: default
 	        via: 192.168.2.1
 	  version: 2
+
+Ativar modo DHCP:
+
+	network:
+	  version: 2
+	  ethernets:
+	    enp6s0:
+	      dhcp4: true
   
 Legenda:
 renderer : Renderizador (daemon de rede) Aceita os valores NetworkManager e networkd. O padrão é networkd. Pode ser aplicada globalmente ou para um dispositivo específico. 
