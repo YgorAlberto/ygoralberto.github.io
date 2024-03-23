@@ -179,6 +179,10 @@ Buscadores de arquivos/programas (updatedb atualiza base)
 
 Grep com dois termos na pesquisa para printar
 
+	grep -B 4 -A 1 "sua linha específica" arquivo.txt
+
+Faz a busca pela palavra e exibe linhas acima e linhas abaixo de acordo com a quantidade
+
     grep "procura" /arquivo/
 
 Busca procura no arquivo e exibe a linha
