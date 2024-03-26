@@ -5702,6 +5702,13 @@ Depois de tudo OK Acessa o terminal
 	pip3 install OpenVAS-Reporting && pip install gvm-tools
 	openvasreporting -i /tmp/COMPANY_NETWORK_NW_DATE.xml -o /tmp/COMPANY_NETWORK_IP_DATE  -f xlsx
 
+Problemas que podem acontecer e possíveis soluções
+
+Primeira dica é rodas os comandos acima novamente e se mesmo assim não der certo, voce pode tentar atualizar o GVM e etc
+
+Caso aprensente algum erro, como por exemplo `Remote manager daemon uses an unsupported version of GMP. The GMP version was 22.5`, pode-se tentar atualzar o [Python-GVM](https://greenbone.github.io/python-gvm/install.html#using-pip) Existem 3 opçoes de instalação, se necessário tente todas.
+
+
 ## DEPLOY RAPIDO DE UM SIEM WAZUH
 
 
