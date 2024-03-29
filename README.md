@@ -4920,6 +4920,7 @@ E passará a ter acesso root ao sistema. 48.60.285.342/blog
 
 Wget com flag para não checar o certificado https
 
+PrivEsc Linux Kernel 2024: [EXPLOIT](https://github.com/Notselwyn/CVE-2024-1086)
 
 - Pivoting: Da internet para a rede interna
 
