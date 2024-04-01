@@ -5707,7 +5707,7 @@ Problemas que podem acontecer e possíveis soluções
 
 Primeira dica é rodas os comandos acima novamente e se mesmo assim não der certo, voce pode tentar atualizar o GVM e etc
 
-Caso aprensente algum erro, como por exemplo `Remote manager daemon uses an unsupported version of GMP. The GMP version was 22.5`, pode-se tentar atualzar o [Python-GVM](https://greenbone.github.io/python-gvm/install.html#using-pip) Existem 3 opçoes de instalação, se necessário tente todas.
+Caso aprensente algum erro, como por exemplo `Remote manager daemon uses an unsupported version of GMP. The GMP version was 22.5`, pode-se tentar atualzar o [Python-GVM](https://greenbone.github.io/python-gvm/install.html#using-pip) Existem 3 opçoes de instalação, se necessário tente todas. Mas uma boa alternativa é `python3 -m pip install --user python-gvm --upgrade`
 
 
 ## DEPLOY RAPIDO DE UM SIEM WAZUH
