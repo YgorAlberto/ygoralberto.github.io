@@ -5769,10 +5769,10 @@ Modificar o arquivo para habilitar alertas adicionais
 
     nano /var/ossec/etc/ossec.conf
 
-- Para remover agents do WAZUH
+- Para remover deletar agents do WAZUH
 
-	sudo /var/ossec/bin/agent_control -l
-	sudo /var/ossec/bin/agent_control -r [ID_do_Agente
+      sudo /var/ossec/bin/agent_control -l
+      sudo /var/ossec/bin/agent_control -r [ID_do_Agente]
 
 - Manutenção do Wazuh (Wazuh Dashboard not ready)
 
