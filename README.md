@@ -5731,6 +5731,8 @@ Ao acessar o dashboard, vai em Agents e configure de acordo com o ser server a s
 
 Antes de rodar o comando abaixo, trocar o IP par ao IP do seu servidor WAZUH
 
+- Adicionar Agents no Wazuh
+
 Obs.: Repetir este processo para a config dos demais servers `Debian Based`
 
     curl -so wazuh-agent-4.3.10.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.3.10-1_amd64.deb && sudo WAZUH_MANAGER='192.168.2.100' WAZUH_AGENT_GROUP='default' dpkg -i ./wazuh-agent-4.3.10.deb
@@ -5766,6 +5768,11 @@ Acessar:
 Modificar o arquivo para habilitar alertas adicionais
 
     nano /var/ossec/etc/ossec.conf
+
+- Para remover agents do WAZUH
+
+	sudo /var/ossec/bin/agent_control -l
+	sudo /var/ossec/bin/agent_control -r [ID_do_Agente
 
 - Manutenção do Wazuh (Wazuh Dashboard not ready)
 
