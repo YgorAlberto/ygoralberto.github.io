@@ -5654,7 +5654,7 @@ Primeiras configurações:
 
  Em caso de apresentar erro ao fazer um scan ou criar algum configuração de scaneamento
 	
-	sudo runuser -u _gvm --gvmd --get-users --verbose
+	sudo runuser -u _gvm -- gvmd --get-users --verbose
 	sudo runuser -u _gvm -- gvmd --get-scanners
 	sudo runuser -u _gvm -- gvmd --modify-scanner [SCAN ID] --value [USER ID]
 
