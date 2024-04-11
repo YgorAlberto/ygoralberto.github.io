@@ -5643,11 +5643,12 @@ Para criar o login e senha rode:
 	
 Ficar atento às informações de resultado dos comandos e posteriormente `https://localhost:9392`
 
-Primeiras configurações: Criar um portscan avançado e um filtro de resultados avançado e setar os alvos
-
-Para criar o portscan vai em: Configuration -> Port Lists -> clica em novo -> Nomeia e Seta todas as portas UDP e TCP
-Para criar o filtro vai em: Configuration -> Filters ->  -> clica em novo -> Nomeia e Seta o tipo como Result
-Para setar os alvos vai em: Configuration -> Targets -> Clica novo -> PortList selecina a criada anteriormente -> Depos em Consider Alive
+Primeiras configurações: 
+	
+ 	Criar um portscan avançado e um filtro de resultados avançado e setar os alvos
+	Para criar o portscan vai em: Configuration -> Port Lists -> clica em novo -> Nomeia e Seta todas as portas UDP e TCP
+	Para criar o filtro vai em: Configuration -> Filters ->  -> clica em novo -> Nomeia e Seta o tipo como Result	
+	Para setar os alvos vai em: Configuration -> Targets -> Clica novo -> PortList selecina a criada anteriormente -> Depos em Consider Alive
 
 - UPDATE OPENVAS
 
