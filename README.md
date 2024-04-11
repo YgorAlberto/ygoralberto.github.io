@@ -5658,6 +5658,8 @@ Primeiras configurações:
 	sudo runuser -u _gvm -- gvmd --get-scanners
 	sudo runuser -u _gvm -- gvmd --modify-scanner [SCAN ID] --value [USER ID]
 
+[ALTERNATIVA](https://greenbone.github.io/docs/latest/22.4/source-build/troubleshooting.html#failed-to-find-scan-configuration)
+
 
 - UPDATE OPENVAS
 
