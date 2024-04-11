@@ -5652,7 +5652,7 @@ Primeiras configurações:
 	Para setar um ScanConfig vai em: Configuration -> ScanConfig -> Cria novo -> seleciona Full and Fast
 	Para iniciar um scan vai em: Scan -> tasks -> New -> Scan Target:TargetCreated -> MinQoD:0% -> ScanConfig:FullandFast -> scan type: GVM default
 
- Em caso de apresentar erro ao fazer um scan ou criar algum configuração de scaneamento
+Em caso de apresentar erro ao fazer um scan ou criar algum configuração de scaneamento - Failed to find config 'daba56c8-73ec-11df-a475-002264764cea'
 	
 	sudo runuser -u _gvm -- gvmd --get-users --verbose
 	sudo runuser -u _gvm -- gvmd --get-scanners
