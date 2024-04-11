@@ -5649,6 +5649,7 @@ Primeiras configurações:
 	Para criar o portscan vai em: Configuration -> Port Lists -> clica em novo -> Nomeia e Seta todas as portas UDP e TCP
 	Para criar o filtro vai em: Configuration -> Filters ->  -> clica em novo -> Nomeia e Seta o tipo como Result	
 	Para setar os alvos vai em: Configuration -> Targets -> Clica novo -> PortList selecina a criada anteriormente -> Depos em Consider Alive
+ 	Para iniciar um scan vai em: Scan -> tasks -> New -> Scan Target:TargetCreated -> MinQoD:0%   
 
 - UPDATE OPENVAS
 
