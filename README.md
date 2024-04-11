@@ -5650,7 +5650,14 @@ Primeiras configurações:
 	Para criar o filtro vai em: Configuration -> Filters ->  -> clica em novo -> Nomeia e Seta o tipo como Result	
 	Para setar os alvos vai em: Configuration -> Targets -> Clica novo -> PortList selecina a criada anteriormente -> Depos em Consider Alive
 	Para setar um ScanConfig vai em: Configuration -> ScanConfig -> Cria novo -> seleciona Full and Fast
-	Para iniciar um scan vai em: Scan -> tasks -> New -> Scan Target:TargetCreated -> MinQoD:0% -> ScanConfig:FullandFast
+	Para iniciar um scan vai em: Scan -> tasks -> New -> Scan Target:TargetCreated -> MinQoD:0% -> ScanConfig:FullandFast -> scan type: GVM default
+
+ Em caso de apresentar erro ao fazer um scan ou criar algum configuração de scaneamento
+	
+	sudo runuser -u _gvm --gvmd --get-users --verbose
+	sudo runuser -u _gvm -- gvmd --get-scanners
+	sudo runuser -u _gvm -- gvmd --modify-scanner [SCAN ID] --value [USER ID]
+
 
 - UPDATE OPENVAS
 
