@@ -71,9 +71,16 @@ Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale
 
 [Load Balancing `cloudflare kemp freenom`](https://www.youtube.com/watch?v=LlbTSfc4biw)
 
-[ZERO TRUST](https://www.youtube.com/watch?v=IYmXPF3XUwo)
+[ZeroTrust](https://www.youtube.com/watch?v=IYmXPF3XUwo)
 
 [Hospedar na DARKWEB](https://www.youtube.com/watch?v=CurcakgurRE)
+
+[DockerCompose `máquinas vulneráveis, WordPress e MySQL`](https://youtu.be/DM65_JyGxCo?si=dCfgQkA6EBKk26f_)
+
+[Ansible](https://youtu.be/5hycyr-8EKs?si=6dfufzOJn-RrmORt)
+
+[3 Levels of Wifi Hacking](https://www.youtube.com/watch?v=dZwbb42pdtg)
+
 
 .
 
