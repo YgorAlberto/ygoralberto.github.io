@@ -73,6 +73,8 @@ Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale
 
 [ZERO TRUST](https://www.youtube.com/watch?v=IYmXPF3XUwo)
 
+[Hospedar na DARKWEB](https://www.youtube.com/watch?v=CurcakgurRE)
+
 .
 
 .
