@@ -81,6 +81,9 @@ Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale
 
 [3 Levels of Wifi Hacking](https://www.youtube.com/watch?v=dZwbb42pdtg)
 
+[Hacking Commands You NEED to Know](https://www.youtube.com/watch?v=gL4j-a-g9pA)
+
+[Run your own AI (but private)](https://www.youtube.com/watch?v=WxYC9-hBM_g)
 
 .
 
