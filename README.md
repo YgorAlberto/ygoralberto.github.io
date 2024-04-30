@@ -6610,6 +6610,8 @@ Validação de dados
 	TheHarvester
 	WPscan
 	Fierce
+	Dnsenum
+	Dnsrecon
 	Hydra
 	Crowbar
 	Crunch
