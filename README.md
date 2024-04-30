@@ -6099,6 +6099,8 @@ Ferramenta para criar arquivo zip com senha `zip -re FileNameZipped.ZIP files-to
 
 Ferramenta para criar uma senha unica `/usr/bin/dbus-uuidgen`
 
+Ferramenta de "VPN" via SSH simulando um Proxy `ssh -D 1337 -C -q -N root@server` depois `Chromium --no-sandbox --proxy-server="socks5://localhost:1337"`
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
