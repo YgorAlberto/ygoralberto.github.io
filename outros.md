@@ -823,6 +823,11 @@ git pull (link)
 Clonando do repositório todo o projeto
 git clone (link)
 
+## Anydesk com problemas de biblioteca libgtkglext1
+
+[Baixa o .deb](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/)
+Instala as dependências caso precise, e caso nao encontrar, procurar no link acima as dependêcias correspondentes
+
 
 ## SETUP ANDROID VISTUALBOX
 
