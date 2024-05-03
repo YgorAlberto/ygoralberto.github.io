@@ -6595,7 +6595,7 @@ Validação de dados
 	GoBuster 
 	Dirb 
 	DirBuster
-	FuFF
+	FFuF
 	Wfuzz
 	Wafw00f
 	Hakrawler
