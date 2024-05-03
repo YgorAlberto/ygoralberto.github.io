@@ -25,6 +25,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	ffuf -u https://site.com/FUZZ -w /usr/share/dirb/wordlists/big.txt -mc all -c -v -t 100 -e php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config -o ffuf-output	
+
+.
+
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
 
 .
