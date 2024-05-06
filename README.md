@@ -25,7 +25,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	ffuf -u https://site.com/FUZZ -w /usr/share/dirb/wordlists/big.txt -mc all -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config -o ffuf-site-raiz
+	ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config -o output-site-raiz.html -of html
 
 .
 
