@@ -6641,3 +6641,19 @@ Validação de dados
 	Hunter.io
 
 ## THE END
+
+
+## WINDOWS
+
+Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.3.11-1.msi -OutFile ${env:tmp}\wazuh-agent-4.3.11.msi; msiexec.exe /i ${env:tmp}\wazuh-agent-4.3.11.msi /q WAZUH_MANAGER='192.168.1.40' WAZUH_REGISTRATION_SERVER='192.168.1.40' WAZUH_AGENT_GROUP='Windows' 
+
+NET START WazuhSvc
+
+
+## LINUX
+
+curl -so wazuh-agent-4.3.11.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.3.11-1_amd64.deb && sudo WAZUH_MANAGER='192.168.1.40' WAZUH_AGENT_GROUP='Windows,Linux' dpkg -i ./wazuh-agent-4.3.11.deb
+
+sudo systemctl daemon-reload
+sudo systemctl enable wazuh-agent
+sudo systemctl start wazuh-agent
