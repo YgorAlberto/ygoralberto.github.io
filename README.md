@@ -5628,7 +5628,7 @@ Salva e inicia...
 
         ngrok start --all: Abre as conexões configuradas no arquivo yml
 
-## INSTALL OPENVAS
+## INSTALL OPENVAS | GVM | GreenBone
 
 Openvas é um framework de scan de vulnerabiliadades
 
