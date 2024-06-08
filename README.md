@@ -6503,13 +6503,13 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 
 ## NOMENCLATURAS
 
-Browser fingerprint - Its the technic websites get informations abou your browser, gpu, resolution, plugins, time
-Forced browsing - is the way you test some directories or files or ids and others on web browser manually
-CSRF - is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated.
-SSRF - is a web security vulnerability that allows an attacker to cause the server-side application to make requests to an unintended location
-Code Injection - is the action to inject code in a specific part of the page, making it run
-Image upload - Insert a peace of code in an image to run on the server
-Overpass The Hash - The Overpass The Hash/Pass The Key (PTK) attack is designed for environments where the traditional NTLM protocol is restricted, and Kerberos authentication takes precedence. This attack leverages the NTLM hash or AES keys of a user to solicit Kerberos tickets, enabling unauthorized access to resources within a network
+**Browser fingerprint** - Its the technic websites get informations abou your browser, gpu, resolution, plugins, time
+**Forced browsing** - is the way you test some directories or files or ids and others on web browser manually
+**CSRF** - is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated.
+**SSRF** - is a web security vulnerability that allows an attacker to cause the server-side application to make requests to an unintended location
+**Code Injection** - is the action to inject code in a specific part of the page, making it run
+**Image upload** - Insert a peace of code in an image to run on the server
+**Overpass The Hash** - The Overpass The Hash/Pass The Key (PTK) attack is designed for environments where the traditional NTLM protocol is restricted, and Kerberos authentication takes precedence. This attack leverages the NTLM hash or AES keys of a user to solicit Kerberos tickets, enabling unauthorized access to resources within a network
 
 ## PÓS GRADUAÇÃO
 
