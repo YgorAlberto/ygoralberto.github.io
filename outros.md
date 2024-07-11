@@ -20,6 +20,8 @@ df - Lista os discos existente no computador
 
 df -h Lista os discos e detalhes de espaço/armazenamento
 
+du -sh Mostra o tamanha do armazenamento atual
+
 tail -f - Comando para ver o arquivo com atualização em tempo real
 
 tar -xvjf - Descompacta arquivo .tar.bz2
