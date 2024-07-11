@@ -20,7 +20,7 @@ df - Lista os discos existente no computador
 
 df -h Lista os discos e detalhes de espaço/armazenamento
 
-du -sh Mostra o tamanha do armazenamento atual
+du -sh * Mostra o tamanha do armazenamento das pastas e arquivos do diretório atual
 
 tail -f - Comando para ver o arquivo com atualização em tempo real
 
