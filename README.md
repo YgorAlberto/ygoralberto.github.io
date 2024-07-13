@@ -6531,6 +6531,8 @@ Comandos para exfiltração de dados da maquina alvo
 
 - OC - Bruno Botelho
 
+Material da Disciplina [Doc](https://ygoralberto.github.io/FILES/Po%CC%81s%20OC.pdf)
+
 Ataque ARP Spoofing
 Consiste no ataque onde você consegue fazer um ataque de MAC, onde o atacante finge ser o roteador e a maquina alvo pensa que o roteador é a maquina do atacante.
 
