@@ -6513,9 +6513,11 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 
 ## PÓS GRADUAÇÃO
 
-LAB_SSI 
+ - SSI
+    
+Laboratório prático do SSI
 
-	adfind.exe -f "objectcategory=person" > ad_users.txt
+      adfind.exe -f "objectcategory=person" > ad_users.txt
  
  Find users from Active Directory and save on a file
   
@@ -6526,6 +6528,36 @@ LAB_SSI
       net group /domain > ad_goup_net.txt
 
 Comandos para exfiltração de dados da maquina alvo
+
+- OC - Bruno Botelho
+
+Ataque ARP Spoofing
+Consiste no ataque onde você consegue fazer um ataque de MAC, onde o atacante finge ser o roteador e a maquina alvo pensa que o roteador é a maquina do atacante.
+
+Objetivo: Monitorar todas as conexões que a maquina alvo está fazendo, por exemplo FTP, HTTP, onde passam em texto claro.
+
+Cenário: Estar presente na rede e torcer pra não haver mecanismos de defesa como: Switch e firewalls e monitoramento em geral.
+
+Ping Scapy
+Modificar o pacote ICMP, burlando a resposta.
+
+Objetivo: Rodar comandos remotos e fazer exfiltração de dados.
+
+Cenário: Acesso à maquina alvo e inserir o arquivo para fazer a comunicação
+
+Mitigar: Monitorar as requisições, comportamento, tempo de requisição, tamanho do pacote, o pacote em si.
+
+DNSCAT
+Consiste em fazer com que a maquina alvo faça consultas DNS em um servidor atacante, essa comunicação vai retornar um C2 na maquina, permitindo rodar comandos remotamente.
+
+Objetivo: Rodar comandos remotamente no alvo (caso o mesmo não saia para a internet, pode-se utilizar o servidor de DNS interno)
+
+Cenário: Com acesso à maquina alvo, rode o script em ruby e faça a "consulta" DNS no servidor atacante, dessa forma fechando a conexão reversa com o atacante.
+
+Mitigar: Apontar o DNS para o Cisco Umbrella, DNSsec, Inserir mecanismos de detecção encima do comportamento do ataque.
+
+
+TO BE CONTINUED
 
 ## Hacking CheckList
 
