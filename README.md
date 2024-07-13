@@ -6547,7 +6547,7 @@ Material da Disciplina [Pós OC](https://ygoralberto.github.io/FILES/Po%CC%81s%2
    _Cenário: Acesso à maquina alvo e inserir o arquivo para fazer a comunicação.
    _Mitigar: Monitorar as requisições, comportamento, tempo de requisição, tamanho do pacote, o pacote em si.
 
-3. DNSCAT
+4. DNSCAT
    
    _Definição: Consiste em fazer com que a maquina alvo faça consultas DNS em um servidor atacante, essa comunicação vai retornar um C2 na maquina, permitindo rodar comandos remotamente.
    _Objetivo: Rodar comandos remotamente no alvo (caso o mesmo não saia para a internet, pode-se utilizar o servidor de DNS interno)
