@@ -828,6 +828,13 @@ git clone (link)
 ## Anydesk com problemas de biblioteca libgtkglext1
 
 [Baixa o .deb](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/)
+
+[libgtk](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/libgtkglext1_1.2.0-9_amd64.deb)
+[pixpuf](http://ftp.us.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf-2.0-0_2.42.12+dfsg-1_amd64.deb)
+[libtiff](http://ftp.us.debian.org/debian/pool/main/t/tiff/libtiff5_4.1.0+git191117-2~deb10u4_amd64.deb)
+[libwebp](http://ftp.us.debian.org/debian/pool/main/libw/libwebp/libwebp6_0.6.1-2+deb10u1_amd64.deb)
+[pangox](ftp.us.debian.org/debian/pool/main/p/pangox-compat/libpangox-1.0-0_0.0.2-5+b2_amd64.deb)
+
 Instala as dependências caso precise, e caso nao encontrar, procurar no link acima as dependêcias correspondentes
 
 
