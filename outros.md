@@ -851,9 +851,13 @@ If it is on CLI mode, try this:
 ## DRIVER NVIDIA E DUAL MONITOR
 
 [X11 no linux](https://pt.wikihow.com/Configurar-o-X11-no-Linux#:~:text=Execute%20o%20comando%20sudo%20Xorg,ser%C3%A3o%20adicionadas%20automaticamente%20ao%20arquivo)
+
 [Lista de repositórios](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/)
+
 [Script que funcionou: Kali-Parrot_Dual_Monitor](https://github.com/IhsanMowaket/Kali-Parrot_Dual_Monitor)
+
 [Doc Do KALI para instala a Nvidea](https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/)
+
 [Video com tutorial no comentário](https://www.youtube.com/watch?v=JfneGOU5VoI)
 
 Script Display_ON (FUNCIONA)
