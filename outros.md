@@ -1004,18 +1004,14 @@ Tutorial do comentário do video acima
 
  ## INSTALANDO WIFI ALIENWARE
 
- Check driver
+[Repositorio com o arquivo `iwlwifi-gl-c0-fm-c0-86.ucode`](https://gitlab.com/kernel-firmware/linux-firmware)
 
- 	dmesg
-Lista os erros dos componentes de hardware
+[Repositorio com o arquivo `iwlwifi-gl-c0-fm-c0-86.ucode`](https://github.com/pop-os/linux-firmware/tree/master)
 
-[Repositorio com o arquivo 'iwlwifi-gl-c0-fm-c0-86.ucode'](https://gitlab.com/kernel-firmware/linux-firmware)
-
-[Repositorio com o arquivo 'iwlwifi-gl-c0-fm-c0-86.ucode'](https://github.com/pop-os/linux-firmware/tree/master)
-
-Baixa todos com o início 'iwlwifi-gl-c0-fm'
+Baixa todos com o início `iwlwifi-gl-c0-fm`
 	
 	cp iwlwifi-gl-c0-fm* /lib/firmware/.
 
-Baixa o arqivos e coloca na pasta '/lib/firmware'
+Baixa o arqivos e coloca na pasta `/lib/firmware`
 
+`dmesg` Lista os erros dos componentes de hardware
