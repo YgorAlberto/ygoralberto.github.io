@@ -1000,3 +1000,21 @@ Tutorial do comentário do video acima
 	4. Log in with your configured user, and your NVIDIA driver should be installed successfully.
 	
 	5. I haven't installed "nvidia-detect". I can add a screenshot if needed. https://i.ibb.co/RT4ZmQ7/Screenshot-20240629-075917.png
+
+
+ ## INSTALANDO WIFI ALIENWARE
+
+ Check driver
+
+ 	dmesg
+Lista os erros dos componentes de hardware
+
+[Repositorio com o arquivo 'iwlwifi-gl-c0-fm-c0-86.ucode'](https://gitlab.com/kernel-firmware/linux-firmware)
+
+[Repositorio com o arquivo 'iwlwifi-gl-c0-fm-c0-86.ucode'](https://github.com/pop-os/linux-firmware/tree/master)
+
+	
+	cp iwlwifi-gl-c0-fm-c0-86.ucode /lib/firmware/.
+
+Baixa o arqivos e coloca na pasta '/lib/firmware'
+
