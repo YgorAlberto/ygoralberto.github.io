@@ -848,7 +848,7 @@ If it is on CLI mode, try this:
 	Turn it OFF, an go Settings -> Display -> graphic controller set to -> VBoxVGA. Turn off Enable 3D Acceleration.
 
 
-## DRIVER NVIDIA E DUAL MONITOR
+## DRIVER NVIDIA E DUAL MONITOR RX 4070 ALIENWARE
 
 [X11 no linux](https://pt.wikihow.com/Configurar-o-X11-no-Linux#:~:text=Execute%20o%20comando%20sudo%20Xorg,ser%C3%A3o%20adicionadas%20automaticamente%20ao%20arquivo)
 
