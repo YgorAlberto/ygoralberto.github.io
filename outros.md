@@ -1001,6 +1001,7 @@ Tutorial do comentário do video acima
 	
 	5. I haven't installed "nvidia-detect". I can add a screenshot if needed. https://i.ibb.co/RT4ZmQ7/Screenshot-20240629-075917.png
 
+O script acima não funcionou, porém está registrado caso funcione alguma vez
 
  ## INSTALANDO WIFI ALIENWARE
 
