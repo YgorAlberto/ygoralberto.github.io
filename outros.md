@@ -846,3 +846,153 @@ Create a MACHINE using the VDI image downloaded
 
 If it is on CLI mode, try this:
 	Turn it OFF, an go Settings -> Display -> graphic controller set to -> VBoxVGA. Turn off Enable 3D Acceleration.
+
+
+## DRIVER NVIDIA E DUAL MONITOR
+
+[X11 no linux](https://pt.wikihow.com/Configurar-o-X11-no-Linux#:~:text=Execute%20o%20comando%20sudo%20Xorg,ser%C3%A3o%20adicionadas%20automaticamente%20ao%20arquivo)
+[Lista de repositórios](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/)
+[Script que funcionou: Kali-Parrot_Dual_Monitor](https://github.com/IhsanMowaket/Kali-Parrot_Dual_Monitor)
+[Doc Do KALI para instala a Nvidea](https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/)
+[Video com tutorial no comentário](https://www.youtube.com/watch?v=JfneGOU5VoI)
+
+Script Display_ON (FUNCIONA)
+
+	#!/bin/bash
+	sudo apt install linux-headers-$(uname -r)
+	sudo echo "blacklist nouveau options nouveau modeset=0" > /etc/modprobe.d/blacklist-nouveau.conf
+	
+	sudo update-initramfs -u
+	
+	apt install nvidia-driver nvidia-xconfig nvidia-cuda-toolkit
+	
+	sudo modprobe nvidia-drm
+	
+	nvidia-xconfig --query-gpu-info
+	 Similar --> PCI BusID: PCI:1:0:0
+	
+	sudo echo 'Section "ServerLayout"
+	        Identifier "layout"
+	        Screen 0 "nvidia"
+	        Inactive "intel"
+	EndSection
+	 
+	Section "Device"
+	        Identifier "nvidia"
+	        Driver "nvidia"
+	        BusID "PCI:1:0:0"
+	EndSection
+	 
+	Section "Screen"
+	        Identifier "nvidia"
+	        Device "nvidia"
+	        Option "AllowEmptyInitialConfiguration"
+	EndSection
+	 
+	Section "Device"
+	        Identifier "intel"
+	        Driver "modesetting"
+	EndSection
+	 
+	Section "Screen"
+	        Identifier "intel"
+	        Device "intel"
+	EndSection
+	
+	' > /etc/X11/xorg.conf.d/xorg.conf
+	
+	sudo echo '
+	[Desktop Entry]
+	Type=Application
+	Name=Optimus
+	Exec=sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
+	NoDisplay=true
+	X-GNOME-Autostart-Phase=DisplayServer' > /etc/xdg/autostart/optimus.desktop 
+	
+	
+	sudo echo '
+	[Desktop Entry] 
+	Type=Application
+	Name=Optimus
+	Exec=sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
+	NoDisplay=true
+	X-GNOME-Autostart-Phase=DisplayServer' > /usr/share/gdm/greeter/autostart/optimus.desktop
+
+Esse script funcionou da forma que está
+
+
+Tutorial do comentário do video acima
+	
+	I finally found and fixed my Linux. The NVIDIA driver installed successfully without needing "nvidia-detect."
+	
+	 Connect your monitor with HDMI cable to your GPU.
+	
+	1. Find "contrib non-free" in your sources list:
+	
+	grep "contrib non-free" /etc/apt/sources.list
+	
+	2. Update your package list:
+	
+	sudo apt update
+	
+	3. Upgrade all installed packages:
+	
+	sudo apt -y full-upgrade
+	
+	4. Install Linux headers for your kernel:
+	
+	sudo apt install linux-headers-$(uname -r) -y
+	
+	5. Reboot if necessary after updates:
+	
+	[ -f /var/run/reboot-required ] && sudo reboot -f
+	
+	6. Check your VGA compatible controller:
+	
+	lspci | grep -i vga
+	
+	In my case:
+	
+	01:00.0 VGA compatible controller: NVIDIA Corporation GA104 [GeForce RTX 3070 Lite Hash Rate] (rev a1)
+	
+	7. View detailed info about your GPU:
+	
+	lspci -s 01:00.0 -v
+	
+	8. Install AMD64 headers:
+	
+	sudo apt install -y linux-headers-amd64
+	
+	9. Install NVIDIA drivers and CUDA toolkit:
+	
+	sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+	
+	10. Reboot your system:
+	
+	sudo reboot -f
+	
+	My terminal looks like this (kalihunterbrimstone)-[~]. After a reboot, my "brimstone" user is missing, causing a login loop. To fix this, switch to the terminal with CTRL + ALT + F3, log in with your "kalihunter" user, and then:
+	
+	1. Reconfigure LightDM (install if needed):
+	
+	dpkg-reconfigure lightdm
+	
+	2. Edit LightDM configuration:
+	
+	sudo nano /etc/lightdm/lightdm.conf
+	
+	Add and save:
+	
+	[Seat:*]
+	autologin-user=kalihunter
+	autologin-user-timeout=0
+	greeter-session=lightdm-gtk-greeter
+	session-wrapper=/etc/X11/Xsession
+	
+	3. Reboot again:
+	
+	sudo reboot
+	
+	4. Log in with your configured user, and your NVIDIA driver should be installed successfully.
+	
+	5. I haven't installed "nvidia-detect". I can add a screenshot if needed. https://i.ibb.co/RT4ZmQ7/Screenshot-20240629-075917.png
