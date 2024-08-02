@@ -1015,3 +1015,5 @@ Baixa todos com o início `iwlwifi-gl-c0-fm`
 Baixa o arqivos e coloca na pasta `/lib/firmware`
 
 `dmesg` Lista os erros dos componentes de hardware
+
+[Nao funcionou](https://mirror2.openwrt.org/sources/compat-wireless-2010-06-28.tar.bz2)
