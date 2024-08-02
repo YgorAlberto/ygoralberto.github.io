@@ -1013,8 +1013,9 @@ Lista os erros dos componentes de hardware
 
 [Repositorio com o arquivo 'iwlwifi-gl-c0-fm-c0-86.ucode'](https://github.com/pop-os/linux-firmware/tree/master)
 
+Baixa todos com o início 'iwlwifi-gl-c0-fm'
 	
-	cp iwlwifi-gl-c0-fm-c0-86.ucode /lib/firmware/.
+	cp iwlwifi-gl-c0-fm* /lib/firmware/.
 
 Baixa o arqivos e coloca na pasta '/lib/firmware'
 
