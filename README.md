@@ -6536,7 +6536,7 @@ Laboratório prático do SSI
 
 Comandos para exfiltração de dados da maquina alvo
 
-- OC - Bruno Botelho
+- OCS - Bruno Botelho
 
 Material da Disciplina [Pós OC](https://ygoralberto.github.io/FILES/Po%CC%81s%20OC.pdf)
 
@@ -6560,6 +6560,50 @@ Material da Disciplina [Pós OC](https://ygoralberto.github.io/FILES/Po%CC%81s%2
    - Objetivo: Rodar comandos remotamente no alvo (caso o mesmo não saia para a internet, pode-se utilizar o servidor de DNS interno)
    - Cenário: Com acesso à maquina alvo, rode o script em ruby e faça a "consulta" DNS no servidor atacante, dessa forma fechando a conexão reversa com o atacante.
    - Mitigar: Apontar o DNS para o Cisco Umbrella, DNSsec, Inserir mecanismos de detecção encima do comportamento do ataque.
+
+4. SE Toolkit
+Social engineering Tool Kit
+Framework de utilização de engenharia social
+
+5. DDoS Amplifier
+Ferramenta para ataques DDos (Distributed Deny of Service)
+
+Definições:
+
+`Malware` é um software malicioso e existem diversos tipos de MALWARE: Stuxnet, keyloger, virus, warms...
+	Warm se espalha pela rede
+	Virus infecta arquivos
+ 	Trojan se esconde em software legítimo
+  	Ransomware criptografa arquivos
+   	Spyware espia a vitima
+    	Adware é usando como propagandas
+     	Keylogger captura o teclado e armazena
+      	Rootkit se esconde no SO
+       	Backdoor permite o atacante se conectar remotamente
+	Dropper faz download de arquivos
+ 	Bot é um robô (maquina que foi infectada)
+  	Packer maware que gera o trojan
+
+Ferramentas:
+
+`Sniffing` é o ato de escutar a rede e saber o que está trafegando na rede, e tudo que navega de forma insegura.
+`Cain e Abel` é um software de sniffing e serve para capturar credenciais da rede.
+
+`Rainbow table` é uma solução que consta as hashes e senhas para facilitar a quebra de senhas
+[Site Rainbow table](https://ophcrack.sourceforge.io/tables.php)
+
+Aborda SQLinjection e XSS para se proteger dessas vulnerabilidades é precisa fazer uma verificação de entrada de usuário e fazer a tratativas.
+
+`Bastion Host:` Equipamento que fica exposto na internet, Firewall, servidor...
+`Multihomed Firewall:` Dois firewall com redes no centro para evitar a invasão completa da rede, e um firewal pode impedir que passe para outra rede
+`Zona Desmilitarizada` (DMZ) rede menos segura separada para que se houver invasão, as demais redes não serão comprometidos.
+`Zero Trust` nenhuma confiança na rede e pessoas. Oposto de Default Trust. Nesse caso exige que seja feita outras maneiras de identificar uma pessoa, acesso ou servidor, podendo ser um MFA, e precisa atender alguns critérios por meio de agentes instalados nas maquinas fazendo as devidas validações centralizadas em um serviço geralmente em cloud.
+
+Software de gestão de firewalls `AlgoSec`.
+
+`OSSEC` Software que é um Host IDS gratuita e com funcionalidades pagas.
+`Suricata e Snort` soluções de Network IPS gratúitas
+`IDPS` Solução avançada de Intrusao e Detectção de sistemas: Detecta e atua na parte de aplicação, compara assinaturas e gera alertas com uma lista já conhecida, engine de anomalias: análise de comportamentos estranhos.
 
 TO BE CONTINUED
 
