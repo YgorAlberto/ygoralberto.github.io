@@ -6648,7 +6648,7 @@ Mapear Aplicação Web [OWASP](https://ygoralberto.github.io/web)
 	Identificar - Repositórios no GitHub sobre a Empresa
 	Realizar - Spidering na aplicação
 	Realizar - Identificação de entry points
-	Realizar - Brute Force (arquivos e diretórios)
+	Realizar - Brute Force (arquivos, diretórios, logins) bruteforce com Array
 	
 Controle de Identidade
  
