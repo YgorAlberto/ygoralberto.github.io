@@ -6609,6 +6609,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Waf3Py:` Ferramenta de WAF open source para implementação da solução de Web Application Firewall [Waf2py](https://github.com/ITSec-Chile/Waf2Py)
 
+`ModSecurity:` WAF onpremise que é a base de outros firewalls conhecidos [ModSecurity](https://www.modsecurity.org/) 
+
 TO BE CONTINUED
 
 ## Hacking CheckList
