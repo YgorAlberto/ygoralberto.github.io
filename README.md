@@ -6613,7 +6613,7 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Trivy:` Trivy é uma ferramenta de scan para encontrar problemas na cloud de forma autenticada, em busca de não conformidade [Trivy](https://trivy.dev)
 
-
+`Horusec:` Ferramenta que escaneia vulnerabilidades em códigos fonte. [HoruSec](https://horusec.io)
 
 TO BE CONTINUED
 
