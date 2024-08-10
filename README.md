@@ -6611,9 +6611,15 @@ Software de gestão de firewalls `AlgoSec`.
 
 `ModSecurity:` WAF onpremise que é a base de outros firewalls conhecidos [ModSecurity](https://www.modsecurity.org/) 
 
-`Trivy:` Trivy é uma ferramenta de scan para encontrar problemas na cloud de forma autenticada, em busca de não conformidade [Trivy](https://trivy.dev)
+`Trivy:` Trivy é uma ferramenta de scan para encontrar problemas na AWS de forma autenticada, em busca de não conformidade [Trivy](https://trivy.dev)
 
 `Horusec:` Ferramenta que escaneia vulnerabilidades em códigos fonte. [HoruSec](https://horusec.io)
+
+`OwaspZap:` Ferramenta específica de scan web em busca de vulnerabilidades 
+
+`ScoutSuite:` é uma ferramenta de scan para encontrar problemas na AZURE de forma autenticada, em busca de não conformidade.
+
+`DefectDojo:` Ferramenta de gestão de vulnerabilidades para a esteira de vulnerabilidades
 
 TO BE CONTINUED
 
