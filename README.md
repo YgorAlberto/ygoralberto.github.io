@@ -6607,6 +6607,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `HonneyPot:` [TPotce](https://github.com/telekom-security/tpotce) ferramenta de HonneyPot para implementar e saber como está a atividade de ataques atuais.
 
+`Waf3Py:` Ferramenta de WAF open source para implementação da solução de Web Application Firewall [Waf2py](https://github.com/ITSec-Chile/Waf2Py)
+
 TO BE CONTINUED
 
 ## Hacking CheckList
