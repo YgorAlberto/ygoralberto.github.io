@@ -6605,6 +6605,8 @@ Software de gestão de firewalls `AlgoSec`.
 `Suricata e Snort` soluções de Network IPS gratúitas
 `IDPS` Solução avançada de Intrusao e Detectção de sistemas: Detecta e atua na parte de aplicação, compara assinaturas e gera alertas com uma lista já conhecida, engine de anomalias: análise de comportamentos estranhos.
 
+`HonneyPot:` [TPotce](https://github.com/telekom-security/tpotce) ferramenta de HonneyPot para implementar e saber como está a atividade de ataques atuais.
+
 TO BE CONTINUED
 
 ## Hacking CheckList
