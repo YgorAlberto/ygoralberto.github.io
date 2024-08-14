@@ -6629,6 +6629,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `FIM:` File Integrity Monitor - Monitora os arquivos e verifica as hashes para ver se foi modificado.
 
+`API:`  SOAP usa HTTP e XML - REST usa HTTP e JSON [OWASP-API](https://owasp.org/www-project-api-security/) SALT Solução em segurança de API
+
 TO BE CONTINUED
 
 ## Hacking CheckList
