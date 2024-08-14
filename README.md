@@ -6621,6 +6621,14 @@ Software de gestão de firewalls `AlgoSec`.
 
 `DefectDojo:` Ferramenta de gestão de vulnerabilidades para a esteira de vulnerabilidades
 
+`IDPS:` Análise em tempo real (ele processa todos os pacotes e deixa mais lento) Análise baseada em intervalos (não gera muita latência na rede). Onde colocar? Backbone, Borda, locais mais críticos.
+
+`Wireless IPS:` Equipamento que faz uma análise de comportamento realizando análise de ataques, clone de SSID...
+
+`WAF:` Web Application Firewall - ModSecurity (Free).
+
+`FIM:` File Integrity Monitor - Monitora os arquivos e verifica as hashes para ver se foi modificado.
+
 TO BE CONTINUED
 
 ## Hacking CheckList
