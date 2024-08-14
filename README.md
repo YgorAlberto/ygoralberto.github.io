@@ -765,6 +765,8 @@ Base de pesquisas no google Dorks
 
     firefox 'https://google.com/search?q=site:site.com.br+inurl:exemplo' 
 
+[Dork Base](https://gbhackers.com/latest-google-dorks-list/)
+
 URL comando para google hacking
 
     lynx site.com 
