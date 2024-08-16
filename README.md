@@ -6637,6 +6637,12 @@ Software de gestão de firewalls `AlgoSec`.
 
 `API:`  SOAP usa HTTP e XML - REST usa HTTP e JSON [OWASP-API](https://owasp.org/www-project-api-security/) SALT Solução em segurança de API
 
+`Endpoint Security` = Antivirus avançado, com muitas outras funcionalidades, firewall, malware, patch...
+
+`EDR` é um endpoint com capacidade de respostas à incidentes
+
+
+
 TO BE CONTINUED
 
 ## Hacking CheckList
