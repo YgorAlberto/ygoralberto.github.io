@@ -4059,6 +4059,7 @@ Procura por paramt
 
 Faz um patch transversal
 
+[Bypass XSS](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html)
 
 - URL Encode
 
