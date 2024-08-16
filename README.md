@@ -6641,7 +6641,9 @@ Software de gestão de firewalls `AlgoSec`.
 
 `EDR` é um endpoint com capacidade de respostas à incidentes
 
+`GuardiCore:` Software de microssegmentação (saber oq ue cada processo e usuario pode e faz no sistema)
 
+`Hardening:` Processo sistemático de elevar segurança de um ativo - [Site CIS](https://www.cisecurity.org/cis-benchmarks) oferece um documentdo de hardening para seguir as boas praticas
 
 TO BE CONTINUED
 
