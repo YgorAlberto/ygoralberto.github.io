@@ -6647,6 +6647,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Hardening:` Processo sistemático de elevar segurança de um ativo - [Site CIS](https://www.cisecurity.org/cis-benchmarks) oferece um documentdo de hardening para seguir as boas praticas
 
+`TAPS:` Equipamento que replica logs e direcionada para outras soluções como DLP, IDS, IPS... (Gigamon é um exemplo de soluçao TAP)
+
 TO BE CONTINUED
 
 ## Hacking CheckList
