@@ -6647,7 +6647,11 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Hardening:` Processo sistemático de elevar segurança de um ativo - [Site CIS](https://www.cisecurity.org/cis-benchmarks) oferece um documentdo de hardening para seguir as boas praticas
 
+`Monitoramento de rede` É o processo de inspacionar o que passa pela rede e filtrar baseado em comportamentos, pode-se utilizar TAP,SPAN e agentes pare essa finalidade
+
 `TAPS:` Equipamento que replica logs e direcionada para outras soluções como DLP, IDS, IPS... (Gigamon é um exemplo de soluçao TAP)
+
+`SPAN:` Outro modo de monitorar redes alternativo ao TAP que é por meio de uma porta do Switch. 
 
 TO BE CONTINUED
 
