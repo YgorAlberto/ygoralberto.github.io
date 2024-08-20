@@ -877,7 +877,7 @@ Retorna infor do IPv6
 
 Retorna strings em texto info do TXT com configurações do SPF (email) 
 
-    Host for server in $(host -t ns kidmancorp.com.br | cut -d " " -f3);do host -l -a kidmancorp.com.br $server;done 
+    Host for server in $(host -t ns kidmancorp.com.br | cut -d " " -f4);do host -l -a kidmancorp.com.br $server;done 
 
 Verificando vulnerabilidade de transferência de zona no DNS com o comando 
 
