@@ -6659,6 +6659,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Tipos de Assinaturas:` Atômica e Composta. Atômica é analisado por um pacote apenas (Ping da Morte). Composta é baseada em vários pacotes (PostScan).
 
+`Maturidade de SOC:` Conteúdos `SOC-CAPABILITY-MODEL` [Site](https://www.soc-cmm.com/) NIST CYBER SECURITY FRAMEWORK [Site](https://www.nist.gov/cyberframework/csf-11-archive)
+
 TO BE CONTINUED
 
 ## Hacking CheckList
