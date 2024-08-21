@@ -6657,6 +6657,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Flow de rede:` Monitorar a rede baseada em volume de dados que estão sendo gerados. E não só isso, ele te ta detalhes de onde e para onde estão indo essas conexões. Tipos de NetFlow - Netflow v9: Implementada pela CISCO, mandando dados dos pacotes de rede. IPFIX - Definida pela IETF, mandando uma amostra previamente.
 
+`Tipos de Assinaturas:` Atômica e Composta. Atômica é analisado por um pacote apenas (Ping da Morte). Composta é baseada em vários pacotes (PostScan).
+
 TO BE CONTINUED
 
 ## Hacking CheckList
