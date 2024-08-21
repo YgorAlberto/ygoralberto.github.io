@@ -6653,6 +6653,10 @@ Software de gestão de firewalls `AlgoSec`.
 
 `SPAN:` Outro modo de monitorar redes alternativo ao TAP que é por meio de uma porta do Switch. 
 
+`Inspeção de SSL:` É basicamente a ferramenta de inspeção ficar no meio da conexão (MITM). E existem dois tipos, Sainte e Entrante. Entrante, todo o tráfego que é feito no servior web da empresa que detêm a ferramenta, faz a decodificação do pacote e inspeciona-o para saber a sua procedência. O saíte é alguém de dentro da empresa acessando o site do google, e para isso (por nao ter o certificado do google) a empresa precisa montar um inspetor de SSL local, gerar um certificado e espalhar pela rede (via GPO), para esse certificado ser usando ao invéz do google, podendo assim inspecionar todo o tráfego dos sites.
+
+`Flow de rede:` Monitorar a rede baseada em volume de dados que estão sendo gerados. E não só isso, ele te ta detalhes de onde e para onde estão indo essas conexões. Tipos de NetFlow - Netflow v9: Implementada pela CISCO, mandando dados dos pacotes de rede. IPFIX - Definida pela IETF, mandando uma amostra previamente.
+
 TO BE CONTINUED
 
 ## Hacking CheckList
