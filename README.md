@@ -6661,6 +6661,10 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Maturidade de SOC:` Conteúdos `SOC-CAPABILITY-MODEL` [Site](https://www.soc-cmm.com/) NIST CYBER SECURITY FRAMEWORK [Site](https://www.nist.gov/cyberframework/csf-11-archive)
 
+`DefectDojo` Ferramenta de gerenciamento de vulnerabilidade
+
+`IDM` Software para gerenciamento de acessos em AD, ERP, RH... `PAM` São so acessos de maiores privilégios... SenhaSegura é um software de cofre de senhas.
+
 TO BE CONTINUED
 
 ## Hacking CheckList
