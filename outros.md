@@ -1018,3 +1018,7 @@ Baixa o arqivos e coloca na pasta `/lib/firmware`
 `dmesg` Lista os erros dos componentes de hardware
 
 [Nao funcionou](https://mirror2.openwrt.org/sources/compat-wireless-2010-06-28.tar.bz2)
+
+## INSTLANDO O AUDIO NO ALIENWARE
+
+[Doc Kali](https://www.kali.org/docs/troubleshooting/no-sound/)
