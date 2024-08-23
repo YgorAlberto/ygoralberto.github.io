@@ -6667,6 +6667,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Resposta a Incidentes:` 1-Preparação; 2-Registro de Incidentes; 3-Triagem; 4-Notificação; 5-Contenção; 6-Coleta de evidências; 7-Erradicação; 8-Recuperação; 9-Atividades Pós-incidente. 
 
+`IoC` Indicadores de Comprometimentos pode ser IPs, Urls, hashes [Consulta de IOCs](https://exchange.xforce.ibmcloud.com/)
+
 TO BE CONTINUED
 
 ## Hacking CheckList
