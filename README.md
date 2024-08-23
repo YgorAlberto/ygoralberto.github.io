@@ -6530,6 +6530,8 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 
 `Type Juggling` Vulnerabilidade de burlar o formulário de login, no browser copiando a requisição como Fetch e inserindo no Console alterando o login ou senha como true ou false e ver o comportamento da requisição.
 
+`Arquivo de sessão PHP` Olhar em /var/lib/php/sessions/ os arquivos de sessão e analisar, podem haver informações importantes
+
 ## PÓS GRADUAÇÃO
 
  - SSI
