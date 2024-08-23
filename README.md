@@ -6532,7 +6532,7 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 
 `Arquivo de sessão PHP` Olhar em /var/lib/php/sessions/ os arquivos de sessão e analisar, podem haver informações importantes
 
-Eu posso fazer dois testes na URL, `login.php?success=true` e forçar o usuário passando `login.php?username=admin`
+Eu posso fazer alguns testes na URL, `login.php?success=true` | forçar o usuário passando `login.php?username=admin` | HTML injection `register?msg=Registrado com Sucesso!` pode-se injetar um código HTML `<h1>hacked<h1>` e aparecer na tela de cadastro, ou ate mesmo um XSS.
 
 ## PÓS GRADUAÇÃO
 
