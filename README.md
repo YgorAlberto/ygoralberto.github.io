@@ -6669,6 +6669,14 @@ Software de gestão de firewalls `AlgoSec`.
 
 `IoC` Indicadores de Comprometimentos pode ser IPs, Urls, hashes [Consulta de IOCs](https://exchange.xforce.ibmcloud.com/)
 
+`MISP` é uma plataforma de consulta de IoCs
+
+`Sumilador de Ameaças:` Softwares que simulam vazamentos de dados por exemplo e mostra como ele conseguiu, em caso positivo. Exemplo de Software Simulador [SafeBreach](https://www.safebreach.com/)
+
+`Information Warfare` É uma empresa atacar outra para seu proprio objetivo.
+
+`Demisto` Ferramenta de orquestração para auxiliar, centralizar e automatizar as respostas a incidentes.
+
 TO BE CONTINUED
 
 ## Hacking CheckList
