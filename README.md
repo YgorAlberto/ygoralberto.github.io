@@ -6532,6 +6532,8 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 
 `Arquivo de sessão PHP` Olhar em /var/lib/php/sessions/ os arquivos de sessão e analisar, podem haver informações importantes
 
+Eu posso fazer dois testes na URL, `login.php?success=true` e forçar o usuário passando `login.php?username=admin`
+
 ## PÓS GRADUAÇÃO
 
  - SSI
