@@ -6526,6 +6526,10 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 **Image upload** - Insert a peace of code in an image to run on the server
 **Overpass The Hash** - The Overpass The Hash/Pass The Key (PTK) attack is designed for environments where the traditional NTLM protocol is restricted, and Kerberos authentication takes precedence. This attack leverages the NTLM hash or AES keys of a user to solicit Kerberos tickets, enabling unauthorized access to resources within a network
 
+## Curso Web Hacking CADU CROWSEC
+
+`Type Juggling` Vulnerabilidade de burlar o formulário de login, no browser copiando a requisição como Fetch e inserindo no Console alterando o login ou senha como true ou false e ver o comportamento da requisição.
+
 ## PÓS GRADUAÇÃO
 
  - SSI
