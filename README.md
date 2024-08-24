@@ -6685,6 +6685,10 @@ Software de gestão de firewalls `AlgoSec`.
 
 `Demisto` Ferramenta de orquestração para auxiliar, centralizar e automatizar as respostas a incidentes.
 
+`TheHive` Ferramenta de resposta a incidentes que pode ser integrada ao Wazuh
+
+`StrongBee` Tem uma grande quantidade de ferramentas que servem para resposta a incidentes, como o `Cortex`
+
 TO BE CONTINUED
 
 ## Hacking CheckList
