@@ -108,6 +108,9 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	NetSh Advfirewall set allprofiles state off
 	
 .
+
+	CloudFlare? WAF? Analisar os registros de históricos da Securitytrails e outra forma é através do E-mail, no receive-from pode haver o IP real
+
 .
 .
 .
