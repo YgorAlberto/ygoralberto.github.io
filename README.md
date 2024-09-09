@@ -6062,6 +6062,23 @@ Instalação MANUAL (Não funcionou)
 	cp config.yml.sample config.yml
 	python3 worker.py &
 
+## DVWA install
+
+Fazer o deploy do DVWA em uma maquina virtual [DVWA Official](https://github.com/digininja/DVWA?tab=readme-ov-file)
+
+Fazer a istalação de uma maquina virtua (preferencialmente Debian Based)
+
+	sudo apt update && sudo apt upgrade -y
+	sudo git clone https://github.com/digininja/DVWA.git
+	wget https://raw.githubusercontent.com/IamCarron/DVWA-Script/main/Install-DVWA.sh
+	sudo chmod +x Install-DVWA.sh
+	sudo su
+	./Install-DVWA.sh
+
+Acessar via web a aplicação IP/DVWA
+Login: admin
+Senha: password
+
 ## BUG BOUNTY
 
 Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o processo de reconhecimento e sucesso na exploração.
