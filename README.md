@@ -1120,6 +1120,9 @@ Exemplo de UDP Connect Scan Port ENUMERATION
 
 Exemplo de UDP Connect Scan Port
 
+    hping3 --flood -S -V --rand-source IP
+
+Exemplo de DDOS com HPING3
 
 - Network Sweeping
 
