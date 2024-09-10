@@ -113,7 +113,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	grep -B 1 '[0-9]' techs | grep -av "-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
+	grep -B 1 '[0-9]' techs | grep -av "\-\-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
 
 .
 .
