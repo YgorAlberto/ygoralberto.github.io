@@ -112,6 +112,9 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	CloudFlare? WAF? Analisar os registros de históricos da Securitytrails e outra forma é através do E-mail, no receive-from pode haver o IP real
 
 .
+
+	grep -B 1 '[0-9]' techs | grep -av "-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
+
 .
 .
 .
