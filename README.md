@@ -25,6 +25,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	feroxbuster --url http://server.com/ --methods GET,POST -r -w /usr/share/dirb/wordlists/big.txt -o feroxbuster
+ 
+.
+
 	ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config -o output-site-raiz.html -of html
 
 .
@@ -6814,7 +6818,8 @@ Validação de dados
 	Subfinder
 	Sublist3r
 	Assetfinder
-	GoBuster 
+	GoBuster
+	FeroxBuster
 	Dirb 
 	DirBuster
 	FFuF
