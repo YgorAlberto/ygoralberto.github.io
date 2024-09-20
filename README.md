@@ -6730,6 +6730,13 @@ Para adequação e tratamento de resposta a incidentes, pode-se olhar o modelo d
 
 Todas essas fases acima, requer tempo, dinheiro, pessoas e vai variar de acordo com a capacidade tecnológica, financeira e objetivo de cada uma. Com base nessas métricas e levantamentos se inicia a definição de cada fase com os Playbooks e Runbooks, esses documentos precisam todos serem revisados. A definição vai desde onde colocar um backup até decidir em quanto tempo a resposta a incidentes vai durar. E essas definições variam de acordo com cada empresa, então não existe uma forma fixa de como deve ser um tratamento de resposta a incidentes, mas modelos que devem ser adapatados, como por exemplo o do NIST.
 
+- Leis e regulamentaçãos: 
+
+`PCI-DSS` Regulamenta com foco em tratamento de dados e informações financeiras
+`HIPPA` Regulamenta com foco em saúde
+`GDPR` Regulamenta a União Europeia (LGPD foi baseada na GDPR)
+
+
 
 
 TO BE CONTINUED
