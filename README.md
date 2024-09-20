@@ -6719,6 +6719,19 @@ Software de gestão de firewalls `AlgoSec`.
 
 `StrongBee` Tem uma grande quantidade de ferramentas que servem para resposta a incidentes, como o `Cortex`
 
+## TRI - Tratamento e Resposta a Incidentes
+
+Para adequação e tratamento de resposta a incidentes, pode-se olhar o modelo do NIST para tal.
+
+`Fase1:` Preparação = A fase de preparação é justamente a fase pré-incidente, onde a organização faz um levantamento interno para investir em solução de observabilidade, detecção e resposta a incidentes, seja investimento em pessoas e/ou tecnologia.
+`Fase2:` Detecção e Análise = Qunado acontece um alerta de algum sistema de observabilidade o time faz a análise daquele alerta e filtra se é um incidente ou não.
+`Fase3:` Contenção, Erradicação e Recuperação = Após a confirmação do incidente e filtrar se Incidente ou incidente, realizar as tratativas correlatas fazendo a contenção daquele incidente e depois a erradicação e recuperação do incidente.
+`Fase4:` Atividades Pós-Incidentes =  A Atividade pós-incidente é justamente juntar tudo o que aconteceu e tomar medidas para que um incidente como aquele não aconteça mais.
+
+Todas essas fases acima, requer tempo, dinheiro, pessoas e vai variar de acordo com a capacidade tecnológica, financeira e objetivo de cada uma. Com base nessas métricas e levantamentos se inicia a definição de cada fase com os Playbooks e Runbooks, esses documentos precisam todos serem revisados. A definição vai desde onde colocar um backup até decidir em quanto tempo a resposta a incidentes vai durar. E essas definições variam de acordo com cada empresa, então não existe uma forma fixa de como deve ser um tratamento de resposta a incidentes, mas modelos que devem ser adapatados, como por exemplo o do NIST.
+
+
+
 TO BE CONTINUED
 
 ## Hacking CheckList
