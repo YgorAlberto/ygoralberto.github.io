@@ -5857,6 +5857,8 @@ Liberando mais disco: Os comandos acima servem ver os indexes no SIEM e para del
 
 Restarta o serviço
 
+Caso esteja incecessíel pelo IP do servidor. Ou seja, funcionando apenas no localhost, reinicie o servidor `sudo reboot`
+
 - Silenciar alertas no Wazuh
 
 Alterar o arquivo local do servidor
