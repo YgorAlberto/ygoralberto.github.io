@@ -6747,8 +6747,52 @@ Todas essas fases acima, requer tempo, dinheiro, pessoas e vai variar de acordo 
 `HIPPA` Regulamenta com foco em saúde
 `GDPR` Regulamenta a União Europeia (LGPD foi baseada na GDPR)
 
+- PASSOS de Resposta a Incidentes
 
+Recomendações de passos para a resposta a incidentes
+	
+	Com o escopo definido, remova ou isole o host da rede
+	Bloqueie os endereços conhecidos de C2 do atacante
+	Bloqueie provedores dinâmicos de DNS
+	Desabilite Usuários e troque as senhas
+	Recuse tráfego web não categorizado
+	Aplique patches e hardening aos sistemas
+	Reconecte e monitore
+	Se encontrar mais atividade maliciosa, reinicie a estratégia
+	Reconstrua ou formate hosts comprometidos
 
+- Ferramentas OpenSource IOCs
+
+Ferramentas de indicadores de comprometimentos
+
+	FireEye Redline
+	Kroll's Kape
+	Yara
+	SANS SIFT
+	RegRipper
+
+- Ferramenta de CTI
+
+      XCITIUM [Site](https://www.xcitium.com/)
+
+- IDs de LOGS insteressantes para observar no Windows
+
+Logs de auditoria que é importante observar
+
+	Account Lockouts                    4740    Information   Security
+	Account Login with Explicit Credentials  4648    Information   Security
+	Account Name Changed                4781    Information   Security
+	Account removed from Local Sec. Grp.     4733    Information   Security
+	Credential Authentication           4776    Information   Security
+	Credentials backed up               5376    Information   Security
+	Credentials restored                5377    Information   Security
+	Failed User Account Login           4625    Information   Security
+	Logoff Event                        4634    Information   Security
+	Logon with Special Privs            4672    Information   Security
+	New User Account Created            4720    Information   Security
+	New User Account Enabled            4722    Information   Security
+
+...
 
 TO BE CONTINUED
 
