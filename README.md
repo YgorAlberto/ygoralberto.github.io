@@ -120,8 +120,13 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	grep -B 1 '[0-9]' techs | grep -av "\-\-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
 
 .
-.
-.
+
+	grep -v -E '19(1[1-9]|[2-8][0-9]|91)'
+ 	Explicação da expressão regular:
+		19: Captura os primeiros dois dígitos do número.
+		1[1-9]: Captura números de 1911 a 1919.
+		[2-8][0-9]: Captura números de 1920 a 1989.
+		91: Captura o número 1991.
 .
 .
 .
