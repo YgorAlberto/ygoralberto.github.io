@@ -6792,7 +6792,30 @@ Logs de auditoria que é importante observar
 	New User Account Created            4720    Information   Security
 	New User Account Enabled            4722    Information   Security
 
-...
+
+AUD - Auditoria e monitoramento de redes, perímetros e sistemas
+
+- Auditoria de TI:
+
+Foca nos processos técnicos e operacionais de TI.
+
+
+- Auditoria de processos de TI:
+
+Foca nos aspectos estratégicos e gerenciais da TI.
+
+	Auditoria de conformidade: verifica processos de TI se estã em conformidade - existe backup
+	Auditoria de eficácia: avalia se os processso de TI estão atingindo os objetivos e metas definidos pela organização - tempo de backup
+	Auditoria de eficiência: analisa se os processos de TI estçao utilizando os recusos de forma otimizada sem desperdício - backup está no tempo ideal
+	Auditoria de segurança: Examina os processos de forma a garantir a melhor proteção contra ameaças - backup está seguro
+	Auditoria de qualidade: Mede se os produtos estão sendo entregues com o nuvel de qualidade esperado - backup está fidedigno
+
+Conformidades:
+
+	ISO/IEC 27000
+	NBR ISO 19011
+	ISO 27701
+
 
 TO BE CONTINUED
 
