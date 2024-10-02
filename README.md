@@ -6929,6 +6929,7 @@ Validação de dados
 	Wfuzz
 	Wafw00f
 	Hakrawler
+	Dirsearch
 	Amass
 	Sensys
 	Shodan
@@ -6937,7 +6938,7 @@ Validação de dados
 	Nikto
 	SpiderFoot
 	Wapiti
-	Muclei
+	Nuclei
 	TheHarvester
 	WPscan
 	Fierce
