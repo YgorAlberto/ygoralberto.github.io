@@ -6831,6 +6831,13 @@ Camada de coleta de dados
 	Usuário/Dispositivo
 	Segurança
 
+Ferramentas para auxiliar na auditoria/forense
+
+	Autopsy
+	FTK
+	EnCase
+	Vilatility
+ 
 EVIDÊNCIAS (como elas devem ser)
 
 	Sufuciente
