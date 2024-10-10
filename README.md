@@ -6581,8 +6581,9 @@ Executa o script.sh em paralelo, dessa forma, sendo mais performático a sua exe
 Eu posso fazer alguns testes na URL, `login.php?success=true` | forçar o usuário passando `login.php?username=admin` | HTML injection `register?msg=Registrado com Sucesso!` pode-se injetar um código HTML `<h1>hacked<h1>` e aparecer na tela de cadastro, ou ate mesmo um XSS.
 
 ## PÓS GRADUAÇÃO
+Relatos de tarefas e anotações das matérias da Pós Graduação
 
- - SSI
+## SSI
     
 Laboratório prático do SSI
 
@@ -6737,6 +6738,8 @@ Software de gestão de firewalls `AlgoSec`.
 
 ## TRI - Tratamento e Resposta a Incidentes
 
+Material da Disciplina [Pós TRI](https://ygoralberto.github.io/FILES/P%C3%93S-TRI.pdf)
+
 Para adequação e tratamento de resposta a incidentes, pode-se olhar o modelo do NIST para tal.
 
 `Fase1:` Preparação = A fase de preparação é justamente a fase pré-incidente, onde a organização faz um levantamento interno para investir em solução de observabilidade, detecção e resposta a incidentes, seja investimento em pessoas e/ou tecnologia.
@@ -6798,16 +6801,13 @@ Logs de auditoria que é importante observar
 	New User Account Enabled            4722    Information   Security
 
 
-AUD - Auditoria e monitoramento de redes, perímetros e sistemas
+## AUD - Auditoria e monitoramento de redes, perímetros e sistemas
 
-- Auditoria de TI:
-
-Foca nos processos técnicos e operacionais de TI.
+Material da Disciplina [Pós AUD](https://ygoralberto.github.io/FILES/P%C3%93S-AUD.pdf)
 
 
-- Auditoria de processos de TI:
-
-Foca nos aspectos estratégicos e gerenciais da TI.
+- Auditoria de TI: Foca nos processos técnicos e operacionais de TI.
+- Auditoria de processos de TI: Foca nos aspectos estratégicos e gerenciais da TI.
 
 	Auditoria de conformidade: verifica processos de TI se estã em conformidade - existe backup
 	Auditoria de eficácia: avalia se os processso de TI estão atingindo os objetivos e metas definidos pela organização - tempo de backup
@@ -6861,11 +6861,62 @@ EVIDÊNCIAS (como elas devem ser)
 	 Atualizada
 	 	COLETADA CONTINUAMENTE
 
-Considerações para a coleta
+Considerações para a coletas, Consolidação e Análise de Observação
 
-
-![image](https://github.com/user-attachments/assets/d147b6a9-6aa9-4801-81e4-6970f048fa16)
-
+	COLETA
+		FERRAMENTAS DE COLETA DE DADOS
+		LOGS DE EQUIPAMENTOS
+		LOGS DE SERVIÇOS
+		TAGS DE HEALTHCHECK
+		ZABBIX
+		NAGIOS
+		CLOUDWATCH (AWS)
+		AZURE MONITOR (AZURE)
+		LOGS LOCAIS
+		SNMP
+		PROMETHEUS
+		DATADOG
+		SPLUNK
+		SOLARWINDS NETWORK
+		PERFORMANCE MONITOR (NPM)
+		ELK STACK (ELASTICSEARCH,
+		LOGSTASH, KIBANA)
+	 
+	CONSOLIDAÇÃO
+		STACK DE MONITORAMENTO
+		BANCO DE DADOS ANALÍTICO
+		INTEGRADORES PARA COLETA DE DADOS 
+	 	MONITORAMENTO
+		APACHE HADOOP
+		APACHE KAFKA
+		TALEND
+		INFORMATICA POWERCENTER
+		MICROSOFT SQL SERVER
+		INTEGRATION SERVICES (SSIS)
+		MYSQL
+		POSTGRESQL
+		MICROSOFT SQL SERVER
+		ORACLE DATABASE
+		MONGODB
+		CASSANDRA
+		HBASE
+	
+	ANÁLISE E OBSERVAÇÃO
+		ALARMES
+		AUTOMATIZADOS
+		DASHBOARDS DE ACOMPANHAMENTO
+		INDICADORES PARA OBSERVABILIDADE
+		DATADOG
+		NEW RELIC
+		SPLUNK
+		ELASTIC STACK (ELK STACK) 
+	 	PROMETHEUS
+		DYNATRACE
+		JAEGER
+		HONEYCOMB
+		LIGHTSTEP
+		INSTANA
+		GRAFANA
 
 
 TO BE CONTINUED
