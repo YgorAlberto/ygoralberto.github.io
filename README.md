@@ -138,9 +138,20 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 ## Ferramentas After Formating
 
-sudo apt install seclists
-sudo apt install hakrawler
-sudo apt ...
+	sudo apt install seclists hackrawler assetfinder sublist3r subfinder
+
+Script Check IP
+	
+	curl -s https://meuip.com.br | grep "Meu ip" > .meuip
+	cat .meuip | cut -d " " -f 8 > ip.txt
+	sed -i 's/<\/h3>/ /g' ip.txt
+	cat ip.txt
+	rm .meuip
+	rm ip.txt
+
+Full Update Script
+
+	sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
 VPN
 
