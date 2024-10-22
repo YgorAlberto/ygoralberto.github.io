@@ -6956,6 +6956,28 @@ Ordem de preços, para tipos de pentest: Gray, Black e Gray
 
 `Shellcode` um payload pode me trazer um shellcode
 
+- Regulamentações
+`HIPAA` - Regulamentação de Saúde bastante rigorosa
+`PCIDSS` - Regulamentação de cartão de crédito. Precisa de um auditor para um nivel de transação acima de mill, com certificação QSA
+`SHIELD` - Dados de cidadãos de New York
+`CCPA` - Regulamenta o uso de dados de clientes
+
+- Pentest Frameworks (estudar todos)
+
+O OWASP Open Source com diversos projetos para aplicar nos testes, vão desde API até Kubernets etc - Projeto Open para WAF
+
+Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
+
+
+
+.
+.
+.
+.
+.
+.
+.
+.
 ## Hacking CheckList
 
 Mapear Superfície Externa
