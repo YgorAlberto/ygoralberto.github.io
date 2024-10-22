@@ -6939,6 +6939,23 @@ Considerações para a coletas, Consolidação e Análise de Observação
 
 TO BE CONTINUED
 
+## PENTEST PLUS
+
+`Hacker Ético` é o profissioal de cibersegurança que pode atuar desde u GRC, SOC, NOC, Atividade de RedTeam, criação de políticas, etc...
+`Pentester` Atividade de Teste de prenetração com escopo, tempo, relatório.
+`Red Team` Abrange mais atividades como Phishing, engenharia social.
+
+RFP = Request for Proposal, o projeto em si, contrato, escopo, tempo, expectativa
+ROE = Rule of Engagement, requisitos para uma determinada situação
+
+Ordem de preços, para tipos de pentest: Gray, Black e Gray
+
+`Payload` ação da exploração, fornecer um shellcode, criar um usuário...
+
+`Exploit` é a exploração em si através de uma falha 
+
+`Shellcode` um payload pode me trazer um shellcode
+
 ## Hacking CheckList
 
 Mapear Superfície Externa
