@@ -6968,7 +6968,7 @@ O OWASP Open Source com diversos projetos para aplicar nos testes, vão desde AP
 
 Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
-
+`GanttProject` Open Source software para gerenciamento de timeline de projetos
 
 .
 .
