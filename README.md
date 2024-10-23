@@ -969,6 +969,8 @@ Pesquisa passiva sobre domínio
 
 [DNS Dumpster:](https://dnsdumpster.com/)
 
+[CeRtificaTe Search](crt.sh)
+
 [Security Trails:](https://securitytrails.com/)
 
 
