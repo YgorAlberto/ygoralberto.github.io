@@ -6970,6 +6970,12 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `GanttProject` Open Source software para gerenciamento de timeline de projetos
 
+`MSA` é o NDA comercial, que contempla prazos de pagamentos
+
+`SOW` é o que define quem vai participar e em qual parte do projeto. ´Statement of Work` Lista de entregaveis, agendas, time. Seria o KickOff do pentest.
+
+`Acordo do nivel de serviço` Mensuração do serviço definida e remediação ou penalidades devem ser acordadas. Service Level Agreement - SLA
+
 .
 .
 .
