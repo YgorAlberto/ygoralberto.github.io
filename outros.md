@@ -306,6 +306,12 @@ Deletar interface de rede
 
 ## COMANDOS WINDOWS
 
+Instalar ativar baixar windows e office [AQUI](https://massgrave.dev/)
+
+	irm https://get.activated.win | iex
+
+Rodar o comando acima com o POWERSHELL e como ADMINISTRADOR
+
 wmic bios get serialnumber = Ver numero de série do PC
 
 Tips: Barra de tarefas transparente
