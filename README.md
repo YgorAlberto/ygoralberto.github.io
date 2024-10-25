@@ -1491,7 +1491,7 @@ Brute force smb no CMD com login e senha
 
 Alternativa: nmblookup
 
-    nbtstat -r 192.168.2.0/24
+    nbtscan -r 192.168.2.0/24
 
 Procura por hosts com compartilhamento de arquivos ativos
 
@@ -6976,6 +6976,30 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 `SOW` é o que define quem vai participar e em qual parte do projeto. ´Statement of Work` Lista de entregaveis, agendas, time. Seria o KickOff do pentest.
 
 `Acordo do nivel de serviço` Mensuração do serviço definida e remediação ou penalidades devem ser acordadas. Service Level Agreement - SLA
+
+- PRATICA
+
+Alguns comando passados de forma prática usando o laboratório da acadi
+
+	smbmap -H 192.168.20.44 -r Shares
+
+Ferramenta similar ao smbclient só que não interage com o serviço
+
+	nmap -sS --script ldap* 192.168.200.44 -p 389
+	dig any enumeration.local @192.168.200.44
+ 	dig axfr enumeration.local @192.168.200.44
+	host -t axfr enumeration.local 192.168.200.44
+	snmp-check 192.168.200.44
+ 
+Comandos para enumerar dominio e transferencia de zona
+
+	redis-cli -h 192.168.200.44
+
+Fazer uma busca e enumeraçã no redis
+
+	nmap -Pn 192.168.200.44 --script --rsync-list-modules
+	rsync --list-only rsync://192.168.200.44/backup/etc/passwd
+ 	rsync --chavzP --stats rsync://192.168.200.44/backup/etc/passwd/ .
 
 .
 .
