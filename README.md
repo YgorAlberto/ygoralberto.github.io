@@ -794,7 +794,12 @@ Pesquisa o cache do site que não está mais disponível
 
 Base de pesquisas no google Dorks
 
-    firefox 'https://google.com/search?q=site:site.com.br+inurl:exemplo' 
+	firefox 'https://google.com/search?q=site:site.com.br+inurl:exemplo' 
+	firefox https://google.com/search?q=inurl:/proc/self/cwd
+	firefox https://bing.com/search?q=ip:+104.22.36.86
+	firefox https://google.com/search?q=
+	firefox https://google.com/search?q=
+	firefox https://google.com/search?q=
 
 [Dork Base](https://gbhackers.com/latest-google-dorks-list/)
 
@@ -6978,13 +6983,17 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `Acordo do nivel de serviço` Mensuração do serviço definida e remediação ou penalidades devem ser acordadas. Service Level Agreement - SLA
 
-- PRATICA Anotação do [Thiago Muniz](ygoralberto.github.io/pentest+notes-prof/)
+- PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof/)
 
 Alguns comando passados de forma prática usando o laboratório da acadi
 
 	smbmap -H 192.168.20.44 -r Shares
 
 Ferramenta similar ao smbclient só que não interage com o serviço
+
+	
+
+Processo de transferencia de zona de forma manual
 
 	nmap -sS --script ldap* 192.168.200.44 -p 389
 	dig any enumeration.local @192.168.200.44
@@ -7029,7 +7038,7 @@ Soluções DAST: OwaspZap, Niktop, Wapiti
 
 WiGLE = Ferramenta que busca redes abertas e informações dos WiFI [WiGle](https://wigle.net)
 
-
+Spoofing é o ato de falsificar algo
 .
 .
 .
