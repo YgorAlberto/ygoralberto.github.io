@@ -6983,7 +6983,9 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `Acordo do nivel de serviço` Mensuração do serviço definida e remediação ou penalidades devem ser acordadas. Service Level Agreement - SLA
 
-- PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof/)
+`SEtoolkit` É uma ferramenta de Engenharia social que auxilia na utilização das técnicas
+
+- PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof)
 
 Alguns comando passados de forma prática usando o laboratório da acadi
 
@@ -6991,9 +6993,19 @@ Alguns comando passados de forma prática usando o laboratório da acadi
 
 Ferramenta similar ao smbclient só que não interage com o serviço
 
-	
+	nslookup
+	set q=ns
+	zonetransfer.me
+	server nsztm1.digi.ninja
+	ld -s zonetransfer.me
+	server nsztm2.digi.ninja
+	ld -s zonetransfer.me
 
 Processo de transferencia de zona de forma manual
+
+	metagoofil -d comptia.org -t pdf -l 75
+
+Ferramenta de modificação e leitura de Metadados de arquivos
 
 	nmap -sS --script ldap* 192.168.200.44 -p 389
 	dig any enumeration.local @192.168.200.44
@@ -7013,11 +7025,9 @@ Fazer uma busca e enumeraçã no redis
 
 Vulnerabilidade de command Injection
 
-Ao tentar realizar uma shell reversa 
-	
  	nc -vnlp -s 127.0.0.1
 	
-Esse comando quando usado com o NGROK serve para forçar a conexão localhost que é onde a ferramenta funciona.
+Ao tentar realizar uma shell reversa. Esse comando quando usado com o NGROK serve para forçar a conexão localhost que é onde a ferramenta funciona.
 
 	script -qc /bin/bash /dev/null
 
