@@ -7023,6 +7023,13 @@ Capabilities são funções especiais para arquivos, usuários, kernel etc. COmo
 
 O primeiro lista as capabilities que existem no sistema, o segundo executa o python pois estava listado no capabilities, troca o UID do usuário para 0 (que é o root) e drop a shell.
 
+(HORUSEC)[https://horusec.io/site/] Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK também é uma ferramenta com o mesmo proposito.
+
+Soluções DAST: OwaspZap, Niktop, Wapiti
+
+WiGLE = Ferramenta que busca redes abertas e informações dos WiFI [WiGle](https://wigle.net)
+
+
 .
 .
 .
