@@ -6987,6 +6987,12 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `zphisher` Ferramenta de phising e engenharia social.
 
+`ldb -h` Ferramenta de LoadBalancig para verificar os dominios
+
+Ferramentas de scan de vulnerabilidades WEB: `Arachni - Skipfish - Grabber - Wapiti - ZAP - Metasplois`
+
+Estágios de uma vulnerabilidade registrada: Discover -> Coordinate -> mitigate -> Manage -> Document
+
 - PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof)
 
 Alguns comando passados de forma prática usando o laboratório da acadi
