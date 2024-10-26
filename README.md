@@ -6985,6 +6985,8 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `SEtoolkit` É uma ferramenta de Engenharia social que auxilia na utilização das técnicas
 
+`zphisher` Ferramenta de phising e engenharia social.
+
 - PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof)
 
 Alguns comando passados de forma prática usando o laboratório da acadi
