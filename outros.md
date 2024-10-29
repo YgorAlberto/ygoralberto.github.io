@@ -117,6 +117,14 @@ After that You can enable it manually
 	sudo modprobe vboxdrv
 	sudo modprobe vboxnetflt
 
+
+Resolver problema da maquina que não inicia por falta de memoria `Out of memory condition when allocating memory with low physical backing. (VERR_NO_LOW_MEMORY).`
+
+	echo 3 > /proc/sys/vm/drop_caches
+
+
+
+ 
 Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
 fdisk -l Lista os discos existentes no dispositivo
