@@ -7040,6 +7040,10 @@ Vulnerabilidade de command Injection
 Ao tentar realizar uma shell reversa. Esse comando quando usado com o NGROK serve para forçar a conexão localhost que é onde a ferramenta funciona.
 
 	script -qc /bin/bash /dev/null
+	EXPORT TERM=xterm
+	Ctrl Z
+	stty raw -echo:fg
+ 	reset
 
 Shell mais interativa
 
