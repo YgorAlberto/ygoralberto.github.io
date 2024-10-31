@@ -7059,13 +7059,17 @@ Processo de transferencia de zona de forma manual
 
 Ferramenta de modificação e leitura de Metadados de arquivos
 
-	nmap -sS --script ldap* 192.168.200.44 -p 389
+	nmap -sS --script 'ldap* and not brute' 192.168.200.44 -p 389
 	dig any enumeration.local @192.168.200.44
  	dig axfr enumeration.local @192.168.200.44
+	dig a offsec @192.168.200.253
+	dig ptr 192.168.200.252 @192.168.200.253
 	host -t axfr enumeration.local 192.168.200.44
 	snmp-check 192.168.200.44
+	dig -x 192.168.200.252 @192.168.200.253 (descobre hostname)
+	dnsrecon -r 192.168.200.0/24 -n 192.168.200.253 (descobre os hostnames da rede - 253 é o DNS - caso nao exista um serviço atrelado ao subdominio - subdomain takeover)
  
-Comandos para enumerar dominio e transferencia de zona
+Comandos para enumerar dominio e transferencia de zona, hostnames
 
 	redis-cli -h 192.168.200.44
 
