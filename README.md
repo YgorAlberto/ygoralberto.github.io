@@ -5642,7 +5642,7 @@ Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centise
 
 Ferramenta de shell interativa web `WEEVELY`
 
-Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS` alternativa ao xfreerdp e rdesktop
+Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS` alternativa ao xfreerdp e rdesktop, também o `wmiexec` o `impacket-psexec` e `remmina`
 
 - INFORMATION GATHERING
 
