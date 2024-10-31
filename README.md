@@ -5642,7 +5642,7 @@ Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centise
 
 Ferramenta de shell interativa web `WEEVELY`
 
-Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS`
+Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS` alternativa ao xfreerdp e rdesktop
 
 - INFORMATION GATHERING
 
@@ -7067,7 +7067,9 @@ Spoofing é o ato de falsificar algo
 LFI - O arquivo ta na maquina da vitima
 RFI - O Arquivo pode ser acessado atravez de um paramentro em uma maquina remota `param?http://localhost/shell.php` O mesmo nao pode passar parâmetro, pois quebra a URL por conta do ?
 
+NOTA: Em um dos laboratórios com a descoberta de portas e serviços, havia um serviço RPC... e na numeração do NMAP havia uma pista no scripts do NMAP, `rpc.py` ao pesqisarmos por exploit, existe um exploit que explora a vulnerabilidade. No segundo lab 201 encontramos um serviço de FTP aberto e com a versão 2.8, ao procurar por exploits na internt encontramos um que ao escutar com `nc -vnlp 1258` e depois interagindo com o FTP com TELNET executa `PORT 127,0,0,1,1,1002` depois `RETR ../../../../../../../etc/passwd`
 
+Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na porta 88 
 
 .
 .
