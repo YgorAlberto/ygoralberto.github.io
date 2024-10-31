@@ -6150,6 +6150,10 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 
 ## FERRAMENTAS ALEATÓRIAS
 
+[Aplicativo Movel vulnerável para testes labs](https://github.com/satishpatnayak/AndroGoat)
+
+[Payloads Diversos](https://github.com/swisskyrepo/PayloadsAllTheThings)
+
 [SOCIAL ANALYZER](https://github.com/qeeqbox/social-analyzer.git)
 
 Ferramenta que faz buscas e várias midias sociais
@@ -7021,13 +7025,19 @@ Ataques BlueTooth: `Bluejacking` ferramenta usada para enviar mensagens indeseja
 
 Ferramenta online para análise de aplicativos `mobsf.live`
 
-Ferramenta online de análise de malware `cuckoosandbox.org`
+Ferramenta online de análise de malware `cuckoosandbox.org` `any.run`
 
 Ferramentas de examinar códigos `Frida`,`Objection` análises avançadas de dispositivos, aplicativos e códigos e identifica root do android e JailBreak do iOS
 
 `netdiscover` ferramenta de descoberta de ativos na rede
 
 - PRATICA Anotação do [Thiago Muniz](/pentest+notes-prof)
+
+Arquvios
+
+Documento com o SAMM [Software Assurance Maturity Model](/SAMM-v2-PDF.pdf) auxilia na melhoria de postura de segurança de software, eleva a maturidade de cibersegurança da empresa.
+
+Solução lab com 3 maquinas que faz escalção em duas delas: [Acesso ao pdf](/LAB-PENT+-SOLUCAO.pdf)
 
 Alguns comando passados de forma prática usando o laboratório da acadi
 
