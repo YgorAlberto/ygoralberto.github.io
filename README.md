@@ -7056,7 +7056,7 @@ Capabilities são funções especiais para arquivos, usuários, kernel etc. COmo
 
 O primeiro lista as capabilities que existem no sistema, o segundo executa o python pois estava listado no capabilities, troca o UID do usuário para 0 (que é o root) e drop a shell.
 
-(HORUSEC)[https://horusec.io/site/] Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK também é uma ferramenta com o mesmo proposito.
+[HORUSEC](https://horusec.io/site/) Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK também é uma ferramenta com o mesmo proposito.
 
 Soluções DAST: OwaspZap, Niktop, Wapiti
 
@@ -7069,7 +7069,7 @@ RFI - O Arquivo pode ser acessado atravez de um paramentro em uma maquina remota
 
 NOTA: Em um dos laboratórios com a descoberta de portas e serviços, havia um serviço RPC... e na numeração do NMAP havia uma pista no scripts do NMAP, `rpc.py` ao pesqisarmos por exploit, existe um exploit que explora a vulnerabilidade. No segundo lab 201 encontramos um serviço de FTP aberto e com a versão 2.8, ao procurar por exploits na internt encontramos um que ao escutar com `nc -vnlp 1258` e depois interagindo com o FTP com TELNET executa `PORT 127,0,0,1,1,1002` depois `RETR ../../../../../../../etc/passwd`
 
-Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na porta 88 
+Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na porta 88 `sudo nmap -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='mtia.local' 192.168.200.100`
 
 .
 .
