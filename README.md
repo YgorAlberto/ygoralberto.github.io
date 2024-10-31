@@ -7047,7 +7047,7 @@ Ao tentar realizar uma shell reversa. Esse comando quando usado com o NGROK serv
 
 Shell mais interativa
 
-Note: Quando der erro da biblioteca "GLIBC" do unzip no gtfobins SUID, na maquina alvo `cp /bin/sh .` joga o arquivo sh para o atacante `chmod +sx sh` depois `zip shell.zip sh` joga o arquivo para o alvo e `./unzip -K shell.zip`.
+Note: Quando der erro da biblioteca "GLIBC" do unzip no gtfobins SUID na escalação de privilegios, na maquina alvo `cp /bin/sh .` joga o arquivo sh para o atacante `chmod +sx sh` depois `zip shell.zip sh` joga o arquivo para o alvo e `./unzip -K shell.zip`.
 
 Capabilities são funções especiais para arquivos, usuários, kernel etc. COmo se fosse uma GPO para dar poderes especiais dentro do sistema específico. Exemplo abaixo, com o python
 
