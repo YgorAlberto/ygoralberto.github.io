@@ -7107,7 +7107,7 @@ Script nmap que anumera usuários do Active Directory AD `krb5-enum-users` na po
 
 - Laboratório do AD
 
-IP 253 é o AD [FullNotes](/lab-ad-pplus.md) LIVE - [YouTube](https://youtu.be/U80M7Lp1w4E)
+IP 253 é o AD [FullNotes](/FILES/lab-ad-pplus) LIVE - [YouTube](https://youtu.be/U80M7Lp1w4E)
 
 	crackmapexec smb 192.168.200.253 -L
 	crackmapexec smb 192.168.200.253 -M zerologon
