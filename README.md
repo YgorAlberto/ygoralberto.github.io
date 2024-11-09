@@ -6986,10 +6986,15 @@ Em FEEDS "news feed" pesquisar por termos para monitorar: (as apariçoes irão a
  
  	"Medusa" AND Ransomware
  	"threat intelligence" AND report
-	
 
+Maquina virtual para sendbox [AnyRun](https://any.run/)
 
+Acessar via TOR:
 
+	ransomeware.live (CONTEM INFORMAÇÕES DOS GRUPOS DE HACKER, IOCS, DLS)
+	www.ransom-db.com
+
+ 
 TO BE CONTINUED
 
 ## PENTEST PLUS
