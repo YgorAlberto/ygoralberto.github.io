@@ -6953,6 +6953,43 @@ Considerações para a coletas, Consolidação e Análise de Observação
 		GRAFANA
 
 
+IAC Disciplina
+
+Ferramentas que concentram noticias e insumos para analisar, podendo ser utilizada para Ns fins
+psEXE
+
+Criar conta no InoReader e adicionar os seguintes websites em "ADD FEED":
+
+	Unit 42
+	Zero Day Initiative
+	SOCRadar
+	Red Canary
+	SpiderLabs Blog from Trustwave
+	Krebs on Security
+	Rapid7 Blog
+	SentinelOne
+	Qualys Blog
+	Microsoft Security
+	Trend Micro Research, News, Perspectives
+	Malwarebytes Labs
+	McAfee
+	Ciso Advisor
+	Minuto da Segurança da Informação
+	Naked Security
+	The Hacker News — Hacking, Cyber and Internet Security
+	Hacker Noon — Medium
+	Dark Reading: Vulnerabilities / Threats
+	0 Day News ≈ Packet Storm
+	CERT-FR
+
+Em FEEDS "news feed" pesquisar por termos para monitorar: (as apariçoes irão aparecer de acordo com os sites que você segue)
+ 
+ 	"Medusa" AND Ransomware
+ 	"threat intelligence" AND report
+	
+
+
+
 TO BE CONTINUED
 
 ## PENTEST PLUS
