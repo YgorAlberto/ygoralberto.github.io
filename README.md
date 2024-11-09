@@ -6993,6 +6993,8 @@ Acessar via TOR:
 
 	ransomeware.live (CONTEM INFORMAÇÕES DOS GRUPOS DE HACKER, IOCS, DLS)
 	www.ransom-db.com
+	darkfeed.io
+	ransomlook.io
 
  
 TO BE CONTINUED
