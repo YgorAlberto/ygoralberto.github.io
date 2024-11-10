@@ -1036,3 +1036,19 @@ Baixa o arqivos e coloca na pasta `/lib/firmware`
 ## INSTLANDO O AUDIO NO ALIENWARE
 
 [Doc Kali](https://www.kali.org/docs/troubleshooting/no-sound/)
+
+## INSTLANDO OPEN RGP PARA TECLADO
+
+[source .deb](http://ftp.us.debian.org/debian/pool/main/m/mbedtls/)
+
+Baixa o instalador [OpenRGB](https://openrgb.org/releases/release_0.9/openrgb_0.9_amd64_buster_b5f46e3.deb)
+
+Instala primeiro o `libhidapi-hidraw0`
+
+Depois o [libmbedcrypto3_2.16.0-1_amd64.deb](http://ftp.us.debian.org/debian/pool/main/m/mbedtls/libmbedcrypto3_2.16.0-1_amd64.deb)
+
+Depois o [libmbedtls12_2.16.0-1_amd64.deb](http://ftp.us.debian.org/debian/pool/main/m/mbedtls/libmbedtls12_2.16.0-1_amd64.deb)
+
+Depois o [libmbedx509-0_2.16.0-1_amd64.deb](http://ftp.us.debian.org/debian/pool/main/m/mbedtls/libmbedx509-0_2.16.0-1_amd64.deb)
+
+E agora o `sudo dpkg -i openrgb_0.9_amd64_buster_b5f46e3.deb`
