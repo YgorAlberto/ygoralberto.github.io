@@ -1052,3 +1052,5 @@ Depois o [libmbedtls12_2.16.0-1_amd64.deb](http://ftp.us.debian.org/debian/pool/
 Depois o [libmbedx509-0_2.16.0-1_amd64.deb](http://ftp.us.debian.org/debian/pool/main/m/mbedtls/libmbedx509-0_2.16.0-1_amd64.deb)
 
 E agora o `sudo dpkg -i openrgb_0.9_amd64_buster_b5f46e3.deb`
+
+TUTO ACIMA NAO FUNCIONOU - RGB NAO TROUXE OS DISPOSITIVOS'
