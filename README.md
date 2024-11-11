@@ -6996,9 +6996,20 @@ Acessar via TOR:
 	darkfeed.io
 	ransomlook.io
 
+Ferramenta `Vortion` usada para captura de evidências
  
 TO BE CONTINUED
-
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 ## PENTEST PLUS
 
 `Hacker Ético` é o profissioal de cibersegurança que pode atuar desde u GRC, SOC, NOC, Atividade de RedTeam, criação de políticas, etc...
@@ -7198,14 +7209,6 @@ Moving between VLANS - Pra mover entre VLANs é preciso realizar um ataque MACOF
 
 On-Path Attach é o mesmo que Man in The Middle na literatura da EcCouncil
 
-.
-.
-.
-.
-.
-.
-.
-.
 ## Hacking CheckList
 
 Mapear Superfície Externa
