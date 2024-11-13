@@ -6,6 +6,8 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 [MAPA MENTAL](https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1) PARA PENTESTERS 
 
+[KNOWLEDGE BASE](/knowledgebase) PARA GUIAR EM VULNERABILIDADES CONHECIDAS
+
 ## COMANDOS RÁPIDOS
 
 
