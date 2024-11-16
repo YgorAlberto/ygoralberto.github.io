@@ -27,7 +27,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	feroxbuster --url http://server.com/ --methods GET,POST -r -A -w /usr/share/dirb/wordlists/big.txt -o feroxbuster
+	feroxbuster --url http://server.com/ --methods GET,POST -r -A -w /usr/share/dirb/wordlists/big.txt -o feroxbuster -x php bkp old txt xml cgi pdf html htm asp aspx pl sql js png jpg jpeg config sh cfm
  
 .
 
