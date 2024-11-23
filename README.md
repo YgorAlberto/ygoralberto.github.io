@@ -845,7 +845,7 @@ Mapear bloco de IP do alvo: search.arin.net/rdap/ OU WHOIS com IP
 
 Não retornando nada pode ser que o IP apresentada não pertença à empresa nesse caso com o host pega-se a segunda saída e verifica o IP
 
-Border Gateway Protocol (bgp.he.net e bgpview.io, praticamente tudo está aqui)
+Border Gateway Protocol (bgp.he.net e bgpview.io, praticamente tudo está aqui) alternativo [here](https://pt.infobyip.com/)
 
 Shodan
 
@@ -882,6 +882,10 @@ Basicamente a mesma função do SHODAN
     location.country_code: BR AND metadata.os: windows 80.http.get.title: TI 
 
 Busca no Censys parecida com as buscas feitas no shodan
+
+Binary Edge 
+
+Mesma proposta do Shodan e Censys Disponivel [Aqui](https://app.binaryedge.io/login)
 
 
 Domain Name System
@@ -6999,7 +7003,24 @@ Acessar via TOR:
 	ransomlook.io
 
 Ferramenta `Vortion` usada para captura de evidências
- 
+
+Informações sobre atores de ameaças, dominios, urls, ips, OSINT
+[Abuse.ch](https://abuse.ch/)
+[DomainsTools-PAID](https://www.domaintools.com)
+[securitytrails.com-FREE](https://securitytrails.com/)
+[urlscan.io-FREE](https://urlscan.io/)
+[urlhaus.abuse.ch-FREE](https://urlhaus.abuse.ch)
+[OSINT-BRAZUCA](https://github.com/osintbrazuca/osint-brazuca)
+[OWESOME OSINT](https://github.com/jivoi/awesome-osint)
+[OSINT Combine-PAID](https://www.osintcombine.com/platform)
+[Fontes Codigos](https://grep.app)
+.
+[Lista de Sources Threat Intel](https://start.me/p/Pwpq8j/threat-intel)
+[Lista de OSINT](https://start.me/p/b5Aow7/asint_collection)
+[Lista de OSINT2](https://start.me/p/BnrMKd/01-ncso)
+
+
+
 TO BE CONTINUED
 .
 .
