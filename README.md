@@ -6959,10 +6959,10 @@ Considerações para a coletas, Consolidação e Análise de Observação
 		GRAFANA
 
 
-IAC Disciplina
+## IAC Disciplina
 
-Ferramentas que concentram noticias e insumos para analisar, podendo ser utilizada para Ns fins
-psEXE
+
+Ferramentas que concentram noticias e insumos para analisar, podendo ser utilizada para Ns fins por exemplo psEXEC
 
 Criar conta no InoReader e adicionar os seguintes websites em "ADD FEED":
 
@@ -7004,20 +7004,58 @@ Acessar via TOR:
 
 Ferramenta `Vortion` usada para captura de evidências
 
+- Coleta de informações
+
 Informações sobre atores de ameaças, dominios, urls, ips, OSINT
+
 [Abuse.ch](https://abuse.ch/)
+
 [DomainsTools-PAID](https://www.domaintools.com)
+
 [securitytrails.com-FREE](https://securitytrails.com/)
+
 [urlscan.io-FREE](https://urlscan.io/)
+
 [urlhaus.abuse.ch-FREE](https://urlhaus.abuse.ch)
+
 [OSINT-BRAZUCA](https://github.com/osintbrazuca/osint-brazuca)
+
 [OWESOME OSINT](https://github.com/jivoi/awesome-osint)
+
 [OSINT Combine-PAID](https://www.osintcombine.com/platform)
+
 [Fontes Codigos](https://grep.app)
-.
+
 [Lista de Sources Threat Intel](https://start.me/p/Pwpq8j/threat-intel)
+
 [Lista de OSINT](https://start.me/p/b5Aow7/asint_collection)
+
 [Lista de OSINT2](https://start.me/p/BnrMKd/01-ncso)
+
+Fontes de malwares
+
+[Malware BAZAR](https://bazaar.abuse.ch/)
+
+[VX-Underground](https://vx-underground.org/)
+
+[Viper Framework](https://github.com/viper-framework/viper)
+
+Fontes de HoneyPots
+
+[PWLANDIA](https://github.com/pwnlandia/mhn)
+[Criar sua HoneyPot](https://github.com/MalwareTech/CitrixHoneypot)
+
+Forums Underground
+
+[RaidForum](https://raidforum.co/)
+
+[EXPLOIT.IN](https://exploit.in/)
+
+Ferramentas de CTI
+
+[Neo4j-PAID](https://neo4j.com/)
+
+[LogonTracer](https://github.com/JPCERTCC/LogonTracer)
 
 
 
