@@ -7117,11 +7117,11 @@ Estágios de uma vulnerabilidade registrada: Discover -> Coordinate -> mitigate 
 - Ferramentas e Softwares online
 
 
-Soluções DAST: OwaspZap, Niktop, Wapiti
+Soluções DAST: OwaspZap, Niktop, Wapiti, AppScan, N-Stalker, NetSparker, WebKing, Retina WSS, Acunetix, WebSecurify, Nessus, NeXpose, ParosPro, HCL AppScan, 
 
 WiGLE = Ferramenta que busca redes abertas e informações dos WiFI [WiGle](https://wigle.net)
 
-[HORUSEC](https://horusec.io/site/) Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK também é uma ferramenta com o mesmo proposito.
+[HORUSEC](https://horusec.io/site/) Ferramenta de SAST que busca falhas de segurança enqanto está desenvolvendo, integrado a IDE, PipeLine. SNYK e VCG também são ferramentas com o mesmo proposito.
 
 `SEtoolkit` É uma ferramenta de Engenharia social que auxilia na utilização das técnicas
 
