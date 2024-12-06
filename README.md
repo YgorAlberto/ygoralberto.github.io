@@ -5772,7 +5772,7 @@ Verificar se a conexão está ok
 
 Verificar os logs
 
-Notes: Quando rodar o Check-Setup e aparecer a mensagem "the default postgresql version is not the one used for gvmd compilation: (16, need 17)" Rode os comando `sudo pg_lsclusters` e de acordo com a saída voce pode parar o mais antigo `sudo pg_ctlcluster 17 main stop` ou todos que estiverem rodando, caso apareça "target cluster 17/main already exists" quando der upgrade, tente renomear `sudo pg_renamecluster 17 main test` depois dê um upgrade no que o GVM pediu `pg_upgradecluster 16` e depois rode e `sudo systemctl restart postgresql` -> `sudo greenbone-feed-sync` -> `sudo gvm-check-setup` depois pode acessar a web.
+Notes: Quando rodar o Check-Setup e aparecer a mensagem "the default postgresql version is not the one used for gvmd compilation: (16, need 17)" Rode os comando `sudo pg_lsclusters` e de acordo com a saída voce pode parar o mais antigo `sudo pg_ctlcluster 17 main stop` ou todos que estiverem rodando, caso apareça "target cluster 17/main already exists" quando der upgrade, tente renomear `sudo pg_renamecluster 17 main test` depois dê um upgrade no que o GVM pediu `pg_upgradecluster 16 main` e depois rode e `sudo systemctl restart postgresql` -> `sudo greenbone-feed-sync` -> `sudo gvm-check-setup` depois pode acessar a web.
 
 	
 - Gerar relatório
