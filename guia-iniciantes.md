@@ -91,3 +91,5 @@ Existem outras escolas como: `FIAP`, `CROWSEC`, `PATO ACEDEMY` e outras que vale
 
 .
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YsqiEhoLZlU?si=5S5ixIFre_uuNpja" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
