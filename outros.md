@@ -88,6 +88,17 @@ zip -re output_data.zip file.txt file.pdf - criar arquivo zip com senha
 
 .
 
+Descobrir IPv4 (meu ip my ip myip meuip)
+
+	curl -s https://meuip.com.br | grep "Meu ip" > .meuip
+	cat .meuip | cut -d " " -f 8 > ip.txt
+	sed -i 's/<\/h3>/ /g' ip.txt
+	cat ip.txt
+	rm .meuip
+	rm ip.txt
+
+.
+
       sudo dd bs=4M if=ImageName.iso of=/dev/sdc conv=fdatasync status=progress
 
 Linux Bootable 
