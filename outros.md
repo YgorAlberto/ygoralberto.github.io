@@ -841,15 +841,73 @@ git clone (link)
 
 ## Anydesk com problemas de biblioteca libgtkglext1
 
-[Baixa o .deb](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/)
+	sudo wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
+	sudo echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
+	sudo apt update
+	wget "http://ftp.us.debian.org/debian/pool/main/libw/libwebp/libwebp6_0.6.1-2+deb10u1_amd64.deb"
+	wget "http://ftp.us.debian.org/debian/pool/main/g/gtkglext/libgtkglext1_1.2.0-11_amd64.deb"
+	wget "http://ftp.us.debian.org/debian/pool/main/g/gtk+2.0/libgtk2.0-0t64_2.24.33-6_amd64.deb"
+	wget "http://ftp.us.debian.org/debian/pool/main/p/pangox-compat/libpangox-1.0-0_0.0.2-5+b2_amd64.deb"
+	wget "http://ftp.us.debian.org/debian/pool/main/t/tiff/libtiff5_4.1.0+git191117-2~deb10u4_amd64.deb"
+	 
+	echo " "
+	echo "INSTALANDO LIB-WEBP"
+	echo " "
+	 
+	sudo dpkg -i libwebp6_0.6.1-2+deb10u1_amd64.deb
+	 
+	echo " "
+	echo "INSTALANDO LIB-TIFF"
+	echo " "
+	 
+	 
+	sudo dpkg -i libtiff5_4.1.0+git191117-2~deb10u4_amd64.deb
+	 
+	echo " "
+	echo "INSTALANDO LIB-PANGOX"
+	echo " "
+	 
+	 
+	sudo dpkg -i libpangox-1.0-0_0.0.2-5+b2_amd64.deb
+	 
+	echo " "
+	echo "INSTALANDO LIB-GTK2"
+	echo " "
+	 
+	sudo dpkg -i libgtk2.0-0t64_2.24.33-6_amd64.deb
+	 
+	echo " "
+	echo "INSTALANDO LIB-GTK"
+	echo " "
+	 
+	 
+	sudo dpkg -i libgtkglext1_1.2.0-11_amd64.deb
+	 
+	echo " "
+	echo "FINALIZADO AS LIBS"
+	echo " "
+	 
+	sudo apt install anydesk
+	rm lib*
+	sudo apt --fix-broken install -y
 
-[libgtk](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/libgtkglext1_1.2.0-9_amd64.deb)
-[pixpuf](http://ftp.us.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf-2.0-0_2.42.12+dfsg-1_amd64.deb)
-[libtiff](http://ftp.us.debian.org/debian/pool/main/t/tiff/libtiff5_4.1.0+git191117-2~deb10u4_amd64.deb)
-[libwebp](http://ftp.us.debian.org/debian/pool/main/libw/libwebp/libwebp6_0.6.1-2+deb10u1_amd64.deb)
-[pangox](ftp.us.debian.org/debian/pool/main/p/pangox-compat/libpangox-1.0-0_0.0.2-5+b2_amd64.deb)
+FAÇA MANUAL
+
+[Baixa o .deb](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/)
+Instala as dependências caso precise, e caso nao encontrar, procurar no link acima as dependêcias correspondentes
+
+[1-libwebp](http://ftp.us.debian.org/debian/pool/main/libw/libwebp/libwebp6_0.6.1-2+deb10u1_amd64.deb)
+
+[2-libtiff](http://ftp.us.debian.org/debian/pool/main/t/tiff/libtiff5_4.1.0+git191117-2~deb10u4_amd64.deb)
+
+[3-pangox](http://ftp.us.debian.org/debian/pool/main/p/pangox-compat/libpangox-1.0-0_0.0.2-5+b2_amd64.deb)
+
+[4-pixpuf](http://ftp.us.debian.org/debian/pool/main/g/gdk-pixbuf/libgdk-pixbuf-2.0-0_2.42.12+dfsg-1_amd64.deb)
+
+[5-libgtk](http://ftp.us.debian.org/debian/pool/main/g/gtkglext/libgtkglext1_1.2.0-11_amd64.deb)
 
 Instala as dependências caso precise, e caso nao encontrar, procurar no link acima as dependêcias correspondentes
+
 
 
 ## SETUP ANDROID VISTUALBOX
