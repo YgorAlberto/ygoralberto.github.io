@@ -7070,6 +7070,13 @@ Ferramentas de CTI
 [LogonTracer](https://github.com/JPCERTCC/LogonTracer)
 
 
+## ASTE 
+
+Arquiterura Monolitica (Centralizada, dificil escalabilidades, serviços e codigos juntos em um recurso (maquina))
+Arquitetura Micro-Services (Descentralizada, escalabilidade facil, serviços separados em instâncias diferentes)
+
+NodeJsScan ferramenta de análise de vulnerabilidades na aplicação que toda JavaScript
+
 
 TO BE CONTINUED
 .
