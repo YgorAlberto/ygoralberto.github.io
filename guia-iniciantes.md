@@ -16,6 +16,8 @@ Sem enrolação, na minha visão para se ter um bom início e imerção em ciber
 
 `Servidores` (Windows e Linux, AD, SAMBA, E-MAIL, FTP)
 
+Ah e aqui ta uma lista completa de maquinas gratuitas para treinar no [TryHackMe](/THM-LIST.md])
+
 Para isso, recomendo inicialmente os cursos abaixo:
 
 ## Cursos de Nivelamento
