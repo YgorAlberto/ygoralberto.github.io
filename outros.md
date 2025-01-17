@@ -375,6 +375,13 @@ Refer: https://www.guidingtech.com/how-to-activate-windows-11-for-free/
 	    }
 	} | Format-Table -AutoSize
 
+Second option
+
+	Get-ADUser -Filter {Enabled -eq $true} -Property SamAccountName, DisplayName, EmailAddress | 
+	Select-Object SamAccountName, DisplayName, EmailAddress | 
+	Export-Csv -Path "C:\AD_UsuariosAtivos.csv" -NoTypeInformation -Encoding UTF8
+
+
 ## WINDOWS WSL COM QUALQUER DISTRO LINUX
 
   WINDOWS SUBSYSTEM FOR LINUX
