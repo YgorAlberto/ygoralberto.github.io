@@ -363,6 +363,17 @@ For example, if you want to activate Windows 11 Pro, use the command ‘slmgr /i
 
 Refer: https://www.guidingtech.com/how-to-activate-windows-11-for-free/
 
+## LISTAS USUARIOS DO ACTIVE DIRECTORY
+	
+	Get-ADUser -Filter {Enabled -eq $true} -Property MemberOf | ForEach-Object {
+	    $user = $_
+	    $groups = $user.MemberOf | ForEach-Object { (Get-ADGroup -Identity $_).Name }
+	    [PSCustomObject]@{
+	        UserName = $user.SamAccountName
+	        DisplayName = $user.DisplayName
+	        Groups = $groups -join ', '
+	    }
+	} | Format-Table -AutoSize
 
 ## WINDOWS WSL COM QUALQUER DISTRO LINUX
 
