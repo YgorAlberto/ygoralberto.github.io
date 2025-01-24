@@ -7090,6 +7090,16 @@ Arquitetura Micro-Services (Descentralizada, escalabilidade facil, serviços sep
 `NodeJsScan` ferramenta de análise de vulnerabilidades na aplicação que toda JavaScript 
 `JuiceShop` laboratório para treinar hacking [JuiceShop](http://juice-shop.herokuapp.com/#/)
 
+Ferramenta de CI/CD
+
+`Jenkins` Ferramenta de CI/CD para fazer a build de aplicações podendo pegar o código diretamente do GitHub.
+`Horusec` Coloca o script dentro do Jenkins para usar o Horusec e fazer a análise de vulnerabilodades do programa apresentado
+
+Deploy
+	`Canary` - Atualiza para um publico pequeno para pegar o feedback
+	`Blue-green` - Atualiza de forma completa mas sem impactar a produção e posteriormente virar a chave
+
+
 TO BE CONTINUED
 .
 .
