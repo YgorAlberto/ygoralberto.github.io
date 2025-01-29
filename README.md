@@ -7417,7 +7417,7 @@ Validação de dados
 	WPscan
 	SpiderFoot
 	Hakrawler
- 	WayBackMachine
+	WayBackMachine
 	TheHarvester
 	Wafw00f
 	DirSearch
@@ -7427,7 +7427,7 @@ Validação de dados
 	FFuF
 	Wfuzz
 	MASSCAN
- 	Amass
+	Amass
 	ARP
 	NetworkMiner
 	Metasploitable  
