@@ -7399,38 +7399,40 @@ Validação de dados
 ## ARSENAL HACKING TOOLs
 	
 	NMAP
-	MASSCAN
-	ARP
-	NetworkMiner
-	Metasploitable  
 	BurpSuite
-	Searchsploit
+	OWASPZAP
+	GreeBone GVM
+	GoBuster
+	Sensys
+	Shodan
 	Subfinder
 	Sublist3r
 	Assetfinder
-	GoBuster
-	FeroxBuster
-	Dirb 
-	DirBuster
-	FFuF
-	Wfuzz
-	Wafw00f
-	Hakrawler
-	Dirsearch
-	Amass
-	Sensys
-	Shodan
-	WayBackMachine
-	SSRFMAP
 	Nikto
-	SpiderFoot
 	Wapiti
 	Nuclei
-	TheHarvester
-	WPscan
 	Fierce
 	Dnsenum
 	Dnsrecon
+	WPscan
+	SpiderFoot
+	Hakrawler
+ 	WayBackMachine
+	TheHarvester
+	Wafw00f
+	DirSearch
+	FeroxBuster
+	DirBuster	
+	Dirb 
+	FFuF
+	Wfuzz
+	MASSCAN
+ 	Amass
+	ARP
+	NetworkMiner
+	Metasploitable  
+	Searchsploit
+	SSRFMAP
 	Hydra
 	Crowbar
 	Crunch
