@@ -43,6 +43,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	wpscan --url sub.site.com.br/ --api-token 9iwuoirwer0987wehrEve7tzY3mF9CnxFyiwuer  --random-user-agent
+
+.
+
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
 
 .
