@@ -5731,6 +5731,8 @@ Salva e inicia...
 
 Openvas é um framework de scan de vulnerabiliadades
 
+	sudo apt install -y software-properties-common
+	sudo add-apt-repository ppa:mrazavi/gvm
 	sudo apt update
 	sudo apt upgrade
 	sudo apt install gvm
