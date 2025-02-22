@@ -7113,7 +7113,9 @@ Subindo containers de forma facil e rapido, um site simples.
 	mkdir -p /home/debian/meu-site
 	cd /home/debian/meu-site
 	nano index.html
-
+ .
+ 
+	```html
 		<!DOCTYPE html>
 		<html>
 		<head>
@@ -7128,9 +7130,11 @@ Subindo containers de forma facil e rapido, um site simples.
 		    </div>
 		</body>
 		</html>
-
+	```
+ .
+ 
 	 nano styles.css
-
+	```css
 	 	/* Estilos básicos para a página */
 		
 		body {	
@@ -7160,9 +7164,11 @@ Subindo containers de forma facil e rapido, um site simples.
 		    border-radius: 10px;
 		    margin-top: 50px;
 		}
-
+	```
+ .
+ 
 	nano Dockerfile
-	
+	```bash
 		# Usar a imagem base do Nginx
 		FROM nginx:latest
 		# Copiar os arquivos da aplicação para o diretório padrão do Nginx
@@ -7171,15 +7177,18 @@ Subindo containers de forma facil e rapido, um site simples.
 		EXPOSE 80
 		# Comando a ser executado quando o container iniciar
 		CMD ["nginx", "-g", "daemon off;"]
-	
+	```
 	docker build -t meu_site .
 	docker image ls
 	docker run -p 8084:80 meu_site
-	docker run -d -p 8084:80 meu_site
-	docker ps
+	docker run -d -p 8084:80 --name "Meu_Container_new" meu_site
+	docker ps -a
 	http://localhost:8084
 	docker inspect <container_id> | less
-	Docker ps --all 
+	Docker ps --all
+ 	docker ps -a
+	oker rm id-image
+	docker rmi meu_site
 
 TO BE CONTINUED
 .
