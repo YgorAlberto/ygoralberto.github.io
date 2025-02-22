@@ -7189,6 +7189,7 @@ Subindo containers de forma facil e rapido, um site simples.
  	docker ps -a
 	oker rm id-image
 	docker rmi meu_site
+	docker exec -it Meu_Container_new cat /etc/passwd
 
 TO BE CONTINUED
 .
