@@ -7323,6 +7323,370 @@ Subindo containers de forma facil e rapido, um site simples.
 	kubectl scale deployment nginx-deployment --replicas=15 -n meu-lab REPLICA A APLICAÇÃO em mais PODS
 	kubectl get pods -n meu-lab
 
+Colab Research Google
+https://colab.research.google.com
+
+Laboratório para testar códigos em python e testar IA ou códigos de laboratório.
+
+## Atividade 1: Aprendizado de Dicionário Esparso com MiniBatchDictionaryLearning em Conjunto de Dados de Faces
+
+### Objetivo
+
+O objetivo desta atividade é aplicar a técnica de MiniBatchDictionaryLearning para aprender representações esparsas de um conjunto de dados de faces (Olivetti Faces). Nós iremos:
+
+1. Instalar bibliotecas necessárias e carregar o conjunto de dados.
+2. Utilizar o algoritmo MiniBatchDictionaryLearning para decompor as imagens em componentes básicos.
+3. Visualizar e interpretar os componentes aprendidos, compreendendo como padrões e características recorrentes são extraídos das imagens.
+
+### Passos para Preparação no Google Colab
+
+#### 1. Instalar Bibliotecas Necessárias
+No Google Colab, você pode instalar diretamente as bibliotecas que precisará.
+
+- Instale as bibliotecas:
+
+```python
+!pip install scikit-learn numpy matplotlib
+```
+
+#### 2. Baixar e Carregar o Olivetti Faces Dataset
+No Colab, você pode usar diretamente a função `fetch_olivetti_faces` para baixar e carregar o dataset.
+
+```python
+from sklearn.datasets import fetch_olivetti_faces
+
+# Baixar e carregar o dataset
+faces = fetch_olivetti_faces()
+images, labels = faces.images, faces.target
+```
+
+#### 3. Exibir Algumas Imagens do Dataset
+Para visualizar algumas imagens do dataset, use o código abaixo:
+
+```python
+import matplotlib.pyplot as plt
+
+# Exibir algumas imagens
+fig, axes = plt.subplots(1, 10, figsize=(15, 5))
+for i in range(10):
+    axes[i].imshow(images[i], cmap='gray')
+    axes[i].axis('off')
+plt.show()
+```
+
+#### 4. Aplicar MiniBatchDictionaryLearning
+Depois de carregar as imagens, você pode aplicar o algoritmo MiniBatchDictionaryLearning.
+
+```python
+from sklearn.decomposition import MiniBatchDictionaryLearning
+import numpy as np
+
+# Configurar o algoritmo
+n_components = 100  # Número de componentes (átomos)
+batch_size = 3  # Tamanho do batch
+
+# Remodelar as imagens para vetor
+data = images.reshape((images.shape[0], -1))
+
+# Aplicar MiniBatchDictionaryLearning
+dico = MiniBatchDictionaryLearning(n_components=n_components, alpha=1, batch_size=batch_size, max_iter=500, random_state=0)
+V = dico.fit(data).components_
+
+# Visualizar os componentes
+fig, axes = plt.subplots(10, 10, figsize=(15, 15))
+for i, comp in enumerate(V[:100]):
+    ax = axes[i // 10, i % 10]
+    ax.imshow(comp.reshape(64, 64), cmap='gray')
+    ax.axis('off')
+plt.show()
+```
+
+### Script Completo no Google Colab
+Aqui está o script completo atualizado para execução no Google Colab:
+
+```python
+import matplotlib.pyplot as plt
+from sklearn.decomposition import MiniBatchDictionaryLearning
+import numpy as np
+from sklearn.datasets import fetch_olivetti_faces
+
+# Baixar e carregar o dataset
+faces = fetch_olivetti_faces()
+images, labels = faces.images, faces.target
+
+# Exibir algumas imagens
+fig, axes = plt.subplots(1, 10, figsize=(15, 5))
+for i in range(10):
+    axes[i].imshow(images[i], cmap='gray')
+    axes[i].axis('off')
+plt.show()
+
+# Configurar o algoritmo
+n_components = 100  # Número de componentes (átomos)
+batch_size = 3  # Tamanho do batch
+
+# Remodelar as imagens para vetor
+data = images.reshape((images.shape[0], -1))
+
+# Aplicar MiniBatchDictionaryLearning
+dico = MiniBatchDictionaryLearning(n_components=n_components, alpha=1, batch_size=batch_size, max_iter=500, random_state=0)
+V = dico.fit(data).components_
+
+# Visualizar os componentes
+fig, axes = plt.subplots(10, 10, figsize=(15, 15))
+for i, comp in enumerate(V[:100]):
+    ax = axes[i // 10, i % 10]
+    ax.imshow(comp.reshape(64, 64), cmap='gray')
+    ax.axis('off')
+plt.show()
+```
+
+### Explicação para os Alunos
+- O dataset Olivetti Faces contém 400 imagens de rostos em tons de cinza.
+- O objetivo é aplicar a técnica de MiniBatchDictionaryLearning para decompor as imagens em componentes básicos, chamados átomos.
+- A atividade envolve carregar e visualizar as imagens, configurar e aplicar o algoritmo, e finalmente visualizar os componentes aprendidos.
+- Os alunos poderão ver como o algoritmo detecta padrões recorrentes nas imagens, o que é útil para compressão de imagens e reconhecimento facial.
+
+## Atividade 2: Análise de Agrupamento (Clustering) de Tipos de Vinho com o scikit-learn
+
+### Objetivo
+O objetivo desta atividade é aprendermos sobre como aplicar técnicas de clustering para agrupar diferentes tipos de vinho com base em suas características químicas. Nós iremos:
+- Carregar e explorar o conjunto de dados Wine.
+- Aplicar o algoritmo K-Means para agrupar os dados.
+- Visualizar os clusters resultantes e interpretar os resultados.
+
+### Passos para a Atividade
+
+#### 1. Carregar e Explorar o Conjunto de Dados
+```python
+from sklearn.datasets import load_wine
+import pandas as pd
+
+# Carregar o conjunto de dados Wine
+wine = load_wine()
+data = pd.DataFrame(data=wine.data, columns=wine.feature_names)
+data['target'] = wine.target
+
+# Exibir as primeiras linhas do conjunto de dados
+print(data.head())
+```
+
+#### 2. Normalizar os Dados
+```python
+from sklearn.preprocessing import StandardScaler
+
+# Normalizar os dados para ter média 0 e desvio padrão 1
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(wine.data)
+```
+
+#### 3. Aplicar o Algoritmo K-Means
+```python
+from sklearn.cluster import KMeans
+
+# Definir o número de clusters
+n_clusters = 3
+
+# Aplicar K-Means
+kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+kmeans.fit(scaled_data)
+
+# Adicionar os rótulos dos clusters ao dataframe
+data['cluster'] = kmeans.labels_
+```
+
+#### 4. Visualizar os Clusters
+Para visualização, vamos utilizar um gráfico 2D com redução de dimensionalidade via PCA.
+
+```python
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+# Reduzir a dimensionalidade para 2 componentes principais
+pca = PCA(n_components=2)
+principal_components = pca.fit_transform(scaled_data)
+
+# Adicionar os componentes principais ao dataframe
+data['PC1'] = principal_components[:, 0]
+data['PC2'] = principal_components[:, 1]
+
+# Plotar os clusters
+plt.figure(figsize=(10, 6))
+for cluster in range(n_clusters):
+    cluster_data = data[data['cluster'] == cluster]
+    plt.scatter(cluster_data['PC1'], cluster_data['PC2'], label=f'Cluster {cluster}')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.title('Clustering de Vinho com K-Means')
+plt.legend()
+plt.show()
+```
+
+### Script Completo
+Aqui está o script completo para a atividade:
+
+```python
+from sklearn.datasets import load_wine
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+# Carregar o conjunto de dados Wine
+wine = load_wine()
+data = pd.DataFrame(data=wine.data, columns=wine.feature_names)
+data['target'] = wine.target
+
+# Exibir as primeiras linhas do conjunto de dados
+print(data.head())
+
+# Normalizar os dados para ter média 0 e desvio padrão 1
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(wine.data)
+
+# Definir o número de clusters
+n_clusters = 3
+
+# Aplicar K-Means
+kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+kmeans.fit(scaled_data)
+
+# Adicionar os rótulos dos clusters ao dataframe
+data['cluster'] = kmeans.labels_
+
+# Reduzir a dimensionalidade para 2 componentes principais
+pca = PCA(n_components=2)
+principal_components = pca.fit_transform(scaled_data)
+
+# Adicionar os componentes principais ao dataframe
+data['PC1'] = principal_components[:, 0]
+data['PC2'] = principal_components[:, 1]
+
+# Plotar os clusters
+plt.figure(figsize=(10, 6))
+for cluster in range(n_clusters):
+    cluster_data = data[data['cluster'] == cluster]
+    plt.scatter(cluster_data['PC1'], cluster_data['PC2'], label=f'Cluster {cluster}')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.title('Clustering de Vinho com K-Means')
+plt.legend()
+plt.show()
+```
+
+### Explicação para os Alunos
+- O conjunto de dados Wine contém informações químicas de diferentes tipos de vinho.
+- O objetivo é agrupar os vinhos em clusters com base em suas características usando o algoritmo K-Means.
+- A normalização dos dados é importante para garantir que todas as características contribuam igualmente para os clusters.
+- A técnica de PCA (Principal Component Analysis) é usada para reduzir a dimensionalidade dos dados e permitir a visualização em 2D.
+- Eles podem observar como os vinhos são agrupados e analisar se os clusters fazem sentido em termos de suas características químicas.
+
+
+## Atividade 3: Classificação de Espécies de Flores Iris com o scikit-learn
+
+### Objetivo
+O objetivo desta atividade é ensinar como criar, treinar e avaliar um modelo de classificação utilizando o conjunto de dados Iris. Os alunos irão:
+1. Carregar e explorar o conjunto de dados Iris.
+2. Dividir o conjunto de dados em conjuntos de treino e teste.
+3. Treinar um modelo de classificação utilizando diferentes algoritmos.
+4. Avaliar a precisão do modelo e interpretar os resultados.
+
+### Passos para a Atividade
+
+#### 1. Carregar e Explorar o Conjunto de Dados
+```python
+from sklearn.datasets import load_iris
+import pandas as pd
+
+# Carregar o conjunto de dados Iris
+iris = load_iris()
+data = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+data['target'] = iris.target
+
+# Exibir as primeiras linhas do conjunto de dados
+print(data.head())
+```
+
+#### 2. Dividir o Conjunto de Dados em Treino e Teste
+```python
+from sklearn.model_selection import train_test_split
+
+# Dividir o conjunto de dados em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.3, random_state=42)
+```
+
+#### 3. Treinar um Modelo de Classificação
+Vamos utilizar o algoritmo de **Árvore de Decisão** como exemplo. Você pode adicionar outros algoritmos como **K-Nearest Neighbors (KNN)** e **Support Vector Machine (SVM)** para comparação.
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+
+# Treinar o modelo de Árvore de Decisão
+clf = DecisionTreeClassifier(random_state=42)
+clf.fit(X_train, y_train)
+```
+
+#### 4. Avaliar o Modelo
+```python
+from sklearn.metrics import accuracy_score, classification_report
+
+# Fazer previsões no conjunto de teste
+y_pred = clf.predict(X_test)
+
+# Avaliar a precisão do modelo
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred, target_names=iris.target_names)
+
+print(f'Accuracy: {accuracy}')
+print('Classification Report:')
+print(report)
+```
+
+### Script Completo
+Aqui está o script completo para a atividade:
+
+```python
+from sklearn.datasets import load_iris
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, classification_report
+
+# Carregar o conjunto de dados Iris
+iris = load_iris()
+data = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+data['target'] = iris.target
+
+# Exibir as primeiras linhas do conjunto de dados
+print(data.head())
+
+# Dividir o conjunto de dados em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.3, random_state=42)
+
+# Treinar o modelo de Árvore de Decisão
+clf = DecisionTreeClassifier(random_state=42)
+clf.fit(X_train, y_train)
+
+# Fazer previsões no conjunto de teste
+y_pred = clf.predict(X_test)
+
+# Avaliar a precisão do modelo
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred, target_names=iris.target_names)
+
+print(f'Accuracy: {accuracy}')
+print('Classification Report:')
+print(report)
+```
+
+### Explicação para os Alunos
+- O conjunto de dados Iris é um clássico conjunto de dados utilizado para tarefas de classificação.
+- O objetivo é prever a espécie de uma flor com base em suas medidas (comprimento e largura das sépalas e pétalas).
+- A atividade envolve dividir os dados em conjuntos de treino e teste, treinar um modelo de classificação e avaliar sua precisão.
+- Eles podem experimentar diferentes algoritmos para comparar os resultados e entender os pontos fortes e fracos de cada um.
+
+
 
 TO BE CONTINUED
 .
