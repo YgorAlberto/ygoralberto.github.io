@@ -7320,6 +7320,8 @@ Subindo containers de forma facil e rapido, um site simples.
 	minikube logs | less
 	kubectl get po -A
 	kubectl get nodes
+	kubectl scale deployment nginx-deployment --replicas=15 -n meu-lab REPLICA A APLICAÇÃO em mais PODS
+	kubectl get pods -n meu-lab
 
 
 TO BE CONTINUED
