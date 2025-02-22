@@ -7191,6 +7191,137 @@ Subindo containers de forma facil e rapido, um site simples.
 	docker rmi meu_site
 	docker exec -it Meu_Container_new cat /etc/passwd | bash
 
+ MINIKUBE KUBERNETS
+
+	minikube start
+	mkdir -p /home/debian/kubernetes && mkdir -p /home/debian/kubernetes/meu-site
+	cd /home/debian/kubernetes/meu-site
+	kubectl create namespace meu-lab
+.
+
+	nano nginx-deployment.yaml
+
+.
+
+		apiVersion: apps/v1
+		kind: Deployment
+		metadata:
+		  name: nginx-deployment
+		  namespace: meu-lab
+		spec:
+		  replicas: 10
+		  selector:
+		    matchLabels:
+		      app: nginx
+		  template:
+		    metadata:
+		      labels:
+		        app: nginx
+		    spec:
+		      containers:
+		      - name: nginx
+		        image: nginx:latest
+		        imagePullPolicy: IfNotPresent
+		        ports:
+		        - containerPort: 80
+		        volumeMounts:
+		        - name: html-volume
+		          mountPath: /usr/share/nginx/html
+		      volumes:
+		      - name: html-volume
+		        configMap:
+		          name:
+.
+
+	nano html-configmap.yaml
+
+.
+
+		apiVersion: v1
+		kind: ConfigMap
+		metadata:
+		    name: html-config
+		    namespace: meu-lab
+		data:
+		    index.html: |
+		        <!DOCTYPE html>
+		        <html>
+		        <head>
+		                <meta charset="UTF-8">
+		                <title>Página HTML Básica</title>
+		                <link rel="stylesheet" type="text/css" href="styles.css">
+		        </head>
+		        <body>
+		                <div class="container">
+		                <h1>Bem-vindo ao meu site HTML no Kubernetes!</h1>
+		                <p>Esta é uma página HTML básica com CSS. Agora no Kubernetes</p>
+		        </div>
+		        </body>
+		        </html>
+		    styles.css: |
+		        body {
+		                font-family: Arial, sans-serif;
+		                margin: 0;
+		                padding: 0;
+		                background-color: #f4f4f4;
+		                color: #333;
+		        }
+		
+		        h1 {
+		                color: #4CAF50;
+		                text-align: center;
+		                margin-top: 50px;
+		        }
+		
+		        p {
+		                text-align: center;
+		        }
+		
+		        .container {
+		                max-width: 800px;
+		                margin: 0 auto;
+		                padding: 20px;
+		                background-color: #fff;
+		                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		                border-radius: 10px;
+		                margin-top: 50px;
+		        }
+.
+  
+  		kubectl apply -f html-configmap.yaml
+		kubectl apply -f nginx-deployment.yaml
+
+.
+
+		nano nginx-service.yaml
+
+.
+
+			apiVersion: v1
+		kind: Service
+		metadata:
+		    name: nginx-service
+		    namespace: meu-lab
+		spec:
+		    selector:
+		        app: nginx
+		    ports:
+		    - protocol: TCP
+		      port: 8090
+		      targetPort: 80
+		    type: NodePort
+
+.
+
+	kubectl apply -f nginx-service.yaml
+	minikube image load nginx:latest
+	minikube image ls
+	minikube service nginx-service -n meu-lab
+	minikube logs | less
+	kubectl get po -A
+	kubectl get nodes
+
+
 TO BE CONTINUED
 .
 .
