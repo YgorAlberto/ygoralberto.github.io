@@ -7106,6 +7106,81 @@ Deploy
 	`Blue-green` - Atualiza de forma completa mas sem impactar a produção e posteriormente virar a chave
 
 
+- Subindo containers em DOCKER (LAB EXTHACK)
+
+Subindo containers de forma facil e rapido, um site simples.
+
+	mkdir -p /home/debian/meu-site
+	cd /home/debian/meu-site
+	nano index.html
+
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <meta charset="UTF-8">
+		    <title>Página HTML Básica</title>
+		    <link rel="stylesheet" type="text/css" href="styles.css">
+		</head>
+		<body>
+		    <div class="container">
+		        <h1>Bem-vindo ao meu site HTML!</h1>
+		        <p>Esta é uma página HTML básica com CSS.</p>
+		    </div>
+		</body>
+		</html>
+
+	 nano styles.css
+
+	 	/* Estilos básicos para a página */
+		
+		body {	
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    background-color: #f4f4f4;
+		    color: #333;
+		}
+			
+		h1 {	
+		    color: #4CAF50;
+		    text-align: center;
+		    margin-top: 50px;
+		}
+			
+		p {	
+		    text-align: center;
+		}
+			
+		.container {	
+		    max-width: 800px;
+		    margin: 0 auto;
+		    padding: 20px;
+		    background-color: #fff;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    border-radius: 10px;
+		    margin-top: 50px;
+		}
+
+	nano Dockerfile
+	
+		# Usar a imagem base do Nginx
+		FROM nginx:latest
+		# Copiar os arquivos da aplicação para o diretório padrão do Nginx
+		COPY . /usr/share/nginx/html/
+		# Expor a porta 80
+		EXPOSE 80
+		# Comando a ser executado quando o container iniciar
+		CMD ["nginx", "-g", "daemon off;"]
+	
+	docker build -t meu_site .
+	docker image ls
+	docker run -p 8084:80 meu_site
+	docker run -d -p 8084:80 meu_site
+	docker ps
+	http://localhost:8084
+	docker inspect <container_id> | less
+	Docker ps --all 
+
 TO BE CONTINUED
 .
 .
