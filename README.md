@@ -7686,6 +7686,380 @@ print(report)
 - A atividade envolve dividir os dados em conjuntos de treino e teste, treinar um modelo de classificação e avaliar sua precisão.
 - Eles podem experimentar diferentes algoritmos para comparar os resultados e entender os pontos fortes e fracos de cada um.
 
+Recebi a parte 2. Vamos adaptar esse passo a passo para usar o `docker build` em vez do `docker-compose`. Aqui está a versão adaptada:
+
+### Passo a Passo para Criar um Site com Área Logada Vulnerável a SQL Injection usando Docker
+
+## Passo 1: Logar no Servidor via SSH
+
+Primeiro, faça login no servidor via SSH utilizando as credenciais fornecidas:
+
+```Sh
+ssh debian@192.168.161.40
+```
+
+Usuário: `debian`  
+Senha: `PAssW0rd`
+
+Após logar no servidor, eleve os privilégios para root:
+
+```Sh
+sudo su
+```
+
+## Passo 2: Criar a Pasta do Projeto
+
+No terminal, crie uma pasta chamada `portal-vuln` dentro do diretório `/home/debian` para armazenar os arquivos do projeto:
+
+```Sh
+mkdir -p /home/debian/portal-vuln
+cd /home/debian/portal-vuln
+```
+
+## Passo 3: Configuração do Docker
+
+Criar os diretórios e arquivos necessários:
+
+```Sh
+mkdir -p web/html web/nginx/conf.d
+touch Dockerfile web/Dockerfile web/nginx/conf.d/default.conf web/html/login.php web/html/dashboard.php web/html/styles.css web/init.sql
+```
+
+## Passo 4: Criação do Dockerfile para o Serviço Web
+
+Edite o arquivo `web/Dockerfile` com o seguinte conteúdo:
+
+```Dockerfile
+FROM php:7.4-fpm
+
+# Instalar extensões PHP
+RUN docker-php-ext-install mysqli
+
+# Copiar arquivos HTML
+COPY html /var/www/html
+
+CMD ["php-fpm"]
+```
+
+## Passo 5: Criação do Banco de Dados
+
+Edite o arquivo `web/init.sql` com o seguinte conteúdo:
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+INSERT INTO users (username, password) VALUES ('admin', 'adminpass');
+```
+
+## Passo 6: Criação do Código PHP
+
+Edite o arquivo `web/html/login.php` com o seguinte conteúdo:
+
+```php
+<?php
+$servername = "db";
+$username = "user";
+$password = "password";
+$dbname = "mydatabase";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$error_message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    header("Location: dashboard.php");
+    exit();
+  } else {
+    $error_message = "Invalid credentials.";
+  }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <?php if (!empty($error_message)): ?>
+      <div class="error-message"><?php echo $error_message; ?></div>
+    <?php endif; ?>
+    <form method="post" action="">
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password"><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+</html>
+```
+
+Edite o arquivo `web/html/dashboard.php` com o seguinte conteúdo:
+
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the dashboard!</h1>
+    <p>This is a protected area.</p>
+  </div>
+</body>
+</html>
+```
+
+Edite o arquivo `web/html/styles.css` com o seguinte conteúdo:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+```
+
+## Passo 7: Configuração do Nginx
+
+Edite o arquivo `web/nginx/conf.d/default.conf` com o seguinte conteúdo:
+
+```nginx
+server {
+    listen 80;
+
+    server_name localhost;
+
+    root /var/www/html;
+    index login.php index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass web:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    error_log /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+}
+```
+
+## Passo 8: Dockerfile para o Ambiente
+
+Edite o arquivo `Dockerfile` no diretório raiz com o seguinte conteúdo:
+
+```Dockerfile
+# Etapa 1: Construir a imagem do PHP
+FROM php:7.4-fpm AS php-build
+
+# Instalar extensões PHP
+RUN docker-php-ext-install mysqli
+
+# Copiar arquivos HTML
+COPY web/html /var/www/html
+
+# Etapa 2: Construir a imagem do Nginx
+FROM nginx:latest AS nginx-build
+
+COPY web/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=php-build /var/www/html /var/www/html
+
+# Expor a porta
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+## Passo 9: Construir e Rodar as Imagens
+
+No diretório raiz `/home/debian/portal-vuln/`, construa e rode as imagens:
+
+```sh
+docker build -t portal-vuln .
+docker run -d -p 8084:80 --name portal-vuln-container portal-vuln
+```
+
+## Passo 10: Testando a Vulnerabilidade
+
+Acesse o site no navegador em `http://localhost:8084` e faça login utilizando `admin` como usuário e `adminpass` como senha.
+
+Para testar a vulnerabilidade de SQL Injection, tente injetar `admin' OR '1'='1` no campo de nome de usuário e qualquer coisa no campo de senha.
+
+Você está certo, parece que parte do conteúdo foi cortado. Aqui está o passo a passo completo para corrigir a vulnerabilidade de SQL Injection usando prepared statements:
+
+Entendi, vamos adaptar para não usar `docker-compose`. Aqui está o passo a passo corrigido:
+
+### Passo a Passo para Corrigir a Vulnerabilidade de SQL Injection
+
+#### Passo 1: Usando Prepared Statements
+
+Edite o arquivo `web/html/login.php` para usar prepared statements:
+
+```php
+<?php
+$servername = "db";
+$username = "user";
+$password = "password";
+$dbname = "mydatabase";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$error_message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  $stmt = $conn->prepare("SELECT * FROM users WHERE username=? AND password=?");
+  $stmt->bind_param("ss", $username, $password);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+    header("Location: dashboard.php");
+    exit();
+  } else {
+    $error_message = "Invalid credentials.";
+  }
+
+  $stmt->close();
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <?php if (!empty($error_message)): ?>
+      <div class="error-message"><?php echo $error_message; ?></div>
+    <?php endif; ?>
+    <form method="post" action="">
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password"><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+</html>
+```
+
+#### Passo 2: Reiniciar o Ambiente Docker
+
+Pare e remova o container existente:
+
+```sh
+docker stop portal-vuln-container
+docker rm portal-vuln-container
+```
+
+Construa a imagem novamente:
+
+```sh
+docker build -t portal-vuln .
+```
+
+Rode o container:
+
+```sh
+docker run -d -p 8084:80 --name portal-vuln-container portal-vuln
+```
+
+#### Passo 3: Testando a Correção da Vulnerabilidade
+
+Acesse o site no navegador em `http://localhost:8084` e tente injetar novamente `admin' OR '1'='1` no campo de nome de usuário e qualquer coisa no campo de senha.
+Você perceberá que a mensagem **"Invalid Credentials"** será apresentada novamente.
+Para validar que a funcionalidade de login esteja funcionando corretamente após os ajustes, faça login utilizando `admin` como usuário e `adminpass` como senha.
+Você deverá visualizar o portal da área logada `dashboard.php`, garantindo que a correção não afetou a funcionalidade de login do portal.
+Se precisar de mais alguma coisa, estou aqui para ajudar! 🎉
 
 
 TO BE CONTINUED
