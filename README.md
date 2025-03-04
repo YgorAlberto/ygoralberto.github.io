@@ -6214,7 +6214,7 @@ Ferramenta gratuita para Web Application Firewall WAF `MODSECURITY`
 
 Ferramenta para análise de código e informar vulnerabilidades dentro das pastas do código fonte `horusec.io`
 
-Ferramenta para testar a segurança de imagens de containers `trivy`
+Ferramenta para testar a segurança de imagens de containers `trivy` `trivy fs . > imagem-docker`
 
 Ferramenta GREP com a mensagem: "grep: (standard input): binary file matches" usa se `grep -a 'word'`
 
