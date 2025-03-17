@@ -657,7 +657,7 @@ Passo 2
         nano /vrpex-zirix-v2/zirix-data/config/keys.cfg
         Trocar as chaves criadas no arquivo
     Rode o servidor txAdmin
-	FXServer/soBesteiraCity/alpine/run.sh
+        FXServer/soBesteiraCity/alpine/run.sh
     Acesse o navegador para finalizar a config
 
 Passo 3
@@ -669,30 +669,26 @@ Passo 3
 
 Passo 4
 
-    Instalar o banco de dados MySql > 5.1
+    Instalar o banco de dados MySql > 5.1 - sudo apt install mysql-server
+    OU
+    sudo apt install mariadb-server
     Criar usuário e senha para o banco:
 
 Comando do Mysql para criar o usuário e dar permissão:
 
     Criar um banco de dados com o nome zirix:
-    O aquivo de conf do db fica no caminho vrp>modules>db.lua
+    NO ZIRIX O aquivo de conf do db fica no caminho vrp>modules>db.lua
+    mysql --host=localhost --user=root --password= -e "zirix.sql"
+    OU
+    source /home/server-data/vrpex-zirix-v2/zirix-data/zirix.sql
     create user 'username'@'localhost' identified by 'senha123';
     GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
     GRANT ALL PRIVILEGES ON database_name. * TO 'username'@'localhost';
-    alter user 'root'@'localhost' identified with mysql_native_password by 'root';
-
-Alternativa
-
-Comando para criar o banco de dados usando o aquivo.sql:
-
-    mysql --host=localhost --user=root --password= -e "zirix.sql"
-        Se não funcionar, acessa o mysql...
-    source /home/server-data/vrpex-zirix-v2/zirix-data/zirix.sql
-
+    NAO LEMBRO PRA QUE SERVE alter user 'root'@'localhost' identified with mysql_native_password by 'root';
+    
 String de conexão do FIVEM Server com o banco de dados local:
 
     set mysql_connection_string "server=127.0.0.1;database=DBNAME;userid=USERNAME;password=p@ssw0rd;persistsecurityinfo=true;"
-
 
 Passos seguintes:
 
