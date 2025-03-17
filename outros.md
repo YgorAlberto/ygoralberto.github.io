@@ -656,6 +656,9 @@ Passo 2
     Troca as keys de sv_licenseKey e set steam_webApiKey pelas chaves criadas no passo acima
         nano /vrpex-zirix-v2/zirix-data/config/keys.cfg
         Trocar as chaves criadas no arquivo
+    Rode o servidor txAdmin
+	FXServer/soBesteiraCity/alpine/run.sh
+    Acesse o navegador para finalizar a config
 
 Passo 3
 
