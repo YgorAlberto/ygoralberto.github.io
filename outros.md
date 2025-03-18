@@ -698,19 +698,28 @@ Tirar a necessidade da steam  para entrar na City
 
     Resources/[VRP]/vrp/queue.lua -> Setar requireSteam para FALSE
 
-Commands:
-/nc - voar pela city
-/car zentorno | t20 | rhino
-/tpway Ir para marcação mapa
-/tpto ID is para ID passado
-H Agarra o player
-/reviver ID Revive o ID
-/group ID administrador Coloca o ID como admin
-/ungroup ID administrador
-/tuning 
-/god ID
-/arma NOME
-/dv Guarda carro
+COMO SE CONECTAR AO SERVIDOR?
+
+1 - Voce precisa de um pc que rode GTA V (pago)
+2 - Baixa o FIVEM e cria uma conta
+3 - Com o FIVEM aberto pressione F8 e cole: connect 143.198.190.184:50120
+OU
+4 - Com o FIVEM aberto pesquise pelo nome da sua cidade (So Besteira City)
+
+Commands para usar dentro do game (precisa ser ADM):
+
+	/nc - voar pela city
+	/car zentorno | t20 | rhino
+	/tpway Ir para marcação mapa
+	/tpto ID is para ID passado
+	H Agarra o player
+	/reviver ID Revive o ID
+	/group ID administrador Coloca o ID como admin
+	/ungroup ID administrador
+	/tuning 
+	/god ID
+	/arma NOME
+	/dv Guarda carro
     
     
 ## TIRAR REMOVER REPARO DE DISCO 
