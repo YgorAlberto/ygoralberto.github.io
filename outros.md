@@ -690,6 +690,8 @@ String de conexão do FIVEM Server com o banco de dados local:
 
     set mysql_connection_string "server=127.0.0.1;database=DBNAME;userid=USERNAME;password=p@ssw0rd;persistsecurityinfo=true;"
 
+    Adicionar user à WL:  update vrp_users set whitelisted = 1 where id=1;
+
 Passos seguintes:
 
 Tirar a necessidade da steam  para entrar na City
