@@ -691,7 +691,7 @@ String de conexão do FIVEM Server com o banco de dados local:
     set mysql_connection_string "server=127.0.0.1;database=DBNAME;userid=USERNAME;password=p@ssw0rd;persistsecurityinfo=true;"
 
     Adicionar user à WL:  update vrp_users set whitelisted = 1 where id=1;
-
+    
 Passos seguintes:
 
 Tirar a necessidade da steam  para entrar na City
@@ -706,7 +706,7 @@ COMO SE CONECTAR AO SERVIDOR?
 OU
 4 - Com o FIVEM aberto pesquise pelo nome da sua cidade (So Besteira City)
 
-Commands para usar dentro do game (precisa ser ADM):
+Commands para usar dentro de algumas bases (precisa ser ADM):
 
 	/nc - voar pela city
 	/car zentorno | t20 | rhino
@@ -720,8 +720,14 @@ Commands para usar dentro do game (precisa ser ADM):
 	/god ID
 	/arma NOME
 	/dv Guarda carro
+
+- DICAS QUE VALEM SER LEMBRADAS
+
+	2 - Para adicionar alguem como `ADM`, ela precisa já ter logado e estar com a Wl habilitada e criado o personagem, depois basta ir no banco de dados e na tabela `vrp_user_data` (geralmente) haverá dados do jogador como características, inventário, roupas e etc. É possível modificar esse campo da tablea. Para isso deve-se estar deslogado do ame em muitos dos casos. Nesse campo pode-se, dar permissão de ADM, inserir dinheiro, vida, roupa etc.
+
+	1 - Para adicionar armas, precisa seguir a documentação do game junto com as opções dentro da base. No caso da arma, pesquise dentro do servidor na base se há armas presente no codigo, pegue esses nomes e tente adicionar como por exemplo `item WEAPON_MINISMG 1` e para add balas precisa também pesquisar na documentação e no código como faz isso, por exemplo  `item WEAPON_PISTOL_AMMO 999`. Esse comando pode ser dodado pressionando F8 entro do FiveM
     
-    
+
 ## TIRAR REMOVER REPARO DE DISCO 
     
  Remover o reparo automático de disco na inicialização do Windows 10
