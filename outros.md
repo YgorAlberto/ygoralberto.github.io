@@ -867,23 +867,23 @@ Dicas para criar as Views
     
 ## COMANDOS DO GIT
     
-    Comandos Básicos do GIT
+Comandos Básicos do GIT
 
-Primeiro commit
-git init
-git add *
-git commit -m "initial commit"
-git push origin master
-
-Adicionando mudanças realizadas
-git add *
-git commit -m "add xxxx funcionalidade"
-git push origin master
-
-Pegando do repositório as últimas mudanças
-git pull (link)
-Clonando do repositório todo o projeto
-git clone (link)
+	Primeiro commit
+	git init
+	git add *
+	git commit -m "initial commit"
+	git push origin master
+	
+	Adicionando mudanças realizadas
+	git add *
+	git commit -m "add xxxx funcionalidade"
+	git push origin master
+	
+	Pegando do repositório as últimas mudanças
+	git pull (link)
+	Clonando do repositório todo o projeto
+	git clone (link)
 
 ## Anydesk com problemas de biblioteca libgtkglext1
 
