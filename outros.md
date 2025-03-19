@@ -720,6 +720,7 @@ Commands para usar dentro de algumas bases (precisa ser ADM):
 	/god ID
 	/arma NOME
 	/dv Guarda carro
+ 	/group id dono
 
 - DICAS QUE VALEM SER LEMBRADAS
 
