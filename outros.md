@@ -1158,3 +1158,90 @@ Depois o [libmbedx509-0_2.16.0-1_amd64.deb](http://ftp.us.debian.org/debian/pool
 E agora o `sudo dpkg -i openrgb_0.9_amd64_buster_b5f46e3.deb`
 
 TUTO ACIMA NAO FUNCIONOU - RGB NAO TROUXE OS DISPOSITIVOS'
+
+
+Parece que você quis dizer "linguagem de marcação pura" (talvez um erro de digitação). Vou assumir que você quer o tutorial em uma linguagem de marcação como Markdown, que é comum e legível. Se você tinha outra coisa em mente (como HTML ou algo diferente), por favor, me avise! Aqui está o primeiro tutorial reescrito em Markdown:
+
+---
+
+# Aumentar o Swap em um Servidor Ubuntu
+
+Para aumentar o espaço de swap em um servidor Ubuntu, siga os passos abaixo. Este guia assume que você quer criar ou expandir um arquivo de swap, o método mais comum no Ubuntu.
+
+## 1. Verificar o Swap Atual
+Confira quanto swap você já tem disponível:
+
+```
+sudo swapon --show
+```
+
+Se não houver swap ou ele for insuficiente, siga os próximos passos.
+
+## 2. Desativar o Swap Existente (se houver)
+Caso já exista um swap ativo, desative-o temporariamente:
+
+```
+sudo swapoff -a
+```
+
+## 3. Criar um Novo Arquivo de Swap
+Defina o tamanho desejado. Por exemplo, para criar um arquivo de 4 GB:
+
+```
+sudo fallocate -l 4G /swapfile
+```
+
+Se o `fallocate` não estiver disponível, use:
+
+```
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+```
+
+## 4. Definir Permissões
+Ajuste as permissões para segurança:
+
+```
+sudo chmod 600 /swapfile
+```
+
+## 5. Configurar o Arquivo como Swap
+Formate o arquivo para uso como swap:
+
+```
+sudo mkswap /swapfile
+```
+
+## 6. Ativar o Swap
+Habilite o novo swap:
+
+```
+sudo swapon /swapfile
+```
+
+## 7. Tornar Permanente
+Para garantir que o swap persista após reinicializações, edite o arquivo `/etc/fstab`:
+
+```
+sudo nano /etc/fstab
+```
+
+Adicione a linha abaixo ao final do arquivo:
+
+```
+/swapfile none swap sw 0 0
+```
+
+Salve (Ctrl+O, Enter, Ctrl+X no nano).
+
+## 8. Verificar Novamente
+Confirme que o novo swap está ativo:
+
+```
+sudo swapon --show
+```
+
+Ou cheque a memória total:
+
+```
+free -h
+```
