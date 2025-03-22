@@ -720,7 +720,50 @@ Commands para usar dentro de algumas bases (precisa ser ADM):
 	/god ID
 	/arma NOME
 	/dv Guarda carro
- 	/group id dono
+	/group id dono
+	/group {id} policia 
+ 
+	bind keyboard "tecla" "comando; comando"
+
+	item WEAPON_ASSAULTRIFLE 1 ;
+	item WEAPON_ASSAULTSMG 1 ;
+	item WEAPON_BAT 1 ;
+	item WEAPON_BATTLEAXE 1 ;
+	item WEAPON_BOTTLE 1 ;
+	item WEAPON_CARBINERIFLE_MK2 1 ;
+	item WEAPON_COMBATPDW 1 ;
+	item WEAPON_COMBATPISTOL 1 ;
+	item WEAPON_COMPACTRIFLE 1 ;
+	item WEAPON_CROWBAR 1 ;
+	item WEAPON_DAGGER 1 ;
+	item WEAPON_GOLFCLUB 1 ;
+	item WEAPON_GUSENBERG 1 ;
+	item WEAPON_HAMMER 1 ;
+	item WEAPON_HATCHET 1 ;
+	item WEAPON_KNIFE 1 ;
+	item WEAPON_MACHETE 1 ;
+	item WEAPON_MACHINEPISTOL 1 ;
+	item WEAPON_MICROSMG 1 ;
+	item WEAPON_MUSKET 1 ;
+	item WEAPON_PISTOL 1 ;
+	item WEAPON_PISTOL_MK2 1 ;
+	item WEAPON_POOLCUE 1 ;
+	item WEAPON_REVOLVER 1 ;
+	item WEAPON_REVOLVER_MK2 1 ;
+	item WEAPON_SMG 1 ;
+	item WEAPON_STONE_HATCHET 1 ;
+	item WEAPON_STUNGUN 1 ;
+	item WEAPON_SWITCHBLADE 1 ;
+	item WEAPON_VINTAGEPISTOL 1 ;
+	item WEAPON_WRENCH 1 ;
+	
+	item WEAPON_PISTOL_AMMO 99999;
+	item WEAPON_RIFLE_AMMO 99999;
+	item WEAPON_SHOTGUN_AMMO 99999;
+	item WEAPON_SMG_AMMO 99999;
+
+
+
 
 - DICAS QUE VALEM SER LEMBRADAS
 
