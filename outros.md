@@ -700,6 +700,7 @@ Fazer alterações e customizações na BASE:
 
     Resources/[VRP]/vrp/queue.lua -> Setar requireSteam para FALSE
     base-data/resources/[System]/vrp/loading -> Alterar o banner de carregamento:
+    /server-data/BaseFreeTrinksStudio/base-data/resources/[Scripts]/hud/nui/assets/logo.png -> trocar a logo de dentro do game (logo que aparece enquanto joga)
 
 COMO SE CONECTAR AO SERVIDOR?
 
