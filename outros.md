@@ -699,8 +699,9 @@ Passos seguintes:
 Fazer alterações e customizações na BASE:
 
     Resources/[VRP]/vrp/queue.lua -> Setar requireSteam para FALSE
-    base-data/resources/[System]/vrp/loading -> Alterar o banner de carregamento:
+    base-data/resources/[System]/vrp/loading -> Alterar o banner de carregamento (tela de loading enquanto entra no servidor) e troca a musica de apresentação.
     /server-data/BaseFreeTrinksStudio/base-data/resources/[Scripts]/hud/nui/assets/logo.png -> trocar a logo de dentro do game (logo que aparece enquanto joga)
+    /server-data/BaseFreeTrinksStudio/base-data/config/server.cfg -> Trocar o Icone do servidor (que aparece quando lista os servers no FiveM)
 
 COMO SE CONECTAR AO SERVIDOR?
 
