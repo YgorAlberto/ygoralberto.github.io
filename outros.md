@@ -724,6 +724,7 @@ Commands para usar dentro de algumas bases (precisa ser ADM):
 	/group {id} policia 
  
 	bind keyboard "tecla" "comando; comando"
+	unbind keyboard
 
 	item WEAPON_ASSAULTRIFLE 1 ;
 	item WEAPON_ASSAULTSMG 1 ;
