@@ -562,6 +562,9 @@ Pega a lista de IP e faz um teste na porta 1337 para saber se a mesma está aber
 
 Ferramenta que faz o portknowcking no host e portas passadas.
 
+	xclip -i -selection p hash-icon
+ 
+Comando para copiar para o clipboard o conteúdo do arquivo
 
 ## POWERSHELL PARA PENTESTERS
 
