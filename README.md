@@ -837,6 +837,7 @@ Base de pesquisas no google Dorks
 
 	firefox 'https://google.com/search?q=site:site.com.br+inurl:exemplo' 
 	firefox https://google.com/search?q=inurl:/proc/self/cwd
+	firefox https://google.com/search?q=intitle:index of id_rsa index
 	firefox https://bing.com/search?q=ip:+104.22.36.86
 	firefox https://google.com/search?q=
 	firefox https://google.com/search?q=
