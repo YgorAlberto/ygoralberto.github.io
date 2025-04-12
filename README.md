@@ -8462,6 +8462,7 @@ Ferramenta de modificação e leitura de Metadados de arquivos
 	snmp-check 192.168.200.44
 	dig -x 192.168.200.252 @192.168.200.253 (descobre hostname)
 	dnsrecon -r 192.168.200.0/24 -n 192.168.200.253 (descobre os hostnames da rede - 253 é o DNS - caso nao exista um serviço atrelado ao subdominio - subdomain takeover)
+	nmap --script ldap-rootdse IP (captura informações do DNS e hostname)
  
 Comandos para enumerar dominio e transferencia de zona, hostnames
 
