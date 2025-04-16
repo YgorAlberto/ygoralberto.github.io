@@ -323,6 +323,13 @@ Saber informacões vida útil bateria healthy lifecycle
 
 Deletar interface de rede 
 
+## COMANDOS ALEATORIOS
+
+Se der o erro `(eval):1: _python-argcomplete: function definition file not found` ao tentar completar com tab, rode isso:
+
+	sudo apt install python3-argcomplete
+	sudo activate-global-python-argcomplete
+
 ## COMANDOS WINDOWS
 
 Instalar ativar baixar windows e office [AQUI](https://massgrave.dev/)
