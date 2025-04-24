@@ -364,6 +364,7 @@ Pega a saída do NMAP e separa as portas para fazer um ataque mais direcionado.
 Printa todo o arquivo passado highlighting/marcando uma palavra passada usando cat e awk
 
     awk '{$1=$1}1' hash1 > hash1_novo
+    sed -i 's/[[:space:]]//g' arquivo.txt
 
 Tira todos os espaços em branco do início e fim da linha
 
