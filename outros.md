@@ -1220,6 +1220,12 @@ Parece que você quis dizer "linguagem de marcação pura" (talvez um erro de di
 
 ---
 
+# Erro no update do kali Erro Problem parsing dependendcy
+
+	sudo mv /var/lib/apt/lists /var/lib/apt/lists-old
+	sudo apt clean
+	sudo apt update
+
 # Aumentar o Swap em um Servidor Ubuntu
 
 Para aumentar o espaço de swap em um servidor Ubuntu, siga os passos abaixo. Este guia assume que você quer criar ou expandir um arquivo de swap, o método mais comum no Ubuntu.
