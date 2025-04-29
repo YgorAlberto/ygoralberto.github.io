@@ -2599,6 +2599,7 @@ Personalizar wordlist com dígito no fim e no início.
 Busca palavras dentro do site com 7 chars, um Crawler de palavras
 
     crunch 10 10 -t palavra^'char-spec'%'digito'@'minus','maius' 
+    crunch 8 8 -t senha#%% -l aaaaa#aa | grep -E '2[20,21,22,23,24,25]$'
 
 Cria Gera senha password gerador wordlist com a palavra passada e com dígitos com as flags informadas.
 
