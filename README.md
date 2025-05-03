@@ -2518,6 +2518,9 @@ Validar usuários encontrados e tentar saber qual tem permissão de execução d
 
 Faz a autenticação usando o psexec podendo também usar o metasploit (PTH Pass The Hash)
 
+`impacket-psexec` informa quais compartilhamento aquele usuário tem permissao de escrita naquele host
+`crackmapexec` enumera e compromete smb,ssh,ldap,rdp,ftp,mssql,winrm otimo utilitario 
+`net rpc group members "Administrators" -U "user%Senha@123" -I 192.168.1.100` enumera usuário do grupo via RPC
 
 Nota: Com o usuário com permissão de execução de comandos, pode-se acessar o rpcclient e enumerar mais informações do servidor de AD.
 
