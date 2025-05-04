@@ -1784,22 +1784,22 @@ Desmonta o ponto de montagem do host montado anteriormente.
 
 - Enumerando o SNMP - UDP 161
 
-SNMP, ou Simple Network Management Protocol, é um protocolo padrão utilizado para monitorar e gerenciar dispositivos de rede. Ele permite que os administradores de rede coletem informações, configurem dispositivos e respondam a eventos de rede remotamente. 
-Função e Componentes Principais:
-Monitoramento:
-O SNMP permite que os administradores de rede monitorem o estado e o desempenho de dispositivos, como roteadores, switches, servidores e até mesmo impressoras. 
-Gerenciamento:
-Através do SNMP, os administradores podem configurar e modificar a configuração de dispositivos remotos, bem como implementar ações de gerenciamento. 
-Base de Informações de Gerenciamento (MIB):
-As MIBs são bancos de dados que armazenam informações sobre os dispositivos e os objetos que podem ser monitorados e gerenciados através do SNMP. 
-Agente SNMP:
-Cada dispositivo que é monitorado ou gerenciado através do SNMP tem um agente SNMP que atua como um intermediário entre o dispositivo e o gerenciador de rede. 
-Gerenciador SNMP:
-O gerenciador de rede é o software ou sistema que utiliza o SNMP para monitorar e gerenciar dispositivos. 
-Como funciona:
-O gerenciador SNMP envia solicitações (por exemplo, solicitações de dados, configurações, etc.) para o agente SNMP. 
-O agente SNMP processa a solicitação e retorna as informações ou executa a ação solicitada. 
-A comunicação é realizada através do protocolo UDP, normalmente utilizando as portas 161 e 162.
+			SNMP, ou Simple Network Management Protocol, é um protocolo padrão utilizado para monitorar e gerenciar dispositivos de rede. Ele permite que os administradores de rede coletem informações, configurem dispositivos e respondam a eventos de rede remotamente. 
+			Função e Componentes Principais:
+			Monitoramento:
+			O SNMP permite que os administradores de rede monitorem o estado e o desempenho de dispositivos, como roteadores, switches, servidores e até mesmo impressoras. 
+			Gerenciamento:
+			Através do SNMP, os administradores podem configurar e modificar a configuração de dispositivos remotos, bem como implementar ações de gerenciamento. 
+			Base de Informações de Gerenciamento (MIB):
+			As MIBs são bancos de dados que armazenam informações sobre os dispositivos e os objetos que podem ser monitorados e gerenciados através do SNMP. 
+			Agente SNMP:
+			Cada dispositivo que é monitorado ou gerenciado através do SNMP tem um agente SNMP que atua como um intermediário entre o dispositivo e o gerenciador de rede. 
+			Gerenciador SNMP:
+			O gerenciador de rede é o software ou sistema que utiliza o SNMP para monitorar e gerenciar dispositivos. 
+			Como funciona:
+			O gerenciador SNMP envia solicitações (por exemplo, solicitações de dados, configurações, etc.) para o agente SNMP. 
+			O agente SNMP processa a solicitação e retorna as informações ou executa a ação solicitada. 
+			A comunicação é realizada através do protocolo UDP, normalmente utilizando as portas 161 e 162.
 
 Nota: Usado para gerenciamento de rede basicamente, a Communit é a palavra secreta, o OID é o id do objeto e os MIBs são as infos, instalar o pacote de informações adicionais: `apt install snmp-mibs-downloader`. Para listar os usuários usa-se `1.3.6.1.2.1.6.13.1.3`, Communitys padrões: public, private, cisco, manages, access, secret. Sites com informações relevantes alvestrand.no/objectid/1.3.6.1.2.1.html e oid-info.com
 
