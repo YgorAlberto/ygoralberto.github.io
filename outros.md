@@ -34,6 +34,8 @@ sudo nano /etc/hostname - Trocar nome da maquina
 
 zip -re output_data.zip file.txt file.pdf - criar arquivo zip com senha
 
+sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg - resolve o problema da chave faltando MISSING KEY 997866SD89S67DF6F67S8A9A0H0Y9RTR
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
