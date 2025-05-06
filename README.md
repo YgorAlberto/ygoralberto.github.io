@@ -8564,7 +8564,7 @@ Código console.py abaixo
 		MOSTRAR LESS
 		MOSTRAR LINENUM
 		
-		
+		ssh -L 8080:172.16.1.16:80 thiagopriv@192.168.161 # A PORTA 80 DO IP 16 SERÁ ABERTA NO LOCALHOST:8080 PORTFORWARD via SSH
 		ssh thiagopriv@192.168.161.25 -D 4321 -fN
 		vim /etc/proxychains4.conf # NO FINAL ADD socks4 127.0.0.1  4321
 		
