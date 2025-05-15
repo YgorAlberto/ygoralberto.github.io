@@ -8,6 +8,8 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 [KNOWLEDGE BASE](/knowledge) PARA GUIAR EM VULNERABILIDADES CONHECIDAS
 
+[FERRAMENTA ANALISE WEB](https://github.com/YgorAlberto/bird-tool-web) BIRD-TOOL-WEB: Script automatizador de ferramentas
+
 ## COMANDOS RÁPIDOS
 
 
