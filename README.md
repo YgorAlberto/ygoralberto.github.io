@@ -8865,7 +8865,7 @@ Mapear Superfície Externa
 	Pesquisa - IP (NetBlock)
 	Pesquisa - BGP (ASN)
 	Pesquisa - Shodan
-	Pesquisa - Censys
+	Pesquisa - Censys (pegar delathes do cert SSL)
 	Pesquisa - WayBackMachine
 	Pesquisa - Certificados SSL
 	Pesquisa - Leaks em Bases Públicas
@@ -8960,6 +8960,7 @@ Validação de dados
 	WPscan
 	SpiderFoot
 	Hakrawler
+	Katana - Crawler
 	WayBackMachine
 	TheHarvester
 	Wafw00f
@@ -8998,6 +8999,14 @@ Validação de dados
 	NetCat
 	Lnkbomb - responder
 	Sudo_Killer
-	Hunter.io
+	Hunter .io
+	Webhook .site
+	MxToolBox .com
+	Goop git dump
+	Chaos
+	GHAURL
+	Katana gav
+	GhaUri - SQLi
+	Gau
 
 ## THE END
