@@ -52,6 +52,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	for url $(cat urls);do echo "$domain" && curl -s -o /dev/null -w "%{http_code}\n" --connect-timeout 10 $url;done
+
+.
+
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
 
 .
