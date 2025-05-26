@@ -46,6 +46,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	wpscan --url sub.site.com.br/ --api-token 9iwuoirwer0987wehrEve7tzY3mF9CnxFyiwuer  --random-user-agent --enumerate vp --plugins-detection aggressive 
+
 .
 
 	wapiti --scope domain -m all -d 10 -A Mozilla/5.0 -u  url.com.br
