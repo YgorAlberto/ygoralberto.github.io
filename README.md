@@ -85,6 +85,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	
 .
 
+	admin' OR '1'='1--
+
+.
+
 	<script>alert('Pentester')</script>
 
 .
