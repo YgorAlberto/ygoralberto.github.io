@@ -176,6 +176,9 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 		[2-8][0-9]: Captura números de 1920 a 1989.
 		91: Captura o número 1991.
 .
+
+	mysql -u usuario -p'senha' -D nome_do_banco -e "SHOW TABLES;"
+
 .
 .
 .
