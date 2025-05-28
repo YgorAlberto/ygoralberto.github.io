@@ -6341,6 +6341,10 @@ Ferramenta de "VPN" via SSH simulando um Proxy `ssh -D 1337 -C -q -N root@server
 
 Ferramenta abrir chromium para ignorar certificado mensagem no navegador browser `chromium --ignore-certificate-errors http://urls.tested.com`
 
+Ferramenta para coleta de grande volumes de dados como dados de rede, logs, portas, http. Ferramenta bem generalziada de monitoramento de ativos com métricas avançadas e path de gargalo `SPLUNK`
+
+Ferramenta que faz a coleta dos dados dos agentes e centraliza para enviar para a ferramenta de observabilidade, `OpenTelemetry` tipo de arquivo `.OTLP`
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
