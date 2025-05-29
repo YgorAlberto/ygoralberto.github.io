@@ -6345,6 +6345,8 @@ Ferramenta para coleta de grande volumes de dados como dados de rede, logs, port
 
 Ferramenta que faz a coleta dos dados dos agentes e centraliza para enviar para a ferramenta de observabilidade, `OpenTelemetry` tipo de arquivo `.OTLP`
 
+Ferramenta que funciona como um SAST e DAST desde o desenvolvimento até o deploy da aplicação, tem a parte de learning, free da ferramenta `snyk`
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
