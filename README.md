@@ -175,11 +175,19 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 		1[1-9]: Captura números de 1911 a 1919.
 		[2-8][0-9]: Captura números de 1920 a 1989.
 		91: Captura o número 1991.
+  
 .
 
 	mysql -u usuario -p'senha' -D nome_do_banco -e "SHOW TABLES;"
 
 .
+
+	Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)
+	Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Mobile Safari/537.36
+	Mozilla/5.0 (iPad; CPU OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1
+	Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1
+	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.131 Mobile Safari/537.36
+
 .
 .
 .
