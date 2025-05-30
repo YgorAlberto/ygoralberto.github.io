@@ -189,6 +189,9 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.131 Mobile Safari/537.36
 
 .
+
+	wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://sub.site.com.br -U "Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)" -l 999
+
 .
 .
 .
