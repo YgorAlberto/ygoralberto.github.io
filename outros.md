@@ -1220,6 +1220,14 @@ TUTO ACIMA NAO FUNCIONOU - RGB NAO TROUXE OS DISPOSITIVOS'
 
 Parece que você quis dizer "linguagem de marcação pura" (talvez um erro de digitação). Vou assumir que você quer o tutorial em uma linguagem de marcação como Markdown, que é comum e legível. Se você tinha outra coisa em mente (como HTML ou algo diferente), por favor, me avise! Aqui está o primeiro tutorial reescrito em Markdown:
 
+LINKS UTEIS ALIENWARE INSTALL DRIVER
+
+Instalar o ADAPTADOR WIFI https://medium.com/@suryateja233/installing-wifi-drivers-in-kali-linux-and-or-linux-distribution-s-7e01e7d730a3
+Driver NVIDIA https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
+DRIVER WIFI https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa016dDN5REtBQk8wOUNsQjhDNUM2cVZWb2QzZ3xBQ3Jtc0tsVXZxY0lVdUtjdnJIektXV2I3R2NSUVV4dkFQeG56MUhxMk1Qa3FRWmZkVWx6UUxFLVVqNzlBdVBQbUhPSlhBWmpCOWl4emtCWGhKLUhKZWlUYWJKTjM1empqMTdmeGtEcmd2WWdaeGtXbDc1bEpJTQ&q=https%3A%2F%2Fmirror2.openwrt.org%2Fsources%2Fcompat-wireless-2010-06-28.tar.bz2&v=FRO7bJXbmuw
+DRIVER CLEAN WIFI https://mirror2.openwrt.org/sources/compat-wireless-2010-06-28.tar.bz2
+
+
 ---
 
 # Erro no update do kali Erro Problem parsing dependendcy
