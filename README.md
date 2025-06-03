@@ -5999,6 +5999,10 @@ Se os agents não comunicam com o Wazuh verifique com os comandos abaixo, o segu
      /var/ossec/bin/agent_control -i <YOUR_AGENT_ID> | grep Status
      sudo grep ^status /var/ossec/var/run/wazuh-agentd.state
 
+Se for deletar um agente para instalar um novo agente atualizado do wazuh, e o agente linux apresentar erro no serviço: failed with result 'exit-code' failed because the control process exited with error code journalctl -xe
+
+	Acesse o ossec.conf no agente e verifique o IP, se tiver WAZUH Manager IP, troque pelo IP ou DNS do servidor Wazuh
+
 Se o erro for relacionado ao MANAGER_IP
 Acessar:
 
