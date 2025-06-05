@@ -1,40 +1,42 @@
 ## COMANDOS LINUX
 
-ls - Lista os arquivos do diretório
+	ls - Lista os arquivos do diretório
+	
+	mkdir -  Cria pasta no diretório.
+	
+	users - Mostra os usuários logados
+	
+	top - Mostra os processos que estão rodando
+	
+	htop - Mostra os processos que estão rodando mais detalhadamente.
+	
+	history - Mostra os comando digitados anteriormente.
+	
+	man "comando" - Mostra o manual do comando informado.
+	
+	cd - Navega nos diretórios.
+	
+	df - Lista os discos existente no computador
+	
+	df -h Lista os discos e detalhes de espaço/armazenamento
+	
+	du -sh * Mostra o tamanha do armazenamento das pastas e arquivos do diretório atual
+	
+	tail -f - Comando para ver o arquivo com atualização em tempo real
+	
+	tar -xvjf - Descompacta arquivo .tar.bz2
+	
+	tar -xf arquivo.tar.zx Descompactar arquivo tar.zx
+	
+	uname -a - Mostra o Sistema Operacional Rodando
+	
+	sudo nano /etc/hostname - Trocar nome da maquina
+	
+	zip -re output_data.zip file.txt file.pdf - criar arquivo zip com senha
+	
+	sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg - RESOLVE O PROBLEMA DA CHAVE FALTANDO MISSING KEY 997866SD89S67DF6F67S8A9A0H0Y9RTR
 
-mkdir -  Cria pasta no diretório.
-
-users - Mostra os usuários logados
-
-top - Mostra os processos que estão rodando
-
-htop - Mostra os processos que estão rodando mais detalhadamente.
-
-history - Mostra os comando digitados anteriormente.
-
-man "comando" - Mostra o manual do comando informado.
-
-cd - Navega nos diretórios.
-
-df - Lista os discos existente no computador
-
-df -h Lista os discos e detalhes de espaço/armazenamento
-
-du -sh * Mostra o tamanha do armazenamento das pastas e arquivos do diretório atual
-
-tail -f - Comando para ver o arquivo com atualização em tempo real
-
-tar -xvjf - Descompacta arquivo .tar.bz2
-
-tar -xf arquivo.tar.zx Descompactar arquivo tar.zx
-
-uname -a - Mostra o Sistema Operacional Rodando
-
-sudo nano /etc/hostname - Trocar nome da maquina
-
-zip -re output_data.zip file.txt file.pdf - criar arquivo zip com senha
-
-sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg - resolve o problema da chave faltando MISSING KEY 997866SD89S67DF6F67S8A9A0H0Y9RTR
+	deb [trusted=yes] http://example.com/repo stable main ADICIONA O REPOSITORIO COMO CONFIAVEL CONFIANÇA NO SOURCE LIST /etc/apt/sources.list.d/
 
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
