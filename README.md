@@ -198,13 +198,15 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 .
 
-## SCRIPT INTERAGE COM NAVEGADOR FIREFOX - BRUTEFORCE de LOGIN
+## SCRIPT INTERAGE COM NAVEGADOR FIREFOX - BRUTEFORCE de LOGIN - SIMULA NAVEGADOR
 
-Primeiro precia instalar selenium e o geckodriver do forefox para o script fuincionar
+Primeiro precia instalar selenium e o geckodriver do firefox para o script fuincionar
 
 	pip3 install selenium --break-system-packages
 	https://github.com/mozilla/geckodriver/releases [extrai e insere dentro do diretório do script]
 	nano script.py [paste do codigo abaixo]
+
+Script abaixo em python
 
 	```python
 	
