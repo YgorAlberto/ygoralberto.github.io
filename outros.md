@@ -1319,3 +1319,8 @@ Ou cheque a memória total:
 ```
 free -h
 ```
+
+
+## Técnica de prova estudo simulado
+
+Cada questão, encontrar a alternativa correta, e justificar todas as outras alternativas.
