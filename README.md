@@ -1135,6 +1135,7 @@ Contém informações de links das páginas do site, em Robots contém as págin
 Mirror website, copia todos os arquivos e páginas para a máquina (clona website).
 
     wget -m -e robots=off  site.com 
+    wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://exemplo.com
 
 Mirror website, copia todos os arquivos e páginas para a máquina (clona website) sem se importar com o arquivo robots.
 
