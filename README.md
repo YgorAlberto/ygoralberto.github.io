@@ -632,6 +632,7 @@ Procura pacotes que usaram o serviço DNS
 	sed 's/^.//' Substitui o primeiro caractere
 	sed 's/^/inicio/' Insere no início da linha
 	sed 's/$/final/' Insere no final da linha
+ 	find . -type f -exec sed -i 's/senha123/senhaSegura2025/g' {} + TROCA DE FORMA RECURSIVA UM TEMRO POR OUTRO DENTRO DE CADA ARQUIVO
 	hping3 -S -p 80 -c 1 host Pingar porta específica
 
 1> STDOUT
