@@ -6442,6 +6442,10 @@ Quebra de chave GPG e leitura de arquivo encriptado: Com a chave tryhackme.asc e
 Stegonografia
 
 Ferramentas: `Exiftool` - `stegcracker` - `binwalk` - `steghide extrackt -sf picture.png -p password`
+
+	steghide --info img.jpeg -p pass
+ 	steghide extract -sf img.jpeg -p pass
+
 [Ferramenta Online](https://www.aperisolve.com)
 [Procura imagem na internet](https://tineye.com/)
 
