@@ -6568,6 +6568,7 @@ Criptografia SIMETRICA
 Cria um arquivo encriptado usando uma senha
 
 	openssl aes-256-cbc -d -a -k chavesenha -in arquivo-enc.file -out arquivo-dec.file
+ 	openssl enc -d -aes-256-cbc -in arquivo_encriptado -out arquivo_descriptado -k SUA_PALAVRA
 
 Desencripta o arquivo gerado anteriormente, trazendo-o para seu estado origina
 
