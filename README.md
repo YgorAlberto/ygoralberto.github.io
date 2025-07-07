@@ -6367,6 +6367,10 @@ Ferramenta que faz a coleta dos dados dos agentes e centraliza para enviar para 
 
 Ferramenta que funciona como um SAST e DAST desde o desenvolvimento até o deploy da aplicação, tem a parte de learning, free da ferramenta `snyk`
 
+Ferramenta para analise de token JWT [JWT Pentest](https://github.com/ticofookfook/JWT_PENTEST/tree/main)
+
+Ferramenta WAYBACKLISTER ferramenta de fuzzing e crowling de dominios [BACKLISTER](https://github.com/anmolksachan/wayBackLister.git)
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
