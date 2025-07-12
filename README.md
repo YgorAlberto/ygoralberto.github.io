@@ -6433,6 +6433,16 @@ I imagine it like this, You walk up to a secret club and the bouncer asks "what'
 ## LABS THM
 Lessons learned from THM
 
+#BACKTRACK
+Desafio Completo no TryHackMe: Do LFI ao Root! (BACKTRACK)
+
+O desafio começou com uma exploração de Local File Inclusion (LFI), revelando credenciais que me permitiram acessar o painel do Tomcat. Através de uma vulnerabilidade de file upload, consegui implantar uma shell reversa via CURL e obter acesso inicial ao sistema.
+
+A primeira escalação de privilégios foi realizada explorando um ansible-playbook mal configurado, que me concedeu acesso como um usuário com maiores permissões. Em seguida, utilizei tunelamento SSH para redirecionar uma porta interna, expondo uma aplicação web vulnerável. Essa aplicação continha uma nova falha de file upload(../../file.php.png), que explorei para ganhar acesso como outro usuário privilegiado. A etapa final envolveu injeção de processos em um serviço rodando como root, consolidando meu acesso completo ao sistema.
+
+[Ref](https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/ansible-playbook-privilege-escalation/)
+[Ref](https://www.errno.fr/TTYPushback.html)
+
 Exploit WebMin
 
 	exploit/linux/http/webmin_backdoor
