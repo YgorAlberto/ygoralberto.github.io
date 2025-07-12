@@ -4845,7 +4845,7 @@ Conecta com o servidor alvo usando a chave public&private
 
 Usar o que foi feito acima e fechar uma conexão usando o próprio ssh
 
-    ssh www-data@127.0.0.1 -p 2222 -i chave -L 3333:127.0.0.1:3306
+    ssh -L 3333:127.0.0.1:3306 www-data@127.0.0.1 -p 2222 -i chave 
 
 Onde 3333 é a porta local que fechará o túnel com a porta 3306 (mysql) do alvo, dessa forma podendo diretamente da máquina atacante acessar o mysql da máquina alvo.
 
@@ -8618,7 +8618,7 @@ Código console.py abaixo
 		MOSTRAR LESS
 		MOSTRAR LINENUM
 		
-		ssh -L 8080:172.16.1.16:80 thiagopriv@192.168.161 # A PORTA 80 DO IP 16 SERÁ ABERTA NO LOCALHOST:8080 PORTFORWARD via SSH PORT FORWARD
+		ssh -L 8080:172.16.1.16:80 thiagopriv@192.168.161 # A PORTA 80 DO IP 16 SERÁ ABERTA NO LOCALHOST:8080 PORTFORWARD via SSH PORT FORWARD TUNELAMENTO SSH REDIRECIONAMENTO DE PORTA
 		ssh thiagopriv@192.168.161.25 -D 4321 -fN
 		vim /etc/proxychains4.conf # NO FINAL ADD socks4 127.0.0.1  4321
 		
