@@ -1335,3 +1335,9 @@ free -h
 ## Técnica de prova estudo simulado
 
 Cada questão, encontrar a alternativa correta, e justificar todas as outras alternativas.
+
+## PACOTE QUEBRADO APT --fix-broken install
+
+    apt clean
+    apt autoclean
+    apt install -f
