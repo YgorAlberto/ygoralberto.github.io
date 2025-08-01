@@ -71,7 +71,10 @@
         	  priority=100
   	  }
 
-
+      ip addr add 10.0.0.210/24 dev enp2s0
+      ip route add default via 10.0.0.2
+      ip link set enp2s0 up
+ 
 - Iniciar um serviço junto com boot na inicialização de rede network interfaces
 
       sudo nano /lib/systemd/system/myscript-script.service
@@ -142,6 +145,8 @@ Resolver problema da maquina que não inicia por falta de memoria `Out of memory
  
 Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
+## GERENCIAMENTO DE DISCOS
+
 fdisk -l Lista os discos existentes no dispositivo
 
 fdisk /dev/sda Seleciona o disco (P lista info do disco, D deleta uma partição, W escreve as alterações)
@@ -153,6 +158,12 @@ sudo mkfs.ext4 /dev/sda1 Formatar disco informado no comando
 sudo mount /dev/sda1 /mnt/Disco Montar disco formatado ou desmontado
 
 mount -t cifs //145.65.89.12\folder\ \mnt\local\pc -o user=<USUARIO>,password=<SENHA>,domain=<DOMINIO> Montar disco compartilhado no domínio
+
+sudo apt install ntfs-3g UTILITARIO PARA MANUTENÇAO EM DISCOS NTFS
+
+sudo ntfsfix /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
+
+
 
     Compartilhamento no LINUX
 
