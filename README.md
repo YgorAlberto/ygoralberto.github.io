@@ -8724,7 +8724,7 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 	firefox -CreateProfile "prj_x" /File_Name/Firefox-Profile
 	firefox -P prj_x
 
-Tipos de ataques ao KERBEROS
+- Tipos de ataques ao KERBEROS
 
 AS-REP Roasting 
 PRECISA DA LISTA DE USUARIO - NAO ESTAR HABILITADO O PREAUTH - ACERTAR os HORARIOS - ADD HOSTNAME AO HOSTS 
