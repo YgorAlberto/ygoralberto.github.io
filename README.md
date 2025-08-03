@@ -2500,7 +2500,11 @@ Procura por hosts e faz a enumeração do smb automaticamente
     crackmapexec smb 192.168.1.0/24 -u rogerio -p 'password' 
 
 Faz a varredura e diz o que dá para fazer ou não usando as credenciais passadas
-    
+
+    crackmapexec smb 192.168.1.0/24 -u /usr/share/wordlists/users/txt  -p /usr/share/wordlists/users/txt --no-buteforce
+
+Faz um bruteforce do tipo pitchfork
+
     crackmapexec smb 192.168.1.0/24 --users
 
 Faz a varredura e diz os usuarios possiveis dever
