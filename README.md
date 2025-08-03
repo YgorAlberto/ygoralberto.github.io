@@ -6441,6 +6441,13 @@ I imagine it like this, You walk up to a secret club and the bouncer asks "what'
 ## LABS THM
 Lessons learned from THM
 
+A exploração teve início com a identificação de uma vulnerabilidade de Execução Remota de Código (RCE) no CMS SPIP, explorada através de um script público disponível no GitHub. Essa falha permitiu a obtenção de um shell inicial com permissões do usuário www-data, proporcionando o primeiro acesso ao sistema.
+
+Durante a fase de pós-exploração, foi descoberta uma chave SSH privada pertencente ao usuário thinker, armazenada em seu diretório pessoal. Essa chave, indevidamente acessível, possibilitou uma conexão SSH autenticada, elevando o acesso para o usuário thinker de forma direta e eficiente.
+
+A etapa final de escalação de privilégios envolveu a identificação de um binário SUID chamado /usr/sbin/run_container, que executava um script em /opt/run_container.sh com permissões elevadas. Através da análise com o comando strings, foi possível identificar o carregador dinâmico /lib64/ld-linux-x86-64.so.2, que foi utilizado para obter um shell mais estável. A manipulação do script run_container.sh, adicionando o comando bash -p, resultou na execução de um shell com privilégios de root, completando com sucesso a exploração e permitindo a captura da flag final.
+[POC EXPL 2023](https://github.com/Chocapikk/CVE-2023-27372/blob/main/CVE-2023-27372.py)
+
 #BACKTRACK
 Desafio Completo no TryHackMe: Do LFI ao Root! (BACKTRACK)
 
