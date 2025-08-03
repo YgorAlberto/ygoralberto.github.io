@@ -169,6 +169,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	for i in {1..100}; do echo "numero $i" ;fone
+
+.
+
 	grep -v -E '19(1[1-9]|[2-8][0-9]|91)'
  	Explicação da expressão regular:
 		19: Captura os primeiros dois dígitos do número.
