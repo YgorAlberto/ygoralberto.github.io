@@ -1692,6 +1692,7 @@ Mostra informações sobre o domínio
 Ferramenta enumeração completa ENUM4LINUX
 
     enum4linux -U 192.168.2.101 
+	enum4linux -u user.name -p @PassWd 171.16.1.10 -w domain.local -a
 
 Faz a enumeração em busca de usuários e `-a` para buscar por tudo e `-S` para buscar por compartilhamentos, o `-u` permite passar o usuário para autenticação.
 
