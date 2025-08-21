@@ -38,6 +38,8 @@
 
 	deb [trusted=yes] http://example.com/repo stable main ADICIONA O REPOSITORIO COMO CONFIAVEL CONFIANÇA NO SOURCE LIST /etc/apt/sources.list.d/
 
+	nload iftop bmon vnstat ip -s link - FERRAMENTA DE MONITORAMENTO DE REDE BANDA LINK
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
@@ -234,7 +236,7 @@ Rode os comandos a seguir:
 
 sudo rmmod floppy
 
-echo "blacklist floppy" | sudo tee /etc/modprobe.d/blacklist-floppy.conf
+echo "blacklist floppy" | sudo tee  /etc/modprobe.d/blacklist-floppy.conf
 
 sudo dpkg-reconfigure initramfs-tools
 
@@ -446,7 +448,6 @@ Instale o Kex se preferir (Interface Gráfica)
 ->sudo apt install -y kali-win-kex
 
 Dentro do Kali digite kex para iniciar o modo gráfico
-
 
 Dica: 
 
