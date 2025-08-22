@@ -40,6 +40,8 @@
 
 	nload iftop bmon vnstat ip -s link - FERRAMENTA DE MONITORAMENTO DE REDE BANDA LINK
 
+	xwininfo | recordmydesktop --x=0 --y=35 --width=2560 --height=1045 --fps 30 --v_quality 63 --s_quality 10 --on-the-fly-encoding --no-frame --no-sound -o gravacao.ogv | echo "Gravar video com area especificada, com base no comando anterior"
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
