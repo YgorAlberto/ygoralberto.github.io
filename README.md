@@ -923,6 +923,7 @@ Procura por palavras "senhas" no site pastebin
 Procura por palavras "senhas" no site pastebin
 
     urlcrazy domainname.com 
+	dnstwist -w -r domainname.com
 
 Procura domínios similares ao da entrada
 
