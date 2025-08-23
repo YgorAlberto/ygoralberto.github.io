@@ -351,6 +351,17 @@ Se der o erro `(eval):1: _python-argcomplete: function definition file not found
 
 ## COMANDOS WINDOWS
 
+Comando para abrir o gerenciamento de usuários no WINDOWS
+
+	netplwiz
+
+Reseta senha dos usuarios do Windows com o HD conectado ao Linux
+
+	sudo apt install chntpw        # se não estiver instalado
+	sudo mount /dev/sdXN /mnt      # substitua sdXN pela partição do Windows
+	cd /mnt/Windows/System32/config
+	sudo chntpw -i SAM
+
 Instalar ativar baixar windows e office [AQUI](https://massgrave.dev/)
 
 	irm https://get.activated.win | iex
