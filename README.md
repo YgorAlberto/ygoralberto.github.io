@@ -207,6 +207,11 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://sub.site.com.br -U "Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)" -l 999
 
 .
+
+	curl -fsSL https://ollama.com/install.sh | sh
+	ollama pull llama2-uncensored
+	ollama run llama2-uncensored
+
 .
 .
 .
