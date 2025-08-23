@@ -210,6 +210,8 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 	curl -fsSL https://ollama.com/install.sh | sh
 	ollama pull llama2-uncensored
+	ollama pull deepseek-r1:32b
+	ollama run deepseek-r1:32b
 	ollama run llama2-uncensored
 
 .
