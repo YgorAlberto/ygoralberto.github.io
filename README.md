@@ -5342,6 +5342,7 @@ Quando escutando no BSSID que é do roteador alvo e receber o MAC da estação e
 Após deixar a placa em modo de captura habilitado, rodar o comando abaixo para monitorar os sinais próximos.
 
 	airodump-ng wlan0mon -c1 --bssid MAC ADDRESS -w captura.wpa2.cap
+	sudo airodump-ng wlan0mon -w file-capture --manufacturer --wps --band bag
 
 Coloca em modo de captura salvando em arquivo.cap
 
