@@ -5340,7 +5340,8 @@ Quando escutando no BSSID que é do roteador alvo e receber o MAC da estação e
 - Atacando o protocolo WPA2
 
 Após deixar a placa em modo de captura habilitado, rodar o comando abaixo para monitorar os sinais próximos.
-
+	
+ 	sudo airmon-ng start wlan1
 	airodump-ng wlan0mon -c1 --bssid MAC ADDRESS -w captura.wpa2.cap
 	sudo airodump-ng wlan0mon -w file-capture --manufacturer --wps --band bag
 
@@ -5368,6 +5369,7 @@ Vai gerar um arquivo para ler no wireshark
 Criando o arquivo para se conectar à rede `wifi.conf`
 
 	sudo wpa_supplicant -Dnl80211 -iwlan2 -c visitantes.conf
+	sudo dhclient wlan4
 
 Usando o arquivo para se conectar à rede - pode ser com uma rede disponivel OU com uma rede em monitoramento, como abaixo, para capturar pacotes dentro dessa rede
 
