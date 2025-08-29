@@ -25,23 +25,23 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
  
 .
 	
-	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -k -t 100 -e --no-error -r -o fuzz-gobuster -a Mozilla/5.0 --exclude-length 123456 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip
+	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -k -t 100 -e --no-error -r -o fuzz-gobuster -a Mozilla/5.0 --exclude-length 123456 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip,log
 
 .
 
-	feroxbuster --url http://server.com/ --methods GET,POST -r -A -w /usr/share/dirb/wordlists/big.txt -o fuzz-feroxbuster -x php bkp old txt xml cgi pdf html htm asp aspx pl sql js png jpg jpeg config sh cfm zip
+	feroxbuster --url http://server.com/ --methods GET,POST -r -A -w /usr/share/dirb/wordlists/big.txt -o fuzz-feroxbuster -x php bkp old txt xml cgi pdf html htm asp aspx pl sql js png jpg jpeg config sh cfm zip log
 
 .
 
-	dirsearch -u https://exampl.com/ --crawl --full-url -t 1 --user-agent Mozilla/5.0 -e php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip -o fuzz-dirsearch
+	dirsearch -u https://exampl.com/ --crawl --full-url -t 1 --user-agent Mozilla/5.0 -e php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip,log -o fuzz-dirsearch
  
 .
 
-	ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.zip -o output-site-raiz.html -of html
+	ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.zip,.log -o output-site-raiz.html -of html
 
 .
 
-	dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a KidMan -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip -o dirb-sitealvo-raiz
+	dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a KidMan -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
 
 .
 
