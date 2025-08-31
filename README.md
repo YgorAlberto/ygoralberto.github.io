@@ -5366,6 +5366,9 @@ Vai gerar um arquivo para ler no wireshark
 			ssid="visitantes"
 			key_mgmt=NONE
 	}
+	OU
+	sudo wpa_passphrase wifi-name P@assWd  > clients.conf
+
 
 Criando o arquivo para se conectar à rede `wifi.conf`
 
