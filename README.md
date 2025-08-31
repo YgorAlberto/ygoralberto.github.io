@@ -5337,7 +5337,7 @@ Restaura a rede wireless para o modo managed
 
 Quando escutando no BSSID que é do roteador alvo e receber o MAC da estação e o modo de bloqueio for MAC e não a senha WPA2, pode-se trocar o MAC da placa de rede do atacante macchanger -m MA:CD:MA:C wlan-interf e subir a interface novamente para acessar a rede wifi.
 
-- Atacando o protocolo WPA2
+## ATTACKS WIFI ROUTE, EVILTWIN, WPA
 
 Após deixar a placa em modo de captura habilitado, rodar o comando abaixo para monitorar os sinais próximos.
 
@@ -5396,7 +5396,8 @@ Attack de SSID oculto bruteforce para encontrar o SSID - Ele não vai aparecer n
 
 Aparentemente comando para enviar DEAUTH para capturar o WEP password
 
-- ROUGE AP # Técnica para criar um sinal wifi igual ao target e capturar a chave PSK
+- ROUGUE AP
+# Técnica para criar um sinal wifi igual ao target e capturar a chave PSK
 Pode ser usado para descobrir chaves e quebrar para descobrir a senha
 
 Passo1 Criar um arquivo propagar o sinal clonado com a ferramenta `hostapd-mana`
