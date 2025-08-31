@@ -5441,19 +5441,16 @@ Após encontrar a senha, se conectar ao roteador da rede
 	nano mtia.conf 
 	.
 	network={
-	ssid="mtia"
-	scan_ssid=1
-	key_mgmt=WPA-EAP
-	identity="FLORIPA\gabi.tr"
-	marlon
-	16Wifi Hacking
-	2025-01-20
-	anonymous_identity=""
-	password="Secret!"
-	eap=PEAP
-	phase1="crypto_binding=0 peaplabel=0"
-	phase2="auth=MSCHAPV2"
-	bssid_blacklist=02:00:00:00:01:00
+	   ssid="mtia"
+	   scan_ssid=1
+	   key_mgmt=WPA-EAP
+	   identity="FLORIPA\gabi.tr"
+	   anonymous_identity=""
+	   password="Secret!"
+	   eap=PEAP
+	   phase1="crypto_binding=0 peaplabel=0"
+	   phase2="auth=MSCHAPV2"
+	   bssid_blacklist=02:00:00:00:01:00
 	}
 
 Conecte-se à rede com o arquivo criado
