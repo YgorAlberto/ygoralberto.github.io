@@ -5397,7 +5397,7 @@ Attack de SSID oculto bruteforce para encontrar o SSID - Ele não vai aparecer n
 Aparentemente comando para enviar DEAUTH para capturar o WEP password
 
 - ROUGUE AP
-# Técnica para criar um sinal wifi igual ao target e capturar a chave PSK
+Técnica para criar um sinal wifi igual ao target e capturar a chave PSK
 Pode ser usado para descobrir chaves e quebrar para descobrir a senha
 
 Passo1 Criar um arquivo propagar o sinal clonado com a ferramenta `hostapd-mana`
