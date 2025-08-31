@@ -5461,6 +5461,30 @@ Conecte-se à rede com o arquivo criado
 	sudo dhclient wlan1
 	sudo arp-scan -l -I wlan1
 
+- Gerencia de redes WIFI e ETH
+
+Comandos de gerenciamento de redes WIFI e cabeadas
+
+	sudo ifconfig eth0 up
+	sudo ifconfig eth0 192.168.20.20 netmask 255.255.255.0
+	sudo route add default gw 192.168.20.1 dev eth0
+	sudo ifconfig wlan0 up
+	iw dev wlan0 scan |grep SSID
+	networkctl --no-pager
+	sudo wpa_passphrase SSI-NAME P@ss\$2022  > /etc/wpa_supplicant.conf
+	wpa_supplicant -B -iwlan0 -c /etc/wpa_supplicant.conf
+	iw wlan0 link    
+	sudo dhclient wlan0
+	sudo route add default gw 192.168.10.1 dev wlan0
+	network={
+	  	  ssid="Capcana Wi-fi"
+		  key_mgmt=NONE
+	  	  priority=100
+	  }
+	
+	ip addr add 10.0.0.210/24 dev enp2s0
+	ip route add default via 10.0.0.2
+	ip link set enp2s0 up
  
 THAT'S ALL FOLKS
 
