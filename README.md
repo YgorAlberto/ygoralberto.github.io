@@ -5428,7 +5428,7 @@ Ataque de Evil Twin
 
 Observar o output da ferramenta e capturar a hash do usuário NTLM
 
- 	echo 'hahs-ntlm-found' > hash-evil-twin
+	echo 'hahs-ntlm-found' > hash-evil-twin
 	john --wordlist=/usr/share/wordlists/rockyou.txt hash-evil-twin
 
 Após encontrar a senha, se conectar ao roteador da rede
