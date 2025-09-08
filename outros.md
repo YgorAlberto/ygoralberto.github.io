@@ -167,9 +167,32 @@ sudo apt install ntfs-3g UTILITARIO PARA MANUTENÇAO EM DISCOS NTFS
 
 sudo ntfsfix /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
 
+- AUTUMATIZANDO A MONTAGEM DE DISCOS SEM O FSTAB
+
+Por exemplo, preciso montar um disco toda vez que o sistema iniciar...
 
 
-    Compartilhamento no LINUX
+	nano /usr/local/bin/script-for-start-up.sh
+	chmod +x /usr/local/bin/script-for-start-up.sh
+	sudo nano /etc/systemd/system/script-for-startup.service
+	PASTE CODE
+		[Unit]
+		Description=Mount Additional Disks
+		After=multi-user.target
+		Requires=network.target
+		
+		[Service]
+		Type=oneshot
+		ExecStart=/usr/local/bin/script-for-startup.sh
+		RemainAfterExit=yes
+		TimeoutSec=0
+		
+		[Install]
+		WantedBy=multi-user.target
+	sudo systemctl enable script-for-startup
+
+
+## Compartilhamento no LINUX
 
 sudo apt install samba
 sudo nano /etc/samba/smb.conf
