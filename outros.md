@@ -172,7 +172,7 @@ sudo ntfsfix /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTF
 Por exemplo, preciso montar um disco toda vez que o sistema iniciar...
 
 
-	nano /usr/local/bin/script-for-start-up.sh
+	nano /usr/local/bin/script-for-start-up.sh | echo "START SCRIPT WITH #!/bin/bash"
 	chmod +x /usr/local/bin/script-for-start-up.sh
 	sudo nano /etc/systemd/system/script-for-startup.service
 	PASTE CODE
