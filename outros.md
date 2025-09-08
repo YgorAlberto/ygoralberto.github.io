@@ -190,7 +190,7 @@ Por exemplo, preciso montar um disco toda vez que o sistema iniciar...
 		[Install]
 		WantedBy=multi-user.target
 	sudo systemctl enable script-for-startup
-
+	journalctl -u mount-disks.service -xe | echo "FOR TROUBLESHOOTING"
 
 ## Compartilhamento no LINUX
 
