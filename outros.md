@@ -376,7 +376,11 @@ Se der o erro `(eval):1: _python-argcomplete: function definition file not found
 
 Comando para abrir o gerenciamento de usuários no WINDOWS
 
-	netplwiz
+	netplwiz OU lusrmgr.msc
+	rundll32.exe keymgr.dll,KRShowKeyMgr ABRE JANELA DE AUTENTICACAO PARA CONFIGURAR COMPARTILHAMENTO DE PASTAS
+	net use * \\IP_DO_PC\NomeDaPasta /user:NOME-PC\share senha@aqui
+	control /name Microsoft.CredentialManager
+	
 
 Reseta senha dos usuarios do Windows com o HD conectado ao Linux
 
