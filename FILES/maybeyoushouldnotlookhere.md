@@ -562,6 +562,8 @@ escolheu se disfarçar. E no fim, talvez nada disso importe, porque até o senti
 
 
 ## PUBLIC
+OBSERVER CLOUD -> t.me/OBSERVERCLOUDULP
+NAPOLEON Corp -> https://t.me/+L473GINj0mljNWI8
 OCTOPUSCLOUDLOGS -> https://t.me/OCTOPUSURLCLOUDSMCAM
 Affairs Cloud PDFs ™ -> https://t.me/Cloud_Affairs_Pdf_free
 Alien ULP (2025) -> https://t.me/alienulpbackup
