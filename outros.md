@@ -165,7 +165,7 @@ mount -t cifs //145.65.89.12\folder\ \mnt\local\pc -o user=<USUARIO>,password=<S
 
 sudo apt install ntfs-3g UTILITARIO PARA MANUTENÇAO EM DISCOS NTFS
 
-sudo ntfsfix /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
+sudo ntfsfix -b -d /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
 
 - AUTUMATIZANDO A MONTAGEM DE DISCOS SEM O FSTAB
 
