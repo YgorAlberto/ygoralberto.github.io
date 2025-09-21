@@ -157,6 +157,10 @@ Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adic
 
 fdisk -l Lista os discos existentes no dispositivo
 
+fdisk -x Lista mais informações
+
+blkid Lista mais formações ainda sobre os discos, mais relacionado label rotulo UUID
+
 fdisk /dev/sda Seleciona o disco (P lista info do disco, D deleta uma partição, W escreve as alterações)
 
 wipe /dev/sda1 Limpa o disco informado
