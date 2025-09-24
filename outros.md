@@ -40,9 +40,9 @@
 
 	nload iftop bmon vnstat ip -s link - FERRAMENTA DE MONITORAMENTO DE REDE BANDA LINK
 
-	xwininfo | recordmydesktop --x=0 --y=35 --width=2560 --height=1045 --fps 30 --v_quality 63 --s_quality 10 --on-the-fly-encoding --no-frame --device pulse -o gravacao.ogv | echo "Gravar video com area especificada, com base no comando anterior COM AUDIO do PC o PULSE"
+	arecord -l | xwininfo | recordmydesktop --x=0 --y=35 --width=2560 --height=1045 --fps 30 --v_quality 63 --s_quality 10 --on-the-fly-encoding --no-frame --device pulse -o gravacao.ogv | echo "Gravar video com area especificada, com base no comando anterior COM AUDIO do PC o PULSE"
 
-	ffmpeg -f x11grab -s 2560x1045 -i :0.0+0,35 -f pulse -i default -c:v libx264 -c:a aac -r 30 -q:v 63 -y gravacao.mp4 | echo "Gravar video com area especificada, com base no comando anterior COM AUDIO do PC o PULSE"
+	arecord -l | ffmpeg -f x11grab -s 2560x1045 -i :0.0+0,35 -f pulse -i default -c:v libx264 -c:a aac -r 30 -q:v 63 -y gravacao.mp4 | echo "Gravar video com area especificada, com base no comando anterior COM AUDIO do PC o PULSE"
 
 	arecord -l | xwininfo | recordmydesktop --x=0 --y=35 --width=2560 --height=1045 --fps 30 --v_quality 63 --s_quality 10 --on-the-fly-encoding --no-frame --device hw:2,0 -o gravacao.ogv | echo "Gravar video com area especificada, com base no comando anterior COM audio USB dispositivo 2 card 0, pode ser escolhido baseado no primeiro comando da linha"
 
