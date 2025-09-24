@@ -40,7 +40,9 @@
 
 	nload iftop bmon vnstat ip -s link - FERRAMENTA DE MONITORAMENTO DE REDE BANDA LINK
 
-	xwininfo | recordmydesktop --x=0 --y=35 --width=2560 --height=1045 --fps 30 --v_quality 63 --s_quality 10 --on-the-fly-encoding --no-frame --no-sound -o gravacao.ogv | echo "Gravar video com area especificada, com base no comando anterior"
+	xwininfo | recordmydesktop --x=0 --y=35 --width=2560 --height=1045 --fps 30 --v_quality 63 --s_quality 10 --on-the-fly-encoding --no-frame --device pulse -o gravacao.ogv | echo "Gravar video com area especificada, com base no comando anterior COM AUDIO"
+
+	ffmpeg -f x11grab -s 2560x1045 -i :0.0+0,35 -f pulse -i default -c:v libx264 -c:a aac -r 30 -q:v 63 -y gravacao.mp4  echo "Gravar video com area especificada, com base no comando anterior COM AUDIO"
 
 	nano /etc/default/grub | echo "ADICIONA AS LINHAS ABAIXO NO ARQUIVO PARA ALTERAR A RESOLUÇÃO DA TELA CASO NAO ESTEJA FUNCIONANDO NO MONITOR #display #monitor #resolucao"
 	GRUB_GFXMODE=2560x1080 
