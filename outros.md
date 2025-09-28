@@ -52,6 +52,8 @@
 	GRUB_GFXMODE=2560x1080 
 	GRUB_GFXPAYLOAD_LINUX=keep
 
+	lsof ~/.xsession-errors | echo "VER QUAL APLICATIVO TA USANDO ESSE ARQUIVO NO MOMENTO"
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
