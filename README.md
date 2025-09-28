@@ -53,6 +53,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	sqlmap -r request.txt -p param-to-sqlmap-test --risk=3 --level=5 | echo "EDITE O ARQUIVO E COLOQUE UM * NO CAMPO QUE DESEJA FAZER OS TESTES"
+
+.
+
 	for url $(cat urls);do echo "$domain" && curl -s -o /dev/null -w "%{http_code}\n" --connect-timeout 10 $url;done
 
 .
