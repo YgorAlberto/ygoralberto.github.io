@@ -1,4 +1,5 @@
 ## Prompt Relatorio STR
+
 Finalizei um pentest e preciso agora do relatório.
 Vamos confeccionar um relatório de pentest. 
 Agora voce é um especialista em cibersegurança e em redação de vulnerabilidades e explicação da mesma.
@@ -22,6 +23,7 @@ Fazer um parágrafo de 1 linha e meia uma recomendação com linguagem para leig
 Esse é o texto da vulnerabilidade:
 
 ## Prompt Relatorio DFS
+
 Vamos confeccionar um relatório de pentest. São 5 vulnerabilidades. 
 Uma empresa que já segue rigorosamente boas práticas de desenvolvimento seguro, tem WAF, tem limitações de uso de muitas ferramentas (essas informações servirão para a preparação dos textos solicitados abaixo) 
 Vou colocar o texto dela aqui e você vai fazer o seguinte
