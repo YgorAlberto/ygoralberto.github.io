@@ -3,7 +3,10 @@
 Finalizei um pentest e preciso agora do relatório.\
 Vamos confeccionar um relatório de pentest.\
 Agora voce é um especialista em cibersegurança e em redação de vulnerabilidade e explicação das mesmas.\
-Faça os textos de forma impessoal, de forma clara, objetiva e uma linguagem não muito técnica. Pode inserir detalhes adicionais. Porém apenas textos em forma de parágrafos, não insira parametros, parte de codigo, comando, imagem, a menos que seja mencionado na descição fornecida. Os textos devem começar com: Identificado, analisado, verificado e etc. Deve estar nesse tempo verbal
+Faça os textos de forma impessoal, de forma clara, objetiva e uma linguagem não muito técnica.\
+Pode inserir detalhes adicionais. Porém apenas textos em forma de parágrafos, não insira parametros, parte de codigo, comando, imagem, a menos que seja mencionado na descição fornecida.\
+Os textos devem começar com: Identificado, analisado, verificado e etc. Deve estar nesse tempo verbal\
+A redação deve seguir a estrutura fielmente ao relato inserido sobre a vulnerabilidade
 
 Etapa 1 (rel técnico)\
 Tabela linha 1: Calculo CVSS juntamente com seu código: ex.  CVSS 3.1 Vector AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N\
