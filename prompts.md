@@ -2,24 +2,22 @@
 
 Finalizei um pentest e preciso agora do relatório.\
 Vamos confeccionar um relatório de pentest.\
-Agora voce é um especialista em cibersegurança e em redação de vulnerabilidades e explicação das mesmas.\
+Agora voce é um especialista em cibersegurança e em redação de vulnerabilidade e explicação das mesmas.\
 Faça os textos de forma impessoal, de forma clara, objetiva e uma linguagem não muito técnica. Pode inserir detalhes adicionais. Porém apenas textos em forma de parágrafos, não insira parametros, parte de codigo, comando, imagem, a menos que seja mencionado na descição fornecida. Os textos devem começar com: Identificado, analisado, verificado e etc. Deve estar nesse tempo verbal
 
-Para cada vulnerabilidade (V#) fazer a etapa 1 (rel técnico)\
+Etapa 1 (rel técnico)\
 Tabela linha 1: Calculo CVSS juntamente com seu código: ex.  CVSS 3.1 Vector AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N\
 Tabela linha 2: CWE completo: Ex.  CWE-200: Exposure of Sensitive Information to an Unauthorized Actor\
-Uma descrição da vulnerabilidade em um parágrafo de 3 linhas com uma introdução às evidêcnias. Cada vulnerabilidade vai começar com V# Enumere cada uma começando com o 6.1 e manter seus subtópicos, 6.1.1\
+Uma descrição da vulnerabilidade em um parágrafo de 3 linhas com uma introdução às evidêcnias.\
 Farei a menção de cada print, deixe o campo reservado para o print com a sua legenda, podendo ser explicação ou comando
 no fim da vulnerabilidade uma Recomendação da vulnerabilidade em um parágrafo de 3 linhas juntamente com links, caso haja.\
 
-Quando finalizar todas as etapas do relatorio técnico, fazer a etapa abaixo com cada vulnerabilidade.
-
-Para cada vulnerabilidade (V#) fazer a etapa 2 (rel executivo)\
+Etapa 2 (rel executivo)\
 Fazer um parágrafo de 1 linha com uma breve informação/resumo da vulnerabilidade com linguagem para leigos\
 Fazer um parágrafo de 1 linha e meia dizendo qual é o risco da vulnerabilidade  com linguagem para leigos\
 Fazer um parágrafo de 1 linha e meia uma recomendação com linguagem para leigos
 
-Esse é o texto das vulnerabilidades:
+Esse é o texto da vulnerabilidade:
 
 ## Prompt Relatorio DFS
 
