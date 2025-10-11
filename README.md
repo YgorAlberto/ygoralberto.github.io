@@ -6681,6 +6681,12 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 
 [HACKAFLAG](https://hackaflag.com.br/)
 
+## COMANDOS ALEATORIOS
+
+	Ctrl + Z | echo "LIBERA O TERMINAL"
+	Jobs | echo "LISTA OS JOBS"
+	bg %1 | echo "COLOCA O JOB EM BACKGROUND"
+	disown -h %1 | echo "GARANTE QUE O JOB NAO SERÁ ENCERRADO APÓS FECHAR O SSH"
 
 ## FERRAMENTAS ALEATÓRIAS
 
