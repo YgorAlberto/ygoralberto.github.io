@@ -6687,6 +6687,13 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 	Jobs | echo "LISTA OS JOBS"
 	bg %1 | echo "COLOCA O JOB EM BACKGROUND"
 	disown -h %1 | echo "GARANTE QUE O JOB NAO SERÁ ENCERRADO APÓS FECHAR O SSH"
+	ALTERNATIVA
+	screen -S SessaoName | echo "Cria uma Sessao"
+	Ctrl + A depois D | echo "Sai da sessão criada"
+	screen -ls | echo "lista as sessões ativas"
+	screen -r SessaoName | echo "reconecta à sessão"
+	screen -S SessaoNome -X quit | echo "Mata a sessao informada"
+	
 
 ## FERRAMENTAS ALEATÓRIAS
 
