@@ -44,4 +44,16 @@ Fazer um parágrafo de 1 linha e meia uma recomendação com linguagem para leig
 
 Esse é o texto da vulnerabilidade:
 
-## Another...
+## PROMPT GERADOR DE SENHA
+
+Irei fornecer uma lista de palabras para que voce gere novas combinações baseadas nas palavras fornecida
+As combinações podem ser
+suibstutuir caracteres especiais
+adicionar caracteres especiais
+incrementar uns 3 numeros
+decrementar uns 3 numeros
+Inciar com maiuscula
+
+Nao precisa fazer todas essas coombinaçoes em cada palabra fornecida, mas faça uma análise na palavra e altere de forma inteligente os caracteres que façam sentido. A alteração pode ser agressiva ou simplificada, as palabras geradas nao precisam ser muito grandes
+
+Gere 200 combinações...
