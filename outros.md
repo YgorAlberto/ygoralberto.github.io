@@ -126,10 +126,12 @@ Descobrir IPv4 (meu ip my ip myip meuip)
 
 Linux Bootable 
 
-    VBoxManage internalcommands sethduuid image.vdi
 
-Trocar UUID VDI VirtualBox Image
+	VBoxManage internalcommands sethduuid image.vdi
 
+Trocar UUID VDI VirtualBox Image no WINDOWS
+
+	 C:\Program Files\Oracle\VirtualBox> .\VBoxManage internalcommands sethduuid C:\Users\user\Downloads\kali.vdi	
     Acessar os discos e ir em -> release -> remove e add o disco novamente
 
 Resolver problema de UUID em VirtualBox.xml
