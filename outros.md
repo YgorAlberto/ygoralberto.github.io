@@ -185,7 +185,9 @@ sudo apt install ntfs-3g UTILITARIO PARA MANUTENÇAO EM DISCOS NTFS
 
 sudo ntfsfix -b -d /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
 
-- AUTUMATIZANDO A MONTAGEM DE DISCOS SEM O FSTAB
+sudo e2label /dev/sdb1 "Dados" | echo "Mudar nome do disco disk renomear disco partição"
+
+- AUTOMATIZANDO A MONTAGEM DE DISCOS SEM O FSTAB
 
 Por exemplo, preciso montar um disco toda vez que o sistema iniciar...
 
