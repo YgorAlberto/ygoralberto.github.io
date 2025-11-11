@@ -6751,6 +6751,8 @@ Ferramenta para analise de token JWT [JWT Pentest](https://github.com/ticofookfo
 
 Ferramenta WAYBACKLISTER ferramenta de fuzzing e crowling de dominios [BACKLISTER](https://github.com/anmolksachan/wayBackLister.git)
 
+Ferramenta para testar conexões SIP com um host `sipp -sn uac 177.190.244.90:5060 -t t1 -p 443` -t u1 (PARA UDP) -p (porta de origem)
+
 ## SOURCES RECURSOS LINKS
 
 LFI source list WINDOWS (LFI list Windows)[https://github.com/DragonJAR/Security-Wordlist/blob/main/LFI-WordList-Windows]
