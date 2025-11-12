@@ -414,6 +414,10 @@ Faz substituição de nomes nos arquivos usar ^ para add algo no início da cada
 
 Insere um texto especifico depois ou antes da palavra da linha informada, para inserir antes usar o `i` no lugar do `a`
 
+	sed -n '1,3000p' arquivo.txt
+
+Printa da linha 1 até linha 3000 do arquivo.txt
+
     sed -i.bak -e '5,10d;12d' file
 
 Deleta a linha informada no exemplo é da linha 5 até 10 e a linha 12. Esse comando ja salva no arquivo remover o `-i.bak` para printar o resultado
