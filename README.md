@@ -9213,7 +9213,30 @@ Ao verificar que no NMAP uma porta (5000) estava rodando o serviço Docker Regis
 
 	curl -k -X GET "https://<TARGET_IP>:5000/v2/new-nginx/manifests/latest"
 	# Captura mais informaçoes sobre a imgem Docker
-	
+
+- PIVOTING
+
+Algumas formas de Pivoting
+
+1. SSH Dynamic Forwarding (SOCKS Proxy)
+   
+	# Cria um proxy SOCKS na porta 1080
+	`ssh -D 1080 usuario@maquina-alvo`
+	# Usar com ferramentas via proxychains
+	# Configurar /etc/proxychains.conf
+	# adicionar: socks4 127.0.0.1 1080
+	`proxychains nmap -sT 10.0.0.0/24`
+
+3. SSH Local Port Forwarding
+   
+	# Encaminha porta da rede interna para sua máquina
+	`ssh -L 8080:host-interno:80 usuario@maquina-alvo`
+	# Agora acesse localhost:8080 para chegar no host-interno:80
+
+3. SSH Remote Port Forwarding
+   
+	# Encaminha sua ferramenta para a rede interna
+	`ssh -R 9090:seu-ip:9090 usuario@maquina-alvo`
   
 TO BE CONTINUED
 .
