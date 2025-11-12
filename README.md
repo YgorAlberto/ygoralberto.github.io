@@ -2242,6 +2242,7 @@ Nota: Solução Lab KidMan Metasploit:
 ## HASHES E SENHAS - LINUX
 
 
+	mkpasswd -m yescrypt root | echo"Cria a seguinte HASH $y$j9T$aISocVL6Pe8yy4hevaFmH.$TD67y.B7UEAMtTvbNnXt2x7yl8aAX3dZ.a/Q1uGM08C para usar no shadow do linux" 
     echo -n "kidman" | md5sum or | sha512sum or | sha256sum | sha1sum 
 
 Codifica uma palavra em uma hash
