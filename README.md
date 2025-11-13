@@ -6699,7 +6699,8 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 	screen -ls | echo "lista as sessões ativas"
 	screen -r SessaoName | echo "reconecta à sessão"
 	screen -S SessaoNome -X quit | echo "Mata a sessao informada"
-	
+	mkpasswd -m yescrypt "root"
+	sed -i '1s#:[^:]*#:$y$j9T$aISocVL6Pe8yy4hevaFmH.$TD67y.B7UEAMtTvbNnXt2x7yl8aAX3dZ.a/Q1uGM08C#' /etc/shadow | echo "troca do primeiro $ até o ultimo 0 pela hash preferida para trocar a senha do root, no exemplo a senha é root"
 
 ## FERRAMENTAS ALEATÓRIAS
 
