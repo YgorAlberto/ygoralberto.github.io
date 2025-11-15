@@ -5777,10 +5777,6 @@ PrivEsc com capabilities
 
 Exploit da tecnologia usada no server drupa7-CVE-2018-7600.py (executa compilação no server alvo)
 
-NC Portable
-
-        https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat
-
 Escalar privilegios com 
 
         https://www.exploit-db.com/exploits/37292 (pega a shell root)
@@ -6761,6 +6757,8 @@ Ferramenta WAYBACKLISTER ferramenta de fuzzing e crowling de dominios [BACKLISTE
 Ferramenta para testar conexões SIP com um host `sipp -sn uac 177.190.244.90:5060 -t t1 -p 443` -t u1 (PARA UDP) -p (porta de origem)
 
 Ferramenta NMAP PORTAVEL PORTABLE `wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap` DEBIAN BASED
+
+NC Portable `https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat` Porem é mlehor dar um `cp /usr/bin/nc .`
 
 ## SOURCES RECURSOS LINKS
 
