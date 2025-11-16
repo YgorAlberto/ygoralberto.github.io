@@ -2379,7 +2379,7 @@ Exploit de vulnerabilidade smb no XP
 
 Captura as hashes dos usuários do sistema
 
-    samdump2 system sam 
+    samdump2 system sam NÃO CONFIAVEL
 
 Captura/monta as hashes dos usuarios (unshadow)
 
