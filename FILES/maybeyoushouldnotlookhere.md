@@ -538,26 +538,45 @@ escolheu se disfarçar. E no fim, talvez nada disso importe, porque até o senti
 
 
 
+# MOUNT SCRIPT
+
+    #!/bin/bash
+    
+    #CLEAN BAD SECTORS
+    fdisk -l | grep -A1 Device| grep dev | cut -d " " -f 1 | sort -u > dsk && for dsk in $(cat dsk);do ntfsfix -b -d $dsk ; done
+
+    #COMMANDS BLKID e FDISK -x
+    mount UUID="58ee660e-4225-482c-9f1f-6893d6f29f31" /media/unknown/LEAK-D-Dntbk
+    mount UUID="a9f745fc-2fd6-412b-ab6a-f1f688f6ba0e" /media/unknown/LEAK-D-LLMA
+    mount UUID="ab39eaf5-dbcf-4c2e-8fb7-f4abaf133a79" /media/unknown/LEAK-D-ZOV3
+    mount UUID="76ae9e31-2f9a-4708-bacc-9b9adb41b989" /media/unknown/LEAK-D-ZOV3
+    mount UUID="4e64c717-dce7-49e9-9366-e8187d239856" /media/unknown/LEAK-D-ALIEN500
+    mount UUID="32DE850BDE84C895" /media/unknown/LEAK-D-ZOV4-500
+    mount UUID="983733d5-4a44-4932-a0cf-a285a6631df2" /media/unknown/LEAK-D-ZOV2
+    #new-ones
+    mount UUID="4b71e9fb-6669-469b-bf89-5841a752127b" /media/unknown/LEAK-D-COB500
+    #mount UUID="4e4eac5b-c8e4-4346-bad6-f0ee0e17ada3" /media/unknown/LEAK-D-DEAD
+    #APPLE & OTHERS
+    mount UUID="d77ae9ae-3e74-49e9-8035-adf950816ce2" /media/unknown/LEAK-D-APPLE
+    mount UUID="2EDAC86ADAC8303F" /media/unknown/LEAK-D-160
+    mount UUID="A2C07836C07812B1" /media/unknown/LEAK-D-320
+    mount UUID="1298df8c-b7a7-4913-812f-345ea53d1e6f" /media/unknown/LEAK-D-CX2T
 
 
 
+.
 
 
+.
 
 
+.
 
 
+.
 
 
-
-
-
-
-
-
-
-
-
+.
 
 
 
