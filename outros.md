@@ -164,28 +164,38 @@ Resolver problema da maquina que não inicia por falta de memoria `Out of memory
 Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
 ## GERENCIAMENTO DE DISCOS
-
-fdisk -l Lista os discos existentes no dispositivo
-
-fdisk -x Lista mais informações
-
-blkid Lista mais formações ainda sobre os discos, mais relacionado label rotulo UUID
-
-fdisk /dev/sda Seleciona o disco (P lista info do disco, D deleta uma partição, W escreve as alterações)
-
-wipe /dev/sda1 Limpa o disco informado
-
-sudo mkfs.ext4 /dev/sda1 Formatar disco informado no comando
-
-sudo mount /dev/sda1 /mnt/Disco Montar disco formatado ou desmontado
-
-mount -t cifs //145.65.89.12\folder\ \mnt\local\pc -o user=<USUARIO>,password=<SENHA>,domain=<DOMINIO> Montar disco compartilhado no domínio
-
-sudo apt install ntfs-3g UTILITARIO PARA MANUTENÇAO EM DISCOS NTFS
-
-sudo ntfsfix -b -d /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
-
-sudo e2label /dev/sdb1 "Dados" | echo "Mudar nome do disco disk renomear disco partição"
+	
+	fdisk -l Lista os discos existentes no dispositivo
+	
+	fdisk -x Lista mais informações
+	
+	blkid Lista mais formações ainda sobre os discos, mais relacionado label rotulo UUID
+	
+	fdisk /dev/sda Seleciona o disco (P lista info do disco, D deleta uma partição, W escreve as alterações)
+	
+	sudo parted /dev/sdX && echo "acessa o uitilitario de patições do disco"
+		print
+		rm 1 (REPETE ATE DELETAR TODAS AS PARTIÇÕES)
+		mklable gpt
+	sudo fdisk /dev/sdX
+		g (CRIA TIPO GPT)
+		w (ESCREVER AS MUDANÇAS)
+		n (CRIAR NOVA PARTIÇÃO)
+		w (SALVA AS ALTERAÇÕES)
+	
+	wipe /dev/sda1 Limpa o disco informado
+	
+	sudo mkfs.ext4 /dev/sda1 Formatar disco informado no comando
+	
+	sudo mount /dev/sda1 /mnt/Disco Montar disco formatado ou desmontado
+	
+	mount -t cifs //145.65.89.12\folder\ \mnt\local\pc -o user=<USUARIO>,password=<SENHA>,domain=<DOMINIO> Montar disco compartilhado no domínio
+	
+	sudo apt install ntfs-3g UTILITARIO PARA MANUTENÇAO EM DISCOS NTFS
+	
+	sudo ntfsfix -b -d /dev/sdf2 SERVE PARA RODAR QUANDO DER ERRO NA MONTAGEM DO DISCO NTFS (Failed to mount) (Input/output error) (SoftRAID/FakeRAID)
+	
+	sudo e2label /dev/sdb1 "Dados" | echo "Mudar nome do disco disk renomear disco partição"
 
 - AUTOMATIZANDO A MONTAGEM DE DISCOS SEM O FSTAB
 
