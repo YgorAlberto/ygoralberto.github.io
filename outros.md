@@ -257,6 +257,7 @@ smb://192.168.2.10 Via interface
 	tar -xjf arquivo.tar.bz2
 	tar -xJf arquivo.tar.xz
 	gunzip arquivo.gz
+	gzip arquivo.gzip
 	bunzip2 arquivo.bz2
 	unrar x arquivo.rar
 	7z x arquivo.7z
