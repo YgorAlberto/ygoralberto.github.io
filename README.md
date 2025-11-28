@@ -10,6 +10,8 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 [FERRAMENTA ANALISE WEB](https://github.com/YgorAlberto/bird-tool-web) BIRD-TOOL-WEB: Script automatizador de ferramentas
 
+[MAPA DE CERTIFICAÇÕES](https://pauljerimy.com/security-certification-roadmap/)
+
 ## COMANDOS RÁPIDOS
 
 
