@@ -244,12 +244,27 @@ systemctl restart nmb.service
 smbclient //192.168.2.10/ -U user
 smb://192.168.2.10 Via interface
 
-Para descompactar rar: unrar x nomedoarquivo.rar.
-Para descompactar tar: tar -xvf nomedoarquivo.tar.
-Para descompactar tar.gz: tar -vzxf nomedoarquivo.tar.gz.
-Para descompactar bz2: bunzip nomedoarquivo.bz2.
-Para descompactar tar.bz2: tar -jxvf nomedoarquivo.
-Para descompactar gz: gunzip nomedoarquivo.gz
+	Para descompactar rar: unrar x nomedoarquivo.rar.
+	Para descompactar tar: tar -xvf nomedoarquivo.tar.
+	Para descompactar tar.gz: tar -vzxf nomedoarquivo.tar.gz.
+	Para descompactar bz2: bunzip nomedoarquivo.bz2.
+	Para descompactar tar.bz2: tar -jxvf nomedoarquivo.
+	Para descompactar gz: gunzip nomedoarquivo.gz
+	unzip arquivo.zip
+	tar -xf arquivo.tar
+	tar -xzf arquivo.tar.gz
+	tar -xzf arquivo.tgz
+	tar -xjf arquivo.tar.bz2
+	tar -xJf arquivo.tar.xz
+	gunzip arquivo.gz
+	bunzip2 arquivo.bz2
+	unrar x arquivo.rar
+	7z x arquivo.7z
+	ar x arquivo.deb
+	dpkg-deb -x arquivo.deb diretorio
+	cabextract arquivo.cab
+	uncompress arquivo.Z
+	lzma -d arquivo.lzma
 
 xfreerdp /u:user@domain.com /v:192.168.2.11 Conectar com RDP em modo gráfico
 ls --block-size=M Imprime os tamanhos em megabytes
