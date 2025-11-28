@@ -14,6 +14,8 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 [MINDMAP CYBERDEFENSE](https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg)
 
+[AD COMMANDS](https://zer1t0.gitlab.io/posts/attacking_ad/)
+
 ## COMANDOS RÁPIDOS
 
 
