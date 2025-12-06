@@ -305,7 +305,9 @@ Script abaixo em python
 
 ## Ferramentas After Formating
 
-	sudo apt install seclists hackrawler assetfinder sublist3r subfinder
+	sudo apt install amass assetfinder dnsenum dnsrecon fierce hakrawler nikto nuclei subfinder sublist3r wapiti 
+	sudo apt install httpx JSScanner urlfinder 
+	sudo apt install flameshot seclists
 
 Script Check IP
 	
