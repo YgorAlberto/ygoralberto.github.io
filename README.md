@@ -9228,7 +9228,7 @@ Ferarmenta de enumeração do AD
 	sudo neo4j console
 	ACESSA A WEB http://localhost:7474/ LOGIN: neo4j PASS: neo4j
 	sudo nano /etc/bhapi/bhapi.json PASTE the new password before running bloodhound
-	bloodhound	
+	bloodhound	(AO APARECER A PAGINA WEB LOGAR COM admin:admin)
 
 
 ATAQUES GERAIS AO SMB
