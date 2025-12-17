@@ -9320,6 +9320,10 @@ Fazendo a quebra de hash passando a senha e a regra de mutação realizando a te
 
 - Modulo XSS
 
+[LAB HEADER](https://portswigger.net/web-security/information-disclosure/exploiting/lab-infoleak-authentication-bypass)
+
+[LAB XSS](https://portswigger.net/web-security/all-labs#cross-site-scripting)
+
 payloads XSS
 
 	src=1'onerror='alert(')'
@@ -9345,6 +9349,13 @@ Prototype Pollution
 	<x v-on:click='_b.constructor'alert(1)'()'>click</x>
 	<x is=script src=//14.Rs>
 
+LABS
+
+[DOM XSS via client-side prototype pollution](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-client-side-prototype-pollution)
+
+[DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector)
+
+[Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization)
 
 ## PTA
 
