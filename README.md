@@ -9404,6 +9404,28 @@ LABS:
 [CORS vulnerability with trusted insecure protocols](https://portswigger.net/web-security/cors/lab-breaking-https-attack)
 
 [CORS vulnerability with internal network pivot attack](https://portswigger.net/web-security/cors/lab-internal-network-pivot-attack)
+
+SameSite (Strict, None, Lax)
+
+Está relacionado aos Cookies First-Party e Third-Party: Strict é restrito, LAX obedece a politica e o None é liberado.
+
+CSRF - Cross Site Request Forgery
+
+Na pratica se parece com o CORS, que na verdade o CSRF é decorrente da falta das politicas e mecanismos apresentadas acima, fazer midificações na pagina sem que o usuário interaja com a mesma.
+
+LABS
+
+[CSRF vulnerability with no defenses](https://portswigger.net/web-security/csrf/lab-no-defenses)
+
+[CSRF where token validation depends on request method](https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-validation-depends-on-request-method)
+
+[CSRF where token validation depends on token being present](https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-validation-depends-on-token-being-present)
+
+[CSRF where token is not tied to user session](https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-not-tied-to-user-session)
+
+[CSRF where token is duplicated in cookie](https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-duplicated-in-cookie)
+
+
 .
 .
 .
