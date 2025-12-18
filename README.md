@@ -9386,6 +9386,31 @@ LABS
 [Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization)
 
 SOP - Same Origin Policy
+É quando o site permite ou/não a "interação" com outros sites
+
+
+CORS - Cross-Origin Resource Sharing
+Como testar uma vlnerabilidade de CORS... Inserir no header da requisição após o HOST:
+
+	Origin: https://example.com
+
+Para demonstrar impacto, fazer um serviço escutar a chamada da API e realizar a requisição do origin e receber nos logs os dados da requisição.
+
+LABS:
+[CORS vulnerability with basic origin reflection](https://portswigger.net/web-security/cors/lab-basic-origin-reflection-attack)
+
+[CORS vulnerability with trusted null origin](https://portswigger.net/web-security/cors/lab-null-origin-whitelisted-attack)
+
+[CORS vulnerability with trusted insecure protocols](https://portswigger.net/web-security/cors/lab-breaking-https-attack)
+
+[CORS vulnerability with internal network pivot attack](https://portswigger.net/web-security/cors/lab-internal-network-pivot-attack)
+.
+.
+.
+.
+.
+
+
 
 ## PTA
 
