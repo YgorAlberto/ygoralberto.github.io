@@ -137,9 +137,6 @@ Trocar UUID VDI VirtualBox Image no WINDOWS
 Resolver problema de UUID em VirtualBox.xml
 
 	sudo nano /etc/rc.local
-	openvpn --config /caminho/para/seuarquivo.ovpn &
-
-
 
 Resolver problema do virtualbox-dkms que pede para reinstalar e iniciar o modprob config
 
@@ -158,11 +155,10 @@ Resolver problema da maquina que não inicia por falta de memoria `Out of memory
 
 	echo 3 > /proc/sys/vm/drop_caches
 
-
-
- 
 Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
+	sudo systemctl enable openvpn-client@nome-do-arquivo
+ 
 ## GERENCIAMENTO DE DISCOS
 	
 	fdisk -l Lista os discos existentes no dispositivo
