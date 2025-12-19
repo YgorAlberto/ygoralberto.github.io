@@ -155,7 +155,10 @@ Resolver problema da maquina que não inicia por falta de memoria `Out of memory
 
 Manter o openvpn conectado mesmo se o dispositivo desconectar ou reiniciar (Adicionar a segunda linha ANTES do EXIT)
 
+	sudo cp seu-arquivo.ovpn /etc/openvpn/client/
 	sudo systemctl enable openvpn-client@nome-do-arquivo
+	sudo nano /etc/openvpn/client/auth.txt
+	EDITAR O OVPN colocando o PATH na senha: /etc/openvpn/client/auth.txt
 	OU
 	sudo nano /etc/rc.local
 	openvpn --config /caminho/para/seuarquivo.ovpn &
