@@ -9840,6 +9840,15 @@ Moving between VLANS - Pra mover entre VLANs é preciso realizar um ataque MACOF
 
 On-Path Attach é o mesmo que Man in The Middle na literatura da EcCouncil
 
+BurpSuite Advanced Notes
+
+Private websites to use alternatively instead of Burp Colaborator free
+
+	Interactsh
+    webhook.site
+    Request bin
+    DNSBin
+
 ## Hacking CheckList
 
 Mapear Superfície Externa
