@@ -99,6 +99,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	academy.net/?__proto__[foo]=bar
+
+.
+
 	<script>alert('Pentester')</script>
 
 .
