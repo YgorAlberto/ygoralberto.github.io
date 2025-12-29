@@ -9425,7 +9425,7 @@ LABS
 
 [DOM XSS via client-side prototype pollution](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-client-side-prototype-pollution) PAYLOAD `?__proto__[transport_url]=data:,alert(1);` JS com a propriedade do transport_url nao definida pro objet config 
 
-[DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector) PAYLOAD `?__proto__.sequence=alert(1)` COM EVAL no JS que não ta definido
+[DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector) PAYLOAD `?__proto__.sequence=alert(1) -` COM EVAL no JS que não ta definido. O traço no fim é um comentario por conta do erro que gera no console
 
 [Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization)
 
