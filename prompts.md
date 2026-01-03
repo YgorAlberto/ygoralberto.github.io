@@ -57,3 +57,45 @@ Inciar com maiuscula
 Nao precisa fazer todas essas coombinaçoes em cada palabra fornecida, mas faça uma análise na palavra e altere de forma inteligente os caracteres que façam sentido. A alteração pode ser agressiva ou simplificada, as palabras geradas nao precisam ser muito grandes
 
 Gere 200 combinações...
+
+
+## PROMPT LOGIN CHECKER
+
+Preciso fazer um script
+usando selenium no navegador firefox para validação de logins e senhas de uma pagina
+esquema do script: bird-leak-checker.py -u https://sub.domain.com/login -l login.txt -p pass.txt -t 3 -s 10 --pitchfork --headless
+
+-u é o parametro da URL
+-l é a lista de login
+--login passa uma string para teste de um usuario apenas
+-p é a lista de passwords
+--password passa string de teste de um password apenas
+-t (em segundos) é o tempo de cada tentativa de login
+-s (em segundos) é o tempo de espera para pegar a resposta da tentativa de login
+--pitchfork é o modo de tentes de senha, sendo login1 com o pass1, login2 com o pass2 e assim por diante
+--clusterbomb é o modo de testes de credenciais, sendo login1 com senha1, login1 com senha2 até finalizar a lista com todas as combinações
+--headless para funcionar em modo headless, caso nao esteja com o parametro presente, vai funcionar normalmente abrindo o navegador
+
+Este script deve primeiramente:
+1 Entrar na url passada por parametro 
+2 analisar a página de login (html, JS...)
+3 capturar os campos de LOGIN e SENHA e o Botão de login/entrar/acessa/enter, etc... o script deve ser inteligente o suficiente para se adaptar a vários tipos de paginas e codigos, para capturar o formulario em qualquer tipo como (type, name, ID com os mais diversos tipos de possiveis nomes) e o botão
+4 fazer uma tentativa de login passando credenciais propositalmente erradas como um UUID
+5 caprturar a resposta da página com a mensagem de erro da aplicação. O script deve ser inteligente o suficiente para capturar das mais diversas respostas de tentativas de logins como redirecionamento, alert, mensagem no HTML, mensagens vinda de um codigo JS, Modal etc.
+6 Após esta análise, o script deve, se com sucesso seguir com os testes com a lista de login e senhas. 
+7 Caso o script nao identifique os campos de login, deve pedir ao usuario para passar por parametro os campos de login e os campos de senha, usando: -Lid, -Lname, -Ltype e -Pid, -Pname, -Ptype informando os campos que devem ser inserido o login e a senha
+
+-Lid é o campo de login do tipo ID
+-Lname é o campo de login do tipo name
+-Ltype é o campo de login do tipo type
+-Pid é o campo de pass do tipo ID
+-Pname é o campo de pass do tipo name
+-Ptype é o campo de pass do tipo type
+
+Por padrão, para garantir os que a mensagem é capturada pelo script, deve-se esperar 7 segundos pela resposta da primeira tentativa de login com o UUID.
+
+Faça um parametro com --help que insine os parametros e como usa-los
+
+Os resultados e logs do script deve ser salvo em:
+error.log
+e logins-sucesso.txt no formato login:senha
