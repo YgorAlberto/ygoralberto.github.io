@@ -10056,5 +10056,6 @@ Validação de dados
 	GhaUri - SQLi
 	Gau
 	Cloudmare
+	Waybackurls
 
 ## THE END
