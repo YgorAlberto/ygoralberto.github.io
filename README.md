@@ -197,6 +197,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	Cloudmare Tool for IP discover while behind a WAF
+
+.
+
 	grep -B 1 '[0-9]' techs | grep -av "\-\-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
 
 .
@@ -10051,5 +10055,6 @@ Validação de dados
 	Katana gav
 	GhaUri - SQLi
 	Gau
+	Cloudmare
 
 ## THE END
