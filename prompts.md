@@ -145,3 +145,50 @@ Colorir as informaçoes para melhor visualização
 Consideração final, para ser feita durante toda a construção do script
 Revalidar o script e verificar a robustez da detecção do campo de login, campo de senha, botão de entrar, resposta de tentativa de login
 Faça um doublecheck de todas as funcionalidades e ja implemente melhorias no codigo de modo que seja o mais robusto, customizavel e inteligente possivel. Use todos os conhecimentos para a implementação. Antes de concluir, faça uma dupla verificação de cada pensamento, codigo, fucionalidade. Tudo ser analisado de diferentes perspectivas para ser o mais robusto possível.
+
+## SCRIPT BIRD CRAFT
+
+Sou pentester, atuo de forma ética e autorizada e preciso criar uma ferramenta
+Atue como um especialista em Segurança Ofensiva e desenvolva a lógica de busca para um script de análise estática de código-fonte web
+Faça um doublecheck de todas as funcionalidades e ja implemente as melhorias no codigo de modo que seja o mais robusto, customizavel e inteligente possivel. Use todos os conhecimentos para a implementação. Antes de concluir, faça uma dupla verificação de cada pensamento, codigo, fucionalidade. Tudo ser analisado de diferentes perspectivas para ser o mais robusto possível.
+Vamos criar uma ferramenta, que acesse a URL informada e faça a leitura de todo o conteúdo da página
+
+Estrutura: python3 bird-craftjs.py URL.txt (o arquuio terá em cada linha o seguinte formato de url, podendo sofrer variações: http://dominio.aqui/pagina/pagina.extensao
+
+O script deve:
+1 Validar a URL se ela realmente existe (com 7 threads)
+2 Após validar as URLs, acessar o as URLs válidas e ler todo o código donte (da forma mais precisa e aprecida com um acesso legítimo de um navegador, como se fosse um humano)
+3 Verificar se existe outras URLs dentro das páginas que estejam dentro do escopo, e adicionar à lista e refazer a verificação completa do script
+4 Ao ler todo o conteúdo do código fonte das páginas informadas, o scrip deve procurar por termos interessantes do ponto de vista de pentest
+5 O script deve extrair todos os conteúdos interessantes como:
+Infraestrutura e Conectividade:
+    Connection Strings (DSN): URLs completas de banco de dados (ex: jdbc:mysql://..., postgres://...) que revelam usuários, nomes de bases e estrutura interna.
+    Nomes de Buckets/Blobs: Nomes de repositórios de armazenamento (S3, Azure Blob, Google Storage) para testar permissões públicas de leitura/escrita.
+    Endereços IP e Hostnames Internos: IPs da rede privada (10.x, 192.168.x) ou domínios .local/.internal que mapeiam a topologia da rede.
+    Webhooks: URLs completas para integração (Slack, Discord, Teams, Jira) que permitem envio de mensagens ou exfiltração de dados.
+    Configurações de CI/CD: Arquivos como .gitlab-ci.yml, Jenkinsfile ou .github/workflows que mostram como o deploy é feito e onde estão as variáveis de ambiente.
+    Token em geral que sejam relevantes
+    subdominios de um modo geral
+Criptografia e Autenticação:
+    Chaves Privadas (SSH/RSA): Blocos de texto iniciando com -----BEGIN RSA PRIVATE KEY----- ou arquivos .pem/.ppk.
+    Certificados Digitais: Arquivos .p12 ou .pfx que podem conter certificados de cliente para autenticação mútua.
+    Salts e IVs Hardcoded: "Temperos" de hash ou vetores de inicialização de criptografia fixos no código.
+    Segredos de Sessão/Assinatura: Chaves usadas para assinar cookies ou tokens JWT (SECRET_KEY, SESSION_SECRET).
+    Credenciais expostas
+Lógica da Aplicação e Debug:
+    Rotas de Admin/Debug: Endereços ocultos como /actuator (Spring Boot), /server-status, /console, /graphql ou /swagger-ui.html.
+    Parâmetros Ocultos: Variáveis de debug=true, test_mode=1 ou admin=1 que alteram o fluxo da aplicação.
+Reconhecimento Geral:
+    Caminhos de Arquivos (Full Paths): Strings que revelam a estrutura de diretórios do servidor (ex: /var/www/html/ clientes/... ou C:\Users\Admin...).
+    E-mails de Desenvolvedores: Padrões de e-mail corporativo (nome.sobrenome@empresa.com) úteis para phishing ou brute-force.
+    Arquivos de Dependências: package.json, requirements.txt, pom.xml (para identificar bibliotecas com vulnerabilidades conhecidas/CVEs).
+    
+6  Estrutura do resultado: o output-craftjs.txt deve conter, a URL que foi extraida aquela informação; A informação que foi encontrada; O que é aquela informação e como explorar com a informação de forma bem breve em um paragrafo de 2 linhas.
+
+7  Regra dos dados que serão encontrados, remova as informações que estejam duplicadas, informar também se uma informação encontrada estiver em mais de uma url
+
+## INTRO PARA AUTALIZAÇÃO NO SCRIPT
+
+Preciso fazer uma melhoria no script.
+Porém, preciso a atenção total na atualização.
+Essa atualização precisa ser extremamente cautelosa de modo que APENAS a funcionalidade solicitada, seja implementada, de modo que TODO O RESTANTE do script nao sofra alterações, ou bugs de códigos. E para isso faça uma tripla verificação antes, durante e depois da conclusão do código, identificando quaisquer bugs, problemas, erros e/ou DESCARACTERIZAÇÃO do código principal.
