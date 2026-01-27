@@ -65,6 +65,9 @@
       sudo usermod -d /home/newuser -m newuser
       sudo usermod -aG group newuser
       sudo adduser <nome_do_usuário> sudo
+      cp /etc/skel/.bashrc ~/
+      cp /etc/skel/.profile ~/
+      source ~/.bashrc
       su -
       su - suporte
 
