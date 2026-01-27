@@ -71,7 +71,7 @@
       apt install zsh
 	  sudo chsh -s /usr/bin/zsh
       cp ~/.zshrc (copiar de um kali linux)
-	  paste ~/.zshrc
+	  nano ~/.zshrc
       su -
       su - suporte
 
