@@ -1828,7 +1828,7 @@ SSH em modo verbose com informações detalhadas informando as chaves de autenti
     nano /etc/ssh/sshd_config 
 Arquivo de configuração  podendo alterar porta padrão assim como permitir acesso de login com usuário root PermitRootLogin Yes / PublickeyAuthentication (Server)
 
-        ssh-keygen 
+    ssh-keygen 
 Roda o comando seguido do caminho `/home/user/Desktop` na máquina que vai acessar o ssh  (Client)
 
     nano /etc/.ssh/authorized_keys 
