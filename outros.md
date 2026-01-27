@@ -68,6 +68,10 @@
       cp /etc/skel/.bashrc ~/
       cp /etc/skel/.profile ~/
       source ~/.bashrc
+      apt install zsh
+	  sudo chsh -s /usr/bin/zsh
+      cp ~/.zshrc (copiar de um kali linux)
+	  paste ~/.zshrc
       su -
       su - suporte
 
