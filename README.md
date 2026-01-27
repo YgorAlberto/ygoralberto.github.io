@@ -1820,6 +1820,18 @@ Captura o banner da porta e um possível SO
 
 SSH em modo verbose com informações detalhadas informando as chaves de autenticação aceitas pelo servidor Local dos known hosts (/root/.ssh/known_hosts)
 
+- Subindo serviço de SSH
+Configurando chaves publica e privada do SSH
+
+No Servidor
+
+    ssh-keygen -f id_rsa
+	cat id_rsa.pub > ~/.ssh/authorized_keys
+
+Na Maquina de vai acessar o servidor
+		
+	chmod 600 id_rsa
+	ssh-add id_rsa
 
 - Subindo serviço de SSH
 
