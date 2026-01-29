@@ -1130,6 +1130,54 @@ Create a MACHINE using the VDI image downloaded
 If it is on CLI mode, try this:
 	Turn it OFF, an go Settings -> Display -> graphic controller set to -> VBoxVGA. Turn off Enable 3D Acceleration.
 
+## INSTALAR DRIVER VIDEO NVIDIA RX4070 ALIEWARE
+
+	#!/bin/bash
+	# ==================================================
+	# Script de Instalação do Driver NVIDIA
+	# Para: Kali Linux com RTX 4070 Max-Q
+	# Criado: 2026-01-29
+	# ==================================================
+	
+	set -e
+	
+	echo "========================================"
+	echo "🎮 Instalação do Driver NVIDIA"
+	echo "========================================"
+	echo ""
+	
+	# Verificar se está rodando como root/sudo
+	if [ "$EUID" -ne 0 ]; then 
+	    echo "❌ Execute com sudo: sudo ./install-nvidia-driver.sh"
+	    exit 1
+	fi
+	
+	echo "📋 Sistema detectado:"
+	cat /etc/os-release | grep PRETTY_NAME
+	uname -r
+	echo ""
+	
+	echo "🔍 GPU NVIDIA detectada:"
+	lspci | grep -i nvidia || echo "⚠️  Nenhuma GPU NVIDIA encontrada!"
+	echo ""
+	
+	echo "📦 Instalando pacotes..."
+	apt update
+	apt install -y nvidia-driver nvidia-cuda-toolkit
+	
+	echo ""
+	echo "========================================"
+	echo "✅ INSTALAÇÃO CONCLUÍDA!"
+	echo "========================================"
+	echo ""
+	echo "⚠️  IMPORTANTE: Reinicie o computador agora!"
+	echo ""
+	echo "   sudo reboot"
+	echo ""
+	echo "Após o reboot, verifique com:"
+	echo "   nvidia-smi"
+	echo ""
+
 
 ## DRIVER NVIDIA E DUAL MONITOR RX 4070 ALIENWARE
 
