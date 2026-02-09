@@ -5359,6 +5359,15 @@ Cherrrytree Editor de texto bem organizado e bom para anotações de relatórios
 
 ## WIFI HACKING BONUS INTRODUÇÃO
 
+RESUMAO:
+
+	sudo airodump-ng wlan0mon -w file-capture
+	aircrack-ng captura.wpa.cap -w /caminho/wordlist
+	aireplay-ng -0 10 -a MAC-ROUTER -c MAC-CLIENT  wlan-interf
+
+
+[AngryOxide](https://github.com/Ragnt/AngryOxide/releases/) `sudo angryoxide --interface wlan0`
+
 
 Colocar a placa de rede wireless em modo monitor para escutar os dados que estão trafegando próximo da placa de rede.
 
@@ -7039,7 +7048,7 @@ Script abaixo serve para listar os IPs de uma subnet - util para fazer bruteforc
 	            print(ip)
 
 ## WIFI Hacking
-Curso de WifiHacking
+Curso de Wifi Hacking
 
 Criptografia SIMETRICA
 
