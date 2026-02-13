@@ -67,7 +67,11 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	jwt_tool.py 'encript.payload.assinatura' --crack -d /usr/share/wordlists/rockyou.txt
+	jwt_tool.py 'encript.payload.assinatura' --crack -d /usr/share/wordlists/rockyou.txt OU USAR O HASHCAT
+
+.
+
+	amqp-consume --server=127.0.0.1 --port=5672 --vhost=/ --username=guest --password=guest --queue=hello cat
 
 .
 
