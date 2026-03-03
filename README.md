@@ -253,6 +253,9 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	ollama run llama2-uncensored
 
 .
+
+	apt install -y nvidia-driver nvidia-cuda-toolkit
+
 .
 .
 .
