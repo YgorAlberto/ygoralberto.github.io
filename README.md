@@ -254,7 +254,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	apt install -y nvidia-driver nvidia-cuda-toolkit
+	apt install -y nvidia-driver nvidia-cuda-toolkit REF: https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
 
 .
 .
