@@ -16,6 +16,12 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 [AD COMMANDS](https://zer1t0.gitlab.io/posts/attacking_ad/)
 
+## TOOLS
+
+[VALIDADOR ALLMA](https://github.com/AllisonMatos/validator.git)
+
+
+
 ## COMANDOS RÁPIDOS
 
 
