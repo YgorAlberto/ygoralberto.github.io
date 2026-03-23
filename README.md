@@ -6072,6 +6072,8 @@ Ferramenta de shell interativa web `WEEVELY`
 
 Ferramenta para shell interativa no windows `evil-winrm -i IP -u USER -p PASS` alternativa ao xfreerdp e rdesktop, também o `wmiexec` o `impacket-psexec` e `remmina`
 
+Adicionar variavel no fim do arquivo `~/.bashrc` para permanecer após reinicialização `export SHODAN_API_KEY="jkroDTKv780u5NU8B4ZWlb"` e rodar `source ~/.zshrc` e depois `echo $SHODAN_API_KEY` pra ver se funcionou
+
 [Shell em asp shell.asp](https://medium.com/@viniciuskmax/backdoorando-o-iis-como-usar-uma-webshell-para-obter-persist%C3%AAncia-de-acesso-system-a-um-servidor-9180a20a1a49)
 
 WEB Shell em asp mais interativa
