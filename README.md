@@ -263,6 +263,11 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	apt install -y nvidia-driver nvidia-cuda-toolkit REF: https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
 
 .
+
+	SERVIDOR: vncserver -localhost :1 -geometry 1920x1080 -depth 24
+	CLIENT: sudo apt install tigervnc-viewer
+	CLIENT: ssh -L 5901:localhost:5901 -N -f seu_usuario@IP_DO_SERVIDOR
+	CLIENT VNC: localhost:5901
 .
 .
 
