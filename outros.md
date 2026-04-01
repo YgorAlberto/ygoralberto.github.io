@@ -54,7 +54,7 @@
 
 	lsof ~/.xsession-errors | echo "VER QUAL APLICATIVO TA USANDO ESSE ARQUIVO NO MOMENTO"
 
-	jdupes -NOr /media/unknown/ | echo "REMOVE OS ARQUIVOS DUPLICADOS LIBERANDO DISCO LIMPEZA"
+	sudo jdupes -rdN /media/unknown/ | tee ~/resultado_final.txt| echo "REMOVE OS ARQUIVOS DUPLICADOS LIBERANDO DISCO LIMPEZA SALVANDO NO ARQUIVO INFORMADO"
 
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
