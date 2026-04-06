@@ -16,7 +16,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 ## TOOLS
 
-[FERRAMENTA ANALISE WEB](https://github.com/YgorAlberto/bird-tool-web-v2/tree/main) BIRD-TOOL-WEB-V2: Script auxiliar de OSINT
+[FERRAMENTA BIRD TOOL WEB - OSINT](https://github.com/YgorAlberto/bird-tool-web-v2/tree/main)
 
 [ALLMA ENUM WEB](https://github.com/AllisonMatos/allma-enum.git)
 
