@@ -8,8 +8,6 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 [KNOWLEDGE BASE](/knowledge) PARA GUIAR EM VULNERABILIDADES CONHECIDAS
 
-[FERRAMENTA ANALISE WEB](https://github.com/YgorAlberto/bird-tool-web) BIRD-TOOL-WEB: Script automatizador de ferramentas
-
 [MAPA DE CERTIFICAÇÕES](https://pauljerimy.com/security-certification-roadmap/) 
 
 [MINDMAP CYBERDEFENSE](https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg)
@@ -18,9 +16,11 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 ## TOOLS
 
-[VALIDADOR ALLMA](https://github.com/AllisonMatos/validator.git)
+[FERRAMENTA ANALISE WEB](https://github.com/YgorAlberto/bird-tool-web-v2/tree/main) BIRD-TOOL-WEB-V2: Script auxiliar de OSINT
+
 [ALLMA ENUM WEB](https://github.com/AllisonMatos/allma-enum.git)
 
+[VALIDADOR ALLMA](https://github.com/AllisonMatos/validator.git)
 
 ## COMANDOS RÁPIDOS
 
