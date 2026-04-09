@@ -795,18 +795,24 @@ Passo 4
 Comando do Mysql para criar o usuário e dar permissão:
 
     Criar um banco de dados com o nome zirix:
+	create database zirix;
+	Cria um usuário e coloca a string de conexão dentro do CFG
+    create user 'username'@'localhost' identified by 'senha123';
+    
+String de conexão do FIVEM Server com o banco de dados local:
+
+    set mysql_connection_string "server=127.0.0.1;database=zirix;userid=USERNAME;password=senha123;persistsecurityinfo=true;multipleStatements=true;"
+
+OLD...
+	
     NO ZIRIX O aquivo de conf do db fica no caminho vrp>modules>db.lua
     mysql --host=localhost --user=root --password= -e "zirix.sql"
     OU
     source /home/server-data/vrpex-zirix-v2/zirix-data/zirix.sql
-    create user 'username'@'localhost' identified by 'senha123';
     GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
     GRANT ALL PRIVILEGES ON database_name. * TO 'username'@'localhost';
     NAO LEMBRO PRA QUE SERVE alter user 'root'@'localhost' identified with mysql_native_password by 'root';
-    
-String de conexão do FIVEM Server com o banco de dados local:
 
-    set mysql_connection_string "server=127.0.0.1;database=DBNAME;userid=USERNAME;password=p@ssw0rd;persistsecurityinfo=true;"
 
 Autorizar usuário na WL dentro do banco:
 
