@@ -1990,6 +1990,10 @@ NC para conexão udp com host
 
 Conecta no MySQL usando o usuário root
 
+	mysql -h 192.168.1.5 -u root --ssl-verify-server-cert=OFF 
+
+Se aparecer este erro: `ERROR 2026 (HY000): TLS/SSL error: self-signed certificate in certificate chain` tente este comando acima
+
     describe COLUMNS from <TABELA> 
 
 Dentro do mysql descreve as tabelas
