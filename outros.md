@@ -120,6 +120,13 @@
 
 .
 
+Abrir porta para fora, e condfigurar o MYSQL para conectar de fora
+
+	sudo ufw allow 3306/tcp
+	nano /etc/mysql/mariadb.conf.d/50-server.cnf COLOQUE 0.0.0.0
+	GRANT ALL PRIVILEGIS ON *.* TO 'root'@'%' IDENTIFIED BY 'Str0n6P@55' WITH GRANT OPTION;
+	FLUSH PRIVILEGES;
+
 Descobrir IPv4 (meu ip my ip myip meuip)
 
 	curl -s https://meuip.com.br | grep "Meu ip" > .meuip
