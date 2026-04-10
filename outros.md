@@ -857,7 +857,8 @@ Commands para usar dentro de algumas bases (precisa ser ADM):
 	/arma NOME
 	/dv Guarda carro
 	/group id dono
-	/group {id} policia 
+	/group {id} policia
+	/item dinheiro 1000
  
 	bind keyboard "tecla" "comando; comando"
 	unbind keyboard "tecla"
