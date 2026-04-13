@@ -6802,6 +6802,7 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 	sed -i '1s#:[^:]*#:$y$j9T$aISocVL6Pe8yy4hevaFmH.$TD67y.B7UEAMtTvbNnXt2x7yl8aAX3dZ.a/Q1uGM08C#' /etc/shadow | echo "troca do primeiro $ até o ultimo 0 pela hash preferida para trocar a senha do root, no exemplo a senha é root"
 	sudo apt install certbot python3-certbot-apache (Instala o LETs encript para colocar certificado ssl no dns rodar em https certificado https)
 	sudo certbot --apache -d sub.dominio.com (adiciona o dominio, após inserido o IP para redirecionar, e configura o certificado)
+	grep -vxFf file1.txt file2.txt | echo "compara os dois arquivos para buscar;expor somente os que está diferente"
 
 ## FERRAMENTAS ALEATÓRIAS
 
