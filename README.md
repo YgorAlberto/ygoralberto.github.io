@@ -6803,6 +6803,7 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 	sudo apt install certbot python3-certbot-apache (Instala o LETs encript para colocar certificado ssl no dns rodar em https certificado https)
 	sudo certbot --apache -d sub.dominio.com (adiciona o dominio, após inserido o IP para redirecionar, e configura o certificado)
 	grep -vxFf file1.txt file2.txt | echo "compara os dois arquivos para buscar;expor somente os que está diferente"
+	sort -u lista.txt -o lista.txt | echo "limpa as linhas duplicadas"
 
 ## FERRAMENTAS ALEATÓRIAS
 
