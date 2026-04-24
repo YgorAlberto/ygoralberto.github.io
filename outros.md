@@ -489,6 +489,41 @@ For example, if you want to activate Windows 11 Pro, use the command ‘slmgr /i
 
 Refer: https://www.guidingtech.com/how-to-activate-windows-11-for-free/
 
+## INSTALAR O POSTMAN NO KALI MAUALMENTE
+
+1. Install the Postman Desktop App (Manual Method) 
+This is the most common way to install the full application on Kali Linux without using external package managers like Snap.
+
+	   wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+
+Extract to the /opt directory:
+
+
+	sudo tar -xzf postman.tar.gz -C /opt
+
+Create a symbolic link to run it from any terminal:
+
+
+	sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+(Optional) Create a Desktop Launcher:
+To find Postman in your application menu, create a desktop entry file:
+
+
+	sudo nano /usr/share/applications/postman.desktop
+
+Paste the following content into the file and save:
+
+	[Desktop Entry]
+	Name=Postman
+	Type=Application
+	Exec=/opt/Postman/Postman
+	Icon=/opt/Postman/app/resources/app/assets/icon.png
+	Terminal=false
+	Categories=Development;
+
+
+
 ## LISTAS USUARIOS DO ACTIVE DIRECTORY
 	
 	Get-ADUser -Filter {Enabled -eq $true} -Property MemberOf | ForEach-Object {
