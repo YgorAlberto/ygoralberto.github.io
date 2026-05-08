@@ -56,6 +56,14 @@
 
 	sudo jdupes -rdN /media/unknown/ | tee ~/resultado_final.txt| echo "REMOVE OS ARQUIVOS DUPLICADOS LIBERANDO DISCO LIMPEZA SALVANDO NO ARQUIVO INFORMADO"
 
+	go install github.com/tomnomnom/assetfinder@latest
+	go install github.com/hakluke/hakrawler@latest
+	go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+	mv ~/go/bin/assetfinder /usr/local/bin
+	mv ~/go/bin/hakrawler /usr/local/bin
+	mv ~/go/bin/subfinder /usr/local/bin
+	
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
