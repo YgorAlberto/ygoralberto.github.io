@@ -228,6 +228,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	/wp-json/wp/v2/users LISTA USUARIOS DO WORDPRESS
+	?rest_route=/wp/v2/users
 
 .
 
