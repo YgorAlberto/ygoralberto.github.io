@@ -64,6 +64,8 @@
 	mv ~/go/bin/subfinder /usr/local/bin
 	pip install beautifulsoup4 lxml --break-system-packages
 
+	dmesg | echo "SEE KERNEL LOGS"
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
