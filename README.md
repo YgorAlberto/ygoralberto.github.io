@@ -123,6 +123,9 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 	<script>alert`1`</script> | echo "INJETAR SCRIPT NA ATENTATIVA DE DAR BYPASS"
 
+.
+
+	<img src=x onerror=alert`1`>
 
 .
 
