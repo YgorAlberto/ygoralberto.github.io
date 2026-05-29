@@ -216,7 +216,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 	
 .
 
-	CloudFlare? WAF? Analisar os registros de históricos da Securitytrails e outra forma é através do E-mail, no receive-from pode haver o IP real
+	CloudFlare? WAF? CF-HERO e/ou Analisar os registros de históricos da Securitytrails e outra forma é através do E-mail, no receive-from pode haver o IP real 
 
 .
 
