@@ -53,7 +53,7 @@ PAGINA CONTENDO [OUTROS](https://ygoralberto.github.io/outros) COMANDOS DE WINDO
 
 .
 
-	dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a KidMan -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
+	dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a  Mozilla/5.0 -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
 
 .
 
