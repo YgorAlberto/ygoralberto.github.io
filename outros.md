@@ -945,7 +945,436 @@ Commands para usar dentro de algumas bases (precisa ser ADM):
 	item WEAPON_SHOTGUN_AMMO 99999;
 	item WEAPON_SMG_AMMO 99999;
 
-
+	Adder
+	Alpha
+	Asea
+	Asterope
+	Aston Martin
+	Autarch
+	BMW E6
+	Baller
+	Baller2
+	Baller3
+	Baller4
+	Baller5
+	Baller6
+	Banshee
+	Banshee2
+	Benson
+	Bestiagts
+	Bfinjection
+	Bifta
+	Bison
+	Bison2
+	Bjxl
+	Blade
+	Blista
+	Blista2
+	Blista3
+	Bobcatxl
+	Bodhi2
+	Brawler
+	Brioso
+	Btype2
+	Btype3
+	Buccaneer
+	Buccaneer2
+	Buffalo
+	Buffalo2
+	Buffalo3
+	Bugatti Chiron
+	Bugatti Divo
+	Bullet
+	Burrito
+	Burrito2
+	Burrito3
+	Burrito4
+	Cadilac SV
+	Carbonizzare
+	Casco
+	Cavalcade
+	Cavalcade2
+	Celta
+	Cheburek
+	Cheetah
+	Cheetah2
+	Chevette
+	Chino
+	Civic 2016
+	Clique
+	Cog552
+	Cogcabrio
+	Cognoscenti
+	Cognoscenti2
+	Comet2
+	Comet3
+	Comet5
+	Contender
+	Coquette
+	Coquette2
+	Coquette3
+	Corolla
+	Corsa 98
+	Cullinan
+	Cyclone
+	Deveste
+	Deviant
+	Dilettante
+	Dloader
+	Dodge Charger R/T
+	Dominator
+	Dominator2
+	Dominator3
+	Dubsta
+	Dubsta2
+	Dubsta3
+	Dukes
+	Dune
+	Elegy
+	Elegy2
+	Ellie
+	Emperor
+	Emperor 2
+	Entity2
+	Entityxf
+	Exemplar
+	F620
+	Faction
+	Faction3
+	Fagaloa
+	Felon
+	Feltzer2
+	Feltzer3
+	Fiat
+	Fiat Palio
+	Fiat Punto
+	Fiat Uno
+	Flashgt
+	Fmj
+	Ford Ka
+	Ford Mustang Match 1
+	Fq2
+	Freecrawler
+	Fugitive
+	Furoregt
+	Fusca
+	Fusilade
+	Fusion
+	Futo
+	GBurrito #2
+	Gauntlet
+	Gauntlet2
+	Gb200
+	Glendale
+	Gol G7
+	Golf
+	Gp1
+	Granger
+	Gresley
+	Gt500
+	Guardian
+	Habanero
+	Hermes
+	Hilux SAMU
+	Honda
+	Honda Eletran 17
+	Honda Sonata18
+	Hotknife
+	Hotring
+	Huntley
+	Impaler
+	Infernus
+	Infernus2
+	Ingot
+	Intruder
+	Issi2
+	Issi3
+	Italigtb
+	Italigtb2
+	Italigto
+	Jackal
+	Jb700
+	Jester
+	Jester3
+	Kalahari
+	Kamacho
+	Khamelion
+	Kuruma
+	Lamborghini Urus
+	Lancer Evo X
+	Lancer Evolution
+	Landstalker
+	Le7b
+	Lurcher
+	Lynx
+	Mamba
+	Manana
+	Maserati Alfieri
+	Maserati LB
+	Massacro
+	Massacro2
+	Mercedes 2050
+	Mesa
+	Mesa3
+	Michelli
+	Minivan
+	Minivan2
+	Mitsubishi Eclipse
+	Mitsubishi Spyder
+	Monroe
+	Moonbeam
+	Moonbeam2
+	Mule
+	Mule#2
+	Mule#3
+	Mule4
+	Neon
+	Nero
+	Nero2
+	Nightshade
+	Ninef
+	Ninef2
+	Nissan 350z
+	Nissan GT-R 34
+	Nissan GT-R 34 Unmarked
+	Nissan Silvia
+	Nissan Silvia Power
+	Omnis
+	Oracle
+	Oracle2
+	Osiris
+	Panto
+	Paradise
+	Pariah
+	Passat
+	Patriot
+	Patriot2
+	Penetrator
+	Penumbra
+	Peugeot 2007
+	Peyote
+	Pfister811
+	Phoenix
+	Picador
+	Pigalle
+	Polo
+	Pony
+	Pony2
+	Porsche 918
+	Porsche Boxter LB
+	Pounder
+	Pounder2
+	Prairie
+	Premier
+	Primo
+	Prototipo
+	R33
+	RX70
+	Radi
+	Raiden
+	Rancherxl
+	Rapidgt
+	Rapidgt2
+	Rapidgt3
+	Raptor
+	Reaper
+	Rebel2
+	Regina
+	Renault Sandero
+	Retinue
+	Revolter
+	Rhapsody
+	Riata
+	Rocoto
+	Ruiner
+	Rumpo
+	Rumpo2
+	Rumpo3
+	Ruston
+	Sabregt
+	Sabregt2
+	Sadler
+	Sandking
+	Sandking2
+	Saveiro
+	Saveiro 2002
+	Saveiro Cross Com Som
+	Sc1
+	Schafter3
+	Schafter4
+	Schafter5
+	Schlagen
+	Schwarzer
+	Seminole
+	Sentinel
+	Sentinel2
+	Sentinel3
+	Serrano
+	Seven70
+	Sheava
+	Slamvan
+	Slamvan3
+	Specter
+	Specter2
+	Stalion
+	Stalion2
+	Stanier
+	Stinger
+	Stingergt
+	Stratum
+	Streiter
+	Stretch
+	Subaru
+	Subaru BRZ
+	Subaru GT
+	Sultan
+	Sultan RS
+	Supra 2019
+	Supra Jza80
+	Surano
+	Surfer
+	Surge
+	Swinger
+	T20
+	Tailgater
+	Taipan
+	Tampa
+	Tampa2
+	Tempesta
+	Tezeract
+	Tiger Policia
+	Torero
+	Tornado
+	Tornado2
+	Tornado6
+	Toros
+	Toyota Supra
+	Trailer Truck
+	Trophytruck
+	Trophytruck2
+	Tropos
+	Tulip
+	Turismo2
+	Turismor
+	Tyrant
+	Tyrus
+	UP
+	VRa3
+	VRa4
+	VRdm1200
+	VRq8
+	VRraptor
+	VRrs5
+	VRrs6
+	VRrs6av
+	VRtahoe
+	Vacca
+	Vagner
+	Vamos
+	Veloster
+	Verlierer2
+	Versa
+	Vigero
+	Virgo
+	Virgo2
+	Virgo3
+	Viseris
+	Visione
+	Volkswagen Fusca
+	Voltic
+	Voodoo
+	Voodoo2
+	Warrener
+	Washington
+	Windsor
+	Windsor2
+	Xa21
+	Xls
+	Xls2
+	Yosemite
+	Youga
+	Z190
+	Zentorno
+	Zion2
+	Ztype
+	acuransx
+	ambulance_hi
+	astonmartindbs
+	audir8
+	audirs6
+	audirs62
+	audirs6avant
+	bloodline
+	bmwi8
+	bmwm1wb
+	bmwm4gts
+	bmwm5e34
+	bmwm8
+	camaro
+	civictyper
+	dodgecharger1970
+	dodgechargerrt69
+	dodgechargersrt
+	dodgeramtrx
+	ducati1200
+	escalade2021
+	escaladegt900
+	f8t
+	ferrari812
+	ferrarif12
+	ferrarif40
+	ferrariitalia
+	fordbronco
+	fordmustang
+	fordraptor
+	fox
+	golf75r
+	golfgti
+	golfmk7
+	jeepcherokee
+	lamborghinihuracan
+	lamborghinihuracanlw
+	lancerevolution9
+	lancerevolutionx
+	m4comp
+	maverick2
+	mazdarx7
+	mazdarx72
+	mclarenp1
+	mclarensenna
+	mercedesamg63
+	mercedesgt63
+	mustangfast
+	nissangtr
+	nissangtr2
+	nissangtr3
+	nissangtr50
+	nissangtrnismo
+	novak
+	nspeedo
+	panameramansory
+	polmesa
+	porsche718
+	porsche911
+	r1
+	r6
+	rencaptur
+	rs52018
+	sanchez3
+	shelbygt500
+	silverado1500
+	skyliner34
+	skyliner342
+	sont18
+	stockade
+	subarubrz
+	subaruimpreza
+	tahoe
+	toyotasupra
+	toyotasupra2
+	urbandevil
+	wheelchair
+	winky2
 
 
 - DICAS QUE VALEM SER LEMBRADAS
