@@ -5362,7 +5362,13 @@ Filmes:
 
 - Campanhas de Phishing
 
-Ferramenta `GoPhish github/gophish/releases`, baixa a ferramneta dá `chmod 777 ./gophish` e depois `./gophish` e acessa o link que vai aparecer no terminal e coloca a senha que também aparece no terminal. Configura o usuário alvo, template origem, a landing page e o email sender, caso seja Gmail `smtp.gmail.com:465` na conta do gmail, ativar o 2FA e coloca a opção adicionar um outro app cria um nome para o app -> copia os caracteres -> em sending profiles adiciona o email e os caracteres copiado do 2FA.
+Ferramenta `GoPhish github/gophish/releases`, baixa a ferramneta dá `chmod 777 ./gophish` e depois `./gophish` e acessa o link que vai aparecer no terminal e coloca a senha que também aparece no terminal. 
+Configura o Grupo de usuários Alvo;
+Configura TEMPLATE de Email da Campanha (inserir `{{.URL}}` variavel da LandingPage);
+Configure a LANDING Page. 
+Configure o EMAIL SENDER, caso seja Gmail `smtp.gmail.com:465` na conta do gmail, ativar o 2FA e coloca a opção adicionar um outro app cria um nome para o app -> copia os caracteres -> em sending profiles adiciona o email e os caracteres copiado do 2FA. Caso o Emal Sender seja proprio pegue o dominio do sender Ex: smtp.umbler.com:587 depois no Usuario coloca o email e depois a senha do email.
+Configure a CAMPANHA: Use o template que foi criado, a landinpage criada, e insira a URL do servidor que roda o Gophish com a porta geralmente 80, Ficando `http://123.123.123.123:80` Ou a porta que estiver configurada no `config.yaml` dentro do diretorio do GoPhish
+
 
 - Código indetectável pelos antivírus disfarçado de PDF
 
