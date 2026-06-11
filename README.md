@@ -5360,15 +5360,93 @@ Filmes:
         Prenda-me se for capaz
         VIPs
 
-- Campanhas de Phishing
+# Campanhas de Phishing GOPHISH
+
+Instalando e preparando o ambiente
+
+	git clone https://github.com/gophish/gophish.git
+	cd gophish
+	nano clean-fingerprints.sh | echo "COLA O CODIGO ABAIXO"
+	chmod +x clean-fingerprints.sh
+	./clean-fingerprints.sh
+	sudo apt update
+	sudo apt install -y golang-go gcc build-essential
+	# Limpa o cache de módulos antigos
+	go clean -modcache
+	go mod tidy
+	go mod download
+	CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -ldflags=
+
+SCRIPT PARA LIMPEZA DE FINGERPRINTS DO GOPHISH
+
+	#!/bin/bash
+	
+	echo "[+] Modificando os fingerprints do Gophish para informações confiáveis..."
+	
+	# 1. Substituição de Cabeçalhos de E-mail (Simulando cabeçalhos de rastreamento de marketing)
+	echo "[+] Alterando cabeçalhos para padrões de mercado..."
+	find . -type f -not -path '*/.*' -exec sed -i 's/X-Gophish-Contact/X-Campaign-Contact/g' {} +
+	find . -type f -not -path '*/.*' -exec sed -i 's/X-Gophish-Signature/X-Track-Signature/g' {} +
+	
+	# 2. Modificação da Assinatura do Servidor (config/config.go)
+	# Altera "gophish" para responder como um servidor Nginx padrão estável
+	if [ -f "config/config.go" ]; then
+	    echo "[+] Alterando assinatura do servidor para Nginx em config/config.go..."
+	    sed -i 's/const ServerName = "gophish"/const ServerName = "nginx\/1.24.0"/g' config/config.go
+	else
+	    echo "[-] Erro: config/config.go não encontrado."
+	fi
+	
+	# 3. Alteração do Parâmetro de Link (models/campaign.go)
+	# Substitui o identificador '?rid=' padrão pelo formato '?utm_id=' do Google Analytics
+	if [ -f "models/campaign.go" ]; then
+	    echo "[+] Substituindo o parâmetro 'rid' por 'utm_id' em models/campaign.go..."
+	    sed -i 's/const RecipientParameter = "rid"/const RecipientParameter = "utm_id"/g' models/campaign.go
+	else
+	    echo "[-] Erro: models/campaign.go não encontrado."
+	fi
+	
+	# 4. Modificação do Erro 404 padrão (controllers/phish.go)
+	# Em vez da página em branco ou erro do Gophish, simula um erro clássico do Nginx
+	if [ -f "controllers/phish.go" ]; then
+	    echo "[+] Inserindo página 404 padrão do Nginx em controllers/phish.go..."
+	    NGINX_404="w.WriteHeader(http.StatusNotFound); w.Write(\[\]byte(\"<html>\\\\r\\\\n<head><title>404 Not Found<\/title><\/head>\\\\r\\\\n<body>\\\\r\\\\n<center><h1>404 Not Found<\/h1><\/center>\\\\r\\\\n<hr><center>nginx\/1.24.0<\/center>\\\\r\\\\n<\/body>\\\\r\\\\n<\/html>\"))"
+	    sed -i "s/http.NotFound(w, r)/$NGINX_404/g" controllers/phish.go
+	else
+	    echo "[-] Erro: controllers/phish.go não encontrado."
+	fi
+	
+	echo "[+] Todas as substituições foram aplicadas!"
+	echo "[+] Para gerar o binário limpo, execute: go build"
 
 Ferramenta `GoPhish github/gophish/releases`, baixa a ferramneta dá `chmod 777 ./gophish` e depois `./gophish` e acessa o link que vai aparecer no terminal e coloca a senha que também aparece no terminal. 
 Configura o Grupo de usuários Alvo;
 Configura TEMPLATE de Email da Campanha (inserir `{{.URL}}` variavel da LandingPage);
 Configure a LANDING Page. 
-Configure o EMAIL SENDER, caso seja Gmail `smtp.gmail.com:465` na conta do gmail, ativar o 2FA e coloca a opção adicionar um outro app cria um nome para o app -> copia os caracteres -> em sending profiles adiciona o email e os caracteres copiado do 2FA. Caso o Emal Sender seja proprio pegue o dominio do sender Ex: smtp.umbler.com:587 depois no Usuario coloca o email e depois a senha do email.
+Configure o EMAIL SENDER, caso seja Gmail `smtp.gmail.com:465` na conta do gmail, ativar o 2FA e coloca a opção adicionar um outro app cria um nome para o app -> copia os caracteres -> em sending profiles adiciona o email e os caracteres copiado do 2FA. Caso o Emal Sender seja proprio pegue o dominio do sender Ex: smtp.umbler.com:587 depois no Usuario coloca o email e depois a senha do email. INSERIR OS HEADERS ABAIXO
 Configure a CAMPANHA: Use o template que foi criado, a landinpage criada, e insira a URL do servidor que roda o Gophish com a porta geralmente 80, Ficando `http://123.123.123.123:80` Ou a porta que estiver configurada no `config.yaml` dentro do diretorio do GoPhish
 
+- HEADERS MANIPULAOS
+
+Insira estes header na configuração do SENDER dentro do GOPHISH
+
+	X-Mailer: MailChimp Mailer - AWSX
+	X-Campaign: campanha_interna_v26
+	X-Campaign-Discover
+	List-Unsubscribe: <mailto:unsubscribe@seu-dominio.com>, <https://seu-dominio.com>
+	MIME-Version: 1.0
+	X-Priority: 3
+	Auto-Submitted: auto-generated
+OU
+
+	X-Mailer: Microsoft Outlook 16.0
+	X-MimeOLE: Produced By Microsoft MimeOLE V16.0
+	X-MS-Exchange-Organization-AuthAs: Internal
+	X-MS-Exchange-Organization-AuthMechanism: 04
+	MIME-Version: 1.0
+	X-Priority: 3
+	Auto-Submitted: auto-generated
+	
 
 - Código indetectável pelos antivírus disfarçado de PDF
 
