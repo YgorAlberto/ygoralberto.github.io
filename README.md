@@ -6904,8 +6904,13 @@ Dicas, ferramentas, cursos serão adicionados aqui no intuito de melhorar o proc
 	sudo certbot --apache -d sub.dominio.com (adiciona o dominio, após inserido o IP para redirecionar, e configura o certificado)
 	grep -vxFf file1.txt file2.txt | echo "compara os dois arquivos para buscar;expor somente os que está diferente"
 	sort -u lista.txt -o lista.txt | echo "limpa as linhas duplicadas"
+	.
 	psql "postgresql://user:pass@host:5432/crm?sslmode=disable" | echo "Se o servidor reclamar de encriptação se aparecer FATAL error para o teu IP é que tem allow list"
 	psql -h host -U user -d database
+	.
+	git-dumper | echo "BAIXA O GIT EXPOSTO"
+	git log --oneline | echo "LER O ARQUIVO .GIT LOCALMENTE DO GIT TRAGO"
+	git GIT-TAG^..GIT-TAG | echo "MOSTRA OU RECUPERA VERSAO ANTERIOR DAQUELE COMMIT"
 	
 
 ## WEBSOCKETS
