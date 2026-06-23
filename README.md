@@ -1,31 +1,41 @@
 # Notas de um Pentester
 
-Guia prático de consulta para pentest, segurança ofensiva e Red Team. O objetivo principal deste documento é ser rápido no dia a dia: pesquise por tags, copie o comando, ajuste o alvo e registre o aprendizado novo no mesmo padrão.
-
 ## Acesso Rápido e Perfil
-Tags: `#inicio` `#links` `#perfil` `#ctrlf`
 
-### Links Principais
-
-- [Guia para Iniciantes em Cibersegurança](https://ygoralberto.github.io/guia-iniciantes)
-- [Outros Comandos de Windows e Linux](https://ygoralberto.github.io/outros)
-- [Mapa Mental para Pentesters](https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1)
-- [Knowledge Base para Vulnerabilidades Conhecidas](/knowledge)
-- [Mapa de Certificações](https://pauljerimy.com/security-certification-roadmap/)
-- [Mindmap CyberDefense](https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg)
-- [AD Commands](https://zer1t0.gitlab.io/posts/attacking_ad/)
-
-### Ferramentas Públicas
-
-- [Bird Tool Web - OSINT](https://github.com/YgorAlberto/bird-tool-web-v2/tree/main)
-- [Allma Enum Web](https://github.com/AllisonMatos/allma-enum.git)
-- [Validador Allma](https://github.com/AllisonMatos/validator.git)
-
-### Sobre Mim
-
-| Perfil profissional | Especializações, ferramentas e formação |
-|---|---|
-| **Red Team | Offensive Security Analyst | Pentester**<br><br>Profissional de Cibersegurança Ofensiva com atuação em Red Team, especializado em identificar, validar e explorar vulnerabilidades antes que sejam exploradas por atacantes reais. Atualmente atuo na Strati conduzindo pentests, campanhas de phishing, engenharia social e avaliações contínuas de segurança, sempre com ética, mentalidade ofensiva e foco em melhoria de maturidade defensiva. | **Especializações:** Segurança Ofensiva, pentest em aplicações, redes e infraestrutura, exploração de vulnerabilidades, hardening Linux/Windows e Cloud Security AWS.<br><br>**Ferramentas:** Nmap, Burp Suite, SQLMap, Nessus, Netcat, Hydra, John, Hashcat, Wfuzz, Dirb/Dirbuster, LinPEAS, WinPEAS e Immunity Debugger.<br><br>**Certificações:** DCPT, CRTA, CPTE, CSAE e CNSE.<br><br>**Formação:** Sistemas de Informação pela Wyden FACIMP; Pós-Graduação em Segurança Ofensiva pela ACADI-TI; Pentest Profissional e Pentest Experience pela Desec; Introduction to Cybersecurity pela Cisco; inglês avançado. |
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>Consulta Rápida</h3>
+      <p>Guia prático de consulta para pentest, segurança ofensiva e Red Team. O objetivo principal deste documento é ser rápido no dia a dia: pesquise por tags, copie o comando, ajuste o alvo e registre o aprendizado novo no mesmo padrão.</p>
+      <p><strong>Tags:</strong> <code>#inicio</code> <code>#links</code> <code>#perfil</code> <code>#ctrlf</code></p>
+      <h3>Links Principais</h3>
+      <ul>
+        <li><a href="https://ygoralberto.github.io/guia-iniciantes">Guia para Iniciantes em Cibersegurança</a></li>
+        <li><a href="https://ygoralberto.github.io/outros">Outros Comandos de Windows e Linux</a></li>
+        <li><a href="https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1">Mapa Mental para Pentesters</a></li>
+        <li><a href="/knowledge">Knowledge Base para Vulnerabilidades Conhecidas</a></li>
+        <li><a href="https://pauljerimy.com/security-certification-roadmap/">Mapa de Certificações</a></li>
+        <li><a href="https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg">Mindmap CyberDefense</a></li>
+        <li><a href="https://zer1t0.gitlab.io/posts/attacking_ad/">AD Commands</a></li>
+      </ul>
+      <h3>Ferramentas Públicas</h3>
+      <ul>
+        <li><a href="https://github.com/YgorAlberto/bird-tool-web-v2/tree/main">Bird Tool Web - OSINT</a></li>
+        <li><a href="https://github.com/AllisonMatos/allma-enum.git">Allma Enum Web</a></li>
+        <li><a href="https://github.com/AllisonMatos/validator.git">Validador Allma</a></li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Sobre Mim</h3>
+      <p><strong>Red Team | Offensive Security Analyst | Pentester</strong></p>
+      <p>Profissional de Cibersegurança Ofensiva com atuação em Red Team, especializado em identificar, validar e explorar vulnerabilidades antes que sejam exploradas por atacantes reais. Atualmente atuo na Strati conduzindo pentests, campanhas de phishing, engenharia social e avaliações contínuas de segurança, sempre com ética, mentalidade ofensiva e foco em melhoria de maturidade defensiva.</p>
+      <p><strong>Especializações:</strong> Segurança Ofensiva, pentest em aplicações, redes e infraestrutura, exploração de vulnerabilidades, hardening Linux/Windows e Cloud Security AWS.</p>
+      <p><strong>Ferramentas:</strong> Nmap, Burp Suite, SQLMap, Nessus, Netcat, Hydra, John, Hashcat, Wfuzz, Dirb/Dirbuster, LinPEAS, WinPEAS e Immunity Debugger.</p>
+      <p><strong>Certificações:</strong> DCPT, CRTA, CPTE, CSAE e CNSE.</p>
+      <p><strong>Formação:</strong> Sistemas de Informação pela Wyden FACIMP; Pós-Graduação em Segurança Ofensiva pela ACADI-TI; Pentest Profissional e Pentest Experience pela Desec; Introduction to Cybersecurity pela Cisco; inglês avançado.</p>
+    </td>
+  </tr>
+</table>
 
 ### Como Pesquisar com Ctrl+F
 
