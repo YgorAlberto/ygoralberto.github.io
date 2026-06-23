@@ -67,7 +67,7 @@
       <p><strong>Especializações:</strong> Segurança Ofensiva, pentest em aplicações, redes e infraestrutura, exploração de vulnerabilidades, hardening Linux/Windows e Cloud Security AWS.</p>
       <p><strong>Ferramentas:</strong> Nmap, Burp Suite, SQLMap, Nessus, Netcat, Hydra, John, Hashcat, Wfuzz, Dirb/Dirbuster, LinPEAS, WinPEAS e Immunity Debugger.</p>
       <p><strong>Certificações:</strong> DCPT, CRTA, CPTE, CSAE e CNSE.</p>
-      <p><strong>Formação:</strong> Sistemas de Informação pela Wyden FACIMP; Pós-Graduação em Segurança Ofensiva pela ACADI-TI; Pentest Profissional e Pentest Experience pela Desec; Introduction to Cybersecurity pela Cisco; inglês avançado.</p>
+      <p><strong>Formação:</strong> Sistemas de Informação; Pós-Graduação em Segurança Ofensiva; Pentest Profissional e Pentest Experience pela Desec; inglês avançado.</p>
     </td>
   </tr>
 </table>
