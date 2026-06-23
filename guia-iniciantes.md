@@ -6,7 +6,7 @@ Antes de sair comprando curso, instalando Kali Linux ou decorando ferramenta, pa
 
 - Eu gosto de entender como sistemas quebram?
 - Tenho paciência para pesquisar, testar, errar, documentar e tentar de novo?
-- Quero aprender redes, Linux, web, Windows e programação o suficiente para explorar falhas com responsabilidade?
+- Quero aprender sistemas operacionais, redes, web e programação o suficiente para explorar falhas com responsabilidade?
 - Consigo estudar de forma constante, mesmo sem resultado imediato?
 
 Se a resposta for "sim", este guia pode te dar um caminho inicial. Se você quer outra área de Cyber Security, como blue team, GRC, forense, cloud security, AppSec defensivo ou privacidade, este não é o melhor roteiro principal para você.
@@ -21,12 +21,13 @@ Para uma visão mais ampla de várias áreas, veja também o [RoadMap do Arthur]
 
 Se você está começando do zero, siga esta ordem:
 
-1. Entenda o que é segurança ofensiva.
-2. Aprenda os fundamentos de redes, sistemas e web.
-3. Use Linux no dia a dia ou em uma máquina virtual.
-4. Pratique em laboratórios guiados.
-5. Monte anotações, relatórios e pequenos projetos.
-6. Só depois aprofunde em ferramentas, exploração e Active Directory.
+1. Aprenda o básico de computador, arquivos, navegador e internet.
+2. Entenda como sistemas operacionais funcionam.
+3. Use Windows e Linux com mais consciência.
+4. Aprenda redes, web e terminal.
+5. Pratique em laboratórios guiados.
+6. Monte anotações, relatórios e pequenos projetos.
+7. Só depois aprofunde em ferramentas, exploração e Active Directory.
 
 O erro mais comum é pular direto para ferramentas. Ferramenta sem fundamento vira tentativa e erro sem direção.
 
@@ -49,49 +50,114 @@ Se você ainda não sabe, estude os fundamentos abaixo por algumas semanas. Eles
 
 ---
 
-## Fundamentos essenciais
+## Trilha de estudo recomendada
 
-### 1. Redes de computadores
+### Fase 0: Nunca tive muito contato com computador
 
-Você não precisa virar engenheiro de redes no início, mas precisa entender bem:
+Para quem só sabe navegar na internet, usar redes sociais ou mexer no celular, este é o começo certo. Não pule esta fase por vergonha. Ela evita muita frustração depois.
 
-- TCP/IP, portas, protocolos e serviços.
-- DNS, HTTP, HTTPS, SSH, FTP, SMB e SMTP.
-- Roteamento, NAT, firewall e VPN.
-- Modelo OSI e encapsulamento.
-- Como usar `ping`, `traceroute`, `nslookup`, `dig`, `netstat`, `ss` e `tcpdump`.
+Aprenda:
 
-Curso sugerido:
+- O que é hardware e software.
+- Como arquivos, pastas, extensões e downloads funcionam.
+- Como instalar e remover programas.
+- Como usar navegador, e-mail, busca e armazenamento em nuvem.
+- Noções de segurança no uso diário: senha, autenticação em dois fatores, golpes e privacidade.
+- Pacote Office ou ferramentas equivalentes.
 
-- [Curso de Redes](https://www.udemy.com/course/curso-gratuito-de-redes/)
+Cursos e conteúdos gratuitos:
 
-### 2. Sistemas operacionais
+- [Cultura Digital - Fundação Bradesco](https://www.ev.org.br/cursos/cultura-digital)
+- [Fundamentos de TI: Hardware e Software - Fundação Bradesco](https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software)
+- [Computer Hardware Basics - Cisco NetAcad](https://www.netacad.com/courses/computer-hardware-basics)
+- [Operating Systems Basics - Cisco NetAcad](https://www.netacad.com/courses/operating-systems-basics)
+- [Pre Security - TryHackMe](https://tryhackme.com/path/outline/presecurity)
 
-Pentest exige conforto com Windows e Linux.
+Quantidade mínima recomendada: faça **2 a 3 conteúdos gratuitos** desta fase antes de avançar. Se você já usa computador bem, pode fazer apenas o curso de sistemas operacionais da Cisco ou o de Fundamentos de TI da Fundação Bradesco como revisão.
 
-No Linux, aprenda:
+Meta da fase: conseguir usar um computador sem medo, organizar arquivos, instalar programas, entender o que é um sistema operacional e explicar a diferença entre hardware e software.
 
-- Terminal, permissões, processos, serviços e logs.
-- Estrutura de diretórios.
-- Gerenciamento de pacotes.
-- Bash básico.
-- Edição de arquivos com `nano`, `vim` ou outro editor.
+---
+
+### Fase 1: Sistemas operacionais primeiro
+
+Para pentest/red team, sistemas operacionais vêm antes de ferramentas. Você precisa entender o ambiente onde tudo acontece: processos, arquivos, usuários, permissões, serviços, logs e comandos.
 
 No Windows, aprenda:
 
 - Usuários, grupos e permissões.
+- Painel de controle, configurações, serviços e eventos.
+- Compartilhamentos de rede.
 - PowerShell básico.
-- Serviços, registro, eventos e compartilhamentos.
 - Conceitos iniciais de domínio e Active Directory.
 
-Cursos sugeridos:
+No Linux, aprenda:
 
-- [Curso de Linux](https://www.udemy.com/course/linux-ubuntu/)
+- Terminal e comandos essenciais.
+- Estrutura de diretórios.
+- Permissões, donos e grupos.
+- Processos, serviços e logs.
+- Gerenciamento de pacotes.
+- Bash básico.
+
+Cursos gratuitos:
+
+- [Operating Systems Basics - Cisco NetAcad](https://www.netacad.com/courses/operating-systems-basics)
+- [Fundamentos de TI: Hardware e Software - Fundação Bradesco](https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software)
+- [OverTheWire Bandit](https://overthewire.org/wargames/bandit/) para treinar terminal Linux do absoluto básico.
+
+Cursos pagos opcionais:
+
 - [Curso de Windows](https://www.udemy.com/course/curso-de-windows-10-completo)
+- [Curso de Linux](https://www.udemy.com/course/linux-ubuntu/)
 
-### 3. Web
+Pratique:
 
-Grande parte das vagas e labs de pentest passam por aplicações web. Você precisa entender:
+- Instale Linux em uma máquina virtual ou use WSL.
+- Crie, mova, copie e apague arquivos pelo terminal.
+- Crie usuários locais no Windows e no Linux.
+- Veja logs do sistema.
+- Use `cd`, `ls`, `pwd`, `cat`, `grep`, `find`, `ip`, `ss`, `ps`, `chmod` e `sudo`.
+
+Meta da fase: conseguir se movimentar em Windows e Linux entendendo o que está fazendo.
+
+---
+
+### Fase 2: Redes de computadores
+
+Depois de entender sistemas operacionais, redes começam a fazer mais sentido. Pentest sem redes vira chute.
+
+Aprenda:
+
+- TCP/IP, portas, protocolos e serviços.
+- DNS, HTTP, HTTPS, SSH, FTP, SMB e SMTP.
+- IP, máscara, gateway, NAT, firewall e VPN.
+- Modelo OSI e encapsulamento.
+- Como usar `ping`, `traceroute`, `nslookup`, `dig`, `netstat`, `ss`, `tcpdump` e Wireshark.
+
+Cursos gratuitos:
+
+- [Networking Basics - Cisco NetAcad](https://www.netacad.com/courses/networking-basics)
+- [Networking Devices and Initial Configuration - Cisco NetAcad](https://www.netacad.com/courses/networking-devices-and-initial-configuration)
+- [Pre Security - TryHackMe](https://tryhackme.com/path/outline/presecurity), principalmente os módulos de Network Fundamentals.
+
+Pratique:
+
+- Descubra o IP da sua máquina.
+- Entenda sua rede local.
+- Use `ping` e `traceroute`.
+- Observe tráfego com Wireshark.
+- Faça pequenos mapas da sua rede doméstica.
+
+Meta da fase: conseguir explicar o que acontece, em rede, quando você acessa um site.
+
+---
+
+### Fase 3: Web e programação básica
+
+Grande parte das vagas e laboratórios de pentest passam por aplicações web. Você não precisa virar desenvolvedor agora, mas precisa entender como aplicações funcionam.
+
+Aprenda web:
 
 - Como uma requisição HTTP funciona.
 - Métodos HTTP, headers, cookies, sessões e códigos de resposta.
@@ -99,15 +165,7 @@ Grande parte das vagas e labs de pentest passam por aplicações web. Você prec
 - APIs, JSON e autenticação.
 - Banco de dados e SQL básico.
 
-Curso sugerido:
-
-- [Web Fundamentos](https://www.udemy.com/course/curso-gratuito-de-html/)
-
-### 4. Programação e automação
-
-Você não precisa começar como dev, mas precisa conseguir ler e escrever scripts simples.
-
-Priorize:
+Aprenda programação:
 
 - Python básico.
 - Bash básico.
@@ -115,41 +173,31 @@ Priorize:
 - Git e GitHub.
 - Leitura de código em JavaScript, PHP ou outra linguagem comum em aplicações web.
 
-Objetivo inicial: automatizar tarefas pequenas, tratar arquivos, fazer requisições HTTP e entender scripts de exploração em laboratórios.
+Cursos gratuitos:
 
----
-
-## Plano de estudo enxuto
-
-Este plano é uma sugestão para quem quer estudar sem se perder. Adapte ao seu ritmo.
-
-### Fase 1: Base técnica
-
-Duração sugerida: 4 a 8 semanas.
-
-Estude:
-
-- Redes.
-- Linux.
-- Windows.
-- Web básica.
-- Git e terminal.
+- [Web Fundamentos](https://www.udemy.com/course/curso-gratuito-de-html/)
+- [Crie um site simples usando HTML, CSS e JavaScript - Fundação Bradesco](https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript)
+- [Web Security Academy - PortSwigger](https://portswigger.net/web-security), para quando já souber o básico de HTTP.
 
 Pratique:
 
-- Instale uma máquina virtual Linux.
-- Faça comandos básicos todos os dias.
-- Use Wireshark ou tcpdump para observar tráfego.
-- Suba uma aplicação simples localmente e veja as requisições no navegador.
+- Crie uma página HTML simples.
+- Use o DevTools do navegador.
+- Faça requisições e observe headers, cookies e respostas.
+- Escreva scripts simples em Python para ler arquivos e fazer requisições HTTP.
 
-Meta da fase: conseguir explicar, com suas palavras, o que acontece quando você acessa um site.
+Meta da fase: entender como uma aplicação web conversa com navegador, servidor e banco de dados.
 
-### Fase 2: Introdução ao pentest
+---
 
-Duração sugerida: 4 a 8 semanas.
+### Fase 4: Introdução à Cyber e ao pentest
 
-Estude:
+Aqui você começa a conectar fundamentos com segurança ofensiva. Ainda é começo, então o objetivo não é "invadir tudo", é aprender metodologia.
 
+Aprenda:
+
+- O que é segurança ofensiva.
+- Ética, autorização e escopo.
 - Metodologia de pentest.
 - Reconhecimento e enumeração.
 - Varredura de portas.
@@ -157,19 +205,31 @@ Estude:
 - Exploração em ambiente controlado.
 - Escrita de relatório.
 
+Cursos gratuitos:
+
+- [Introdução à Cibersegurança - Cisco NetAcad](https://www.netacad.com/courses/introduction-to-cybersecurity)
+- [Endpoint Security - Cisco NetAcad](https://www.netacad.com/courses/endpoint-security)
+- [Network Defense - Cisco NetAcad](https://www.netacad.com/courses/network-defense)
+- [Introdução ao Pentest - DESEC](https://desecsecurity.com/cart/introducao-pentest/pentest)
+- [Cyber para iniciantes - EC-Council](https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/)
+- [Introdução ao Pentest - Solyd](https://solyd.com.br/cursos/introducao-ao-hacking-e-pentest-2/)
+- [Introdução ao Pentest - ACADI](https://acaditi.com.br/essentials-series/)
+
 Pratique:
 
 - Faça salas iniciantes no TryHackMe.
 - Resolva máquinas fáceis com writeups depois da tentativa.
 - Documente o passo a passo como se fosse entregar para alguém.
 
-Meta da fase: conseguir fazer uma máquina iniciante entendendo o motivo de cada comando.
+Meta da fase: fazer uma máquina iniciante entendendo o motivo de cada comando.
 
-### Fase 3: Web, Linux e Windows com mais profundidade
+---
 
-Duração sugerida: 2 a 4 meses.
+### Fase 5: Pentest web, Linux, Windows e Active Directory
 
-Estude:
+Agora você aprofunda nos temas que aparecem com frequência em pentest real e em laboratórios.
+
+Aprenda:
 
 - OWASP Top 10.
 - Enumeração Linux.
@@ -177,6 +237,23 @@ Estude:
 - Privesc básica.
 - Serviços comuns: SMB, FTP, SSH, HTTP, bancos de dados.
 - Noções de Active Directory.
+- Uso de proxy web, fuzzing e exploração controlada.
+
+Cursos e laboratórios gratuitos:
+
+- [Web Security Academy - PortSwigger](https://portswigger.net/web-security)
+- [Lista de máquinas gratuitas no TryHackMe](../THM-LIST)
+- [Pre Security - TryHackMe](https://tryhackme.com/path/outline/presecurity)
+- [Penetration Tester Path - HTB Academy](https://academy.hackthebox.com/path/preview/penetration-tester)
+- [OverTheWire Bandit](https://overthewire.org/wargames/bandit/)
+
+Cursos pagos opcionais:
+
+- [Solyd One / SYCP](https://solyd.com.br/)
+- [Trilha certificação DCPT - DESEC](https://desecsecurity.com/cart/DESECPRO1X)
+- [Pós em Cyber da ACADI](https://acaditi.com.br/pos-graduacao-em-ciberseguranca-ofensiva/)
+
+Também vale pesquisar escolas como `FIAP`, `Crowsec`, `Pato Academy` e outras opções do mercado.
 
 Pratique:
 
@@ -187,9 +264,11 @@ Pratique:
 
 Meta da fase: deixar de apenas "seguir receita" e começar a criar hipóteses durante a enumeração.
 
-### Fase 4: Portfólio e carreira
+---
 
-Duração sugerida: contínua.
+### Fase 6: Portfólio e carreira
+
+Esta fase é contínua. Não espere "terminar tudo" para começar a mostrar evolução.
 
 Faça:
 
@@ -198,33 +277,34 @@ Faça:
 - Atualize seu LinkedIn.
 - Faça networking com pessoas da área.
 - Treine explicação técnica, não só execução de comando.
+- Estude como se sair bem em entrevistas.
+
+Conteúdos úteis:
+
+- [Como Conseguir um Novo Emprego - Fundação Bradesco](https://www.ev.org.br/cursos/como-conseguir-um-novo-emprego)
+- [IA para seu novo emprego: Do currículo à entrevista - Fundação Bradesco](https://www.ev.org.br/cursos/ia-para-seu-novo-emprego-do-curriculo-a-entrevista)
 
 Meta da fase: mostrar evolução, raciocínio e consistência.
 
 ---
 
-## Cursos gratuitos de Cyber
+## Resumo de conteúdos gratuitos recomendados
 
-Comece por cursos introdutórios e escolha um por vez. Terminar um curso com prática vale mais do que abrir dez abas.
+Se você quer uma sequência objetiva e não exaustiva, faça nesta ordem:
 
-- [Introdução ao Pentest - DESEC](https://desecsecurity.com/cart/introducao-pentest/pentest)
-- [Introdução a Cibersegurança - CISCO](https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity)
-- [Fundamentos em Cyber - eSecurity](https://esecurity.com.br/cursos/fundamentos-em-cyber-security/)
-- [Cyber para iniciantes - EC-Council](https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/)
-- [Introdução ao Pentest - Solyd](https://solyd.com.br/treinamentos/introducao-ao-hacking-e-pentest-2/)
-- [Introdução ao Pentest - ACADI](https://acaditi.com.br/essentials-series/)
+1. [Cultura Digital - Fundação Bradesco](https://www.ev.org.br/cursos/cultura-digital)
+2. [Fundamentos de TI: Hardware e Software - Fundação Bradesco](https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software)
+3. [Operating Systems Basics - Cisco NetAcad](https://www.netacad.com/courses/operating-systems-basics)
+4. [OverTheWire Bandit](https://overthewire.org/wargames/bandit/)
+5. [Networking Basics - Cisco NetAcad](https://www.netacad.com/courses/networking-basics)
+6. [Networking Devices and Initial Configuration - Cisco NetAcad](https://www.netacad.com/courses/networking-devices-and-initial-configuration)
+7. [Crie um site simples usando HTML, CSS e JavaScript - Fundação Bradesco](https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript)
+8. [Introdução à Cibersegurança - Cisco NetAcad](https://www.netacad.com/courses/introduction-to-cybersecurity)
+9. [Introdução ao Pentest - DESEC](https://desecsecurity.com/cart/introducao-pentest/pentest)
+10. [Web Security Academy - PortSwigger](https://portswigger.net/web-security)
+11. [Pre Security - TryHackMe](https://tryhackme.com/path/outline/presecurity)
 
----
-
-## Cursos pagos
-
-Cursos pagos podem acelerar o caminho, mas não substituem prática. Antes de comprar, confira a ementa, veja se o conteúdo é atualizado e procure relatos de alunos.
-
-- [Trilha certificação DCPT - DESEC](https://desecsecurity.com/cart/DESECPRO1X)
-- [Curso Pentester Cert. SYCP - Solyd](https://solyd.com.br/treinamentos/pentest-do-zero-ao-profissional-v2023/)
-- [Pós em Cyber da ACADI](https://acaditi.com.br/pos-graduacao-em-ciberseguranca-ofensiva/)
-
-Também vale pesquisar escolas como `FIAP`, `Crowsec`, `Pato Academy` e outras opções do mercado.
+Quantidade sugerida: estes **11 conteúdos gratuitos** cobrem o início de computador, sistemas operacionais, redes, web, cyber e prática. Não precisa fazer tudo ao mesmo tempo. Faça por fase.
 
 ---
 
@@ -319,19 +399,21 @@ Para vagas iniciais, saber se comunicar pesa muito. Aprenda a explicar:
 
 Use este checklist para sair da inércia:
 
+- [ ] Fazer 1 curso de cultura digital ou fundamentos de TI.
+- [ ] Fazer 1 curso de sistemas operacionais.
 - [ ] Instalar Linux em VM ou usar WSL.
-- [ ] Fazer um curso básico de redes.
 - [ ] Aprender comandos essenciais de terminal.
+- [ ] Fazer 1 curso básico de redes.
 - [ ] Estudar HTTP, DNS, portas e protocolos.
 - [ ] Criar conta no TryHackMe.
-- [ ] Fazer 5 salas iniciantes.
+- [ ] Fazer 3 a 5 salas iniciantes.
 - [ ] Criar um arquivo de anotações.
 - [ ] Publicar um resumo simples do que aprendeu.
 - [ ] Atualizar o LinkedIn.
-- [ ] Escolher o próximo tópico: web, Linux ou Windows.
+- [ ] Escolher o próximo tópico: Linux, redes ou web.
 
 ---
 
 ## Caminho recomendado em uma frase
 
-Aprenda fundamentos, pratique em laboratório, documente o raciocínio, aprofunde em web/Linux/Windows e avance para pentest/red team com ética, paciência e consistência.
+Aprenda computador e sistemas operacionais primeiro, depois redes e web, pratique em laboratório, documente o raciocínio e avance para pentest/red team com ética, paciência e consistência.
