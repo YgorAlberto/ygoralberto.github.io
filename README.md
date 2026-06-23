@@ -1,5 +1,40 @@
 # Notas de um Pentester
 
+<style>
+  :root {
+    --notes-content-width: min(96vw, 1480px);
+  }
+
+  body .container,
+  body .container-lg,
+  body .container-xl,
+  body .wrapper,
+  body .page-content .wrapper,
+  body .main-content,
+  body .markdown-body,
+  body main,
+  body article {
+    max-width: var(--notes-content-width) !important;
+  }
+
+  body .wrapper,
+  body .page-content .wrapper,
+  body .main-content,
+  body .markdown-body,
+  body main,
+  body article {
+    width: var(--notes-content-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  body .markdown-body table,
+  body .main-content table,
+  body article table {
+    width: 100%;
+  }
+</style>
+
 ## Acesso Rápido e Perfil
 
 <table>
