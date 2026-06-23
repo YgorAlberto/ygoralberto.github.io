@@ -42,7 +42,6 @@
     <td width="50%" valign="top">
       <h3>Consulta Rápida</h3>
       <p>Guia prático de consulta para pentest, segurança ofensiva e Red Team. O objetivo principal deste documento é ser rápido no dia a dia: pesquise por tags, copie o comando, ajuste o alvo e registre o aprendizado novo no mesmo padrão.</p>
-      <p><strong>Tags:</strong> <code>#inicio</code> <code>#links</code> <code>#perfil</code> <code>#ctrlf</code></p>
       <h3>Links Principais</h3>
       <ul>
         <li><a href="https://ygoralberto.github.io/guia-iniciantes">Guia para Iniciantes em Cibersegurança</a></li>
@@ -55,6 +54,7 @@
       <h3>Ferramentas Públicas</h3>
       <ul>
         <li><a href="https://github.com/YgorAlberto/bird-tool-web-v2/tree/main">Bird Tool Web - OSINT</a></li>
+		<li><a href="https://github.com/YgorAlberto/essential.git">Ferramentas ESSENTIALS</a></li>
         <li><a href="https://github.com/AllisonMatos/allma-enum.git">Allma Enum Web</a></li>
         <li><a href="https://github.com/AllisonMatos/validator.git">Validador Allma</a></li>
       </ul>
