@@ -48,7 +48,6 @@
         <li><a href="https://ygoralberto.github.io/guia-iniciantes">Guia para Iniciantes em Cibersegurança</a></li>
         <li><a href="https://ygoralberto.github.io/outros">Outros Comandos de Windows e Linux</a></li>
         <li><a href="https://www.mindmeister.com/app/map/3061159266?t=omAcVhonO1">Mapa Mental para Pentesters</a></li>
-        <li><a href="/knowledge">Knowledge Base para Vulnerabilidades Conhecidas</a></li>
         <li><a href="https://pauljerimy.com/security-certification-roadmap/">Mapa de Certificações</a></li>
         <li><a href="https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg">Mindmap CyberDefense</a></li>
         <li><a href="https://zer1t0.gitlab.io/posts/attacking_ad/">AD Commands</a></li>
