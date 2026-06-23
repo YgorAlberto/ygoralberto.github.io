@@ -106,7 +106,7 @@ Cursos gratuitos:
 - [Fundamentos de TI: Hardware e Software - Fundação Bradesco](https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software)
 - [OverTheWire Bandit](https://overthewire.org/wargames/bandit/) para treinar terminal Linux do absoluto básico.
 
-Cursos pagos opcionais:
+Cursos opcionais:
 
 - [Curso de Windows](https://www.udemy.com/course/curso-de-windows-10-completo)
 - [Curso de Linux](https://www.udemy.com/course/linux-ubuntu/)
