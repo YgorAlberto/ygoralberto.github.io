@@ -175,6 +175,7 @@ $(dir)#
 ${IFS};id
 $(IFS";";id)
 %09adir#
+$($(LS_COLORS:10:1)id)
 ```
 
 ```
