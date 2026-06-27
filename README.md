@@ -166,6 +166,9 @@ amqp-consume --server=127.0.0.1 --port=5672 --vhost=/ --username=guest --passwor
 
 ```
 ;dir;#
+|dir|#
+||dir#
+&& dir#
 ```
 
 ```
