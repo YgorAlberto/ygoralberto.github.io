@@ -324,26 +324,8 @@ CLIENT VNC: localhost:5901
 ### Ferramentas e Setup Pós-Formatação
 Tags: `#setup` `#kali` `#ferramentas` `#vpn`
 
-	sudo apt install amass assetfinder dnsenum dnsrecon fierce hakrawler nikto nuclei subfinder sublist3r wapiti
-	sudo apt install httpx JSScanner urlfinder
-	sudo apt install flameshot seclists
-
-Script Check IP
-
-	curl -s https://meuip.com.br | grep "Meu ip" > .meuip
-	cat .meuip | cut -d " " -f 8 > ip.txt
-	sed -i 's/<\/h3>/ /g' ip.txt
-	cat ip.txt
-	rm .meuip
-	rm ip.txt
-
-Full Update Script
-
-	sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
-
-VPN
-
-Configurar a VPN para autenticar automaticamente usando login e senha em um arquivo externo, sendo lido pelo.ovpn. Na linha auth-user-pass informe o arquivo com as credenciais. Ex.: auth-user-pass credenciais
+	sudo apt update && sudo apt install amass assetfinder dnsenum dnsrecon fierce hakrawler nikto nuclei subfinder sublist3r wapiti httpx JSScanner urlfinder flameshot seclists
+	git clone https://github.com/YgorAlberto/essential.git && cd essential && chmod +x * && ./execute-me-primeiro-com-ponto-barra.sh
 
 
 ## 02. Ambiente e Fundamentos
