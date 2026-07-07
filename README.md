@@ -53,7 +53,7 @@
       </ul>
       <h3>Ferramentas Públicas</h3>
       <ul>
-        <li><a href="https://github.com/YgorAlberto/bird-tool-web-v2/tree/main">Bird Tool Web - OSINT</a></li>
+        <li><a href="https://github.com/YgorAlberto/bird-tool-web.git">Bird Tool Web - OSINT</a></li>
 		<li><a href="https://github.com/YgorAlberto/essential.git">Ferramentas ESSENTIALS</a></li>
         <li><a href="https://github.com/AllisonMatos/allma-enum.git">Allma Enum Web</a></li>
         <li><a href="https://github.com/AllisonMatos/validator.git">Validador Allma</a></li>
