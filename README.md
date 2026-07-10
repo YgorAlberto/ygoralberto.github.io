@@ -6442,7 +6442,13 @@ Openvas é um framework de scan de vulnerabiliadades (DOCKER INSTALATION)
 	sudo docker compose ps
 	sudo docker compose logs -f vulnerability-tests && echo "WAIT FINISH THIS COMANND - IT IS DONLOADING - FEED-SYNC"
 	sudo docker compose ps
-	http://localhost:9392
+	http://localhost:9392 && echo "CASO NAO FUNCIONE, TROQUE DE 127.0.0.1 para 0.0.0.0 no docker-compose.yml"
+	sudo docker compose down
+	nano docker-compose.yml && echo "REMOVA O 127.0.0.1 e deixe sem endereço IP"
+	sudo docker compose up -d
+	sudo docker compose ps
+	
+	
 	
 
 
