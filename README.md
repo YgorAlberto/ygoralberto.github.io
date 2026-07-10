@@ -6420,7 +6420,7 @@ Comandos de gerenciamento de redes WIFI e cabeadas
 ### Instalação do OpenVAS / GVM / Greenbone
 Tags: `#openvas` `#gvm` `#greenbone` `#vuln-scan`
 
-Openvas é um framework de scan de vulnerabiliadades
+Openvas é um framework de scan de vulnerabiliadades (NORMAL INSTALATION)
 
 	sudo apt install -y software-properties-common
 	sudo add-apt-repository ppa:mrazavi/gvm
@@ -6431,6 +6431,21 @@ Openvas é um framework de scan de vulnerabiliadades
 	sudo gvm-check-setup
 	sudo runuser -u _gvm -- greenbone-feed-sync --type SCAP
 	sudo gvm-start
+
+Openvas é um framework de scan de vulnerabiliadades (DOCKER INSTALATION)
+
+	mkdir -p ~/greenbone-community-container && cd ~/greenbone-community-container
+	curl -f -L https://greenbone.github.io/docs/latest/_static/compose.yaml -o docker-compose.yml
+	sudo apt update && sudo apt install docker.io docker-compose-v2 -y
+	sudo systemctl start docker
+	sudo docker compose up -d
+	sudo docker compose ps
+	sudo docker compose logs -f vulnerability-tests && echo "WAIT FINISH THIS COMANND - IT IS DONLOADING - FEED-SYNC"
+	sudo docker compose ps
+	http://localhost:9392
+	
+
+
 
 Se der erro Executa esse comando:
 
