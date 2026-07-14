@@ -303,6 +303,10 @@ wget --mirror --convert-links --adjust-extension --page-requisites --no-parent h
 ```
 
 ```
+wget -r -np -nd -e robots=off --accept-regex "*" https://sub.site.com.br -U "Dalvik/2.1.0 (Linux; U; Android 11; Pixel 5 Build/RQ1A.210205.004)" -l 999
+```
+
+```
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull llama2-uncensored
 ollama pull deepseek-r1:1.5b :8b :14b :32b
