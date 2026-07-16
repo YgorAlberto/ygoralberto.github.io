@@ -7338,8 +7338,8 @@ Salva e inicia...
         ngrok start --all: Abre as conexões configuradas no arquivo yml
 
 
-### Comandos Avulsos
-Tags: `#comandos-avulsos` `#misc`
+### Comandos Avulsos Comandos Aleatorios
+Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 
 	Ctrl + Z | echo "LIBERA O TERMINAL"
 	Jobs | echo "LISTA OS JOBS"
@@ -7365,8 +7365,15 @@ Tags: `#comandos-avulsos` `#misc`
 	git log --oneline | echo "LER O ARQUIVO .GIT LOCALMENTE DO GIT TRAGO"
 	git GIT-TAG^..GIT-TAG | echo "MOSTRA OU RECUPERA VERSAO ANTERIOR DAQUELE COMMIT"
 
+	aws configure
+	export AWS_ACCESS_KEY_ID="jskjsduusdfasdlb"
+	export AWS_SECRET_ACCESS_KEY="dkjaJShsJsjdS"
+	aws s3 list
+	aws s3 ls --endpoint-url http://localhost:9000
+	aws s3 ls s3://my-bucket/ --recursive --endpoint-url http://localhost:9000
+	
 
-### Ferramentas Avulsas
+### Ferramentas Avulsas | Ferramentas aleatorias
 Tags: `#ferramentas` `#misc`
 
 [Aplicativo Movel vulnerável para testes labs](https://github.com/satishpatnayak/AndroGoat)
