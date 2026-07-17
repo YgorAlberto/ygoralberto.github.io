@@ -7371,6 +7371,8 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	aws s3 list
 	aws s3 ls --endpoint-url http://localhost:9000
 	aws s3 ls s3://my-bucket/ --recursive --endpoint-url http://localhost:9000
+
+	firebasestorage.googleapis.com/bucketname/foldername/asd7ddsf78sd6f576s.jpg?alt=media | echo "SERVE PARA RENDERIZAR O ARQUIVO NO BROWSER"
 	
 
 ### Ferramentas Avulsas | Ferramentas aleatorias
