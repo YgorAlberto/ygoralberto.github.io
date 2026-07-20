@@ -7375,7 +7375,8 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	aws s3api get-object --bucket bucket-name --key zzxFILE-TAGibq8wcu --endpoint-url http://localhost:9000 file-test
 
 	firebasestorage.googleapis.com/bucketname/foldername/asd7ddsf78sd6f576s.jpg?alt=media | echo "SERVE PARA RENDERIZAR O ARQUIVO NO BROWSER"
-	
+
+	nc -zv 127.0.0.1 22 80 443 | echo "PODE SER UTILIZADO PARA SCAN DE PORTAS"
 
 ### Ferramentas Avulsas | Ferramentas aleatorias
 Tags: `#ferramentas` `#misc`
