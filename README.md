@@ -6534,9 +6534,15 @@ Depois de tudo OK Acessa o terminal
 	cd /tmp/
 	sed -i"" "s/DEFAULT_TIMEOUT = 60/DEFAULT_TIMEOUT = 999999/g" /usr/lib/python3/dist-packages/gvm/connections.py
 	cp /home/user/gen_report_full.py /tmp/
+	pip3 install OpenVAS-Reporting && pip3 install gvm-tools --break-system-packages
+	SE DOCKER: sudo sed -i 's/raise RuntimeError("This tool MUST NOT be run as root user.")/pass/g' /usr/local/lib/python3.13/dist-packages/gvmtools/helper.py
+	SE DOCKER: sudo find /var/lib/docker/volumes/ -name "gvmd.sock" | echo "COPIA O CAMINHO NO SOCKPATH NO COMANDO DE GERAR REPORT"
+	SE DOCKER: sudo chmod 666 /var/lib/docker/volumes/greenbone-community-edition_gvmd_socket_vol/_data/gvmd.sock
+	SE DOCKER: sudo /usr/local/bin/gvm-script --gmp-username user --gmp-password "P@ss" socket --socketpath /var/lib/docker/volumes/greenbone-community-edition_gvmd_socket_vol/_data/gvmd.sock /tmp/gen_report_full.py 15ce5a51-43ef-465a-a4d3-b65dd1d0d61f /tmp/COMPANY_NETWORK_IP_DATE
 	sudo -u _gvm gvm-script --gmp-username user --gmp-password "P@ss" socket --socketpath /var/run/gvmd/gvmd.sock /tmp/gen_report_full.py 15ce5a51-43ef-465a-a4d3-b65dd1d0d61f /tmp/COMPANY_NETWORK_IP_DATE
-	pip3 install OpenVAS-Reporting && pip install gvm-tools
 	openvasreporting -i /tmp/COMPANY_NETWORK_NW_DATE.xml -o /tmp/COMPANY_NETWORK_IP_DATE  -f xlsx
+	
+	
 
 Problemas que podem acontecer e possíveis soluções
 
