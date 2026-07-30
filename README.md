@@ -271,7 +271,7 @@ grep -v -f termos.txt file.txt
 ```
 for i in {1..100}; do echo "numero $i" ;fone
 while read -r ip; do while read -r user; do while read -r pass; do echo "$ip - $user - $pass"; done < senhas.txt; done < logins.txt; done < ips.txt && echo "CLUSTERBOMB"
-while read -r ip; do while read -r user <&3 && read -r pass <&4; do echo "$ip - $user - $pass"; done 3< logins.txt 4< senhas.txt; done < ips.txt && echo "PITCHFORK SINGLE FILE"
+while read -r ip; do while read -r user <&3 && read -r pass <&4; do echo "$ip - $user - $pass"; done 3< logins.txt 4< senhas.txt; done < ips.txt && echo "PITCHFORK SINGLE FILE SEP BY SPACE"
 while read -r ip; do while read -r user pass; do echo "$ip - $user - $pass"; done < credenciais.txt; done < ips.txt && echo "PITCHFORK LOGINFILE SEPARATED"
 ```
 
