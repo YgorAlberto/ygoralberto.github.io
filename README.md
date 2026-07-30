@@ -270,6 +270,8 @@ grep -v -f termos.txt file.txt
 
 ```
 for i in {1..100}; do echo "numero $i" ;fone
+while read -r ip; do while read -r user; do while read -r pass; do echo "$ip - $user - $pass"; done < senhas.txt; done < logins.txt; done < ips.txt
+while read -r ip; do while read -r user pass; do echo "$ip - $user - $pass"; done < credenciais.txt; done < ips.txt
 ```
 
 ```
