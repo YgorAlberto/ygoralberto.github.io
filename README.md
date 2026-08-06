@@ -6420,6 +6420,7 @@ Comandos de gerenciamento de redes WIFI e cabeadas
 	ip addr add 10.0.0.210/24 dev enp2s0
 	ip route add default via 10.0.0.2
 	ip link set enp2s0 up
+	sudo ip route add 10.0.10.0/24 via 10.0.29.1 dev eth0 && echo "REACH ANOTHER NETWORKING ADDING THE ROUTE, SECOND IP, THAT IS THE GW OF THE NW YOU WANT TO ACCESS"
 
 
 ## 09. Infraestrutura de Segurança e Labs Locais
