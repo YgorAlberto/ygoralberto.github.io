@@ -8890,6 +8890,9 @@ Ferramenta de modificação e leitura de Metadados de arquivos
 Comandos para enumerar dominio e transferencia de zona, hostnames
 
 	redis-cli -h 192.168.200.44
+	redis-cli -h 192.168.200.44 INFO 
+	KEYS * && echo "MOSTRA OS VALORES DAS KEYS NO BANCO ATUAL"
+	SELECT 0-15 && echo "SELECIONA DO BANCO 0 AO BANCO 15 -  DEPOIS DE SELECIONADO LISTA AS CHAVES COM KEYS *"
 
 Fazer uma busca e enumeraçã no redis
 
