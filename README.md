@@ -7390,6 +7390,10 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 
 	nc -zv 127.0.0.1 22 80 443 | echo "PODE SER UTILIZADO PARA SCAN DE PORTAS"
 
+	cat > /tmp/file-to-create.txt << EOF
+	> file content here
+	> EOF && echo "OS COMANDOS ACIMA CRAIM UM ARQUIVO DE TEXTO CASO NAO SEJA POSSIVEL USAR NANO OU VI OU VIM"
+
 ### FORMAS DE ESCAPAR DO DOCKER | SAIR DO DOCKER PRO HOSPEDEIRO
 Formas de conseguir sair do docker ao comprometer uma maquina através da WEB
 
