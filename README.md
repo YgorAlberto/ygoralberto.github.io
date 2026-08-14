@@ -7405,8 +7405,8 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	> file content here
 	> EOF && echo "OS COMANDOS ACIMA CRAIM UM ARQUIVO DE TEXTO CASO NAO SEJA POSSIVEL USAR NANO OU VI OU VIM"
 
-### FORMAS DE ESCAPAR DO DOCKER | SAIR DO DOCKER PRO HOSPEDEIRO
-Formas de conseguir sair do docker ao comprometer uma maquina através da WEB
+### FORMAS DE ESCAPAR DO DOCKER | SAIR DO DOCKER PRO HOSPEDEIRO | CONTAINER SCAPE | DOCKER SCAPE
+Formas de conseguir sair do docker ao comprometer uma maquina através da WEB [Mais técnicas](https://exploitnotes.org/exploit/container/docker/docker-escape#investigation)
 
 	fdisk -l | ls -la /dev/ && echo "DESCOBRIR DISCOS DO HOSPEDEIRO QUE PODEM SER MONTADO"
 	ls -la /var/run/docker.sock
