@@ -7376,6 +7376,7 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	\l LISTA DATABASES EXISTENTES
 	\du LISTA USUARIOS DO POSTGRES
 	\c DATABASE_NAME
+	SELECT pg_size_pretty(pg_database_size(current_database()));  SABER O TAMANHO DO BANCO ATUAL
 	\dt LISTA AS TABELAS
 	\d TABLE_NAME OU \d+ TABLE NAME
 	SELECT * FROM table_name
