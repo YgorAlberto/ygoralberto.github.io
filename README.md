@@ -7374,6 +7374,7 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	psql -h host -U user -d database
 	\conninfo
 	\l LISTA DATABASES EXISTENTES
+	\du LISTA USUARIOS DO POSTGRES
 	\c DATABASE_NAME
 	\dt LISTA AS TABELAS
 	\d TABLE_NAME OU \d+ TABLE NAME
