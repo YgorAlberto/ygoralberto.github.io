@@ -7373,7 +7373,7 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	psql "postgresql://user:pass@host:5432/crm?sslmode=disable" | echo "Se o servidor reclamar de encriptação se aparecer FATAL error para o teu IP é que tem allow list"
 	psql -h host -U user -d database
 	\conninfo
-	\l LISTA TABELAS EXISTENTES
+	\l LISTA DATABASES EXISTENTES
 	\c DATABASE_NAME
 	\dt LISTA AS TABELAS
 	\d TABLE_NAME OU \d+ TABLE NAME
