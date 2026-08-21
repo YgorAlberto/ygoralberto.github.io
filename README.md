@@ -7422,6 +7422,8 @@ Formas de conseguir sair do docker ao comprometer uma maquina através da WEB [M
 ### Ferramentas Avulsas | Ferramentas aleatorias
 Tags: `#ferramentas` `#misc`
 
+[Ferramenta que configura ambiente CLI para ler emails de uma conta outlook ou gmail](/FILES/configura-email-smtp-gmail-outlook.sh)
+
 [Aplicativo Movel vulnerável para testes labs](https://github.com/satishpatnayak/AndroGoat)
 
 [Payloads Diversos](https://github.com/swisskyrepo/PayloadsAllTheThings)
