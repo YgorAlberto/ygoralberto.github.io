@@ -2593,7 +2593,7 @@ Executa um comando no alvo e traz a saída. O -L lista os módulos e o -h aprese
 
 Ferramenta de escuta para falsificar respostas feitas na rede e capturar hashes
 
-    responder -I eth0 -Prv
+    responder -I eth0 -Pv
 
 Escuta de forma a capturar hashes wireshark de hashes. -r para habilitar as respostas netbios e -v para verbose
 
