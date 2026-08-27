@@ -6098,14 +6098,23 @@ Nota: 	Criar um arquivo sfx com o winrar e abrir o código por trás dando acess
 Cherrrytree Editor de texto bem organizado e bom para anotações de relatórios
 
 
-### Wi-Fi Hacking: Introdução
+### Wi-Fi Hacking: Introdução 
 Tags: `#wifi` `#wireless` `#aircrack`
 
-RESUMAO:
+RESUMAO: wifi hacking
 
-	sudo airodump-ng wlan0mon -w file-capture
+	airmon-ng check
+	airmon-ng check kill PID
+	iwconfig wlan0 mode monitor
+	airmon-ng start wlan0
+	sudo airodump-ng wlan0 -w file-capture
 	aircrack-ng captura.wpa.cap -w /caminho/wordlist
 	aireplay-ng -0 10 -a MAC-ROUTER -c MAC-CLIENT  wlan-interf
+	REVERTER
+	sudo iw wlan0 del
+	sudo iw phy phy0 interface add wlan0 type managed
+    sudo ip link set wlan0 up
+    sudo systemctl restart NetworkManager
 
 
 [AngryOxide](https://github.com/Ragnt/AngryOxide/releases/) `sudo angryoxide --interface wlan0`
