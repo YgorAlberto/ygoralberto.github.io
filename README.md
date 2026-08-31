@@ -329,6 +329,9 @@ CLIENT: sudo apt install tigervnc-viewer
 CLIENT: ssh -L 5901:localhost:5901 -N -f seu_usuario@IP_DO_SERVIDOR
 CLIENT VNC: localhost:5901
 ```
+```
+paste -d " " - - < juntar-linha1-com-linha2
+```
 
 ### Ferramentas e Setup Pós-Formatação
 Tags: `#setup` `#kali` `#ferramentas` `#vpn`
