@@ -66,6 +66,11 @@
 
 	dmesg -w | echo "SEE KERNEL LOGS"
 
+	sudo sensors && echo "MOSTRA AS TEMPERATURAS DOS PERIFERICOS"
+
+	sudo lsof -i | grep "CONEXAO QUE QUER ANALISAR DO NETSTAT PEGAR O PID E..."
+	ps -fp PID-AQUI && echo "APARECE O PROGRAMA EXATO QUE ESTA EXECUTANDO AQUELE UTILITARIO"
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
