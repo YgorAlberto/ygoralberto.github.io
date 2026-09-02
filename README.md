@@ -7408,6 +7408,9 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	export AWS_ACCESS_KEY_ID="jskjsduusdfasdlb"
 	export AWS_SECRET_ACCESS_KEY="dkjaJShsJsjdS"
 	aws s3 list
+	aws s3 cp s3://bucket-name/file.txt .
+	aws s3 cp test.txt s3://your-bucket-name/
+	aws s3 sync s3://your-bucket-name /home/user/local-database-folder
 	aws s3 ls --endpoint-url http://localhost:9000
 	aws s3 ls s3://my-bucket/ --recursive --endpoint-url http://localhost:9000
 	aws s3 cp s3://my-bucket/file.txt --recursive --endpoint-url http://localhost:9000 ./local-to-save/
