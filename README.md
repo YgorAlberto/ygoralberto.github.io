@@ -2596,7 +2596,8 @@ Executa um comando no alvo e traz a saída. O -L lista os módulos e o -h aprese
 
 Ferramenta de escuta para falsificar respostas feitas na rede e capturar hashes
 
-    responder -I eth0 -Pv
+    responder -I eth0 -Pv OU -w -d -v
+	sqlite3 /usr/share/responder/Responder.db && echo "PARA LISTAR TABELAS: .tables"
 
 Escuta de forma a capturar hashes wireshark de hashes. -r para habilitar as respostas netbios e -v para verbose
 
