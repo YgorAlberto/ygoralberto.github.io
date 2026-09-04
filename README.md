@@ -7368,7 +7368,8 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 	Ctrl + Z | echo "LIBERA O TERMINAL"
 	Jobs | echo "LISTA OS JOBS"
 	bg %1 | echo "COLOCA O JOB EM BACKGROUND"
-	disown -h %1 | echo "GARANTE QUE O JOB NAO SERÁ ENCERRADO APÓS FECHAR O SSH"
+	disown %1 | echo "GARANTE QUE O JOB NAO SERÁ ENCERRADO APÓS FECHAR O SSH"
+	disown -a | echo "GARANTE QUE TODOS OS JOBs MÃO SERÃO ENCERRADOS APÓS FECHAR O SSH"
 	ALTERNATIVA
 	screen -S SessaoName | echo "Cria uma Sessao"
 	Ctrl + A depois D | echo "Sai da sessão criada"
