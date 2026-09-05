@@ -71,6 +71,15 @@
 	sudo lsof -i | grep "CONEXAO QUE QUER ANALISAR DO NETSTAT PEGAR O PID E..."
 	ps -fp PID-AQUI && echo "APARECE O PROGRAMA EXATO QUE ESTA EXECUTANDO AQUELE UTILITARIO"
 
+	sudo modprobe -r mmc_block && echo "Desativa o leitor de cartao de memoria pra ejetar"
+	sudo modprobe mmc_block && echo "REATIVA O LEITOR DE CARTAO DE MEMORIA"
+
+	sudo modprobe -r uas
+	udo modprobe -r usb_storage
+	sudo modprobe uas
+	udo modprobe usb_storage
+	
+
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
 
       useradd newuser
