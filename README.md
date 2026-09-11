@@ -7499,7 +7499,9 @@ Ferramenta para testar conexões SIP com um host `sipp -sn uac 177.190.244.90:50
 
 Ferramenta Nmap PORTAVEL PORTABLE `wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap` DEBIAN BASED
 
-NC Portable `https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat` Porem é mlehor dar um `cp /usr/bin/nc.`
+Ferramenta NC Portable `https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat` Porem é melhor dar um `cp /usr/bin/nc.`
+
+Feramenta para ler backup.bkf `https://github.com/sjmurdoch/mtftar` modelo de backupo antigo do windows
 
 
 ### Fontes, Recursos e Links
