@@ -78,6 +78,10 @@
 	udo modprobe -r usb_storage
 	sudo modprobe uas
 	udo modprobe usb_storage
+
+	sudo timedatectl set-timezone America/Araguaina Setar a data / o fuso horário do servidor/sistema Troca hora Mudar data
+	sudo timedatectl set-ntp 0
+	sudo timedatectl set-time '2030-01-31 20:45:00'
 	
 
 - Gerenciamento de Usuários no lunux - add - copyuser - del user - change pass - shell
@@ -326,8 +330,6 @@ Aumentar Volume Linux
 Criar partição no linux:
 sudo fdisk /dev/sda
 m For help n cria partição p primaria 3 numero da partição.
-
-sudo timedatectl set-timezone America/Araguaina Setar a data / o fuso horário do servidor/sistema
 
 Cron Example: https://crontab.guru/examples.html
 
