@@ -70,6 +70,12 @@
     </td>
   </tr>
 </table>
+### PENTEST AI BUILD
+
+	apt install -y nodejs npm
+	sudo npm install -g pnpm
+	git clone https://github.com/deepseek-ai/deepseek-harness
+	git clone https://github.com/yexi-by/dsh-unrestricted
 
 ### Como Pesquisar com Ctrl+F
 
