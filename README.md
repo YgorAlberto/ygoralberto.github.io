@@ -70,12 +70,15 @@
     </td>
   </tr>
 </table>
-### PENTEST AI BUILD
 
-	apt install -y nodejs npm
-	sudo npm install -g pnpm
-	git clone https://github.com/deepseek-ai/deepseek-harness
-	git clone https://github.com/yexi-by/dsh-unrestricted
+### PENTEST AI BUILD DeepSeek API PAID
+
+[Script DeepSeek Harness + Unrestricted ](FILES/scipts/install-deepseek-kali.sh)
+
+	deepseek-doctor
+	deepseek-api-check
+	cd /project/folder/local
+	deepseek-web
 
 ### Como Pesquisar com Ctrl+F
 
