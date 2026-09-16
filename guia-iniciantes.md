@@ -350,31 +350,28 @@ O foco não é decorar ferramenta. O foco é entender o problema que ela ajuda a
 
 A escolha da especialização ideal depende inteiramente do seu momento e objetivo profissional. Abaixo, resumo as melhores opções do mercado direto ao ponto e sem enrolação:
 
-### 🛡️ Objetivo: Certificação e Segurança Ofensiva
+### Objetivo: Certificação e Segurança Ofensiva
 
 **Recomendação:** **ACADI**
 
 **Por que escolher:** Ideal para quem busca um pacote completo no universo *Red Team*. Você ganha visibilidade de mercado, aplicação prática, uma visão geral de cyber e ainda foca na preparação para certificações reconhecidas (como a **CEH**).
 
----
 
-### 🏢 Objetivo: Networking e Versatilidade (Ofensivo ou Defensivo)
+### Objetivo: Networking e Versatilidade (Ofensivo ou Defensivo)
 
 **Recomendação:** **FIAP**
 
 **Por que escolher:** Uma excelente vitrine profissional. É a escolha certa se você quer equilibrar prática com forte reconhecimento de marca, permitindo direcionar os estudos tanto para a proteção (*Blue Team*) quanto para o ataque (*Red Team*).
 
----
 
-### 💻 Objetivo: 100% Mão na Massa (Foco em Pentest)
+### Objetivo: 100% Mão na Massa (Foco em Pentest)
 
 **Recomendação:** **DESEC**, **SOLYD** ou **GoHacking**
 
 **Por que escolher:** Para quem não tem tempo a perder com enrolação teórica. O ensino é estritamente técnico e direto ao ponto, perfeito para quem quer sentar e aprender na prática como executar testes de invasão reais.
 
----
 
-### 📜 Objetivo: Pontuar no Currículo (Custo-Benefício)
+### Objetivo: Pontuar no Currículo (Custo-Benefício)
 
 **Recomendação:** **Instituições EAD de baixo custo**
 
