@@ -6284,6 +6284,17 @@ Now run the following
 
 [Another TUTO - XRDP no Kali ](https://blog.eldernode.com/kali-linux-xrdp-not-working/)
 
+ - Limpar sessão travada do xrdp xfreerdp rdesktop
+
+Para limpar uma sessao que nao consegue mais conectar ao RDP, rode os comandos abaixo no servidor, maquina que vc quer acessar
+
+	sudo pkill -9 -f xrdp
+	sudo pkill -9 -f xrdp-sesman
+	# 1. Clean up broken user session files
+	rm -f ~/.xsession ~/.Xsession ~/.Xauthority
+	echo "exec dbus-launch --exit-with-session startxfce4" > ~/.xsession
+	chmod +x ~/.xsession
+	sudo systemctl start xrdp
 
 ### Wi-Fi Hacking: Evil Twin, WPA e Rotas
 Tags: `#wifi` `#evil-twin` `#wpa` `#wpa-supplicant`
