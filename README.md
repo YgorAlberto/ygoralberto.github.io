@@ -71,15 +71,6 @@
   </tr>
 </table>
 
-### PENTEST AI BUILD DeepSeek API PAID
-
-[Script DeepSeek Harness + Unrestricted ](FILES/scipts/install-deepseek-kali.sh)
-
-	deepseek-doctor
-	deepseek-api-check
-	cd /project/folder/local
-	deepseek-web
-
 ### Como Pesquisar com Ctrl+F
 
 - Pesquise por tags como `#nmap`, `#web`, `#sqli`, `#xss`, `#smb`, `#ad`, `#privesc`, `#wifi`, `#osint`, `#burp`, `#metasploit` e `#quickref`.
