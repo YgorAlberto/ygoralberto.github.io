@@ -145,6 +145,9 @@ for url $(cat urls);do echo "$domain" && curl -s -o /dev/null -w "%{http_code}\n
 ```
 jwt_tool.py 'encript.payload.assinatura' --crack -d /usr/share/wordlists/rockyou.txt OU USAR O HASHCAT
 ```
+```
+hashcat -m 1000 -a 0 --username hashes-secretsdump.txt /usr/share/wordlist/rockyou.txt && QUEBRAR SENHAS CAPTURADAS PELO SECRETSDUMP
+```
 
 ```
 amqp-consume --server=127.0.0.1 --port=5672 --vhost=/ --username=guest --password=guest --queue=hello cat
