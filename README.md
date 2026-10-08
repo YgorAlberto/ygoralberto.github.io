@@ -336,8 +336,12 @@ CLIENT VNC: localhost:5901
 paste -d " " - - < juntar-linha1-com-linha2
 ```
 ```
-python3 -c 'maximo = 20; print(",\n".join(f"{i:04}" for i in range(1, maximo + 1)))' && echo "RACE CONDITION"
+python3 -c 'maximo = 5999; print("[" + ", ".join(f"\"{i:06}\"" for i in range(1, maximo + 1)) + "]")' | xclip -selection clipboard && echo "BYPASS RATELIMIT"
 ```
+```
+Agrupar abas no repeater e ir no SENDER e enviar todas de uma vez, race condition
+```
+
 
 ### Ferramentas e Setup Pós-Formatação
 Tags: `#setup` `#kali` `#ferramentas` `#vpn`
