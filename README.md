@@ -335,6 +335,9 @@ CLIENT VNC: localhost:5901
 ```
 paste -d " " - - < juntar-linha1-com-linha2
 ```
+```
+python3 -c 'maximo = 20; print(",\n".join(f"{i:04}" for i in range(1, maximo + 1)))' && echo "RACE CONDITION"
+```
 
 ### Ferramentas e Setup Pós-Formatação
 Tags: `#setup` `#kali` `#ferramentas` `#vpn`
