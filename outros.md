@@ -548,6 +548,13 @@ Paste the following content into the file and save:
 	Terminal=false
 	Categories=Development;
 
+ No postman para adicionar um HEADER em todas as requests, ADD no PRE-REQUEST da collection, aparece ao clicar na collection sem abrir uma requisição e clicar em SCRIPTS
+
+	pm.request.headers.add({
+	    key: 'x-head-custom',
+	    value: '{{waf}}'
+	});
+
 
 
 ## LISTAS USUARIOS DO ACTIVE DIRECTORY
