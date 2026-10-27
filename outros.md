@@ -2070,3 +2070,56 @@ sudo systemctl restart xrdp
 1. **Evite Conexões Simultâneas (Mesmo Usuário):** O Linux não permite que o mesmo usuário esteja logado fisicamente na máquina (no monitor) e remotamente (via XRDP) ao mesmo tempo. Se tentar fazer isso, a tela ficará preta e a conexão cairá. **Sempre faça Logout (Encerrar Sessão) na máquina física antes de conectar.**
 2. **Estratégia de Usuário Dedicado (Recomendada):** Caso precise manter seu usuário principal logado localmente na máquina, a melhor alternativa é criar um usuário secundário exclusivo para acessos remotos via XRDP.
 
+
+
+# Guia: Corrigir Superaquecimento e Alto Uso de CPU no Firefox (Kali Linux)
+
+Este guia força o Firefox a utilizar a sua placa de vídeo (RTX 4070) para renderizar páginas e decodificar vídeos, aliviando o processador Intel Core Ultra 9 e reduzindo as temperaturas e o ruído das ventoinhas.
+
+---
+
+### Passo 1: Verificar se os Drivers da Nvidia estão Ativos
+Abra o terminal do Kali Linux e execute o comando abaixo:
+```bash
+nvidia-smi
+```
+* **Se o comando funcionar** e mostrar as informações da sua RTX 4070, avance para o Passo 2.
+* **Se o comando falhar** (não encontrado), instale os drivers oficiais com os comandos abaixo e reinicie o notebook antes de continuar:
+  ```bash
+  sudo apt update && sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+  sudo reboot
+  ```
+
+---
+
+### Passo 2: Configurar a Aceleração de Hardware no Firefox
+1. Abra o Firefox.
+2. Na barra de endereços, digite `about:config` e pressione Enter.
+3. Clique em **"Aceitar o risco e continuar"**.
+4. Use a barra de pesquisa da página para localizar e alterar as seguintes chaves:
+
+* **`gfx.webrender.all`** -> Mude para **`true`**
+* **`media.ffmpeg.vaapi.enabled`** -> (Se não existir, selecione **Boolean**, clique no botão **"+"** para criar) -> Defina como **`true`**
+* **`media.hardware-video-decoding.force-enabled`** -> Mude para **`true`**
+* **`layers.acceleration.force-enabled`** -> Mude para **`true`**
+* **`widget.dmabuf.force-enabled`** -> Mude para **`true`**
+
+> *Nota: Para mudar de `false` para `true`, basta dar dois cliques sobre a linha ou clicar no botão de alternar (duas setas) no canto direito.*
+
+---
+
+### Passo 3: Otimizar o Consumo de Vídeos (YouTube/Twitch)
+O Linux costuma sofrer para decodificar codecs de vídeo modernos por software. Para resolver isso:
+1. Instale a extensão oficial [Enhanced h264ify](https://mozilla.org).
+2. Essa extensão força o YouTube a usar o codec H.264, que a sua GPU consegue processar consumindo praticamente zero de CPU.
+
+---
+
+### Passo 4: Reiniciar e Validar
+1. Feche todas as janelas do Firefox para garantir o reinício completo.
+2. Abra o Firefox novamente.
+3. Na barra de endereços, digite `about:support` e dê Enter.
+4. Role até a seção **Graphics** (Gráficos) e verifique o campo **Compositing**:
+   * Deve constar **WebRender** (indica sucesso).
+   * Se constar *WebRender (Software)*, o Firefox ainda está usando o processador em vez da GPU.
+
