@@ -6283,9 +6283,9 @@ Tags: `#rdp` `#xfce` `#kali` `#remote-access`
 
 Now run the following
 
-	wget https://gitlab.com/kalilinux/recipes/kali-scripts/-/raw/main/xfce4.sh
-	chmod +x xfce4.sh
-	sudo ./xfce4.sh
+	apt-get update
+	apt-get full-upgrade -y
+	apt-get install kali-desktop-xfce xorg xrdp -y
 	sudo systemctl enable xrdp --now
 	sudo /etc/init.d/xrdp start
 
