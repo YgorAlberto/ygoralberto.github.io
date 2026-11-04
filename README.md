@@ -7455,6 +7455,12 @@ Tags: `#comandos-avulsos` `#misc` `Coammandos aleatorios`
 
 	initramfs - fsck -y /dev/your_partition
 
+	impacket-mssqlclient: EXEC sp_MSforeachdb 'USE [?]; SELECT ''?'' AS DatabaseName, name AS TableName FROM sys.tables;'; | echo "MOSTRA TODAS AS TABELAS DE TODOS OS BANCOS"
+	SELECT name FROM sys.tables; | echo "LISTA O NOME DAS TABELAS"
+	SELECT TOP 0 * FROM your_table_name; | echo "LISTA AS COLUNAS DA TABELA MENCIONADA"
+	
+	
+
 ### FORMAS DE ESCAPAR DO DOCKER | SAIR DO DOCKER PRO HOSPEDEIRO | CONTAINER SCAPE | DOCKER SCAPE
 Formas de conseguir sair do docker ao comprometer uma maquina através da WEB [Mais técnicas](https://exploitnotes.org/exploit/container/docker/docker-escape#investigation)
 
