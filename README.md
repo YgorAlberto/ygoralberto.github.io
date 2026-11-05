@@ -7538,6 +7538,7 @@ Ferramenta NC Portable `https://github.com/andrew-d/static-binaries/blob/master/
 
 Feramenta para ler backup.bkf `https://github.com/sjmurdoch/mtftar` modelo de backupo antigo do windows
 
+Ferramenta para inspecionar um certificado arquivo.crt encontrado openssl x509 -in arquivo.crt -text -noout
 
 ### Fontes, Recursos e Links
 Tags: `#links` `#referencias` `#recursos`
