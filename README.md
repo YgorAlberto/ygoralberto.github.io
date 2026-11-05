@@ -123,7 +123,7 @@ ffuf -u http://site/FUZZ -w /usr/share/dirb/wordlists/big.txt -c -t 100 -e .php,
 ```
 
 ```
-dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -a  Mozilla/5.0 -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
+dirb https://sitealvo.com.br/ /usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-big.txt -a  Mozilla/5.0 -X .php,.bkp,.old,.txt,.xml,.cgi,.pdf,.html,.htm,.asp,.aspx,.pl,.sql,.js,.png,.jpg,.jpeg,.config,.sh,.cfm,.zip,.log -o dirb-sitealvo-raiz
 ```
 
 ```
