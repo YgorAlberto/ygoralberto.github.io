@@ -65,7 +65,7 @@
       <p>Profissional de Cibersegurança Ofensiva com atuação em Red Team, especializado em identificar, validar e explorar vulnerabilidades antes que sejam exploradas por atacantes reais. Atualmente atuo na Strati conduzindo pentests, campanhas de phishing, engenharia social e avaliações contínuas de segurança, sempre com ética, mentalidade ofensiva e foco em melhoria de maturidade defensiva.</p>
       <p><strong>Especializações:</strong> Segurança Ofensiva, pentest em aplicações, redes e infraestrutura, exploração de vulnerabilidades, hardening Linux/Windows e Cloud Security AWS.</p>
       <p><strong>Ferramentas:</strong> Nmap, Burp Suite, SQLMap, Nessus, Netcat, Hydra, John, Hashcat, Wfuzz, Dirb/Dirbuster, LinPEAS, WinPEAS e Immunity Debugger.</p>
-      <p><strong>Certificações:</strong> DCPT, CRTA, CPTE, CSAE e CNSE.</p>
+      <p><strong>Certificações:</strong> DCPT, Pentest+, CRTA, CPTE, CSAE e CNSE.</p>
       <p><strong>Formação:</strong> Sistemas de Informação; Pós-Graduação em Segurança Ofensiva; Pentest Profissional e Pentest Experience pela Desec; inglês avançado.</p>
     </td>
   </tr>
