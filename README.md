@@ -10359,7 +10359,7 @@ Tags: `#arsenal` `#ferramentas` `#tools`
 	GHAURL
 	Katana gav
 	GhaUri - SQLi
-	Gau
+	Gau (GetAllUrls)
 	Cloudmare
 	Waybackurls
 
