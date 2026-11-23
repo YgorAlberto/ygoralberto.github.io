@@ -7540,7 +7540,7 @@ Feramenta para ler backup.bkf `https://github.com/sjmurdoch/mtftar` modelo de ba
 
 Ferramenta para inspecionar um certificado arquivo.crt encontrado `openssl x509 -in arquivo.crt -text -noout`
 
-Ferramenta para inspecionar uma chave privada PRIVATE KEY `openssl rsa -in grupovoz.key -text -noout`
+Ferramenta para inspecionar uma chave privada PRIVATE KEY `openssl rsa -in arquivo.key -text -noout`
 
 Ferramenta para VERIFICAR se os dois arquivos são irmaos `openssl rsa -noout -modulus -in seu_arquivo.key | openssl md5 && openssl x509 -noout -modulus -in seu_arquivo.crt | openssl md5`
 
